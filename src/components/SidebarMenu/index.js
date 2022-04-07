@@ -461,7 +461,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  <MenuContainer>
+                  {/* <MenuContainer>
                     <ContextAwareToggle
                       eventKey='8'
                       active={
@@ -484,7 +484,7 @@ export const SidebarMenu = (props) => {
                         ))}
                       </MenuContent>
                     </Accordion.Collapse>
-                  </MenuContainer>
+                  </MenuContainer> */}
                   <MenuContainer>
                     <ContextAwareToggle
                       eventKey='9'
