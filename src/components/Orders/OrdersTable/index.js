@@ -50,7 +50,7 @@ export const OrdersTable = (props) => {
   } = props
   const [, t] = useLanguage()
   const theme = useTheme()
-  const [{ parsePrice, parseDate, optimizeImage }] = useUtils()
+  const [{ parsePrice, parseDate, optimizeImage, getTimeAgo }] = useUtils()
 
   const [isAllChecked, setIsAllChecked] = useState(false)
 
@@ -63,7 +63,6 @@ export const OrdersTable = (props) => {
     getPageOrders(pageSize, expectedPage)
   }
 
-  const [openPopover, setOpenPopover] = useState(false)
   const [allowColumns, setAllowColumns] = useState({
     status: true,
     orderNumber: true,
@@ -166,7 +165,9 @@ export const OrdersTable = (props) => {
       { key: 18, value: t('ORDER_DRIVER_ALMOST_ARRIVED_BUSINESS', theme?.defaultLanguages?.ORDER_DRIVER_ALMOST_ARRIVED_BUSINESS || 'Driver almost arrived to business') },
       { key: 19, value: t('ORDER_DRIVER_ALMOST_ARRIVED_CUSTOMER', theme?.defaultLanguages?.ORDER_DRIVER_ALMOST_ARRIVED_CUSTOMER || 'Driver almost arrived to customer') },
       { key: 20, value: t('ORDER_CUSTOMER_ALMOST_ARRIVED_BUSINESS', theme?.defaultLanguages?.ORDER_CUSTOMER_ALMOST_ARRIVED_BUSINESS || 'Customer almost arrived to business') },
-      { key: 21, value: t('ORDER_CUSTOMER_ARRIVED_BUSINESS', theme?.defaultLanguages?.ORDER_CUSTOMER_ARRIVED_BUSINESS || 'Customer arrived to business') }
+      { key: 21, value: t('ORDER_CUSTOMER_ARRIVED_BUSINESS', theme?.defaultLanguages?.ORDER_CUSTOMER_ARRIVED_BUSINESS || 'Customer arrived to business') },
+      { key: 22, value: t('ORDER_LOOKING_FOR_DRIVER', 'Looking for driver') },
+      { key: 23, value: t('ORDER_DRIVER_ON_WAY', 'Driver on way') }
     ]
 
     const objectStatus = orderStatus.find((o) => o.key === status)
@@ -229,6 +230,7 @@ export const OrdersTable = (props) => {
       >
         <Table
           className='orders_table'
+          noFixedHeader={!orderList.loading && orderList.orders?.length <= 5}
         >
           {!isSelectedOrders && (
             <thead>
@@ -264,13 +266,13 @@ export const OrdersTable = (props) => {
                 {allowColumns?.advanced && (
                   <th colSpan={3} className='advanced'>{t('ADVANCED_LOGISTICS', 'Advanced logistics')}</th>
                 )}
+                {allowColumns?.timer && (
+                  <th colSpan={2} className='timer'>{t('SLA_TIMER', 'SLA’s timer')}</th>
+                )}
                 <th className='orderPrice'>
                   <ColumnAllowSettingPopover
-                    open={openPopover}
                     allowColumns={allowColumns}
                     optionsDefault={optionsDefault}
-                    onClick={() => setOpenPopover(!openPopover)}
-                    onClose={() => setOpenPopover(false)}
                     handleChangeAllowColumns={handleChangeAllowColumns}
                   />
                 </th>
@@ -433,9 +435,7 @@ export const OrdersTable = (props) => {
                   {allowColumns?.status && !isSelectedOrders && (
                     <td className='statusInfo'>
                       <StatusInfo>
-                        <div className='info'>
-                          <p className='bold'>{getOrderStatus(order.status)?.value}</p>
-                        </div>
+                        <p className='bold'>{getOrderStatus(order.status)?.value}</p>
                       </StatusInfo>
                     </td>
                   )}
@@ -534,6 +534,23 @@ export const OrdersTable = (props) => {
                       </div>
                     </td>
                   )}
+                  <td className='orderPrice'>
+                    <div className='info'>
+                      {allowColumns?.total && (
+                        <p className='bold'>{parsePrice(order?.summary?.total)}</p>
+                      )}
+                      {!(order?.status === 1 || order?.status === 11 || order?.status === 2 || order?.status === 5 || order?.status === 6 || order?.status === 10 || order.status === 12) && (
+                        <p>
+                          {
+                            order?.delivery_datetime_utc
+                              ? getTimeAgo(order?.delivery_datetime_utc)
+                              : getTimeAgo(order?.delivery_datetime, { utc: false })
+                          }
+                        </p>
+                      )}
+                    </div>
+                  </td>
+                  <td />
                 </tr>
               </OrderTbody>
             ))

@@ -42,7 +42,7 @@ const EnterprisePromotionDetailsUI = (props) => {
 
   const theme = useTheme()
   const [, t] = useLanguage()
-  const [alertState, setAlertState] = useState({ open: false, content: [] })
+  const [alertState, setAlertState] = useState({ open: false, content: [], handleOnAccept: null })
   const [selectedOption, setSelectedOption] = useState('general')
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
 
@@ -54,8 +54,19 @@ const EnterprisePromotionDetailsUI = (props) => {
   ]
 
   const handleClickTab = (option) => {
+    if (selectedOption === 'rules') {
+      const isValid = handleCheckDiscountPercentageValidation()
+      if (!isValid) return
+    }
     setMoveDistance(0)
     setSelectedOption(option)
+    if (Object.keys(formState.changes).length !== 0 && !actionState.loading) {
+      if (isAddMode) {
+        handleAddPromotion()
+      } else {
+        handleUpdateClick()
+      }
+    }
   }
 
   const onClickDeletePromotion = () => {
@@ -67,6 +78,29 @@ const EnterprisePromotionDetailsUI = (props) => {
         handleDeletePromotion()
       }
     })
+  }
+
+  const handleCheckDiscountPercentageValidation = () => {
+    const rateType = formState.changes?.rate_type ?? promotionState.promotion?.rate_type
+    const rate = formState.changes?.rate ?? promotionState?.promotion?.rate ?? ''
+    if (rateType === 1 && parseFloat(rate) > 100) {
+      setAlertState({
+        open: true,
+        content: [
+          t('VALIDATION_ERROR_MAX_NUMERIC', 'The _attribute_ may not be greater than _max_.')
+            .replace('_attribute_', t('DISCOUNT_PERCENTAGE', 'Discount percentage'))
+            .replace('_max_', 100)
+        ],
+        handleOnAccept: () => {
+          if (document.getElementById('discount_value')) {
+            document.getElementById('discount_value').focus()
+          }
+          setAlertState({ open: false, content: [] })
+        }
+      })
+      return false
+    }
+    return true
   }
 
   useEffect(() => {
@@ -127,6 +161,8 @@ const EnterprisePromotionDetailsUI = (props) => {
         {selectedOption === 'general' && (
           <EnterprisePromotionGeneralDetails
             {...props}
+            handleUpdateClick={handleUpdateClick}
+            handleAddPromotion={handleAddPromotion}
           />
         )}
         {selectedOption === 'sites' && (
@@ -158,6 +194,8 @@ const EnterprisePromotionDetailsUI = (props) => {
         {selectedOption === 'rules' && (
           <EnterprisePromotionRules
             {...props}
+            handleUpdateClick={handleUpdateClick}
+            handleAddPromotion={handleAddPromotion}
           />
         )}
       </DetailsContainer>
@@ -167,7 +205,7 @@ const EnterprisePromotionDetailsUI = (props) => {
         acceptText={t('ACCEPT', 'Accept')}
         open={alertState.open}
         onClose={() => setAlertState({ open: false, content: [] })}
-        onAccept={() => setAlertState({ open: false, content: [] })}
+        onAccept={() => alertState?.handleOnAccept ? alertState.handleOnAccept() : setAlertState({ open: false, content: [] })}
         closeOnBackdrop={false}
       />
       <Confirm

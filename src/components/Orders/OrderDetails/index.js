@@ -84,7 +84,9 @@ const OrderDetailsUI = (props) => {
       { key: 18, value: 'Driver almost arrived to business', slug: 'DRIVER_ALMOST_ARRIVED_TO_BUSINESS', percentage: 50 },
       { key: 19, value: 'Driver almost arrived to customer', slug: 'DRIVER_ALMOST_ARRIVED_TO_CUSTOMER', percentage: 90 },
       { key: 20, value: 'Customer almost arrived to business', slug: 'CUSTOMER_ALMOST_ARRIVED_TO_BUSINESS', percentage: 50 },
-      { key: 21, value: 'Customer arrived to business', slug: 'CUSTOMER_ARRIVED_TO_BUSINESS', percentage: 60 }
+      { key: 21, value: 'Customer arrived to business', slug: 'CUSTOMER_ARRIVED_TO_BUSINESS', percentage: 60 },
+      { key: 22, value: 'Looking for driver', slug: 'ORDER_LOOKING_FOR_DRIVER', percentage: 35 },
+      { key: 23, value: 'Driver on way', slug: 'ORDER_DRIVER_ON_WAY', percentage: 45 }
     ]
 
     const objectStatus = orderStatus.find((o) => o.key === status)
@@ -423,7 +425,7 @@ const OrderDetailsUI = (props) => {
                 onClose={() => handleCloseMessages()}
               >
                 {openMessages?.chat && (
-                  <ChatContainer>
+                  <ChatContainer data-tour='tour_message'>
                     <Messages
                       orderId={order?.id}
                       order={order}
@@ -432,6 +434,9 @@ const OrderDetailsUI = (props) => {
                       handleUpdateOrderForUnreadCount={handleUpdateOrderForUnreadCount}
                       onClose={() => handleCloseMessages()}
                       messages={messages}
+                      isTourOpen={isTourOpen}
+                      setCurrentTourStep={setCurrentTourStep}
+                      orderDetailClose={() => props.onClose()}
                     />
                   </ChatContainer>
                 )}

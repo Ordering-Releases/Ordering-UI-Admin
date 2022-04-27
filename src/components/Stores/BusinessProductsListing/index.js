@@ -78,7 +78,6 @@ const BusinessProductsListingUI = (props) => {
   const [batchImageFormOpen, setBatchImageFormOpen] = useState(false)
   const [openSidebar, setOpenSidebar] = useState(null)
 
-  const [openColumnsPopover, setOpenColumnsPopover] = useState(false)
   const [allowSpreadColumns, setAllowSpreadColumns] = useState({
     id: true,
     name: true,
@@ -104,9 +103,9 @@ const BusinessProductsListingUI = (props) => {
   const handleOpenCategoryDetails = (category = null) => {
     setOpenSidebar(null)
     setSelectedProduct(null)
+    setCurrentCategory(category)
     if (category && category?.id !== null) {
       setCategorySelected(category)
-      setCurrentCategory(category)
       setOpenSidebar('category_details')
     } else {
       setCurrentCategory(null)
@@ -187,6 +186,15 @@ const BusinessProductsListingUI = (props) => {
     setBatchImageFormOpen(true)
   }
 
+  useEffect(() => {
+    if (!slug) {
+      setSelectedBusiness(null)
+      setOpenSidebar(null)
+      handleChangeSearch(null)
+      setViewMethod('list')
+    }
+  }, [slug])
+
   return (
     <>
       <CategoryProductsContainer>
@@ -200,36 +208,40 @@ const BusinessProductsListingUI = (props) => {
                 <MenuIcon />
               </IconButton>
             )}
-            {!selectedBusiness && businessState.loading ? (
-              <h1><Skeleton width={200} height={30} /></h1>
-            ) : (
-              <>
-                <BusinessSelector>
-                  <BusinessNameWrapper onClick={() => handleSelectHeader()}>
-                    <h1>{selectedBusiness?.name || businessState?.business?.name} &nbsp; <BisDownArrow className={showSelectHeader ? 'rotate-arrow' : ''} /></h1>
-                  </BusinessNameWrapper>
-                  {showSelectHeader && (
-                    <BusinessSelectHeader
-                      close={handleClose}
-                      isOpen={showSelectHeader}
-                      changeBusinessState={changeBusinessState}
-                    />
+            <div>
+              {!selectedBusiness && businessState.loading ? (
+                <h1><Skeleton width={200} height={30} /></h1>
+              ) : (
+                <>
+                  <BusinessSelector>
+                    <BusinessNameWrapper onClick={() => handleSelectHeader()}>
+                      <h1>{selectedBusiness?.name || businessState?.business?.name || t('SELECT_BUSINESS', 'Select a business')} &nbsp; <BisDownArrow className={showSelectHeader ? 'rotate-arrow' : ''} /></h1>
+                    </BusinessNameWrapper>
+                    {showSelectHeader && (
+                      <BusinessSelectHeader
+                        close={handleClose}
+                        isOpen={showSelectHeader}
+                        changeBusinessState={changeBusinessState}
+                      />
+                    )}
+                  </BusinessSelector>
+                  {slug && (
+                    <Breadcrumb>
+                      <span
+                        className='business'
+                        onClick={() => setOpenSidebar('business_details')}
+                      >
+                        {selectedBusiness?.name || businessState?.business?.name}
+                      </span>
+                      <ChevronRight />
+                      <span>{categorySelected?.name}</span>
+                    </Breadcrumb>
                   )}
-                </BusinessSelector>
-                <Breadcrumb>
-                  <span
-                    className='business'
-                    onClick={() => setOpenSidebar('business_details')}
-                  >
-                    {selectedBusiness?.name || businessState?.business?.name}
-                  </span>
-                  <ChevronRight />
-                  <span>{categorySelected?.name}</span>
-                </Breadcrumb>
-              </>
-            )}
+                </>
+              )}
+            </div>
           </HeaderTitleContainer>
-          <ActionsGroup>
+          <ActionsGroup isDisabled={!slug}>
             <Button
               borderRadius='8px'
               color='lightPrimary'
@@ -254,7 +266,7 @@ const BusinessProductsListingUI = (props) => {
             />
           </ActionsGroup>
         </HeaderContainer>
-        <CategoryProductsContent>
+        <CategoryProductsContent isDisabled={!slug}>
           <CategoryListContainer ref={categoryListRef}>
             {
               <BusinessProductsCategories
@@ -268,10 +280,11 @@ const BusinessProductsListingUI = (props) => {
                 handleUpdateBusinessState={handleUpdateBusinessState}
                 setCategorySelected={setCategorySelected}
                 categoryListRef={categoryListRef?.current}
+                setCurrentCategory={setCurrentCategory}
               />
             }
           </CategoryListContainer>
-          <ProductListContainer>
+          <ProductListContainer isDisabled={!slug}>
             <ProductHeader>
               <SingleBusinessCategoryEdit
                 {...props}
@@ -301,11 +314,8 @@ const BusinessProductsListingUI = (props) => {
                     )}
                     <ColumnsAllowWrapper>
                       <ColumnAllowSettingPopover
-                        open={openColumnsPopover}
                         allowColumns={allowSpreadColumns}
                         optionsDefault={spreadColumnOptions}
-                        onClick={() => setOpenColumnsPopover(!openColumnsPopover)}
-                        onClose={() => setOpenColumnsPopover(false)}
                         handleChangeAllowColumns={handleChangeAllowSpreadColumns}
                       />
                     </ColumnsAllowWrapper>

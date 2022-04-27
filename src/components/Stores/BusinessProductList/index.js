@@ -32,7 +32,6 @@ export const BusinessProductList = (props) => {
   } = props
   const [, t] = useLanguage()
 
-  const [openPopover, setOpenPopover] = useState(false)
   const [isAddProduct, setIsAddProduct] = useState(false)
   const [dataSelected, setDataSelected] = useState('')
   const [allowColumns, setAllowColumns] = useState({
@@ -113,7 +112,9 @@ export const BusinessProductList = (props) => {
       {viewMethod === 'list' && (
         <>
           <ProductListContainer>
-            <BusinessProductListTable>
+            <BusinessProductListTable
+              noFixedHeader={!businessState.loading && currentProducts.length <= 4}
+            >
               <thead>
                 <tr>
                   {allowColumns?.products && (
@@ -139,11 +140,8 @@ export const BusinessProductList = (props) => {
                   )}
                   <th className='more'>
                     <ColumnAllowSettingPopover
-                      open={openPopover}
                       allowColumns={allowColumns}
                       optionsDefault={optionsDefault}
-                      onClick={() => setOpenPopover(!openPopover)}
-                      onClose={() => setOpenPopover(false)}
                       handleChangeAllowColumns={handleChangeAllowColumns}
                     />
                   </th>

@@ -42,7 +42,9 @@ export const AnalyticsOrdersStatus = (props) => {
     { key: 18, value: t('ORDER_DRIVER_ALMOST_ARRIVED_BUSINESS', 'Driver almost arrived to business') },
     { key: 19, value: t('ORDER_DRIVER_ALMOST_ARRIVED_CUSTOMER', 'Driver almost arrived to customer') },
     { key: 20, value: t('ORDER_CUSTOMER_ALMOST_ARRIVED_BUSINESS', 'Customer almost arrived to business') },
-    { key: 21, value: t('ORDER_CUSTOMER_ARRIVED_BUSINESS', 'Customer arrived to business') }
+    { key: 21, value: t('ORDER_CUSTOMER_ARRIVED_BUSINESS', 'Customer arrived to business') },
+    { key: 22, value: t('ORDER_LOOKING_FOR_DRIVER', 'Looking for driver') },
+    { key: 23, value: t('ORDER_DRIVER_ON_WAY', 'Driver on way') }
   ]
 
   const generateLabels = () => {
@@ -78,15 +80,17 @@ export const AnalyticsOrdersStatus = (props) => {
       csv += `${row.orders},`
       csv += '\n'
     }
-    var downloadLink = document.createElement('a')
-    var blob = new Blob(['\ufeff', csv])
-    var url = URL.createObjectURL(blob)
-    downloadLink.href = url
+    const link = document.createElement('a')
     const fileSuffix = new Date().getTime()
-    downloadLink.download = `orders_status_${fileSuffix}.csv`
-    document.body.appendChild(downloadLink)
-    downloadLink.click()
-    document.body.removeChild(downloadLink)
+    link.download = `orders_status_${fileSuffix}.csv`
+
+    const blob = new Blob(['\ufeff', csv], { type: 'text/csv' })
+    const reader = new FileReader()
+    reader.readAsDataURL(blob)
+    reader.onload = () => {
+      link.href = reader.result
+      link.click()
+    }
   }
 
   const data = {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useUtils, useLanguage, useSession, Messages as MessagesController } from 'ordering-components-admin'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import AiOutlineInfoCircle from '@meronex/icons/ai/AiOutlineInfoCircle'
@@ -80,10 +80,11 @@ export const MessagesUI = (props) => {
 
   const [, t] = useLanguage()
   const theme = useTheme()
-  const { handleSubmit, register, setValue, errors } = useForm()
+  const { handleSubmit, setValue, errors, control } = useForm()
   const [{ user }] = useSession()
   const [{ parseDate, getTimeAgo, optimizeImage }] = useUtils()
   const buttonRef = useRef(null)
+  const messageInputRef = useRef(null)
 
   const [alertState, setAlertState] = useState({ open: false, content: [] })
   const [tabActive, setTabActive] = useState({ orderHistory: true, logistics: false, logistic_information: false })
@@ -114,10 +115,11 @@ export const MessagesUI = (props) => {
   }
 
   useEffect(() => {
-    const msgElement = document.getElementById('message')
+    const msgElement = messageInputRef?.current
     if (msgElement) {
-      msgElement.selectionStart = msgElement.selectionEnd = msgElement.value.length
       msgElement.focus()
+      msgElement.selectionStart = msgElement.selectionEnd = msgElement.value.length
+      msgElement.scrollLeft = msgElement.scrollWidth
     }
   }, [message])
 
@@ -241,6 +243,10 @@ export const MessagesUI = (props) => {
         return t('ORDER_CUSTOMER_ALMOST_ARRIVED_BUSINESS', 'Customer almost arrived to business')
       case 21:
         return t('ORDER_CUSTOMER_ARRIVED_BUSINESS', 'Customer arrived to business')
+      case 22:
+        return t('ORDER_LOOKING_FOR_DRIVER', 'Looking for driver')
+      case 23:
+        return t('ORDER_DRIVER_ON_WAY', 'Driver on way')
       default:
         return status
     }
@@ -264,9 +270,10 @@ export const MessagesUI = (props) => {
   }
 
   const clearInputs = () => {
-    const input = document.getElementById('message')
+    const input = messageInputRef?.current
     if (input) {
       input.value = ''
+      setValue('message', '')
     }
     removeImage()
     setMessage('')
@@ -861,17 +868,28 @@ export const MessagesUI = (props) => {
 
             <Send onSubmit={handleSubmit(onSubmit)} noValidate>
               <WrapperSendInput>
-                <Input
-                  placeholder={t('WRITE_A_MESSAGE', 'Write a message...')}
-                  onChange={onChangeMessage}
-                  onFocus={unreadMessageControl}
+                <Controller
                   name='message'
-                  id='message'
-                  ref={register({
+                  control={control}
+                  render={({ onChange, value }) => (
+                    <Input
+                      placeholder={t('WRITE_A_MESSAGE', 'Write a message...')}
+                      value={value}
+                      onChange={e => {
+                        onChange(e.target.value)
+                        onChangeMessage(e)
+                      }}
+                      onFocus={unreadMessageControl}
+                      name='message'
+                      ref={messageInputRef}
+                      autoComplete='off'
+                      readOnly={isChatDisabled}
+                    />
+                  )}
+                  rules={{
                     required: !image
-                  })}
-                  autoComplete='off'
-                  readOnly={isChatDisabled}
+                  }}
+                  defaultValue=''
                 />
                 {!image && (
                   <SendImage htmlFor='chat_image'>

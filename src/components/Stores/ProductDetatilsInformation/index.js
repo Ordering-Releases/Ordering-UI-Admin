@@ -146,11 +146,12 @@ export const ProductDetatilsInformation = (props) => {
   }, [autoGenerateCode])
 
   useEffect(() => {
-    if (product?.price) {
-      setMinimumRegualrPrice(product?.price + 0.01)
+    if (typeof formState?.changes?.price !== 'undefined') {
+      setMinimumRegualrPrice(parseFloat(formState?.changes?.price) + 0.01)
+      return
     }
-    if (formState?.changes?.price) {
-      setMinimumRegualrPrice(formState?.changes?.price + 0.01)
+    if (product?.price) {
+      setMinimumRegualrPrice(parseFloat(product?.price) + 0.01)
     }
   }, [product?.price, formState?.changes?.price])
 
@@ -233,8 +234,7 @@ export const ProductDetatilsInformation = (props) => {
               placeholder={parsePrice(0)}
               defaultValue={product?.offer_price}
               ref={formMethods.register({
-                min: ((typeof formState?.changes?.in_offer === 'undefined' && product?.in_offer) || formState?.changes?.in_offer)
-                  && minimumRegualrPrice,
+                min: ((typeof formState?.changes?.in_offer === 'undefined' && product?.in_offer) || formState?.changes?.in_offer) && minimumRegualrPrice,
                 required:
                   ((typeof formState?.changes?.in_offer === 'undefined' && product?.in_offer) || formState?.changes?.in_offer)
                     ? t(

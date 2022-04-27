@@ -52,6 +52,7 @@ import { ListenPageChanges } from './components/ListenPageChanges'
 import { SpinnerLoader } from '../src/components/Shared'
 import { HelmetTags } from './components/HelmetTags'
 import { RewardsPrograms } from './pages/RewardsPrograms'
+import { CampaignListing } from './pages/CampaignListing'
 
 export const App = () => {
   const [{ auth, loading, user }] = useSession()
@@ -200,7 +201,7 @@ export const App = () => {
                           : <Redirect to='/login' />
                       }
                     </Route>
-                    <Route exact path='/stores/list/:store'>
+                    <Route exact path='/stores/products/:store?'>
                       {
                         auth
                           ? <BusinessProductsList />
@@ -330,6 +331,13 @@ export const App = () => {
                       {
                         auth
                           ? <EnterprisePromotionList />
+                          : <Redirect to='/login' />
+                      }
+                    </Route>
+                    <Route exact path='/marketing/campaign'>
+                      {
+                        auth
+                          ? <CampaignListing />
                           : <Redirect to='/login' />
                       }
                     </Route>

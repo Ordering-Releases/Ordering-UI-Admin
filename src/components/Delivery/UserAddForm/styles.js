@@ -26,6 +26,7 @@ export const UserImage = styled.div`
 `
 
 export const Image = styled.div`
+  position: relative;
   width: 90px;
   height: 90px;
   border-radius: 8px;
@@ -131,6 +132,8 @@ export const ActionsForm = styled.div`
   width: 100%;
   position: sticky;
   top: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
 
   button {
     flex: 1;

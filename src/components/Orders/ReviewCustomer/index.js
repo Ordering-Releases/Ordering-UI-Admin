@@ -10,6 +10,8 @@ import { useTheme } from 'styled-components'
 import { Button, TextArea } from '../../../styles'
 import { Alert } from '../../Shared'
 
+import { reviewCommentList } from '../../../utils'
+
 import {
   ReviewContainer,
   PhotoWrapper,
@@ -30,7 +32,6 @@ const ReviewCustomerUI = (props) => {
     reviewState,
     setReviewState,
     actionState,
-    handleChangeQualification,
     handleSendCustomerReview
   } = props
 
@@ -49,12 +50,8 @@ const ReviewCustomerUI = (props) => {
     { key: 4, text: t('GOOD', 'Good'), middleNode: true, left: '75%', right: '25%' },
     { key: 5, text: t('GREAT', 'Great'), middleNode: false, left: 'initial', right: 0 }
   ]
-  const commentsList = [
-    { key: 0, content: t('RESPECTFUL', 'Respectful') },
-    { key: 1, content: t('EXCELLENT_COMMUNICATION', 'Excellent communication') },
-    { key: 2, content: t('RUDE', 'Rude') },
-    { key: 3, content: t('CONFUSING_INSTRUCTIONS', 'Confusing instructions') }
-  ]
+
+  const commentsList = reviewCommentList(1)
 
   const closeAlert = () => {
     setAlertState({
@@ -62,6 +59,11 @@ const ReviewCustomerUI = (props) => {
       content: []
     })
   }
+  const handleChangeQualification = (index) => {
+    if (index) setReviewState({ ...reviewState, qualification: index, comment: '' })
+    setComments([])
+  }
+
   const isSelectedComment = (commentKey) => {
     const found = comments.find((comment) => comment?.key === commentKey)
     return found
@@ -131,9 +133,9 @@ const ReviewCustomerUI = (props) => {
           </ReviewsProgressContent>
         </ReviewsProgressWrapper>
         <CommentsList>
-          <p>{t('COMMENTS', 'Comments')}</p>
+          <p>{commentsList[reviewState?.qualification || 1]?.title}</p>
           {
-            commentsList?.map((commentItem, i) => (
+            commentsList[reviewState?.qualification || 1]?.list?.map((commentItem, i) => (
               <CommentButton
                 key={i}
                 active={isSelectedComment(commentItem?.key)}

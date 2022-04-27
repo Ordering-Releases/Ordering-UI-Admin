@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUtils } from 'ordering-components-admin'
+import { useUtils, useLanguage } from 'ordering-components-admin'
 import { CircleFill } from 'react-bootstrap-icons'
 import Skeleton from 'react-loading-skeleton'
 
@@ -10,7 +10,8 @@ import {
   TransactionHeader,
   Transaction,
   TransactionDescription,
-  Amount
+  Amount,
+  TransactionCode
 } from './styles'
 
 export const CustomerCashWalletEvents = (props) => {
@@ -19,6 +20,7 @@ export const CustomerCashWalletEvents = (props) => {
     parseEvent
   } = props
 
+  const [, t] = useLanguage()
   const [{ parseDate, parsePrice }] = useUtils()
 
   return (
@@ -52,6 +54,14 @@ export const CustomerCashWalletEvents = (props) => {
               <TransactionDescription>
                 {event.description}
               </TransactionDescription>
+              {event?.wallet_event?.order_id && (
+                <TransactionDescription>
+                  <strong>{t('INVOICE_ORDER_NO', 'Order No')}</strong> {event?.wallet_event?.order_id}
+                </TransactionDescription>
+              )}
+              <TransactionCode>
+                <span><strong>{t('CODE', 'Code')}:</strong> {event?.code}</span>
+              </TransactionCode>
             </HistoryItem>
           ))
         )}

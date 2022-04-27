@@ -16,14 +16,14 @@ import {
   CouponContainer,
   CouponHeader,
   CouponContent,
-  ShowInCartContainer,
   CouponCodeContainer,
   DiscountOption,
   CondtionItem,
   Option,
   SelectWrapper,
   DiscountContainer,
-  AutomaticDiscountEnableWrapper
+  AutomaticEnableWrapper,
+  PublicEnableWrapper
 } from './styles'
 
 export const EnterprisePromotionRules = (props) => {
@@ -72,6 +72,19 @@ export const EnterprisePromotionRules = (props) => {
     setIsShowConditions(true)
   }
 
+  const handleMaxPercentValidate = () => {
+    const rateType = formState.changes?.rate_type ?? promotionState.promotion?.rate_type
+    if (rateType !== 1) return true
+    const rate = formState.changes?.rate ?? promotionState?.promotion?.rate ?? ''
+    if (parseFloat(rate) <= 100) {
+      return true
+    } else {
+      return t('VALIDATION_ERROR_MAX_NUMERIC', 'The _attribute_ may not be greater than _max_.')
+        .replace('_attribute_', t('PERCENTAGE', 'Percentage'))
+        .replace('_max_', 100)
+    }
+  }
+
   useEffect(() => {
     if (Object.keys(formMethods.errors).length > 0) {
       const content = Object.values(formMethods.errors).map(error => error.message)
@@ -91,6 +104,11 @@ export const EnterprisePromotionRules = (props) => {
       }
     }
   }, [width])
+
+  useEffect(() => {
+    const rate = formState.changes?.rate ?? promotionState?.promotion?.rate ?? ''
+    formMethods.setValue('rate', rate)
+  }, [formState.changes?.rate, promotionState?.promotion?.rate])
 
   return (
     <RulesContainer>
@@ -121,7 +139,7 @@ export const EnterprisePromotionRules = (props) => {
               <label>{t('VALUE', 'Value')}</label>
               <Input
                 name='rate'
-                value={formState.changes?.rate ?? promotionState?.promotion?.rate ?? ''}
+                id='discount_value'
                 placeholder={0}
                 onChange={handleChangeInput}
                 onKeyPress={(e) => {
@@ -130,8 +148,10 @@ export const EnterprisePromotionRules = (props) => {
                   }
                 }}
                 ref={formMethods.register({
-                  required: t('VALIDATION_ERROR_REQUIRED', 'The _attribute_ field is required.').replace('_attribute_', t('RATE', 'Rate'))
+                  required: t('VALIDATION_ERROR_REQUIRED', 'The _attribute_ field is required.').replace('_attribute_', t('RATE', 'Rate')),
+                  validate: handleMaxPercentValidate
                 })}
+                autoComplete='off'
               />
             </div>
           </DiscountContainer>
@@ -151,20 +171,6 @@ export const EnterprisePromotionRules = (props) => {
             </CouponHeader>
             {(formState.changes?.type === 2 || (!formState?.changes.type && promotionState?.promotion?.type === 2)) && (
               <CouponContent>
-                <ShowInCartContainer>
-                  <Checkbox
-                    checked={
-                      typeof formState.changes?.public !== 'undefined'
-                        ? formState.changes?.public
-                        : promotionState.promotion?.public
-                    }
-                    onChange={e => handleChangeItem({ public: e.target.checked })}
-                  />
-                  <div>
-                    <p>{t('SHOW_IN_CART', 'Show in cart')}</p>
-                    <p>{t('PLEASE_INDICATE_COUPON_FOR_CART', 'Please indicate if you want the coupon to be seen in the cart or hidden')}</p>
-                  </div>
-                </ShowInCartContainer>
                 <CouponCodeContainer>
                   <label>{t('COUPON_CODE', 'Coupon code')}</label>
                   <Input
@@ -175,7 +181,6 @@ export const EnterprisePromotionRules = (props) => {
                 </CouponCodeContainer>
               </CouponContent>
             )}
-
           </CouponContainer>
           <DiscountOption>
             <CouponHeader
@@ -189,21 +194,32 @@ export const EnterprisePromotionRules = (props) => {
               )}
               <span>{t('DISCOUNT', 'discount')}</span>
             </CouponHeader>
-            {(formState.changes?.type === 1 || (!formState?.changes.type && promotionState?.promotion?.type === 1)) && (
-              <AutomaticDiscountEnableWrapper>
-                <Checkbox
-                  checked={
-                    typeof formState.changes?.auto !== 'undefined'
-                      ? formState.changes?.auto
-                      : promotionState.promotion?.auto
-                  }
-                  onChange={e => handleChangeItem({ auto: e.target.checked })}
-                />
-                <span>{t('AUTOMATIC_DISCOUNT', 'Automatic discount')}</span>
-              </AutomaticDiscountEnableWrapper>
-            )}
           </DiscountOption>
-
+          <AutomaticEnableWrapper>
+            <Checkbox
+              checked={
+                typeof formState.changes?.auto !== 'undefined'
+                  ? formState.changes?.auto
+                  : promotionState.promotion?.auto
+              }
+              onChange={e => handleChangeItem({ auto: e.target.checked })}
+            />
+            <span>{t('AUTOMATIC_OFFER', 'Automatic offer')}</span>
+          </AutomaticEnableWrapper>
+          <PublicEnableWrapper>
+            <Checkbox
+              checked={
+                typeof formState.changes?.public !== 'undefined'
+                  ? formState.changes?.public
+                  : promotionState.promotion?.public
+              }
+              onChange={e => handleChangeItem({ public: e.target.checked })}
+            />
+            <div>
+              <p>{t('PUBLIC', 'Public')}</p>
+              <p>{t('USERS_WILL_ABLE_TO_SEE', 'Users will be able to see it')}</p>
+            </div>
+          </PublicEnableWrapper>
           <SectionTitle>{t('CONDITIONS', 'Conditions')}</SectionTitle>
           <CondtionItem
             active={isShowConditions}

@@ -4,13 +4,16 @@ import { useLanguage, useSession, OrdersManage as OrdersManageController } from 
 import { OrderStatusFilterBar } from '../OrderStatusFilterBar'
 import { OrdersContentHeader } from '../OrdersContentHeader'
 import { OrderDetails } from '../OrderDetails'
+import { OrdersDashboardControls } from '../OrdersDashboardControls'
 import { Alert } from '../../Shared'
 import {
   OrdersListContainer,
   OrdersContent,
   OrdersInnerContent,
   WrapItemView,
-  WrapperIndicator
+  WrapperIndicator,
+  OrderSubFilterControls,
+  OrderStatusSubFilterWrapper
 } from './styles'
 import { OrdersDashboard } from '../OrdersDashboard'
 import { OrderStatusSubFilter } from '../OrderStatusSubFilter'
@@ -181,11 +184,23 @@ const OrdersManagerUI = (props) => {
           selectedOrderStatus={ordersStatusGroup}
           changeOrderStatus={handleOrdersStatusGroupFilter}
         />
-        <OrderStatusSubFilter
-          ordersStatusGroup={ordersStatusGroup}
-          selectedSubOrderStatus={selectedSubOrderStatus}
-          handleSelectedSubOrderStatus={handleSelectedSubOrderStatus}
-        />
+        <OrderSubFilterControls isColumn={selectedOrderIds?.length}>
+          <OrderStatusSubFilterWrapper isColumn={selectedOrderIds?.length}>
+            <OrderStatusSubFilter
+              ordersStatusGroup={ordersStatusGroup}
+              selectedSubOrderStatus={selectedSubOrderStatus}
+              handleSelectedSubOrderStatus={handleSelectedSubOrderStatus}
+            />
+          </OrderStatusSubFilterWrapper>
+          {!isSelectedOrders && (
+            <OrdersDashboardControls
+              selectedOrderNumber={selectedOrderIds?.length}
+              filterValues={filterValues}
+              handleChangeMultiOrdersStatus={handleChangeMultiOrdersStatus}
+              handleDeleteMultiOrders={handleDeleteMultiOrders}
+            />
+          )}
+        </OrderSubFilterControls>
         <OrdersContent>
           <OrdersInnerContent className='order-content'>
             <WrapItemView>
@@ -241,14 +256,12 @@ const OrdersManagerUI = (props) => {
         </WrapperIndicator>
       )}
 
-      {isTourOpen && (
-        <WizardOrders
-          isTourOpen={isTourOpen}
-          setIsTourOpen={setIsTourOpen}
-          currentStep={currentTourStep}
-          detailsOrder={detailsOrder}
-        />
-      )}
+      <WizardOrders
+        isTourOpen={isTourOpen}
+        setIsTourOpen={setIsTourOpen}
+        currentStep={currentTourStep}
+        detailsOrder={detailsOrder}
+      />
       <Alert
         title={t('ORDERS_MANAGER', 'Orders manager')}
         content={alertState.content}

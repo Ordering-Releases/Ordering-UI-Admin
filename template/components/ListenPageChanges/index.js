@@ -20,7 +20,7 @@ export const ListenPageChanges = ({ children }) => {
     login: '/login',
     businesses: '/stores/list',
     brand: '/stores/brand',
-    store: '/stores/list/:store',
+    store: '/stores/products/:store?',
     basicSettings: '/settings/basic',
     operationSettings: '/settings/operation',
     pages: '/settings/pages',
@@ -38,6 +38,7 @@ export const ListenPageChanges = ({ children }) => {
     drivers_companies: '/delivery/drivers-companies',
     drivers_groups: '/delivery/drivers-groups',
     enterprise_promotions: '/marketing/promotions-enterprise',
+    campaign: '/marketing/campaign',
     ordering_products: '/ordering-products',
     support: '/support',
     rewards_programs: '/loyalty/rewards-programs'
@@ -49,6 +50,9 @@ export const ListenPageChanges = ({ children }) => {
       Object.entries(params).forEach(([key, value]) => {
         path = path.replace(`:${key}`, value)
       })
+      if (Object.values(params).length === 0 && page === 'store') {
+        path = path.replace(':store?', '')
+      }
       if (search) {
         path = `${path}${search}`
       }

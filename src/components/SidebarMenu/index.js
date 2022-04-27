@@ -88,13 +88,19 @@ export const SidebarMenu = (props) => {
   const storesSubMenus = [
     {
       id: 1,
-      title: t('STORES_LIST', 'Stores list'),
+      title: t('STORES', 'Stores'),
       pageName: 'businesses',
       url: '/stores/list'
     },
     {
       id: 2,
-      title: t('BRAND_MANAGER', 'Brand manager'),
+      title: t('PRODUCTS', 'Products'),
+      pageName: 'store',
+      url: '/stores/products'
+    },
+    {
+      id: 3,
+      title: t('BRANDS', 'Brands'),
       pageName: 'brand',
       url: '/stores/brand'
     }
@@ -178,13 +184,13 @@ export const SidebarMenu = (props) => {
       title: t('INVOICE_MANAGER', 'Invoice manager'),
       pageName: 'invoice',
       url: '/intelligence/invoice'
-    },
-    {
-      id: 5,
-      title: t('ADVANCED_REPORTS', 'Advanced Reports'),
-      pageName: 'reports',
-      url: '/intelligence/reports'
     }
+    // {
+    //   id: 5,
+    //   title: t('ADVANCED_REPORTS', 'Advanced Reports'),
+    //   pageName: 'reports',
+    //   url: '/intelligence/reports'
+    // }
   ]
 
   const businessOwnerIntelligencesIncluded = [1]
@@ -222,6 +228,12 @@ export const SidebarMenu = (props) => {
       title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
       pageName: 'enterprise_promotions',
       url: '/marketing/promotions-enterprise'
+    },
+    {
+      id: 2,
+      title: t('CAMPAIGN', 'Campaign'),
+      pageName: 'campaign',
+      url: '/marketing/campaign'
     }
   ]
 
@@ -354,7 +366,7 @@ export const SidebarMenu = (props) => {
                             !(sessionState?.user?.level === 2 && item.pageName === 'brand') && (
                               <SubMenu
                                 key={item.id}
-                                active={location.pathname.includes(item.pageName) || location.pathname.includes(item?.url)}
+                                active={location.pathname.includes(item?.url)}
                                 onClick={() => handleGoToPage({ page: item.pageName })}
                               >
                                 {item.title}
@@ -461,11 +473,12 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {/* <MenuContainer>
+                  <MenuContainer>
                     <ContextAwareToggle
                       eventKey='8'
                       active={
-                        location.pathname === '/marketing/promotions-enterprise'
+                        location.pathname === '/marketing/promotions-enterprise' ||
+                        location.pathname === '/marketing/campaign'
                       }
                     >
                       <GraphUp />
@@ -484,7 +497,7 @@ export const SidebarMenu = (props) => {
                         ))}
                       </MenuContent>
                     </Accordion.Collapse>
-                  </MenuContainer> */}
+                  </MenuContainer>
                   <MenuContainer>
                     <ContextAwareToggle
                       eventKey='9'

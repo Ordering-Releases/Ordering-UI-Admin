@@ -98,8 +98,9 @@ const DeliveryUsersListingUI = (props) => {
   useEffect(() => {
     if (usersList.loading) return
     const id = query.get('id')
-    if (id === null) setIsOpenUserDetails(false)
-    else {
+    if (id === null) {
+      !isDriversManagersPage && setIsOpenUserDetails(false)
+    } else {
       const user = usersList.users.find(_user => _user.id === parseInt(id))
       if (user) {
         setOpenUser(user)
@@ -198,15 +199,16 @@ const DeliveryUsersListingUI = (props) => {
           isDriversManagersPage={isDriversManagersPage}
           open={isOpenUserDetails}
           user={openUser}
+          handleDeleteUser={handleDeleteUser}
           userId={openUser?.id || queryId}
           onClose={() => handleBackRedirect()}
           handleSuccessUpdate={handleSuccessUpdate}
           handleSuccessDeleteUser={handleSuccessDeleteUser}
+          handleChangeActiveUser={handleChangeActiveUser}
         />
       )}
       {openUserAddForm && (
         <SideBar
-          sidebarId='user_add_form'
           open={openUserAddForm}
           noAnimation={isTourOpen}
           onClose={() => handleCloseAddForm()}
@@ -238,7 +240,8 @@ export const DeliveryUsersListing = (props) => {
     UIComponent: DeliveryUsersListingUI,
     isSearchByUserEmail: true,
     isSearchByUserPhone: true,
-    isSearchByUserName: true
+    isSearchByUserName: true,
+    isDriver: true
   }
   return (
     <UsersListController {...usersListingProps} />
