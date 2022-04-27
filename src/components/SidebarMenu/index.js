@@ -184,13 +184,13 @@ export const SidebarMenu = (props) => {
       title: t('INVOICE_MANAGER', 'Invoice manager'),
       pageName: 'invoice',
       url: '/intelligence/invoice'
+    },
+    {
+      id: 5,
+      title: t('ADVANCED_REPORTS', 'Advanced Reports'),
+      pageName: 'reports',
+      url: '/intelligence/reports'
     }
-    // {
-    //   id: 5,
-    //   title: t('ADVANCED_REPORTS', 'Advanced Reports'),
-    //   pageName: 'reports',
-    //   url: '/intelligence/reports'
-    // }
   ]
 
   const businessOwnerIntelligencesIncluded = [1]
@@ -473,7 +473,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  <MenuContainer>
+                  {/* <MenuContainer>
                     <ContextAwareToggle
                       eventKey='8'
                       active={
@@ -497,7 +497,7 @@ export const SidebarMenu = (props) => {
                         ))}
                       </MenuContent>
                     </Accordion.Collapse>
-                  </MenuContainer>
+                  </MenuContainer> */}
                   <MenuContainer>
                     <ContextAwareToggle
                       eventKey='9'
