@@ -240,6 +240,16 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
       value: 'Customer arrived to business',
       slug: 'CUSTOMER_ARRIVED_TO_BUSINESS',
       percentage: 60
+    }, {
+      key: 22,
+      value: 'Looking for driver',
+      slug: 'ORDER_LOOKING_FOR_DRIVER',
+      percentage: 35
+    }, {
+      key: 23,
+      value: 'Driver on way',
+      slug: 'ORDER_DRIVER_ON_WAY',
+      percentage: 45
     }];
     var objectStatus = orderStatus.find(function (o) {
       return o.key === status;
@@ -600,7 +610,9 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     onClose: function onClose() {
       return handleCloseMessages();
     }
-  }, (openMessages === null || openMessages === void 0 ? void 0 : openMessages.chat) && /*#__PURE__*/_react.default.createElement(_styles2.ChatContainer, null, /*#__PURE__*/_react.default.createElement(_Messages.Messages, {
+  }, (openMessages === null || openMessages === void 0 ? void 0 : openMessages.chat) && /*#__PURE__*/_react.default.createElement(_styles2.ChatContainer, {
+    "data-tour": "tour_message"
+  }, /*#__PURE__*/_react.default.createElement(_Messages.Messages, {
     orderId: order === null || order === void 0 ? void 0 : order.id,
     order: order,
     isChat: openMessages === null || openMessages === void 0 ? void 0 : openMessages.chat,
@@ -609,7 +621,12 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     onClose: function onClose() {
       return handleCloseMessages();
     },
-    messages: messages
+    messages: messages,
+    isTourOpen: isTourOpen,
+    setCurrentTourStep: setCurrentTourStep,
+    orderDetailClose: function orderDetailClose() {
+      return props.onClose();
+    }
   }))), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: "70%",
     height: "70vh",

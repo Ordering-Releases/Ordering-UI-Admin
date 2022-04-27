@@ -102,12 +102,17 @@ var SidebarMenu = function SidebarMenu(props) {
   ];
   var storesSubMenus = [{
     id: 1,
-    title: t('STORES_LIST', 'Stores list'),
+    title: t('STORES', 'Stores'),
     pageName: 'businesses',
     url: '/stores/list'
   }, {
     id: 2,
-    title: t('BRAND_MANAGER', 'Brand manager'),
+    title: t('PRODUCTS', 'Products'),
+    pageName: 'store',
+    url: '/stores/products'
+  }, {
+    id: 3,
+    title: t('BRANDS', 'Brands'),
     pageName: 'brand',
     url: '/stores/brand'
   }];
@@ -173,12 +178,13 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('INVOICE_MANAGER', 'Invoice manager'),
     pageName: 'invoice',
     url: '/intelligence/invoice'
-  }, {
-    id: 5,
-    title: t('ADVANCED_REPORTS', 'Advanced Reports'),
-    pageName: 'reports',
-    url: '/intelligence/reports'
-  }];
+  } // {
+  //   id: 5,
+  //   title: t('ADVANCED_REPORTS', 'Advanced Reports'),
+  //   pageName: 'reports',
+  //   url: '/intelligence/reports'
+  // }
+  ];
   var businessOwnerIntelligencesIncluded = [1];
   var deliverySubmenus = [{
     id: 1,
@@ -206,6 +212,11 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
     pageName: 'enterprise_promotions',
     url: '/marketing/promotions-enterprise'
+  }, {
+    id: 2,
+    title: t('CAMPAIGN', 'Campaign'),
+    pageName: 'campaign',
+    url: '/marketing/campaign'
   }];
 
   var handleGoToPage = function handleGoToPage(data) {
@@ -297,7 +308,7 @@ var SidebarMenu = function SidebarMenu(props) {
 
     return !((sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user7 = sessionState.user) === null || _sessionState$user7 === void 0 ? void 0 : _sessionState$user7.level) === 2 && item.pageName === 'brand') && /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
       key: item.id,
-      active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
+      active: location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
       onClick: function onClick() {
         return handleGoToPage({
           page: item.pageName
@@ -342,6 +353,21 @@ var SidebarMenu = function SidebarMenu(props) {
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Truck, null), /*#__PURE__*/_react.default.createElement("span", null, t('DELIVERY', 'Delivery'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
     eventKey: "7"
   }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, deliverySubmenus.map(function (item) {
+    return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
+      key: item.id,
+      active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
+      onClick: function onClick() {
+        return handleGoToPage({
+          page: item.pageName
+        });
+      }
+    }, item.title);
+  })))), /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
+    eventKey: "8",
+    active: location.pathname === '/marketing/promotions-enterprise' || location.pathname === '/marketing/campaign'
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.GraphUp, null), /*#__PURE__*/_react.default.createElement("span", null, t('MARKETING', 'Marketing'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
+    eventKey: "8"
+  }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, marketingSubmenus.map(function (item) {
     return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
       key: item.id,
       active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
