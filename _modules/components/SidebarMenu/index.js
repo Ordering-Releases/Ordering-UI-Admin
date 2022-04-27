@@ -178,13 +178,12 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('INVOICE_MANAGER', 'Invoice manager'),
     pageName: 'invoice',
     url: '/intelligence/invoice'
-  } // {
-  //   id: 5,
-  //   title: t('ADVANCED_REPORTS', 'Advanced Reports'),
-  //   pageName: 'reports',
-  //   url: '/intelligence/reports'
-  // }
-  ];
+  }, {
+    id: 5,
+    title: t('ADVANCED_REPORTS', 'Advanced Reports'),
+    pageName: 'reports',
+    url: '/intelligence/reports'
+  }];
   var businessOwnerIntelligencesIncluded = [1];
   var deliverySubmenus = [{
     id: 1,
@@ -353,21 +352,6 @@ var SidebarMenu = function SidebarMenu(props) {
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Truck, null), /*#__PURE__*/_react.default.createElement("span", null, t('DELIVERY', 'Delivery'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
     eventKey: "7"
   }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, deliverySubmenus.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
-      key: item.id,
-      active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
-      onClick: function onClick() {
-        return handleGoToPage({
-          page: item.pageName
-        });
-      }
-    }, item.title);
-  })))), /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
-    eventKey: "8",
-    active: location.pathname === '/marketing/promotions-enterprise' || location.pathname === '/marketing/campaign'
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.GraphUp, null), /*#__PURE__*/_react.default.createElement("span", null, t('MARKETING', 'Marketing'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
-    eventKey: "8"
-  }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, marketingSubmenus.map(function (item) {
     return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
       key: item.id,
       active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
