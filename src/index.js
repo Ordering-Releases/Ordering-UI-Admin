@@ -79,7 +79,8 @@ import {
   SpinnerLoader,
   Modal,
   SideBar,
-  MoreSidebarLayout
+  MoreSidebarLayout,
+  Personalization
 } from './components/Shared'
 
 import { capitalize } from './utils'
