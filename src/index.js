@@ -66,7 +66,6 @@ import {
   BusinessWebhooks,
   AddBusinessForm,
   ImportersLateralBar,
-  Personalization,
   WizardBusiness
 } from './components/Stores'
 import { UsersListing, CustomersListing } from './components/Users'
@@ -185,7 +184,6 @@ export {
   BusinessWebhooks,
   AddBusinessForm,
   ImportersLateralBar,
-  Personalization,
   WizardBusiness,
   
   UsersListing,
@@ -201,6 +199,7 @@ export {
   Modal,
   SideBar,
   MoreSidebarLayout,
+  Personalization,
 
   capitalize,
 
