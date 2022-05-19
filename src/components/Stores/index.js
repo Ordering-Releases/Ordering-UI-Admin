@@ -81,7 +81,6 @@ import { ProductGallery } from './ProductGallery'
 import { ProductMainDetails } from './ProductMainDetails'
 import { BusinessSharedMenuProductDetails } from './BusinessSharedMenuProductDetails'
 import { BusinessSpreadSheet } from './BusinessSpreadSheet'
-import { BusinessProductAddForm } from './BusinessProductAddForm'
 import { SingleBusinessProduct } from './SingleBusinessProduct'
 import { BusinessTypeDetail } from './BusinessTypeDetail'
 import { ProductDetatilsInformation } from './ProductDetatilsInformation'
@@ -185,7 +184,6 @@ export {
   ProductMainDetails,
   BusinessSharedMenuProductDetails,
   BusinessSpreadSheet,
-  BusinessProductAddForm,
   SingleBusinessProduct,
   BusinessTypeDetail,
   ProductDetatilsInformation,
