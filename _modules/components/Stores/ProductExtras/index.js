@@ -21,6 +21,8 @@ var _ProductExtraOptions = require("../ProductExtraOptions");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
+var _styledComponents = require("styled-components");
+
 var _styles2 = require("./styles");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -65,7 +67,14 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
       setIsExtendExtraOpen = props.setIsExtendExtraOpen,
       business = props.business,
       handleUpdateBusinessState = props.handleUpdateBusinessState,
-      handleProductExtraState = props.handleProductExtraState;
+      handleProductExtraState = props.handleProductExtraState,
+      dragoverExtaId = props.dragoverExtaId,
+      isExtrasBottom = props.isExtrasBottom,
+      handleDragStart = props.handleDragStart,
+      hanldeDragOver = props.hanldeDragOver,
+      handleDrop = props.handleDrop,
+      handleDragEnd = props.handleDragEnd;
+  var theme = (0, _styledComponents.useTheme)();
 
   var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -113,7 +122,8 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
       isCheckboxClicked = _useState12[0],
       setIsCheckboxClicked = _useState12[1];
 
-  var handleOpenExtraDetails = function handleOpenExtraDetails(extra) {
+  var handleOpenExtraDetails = function handleOpenExtraDetails(e, extra) {
+    if (e.target.closest('.extra-checkbox') || e.target.closest('.draggable-dots')) return;
     setIsExtendExtraOpen(true);
     setCurrentExtra(extra);
     setOpenExtraDetails(true);
@@ -157,7 +167,9 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     var _extraIds = [];
 
     if ((_productState$product = productState.product) !== null && _productState$product !== void 0 && _productState$product.extras) {
-      _extraIds = productState.product.extras.reduce(function (ids, extra) {
+      var _productState$product2;
+
+      _extraIds = (_productState$product2 = productState.product.extras) === null || _productState$product2 === void 0 ? void 0 : _productState$product2.reduce(function (ids, extra) {
         return [].concat(_toConsumableArray(ids), [extra.id]);
       }, []);
     }
@@ -177,14 +189,14 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     };
   }, [isAddMode, changesState]);
   (0, _react.useEffect)(function () {
-    var _productState$product2, _extrasState$extras;
+    var _productState$product3, _extrasState$extras;
 
-    if (productState !== null && productState !== void 0 && (_productState$product2 = productState.product) !== null && _productState$product2 !== void 0 && _productState$product2.error || extrasState !== null && extrasState !== void 0 && (_extrasState$extras = extrasState.extras) !== null && _extrasState$extras !== void 0 && _extrasState$extras.error) {
-      var _productState$product3, _extrasState$extras2;
+    if (productState !== null && productState !== void 0 && (_productState$product3 = productState.product) !== null && _productState$product3 !== void 0 && _productState$product3.error || extrasState !== null && extrasState !== void 0 && (_extrasState$extras = extrasState.extras) !== null && _extrasState$extras !== void 0 && _extrasState$extras.error) {
+      var _productState$product4, _extrasState$extras2;
 
       setAlertState({
         open: true,
-        content: (productState === null || productState === void 0 ? void 0 : (_productState$product3 = productState.product) === null || _productState$product3 === void 0 ? void 0 : _productState$product3.error) || (extrasState === null || extrasState === void 0 ? void 0 : (_extrasState$extras2 = extrasState.extras) === null || _extrasState$extras2 === void 0 ? void 0 : _extrasState$extras2.error)
+        content: (productState === null || productState === void 0 ? void 0 : (_productState$product4 = productState.product) === null || _productState$product4 === void 0 ? void 0 : _productState$product4.error) || (extrasState === null || extrasState === void 0 ? void 0 : (_extrasState$extras2 = extrasState.extras) === null || _extrasState$extras2 === void 0 ? void 0 : _extrasState$extras2.error)
       });
     }
   }, [productState, extrasState]);
@@ -194,28 +206,45 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     onClick: function onClick() {
       return handleOpenAddForm();
     }
-  }, t('ADD_PRODUCT_OPTION', 'Add product option'))), (extrasState === null || extrasState === void 0 ? void 0 : extrasState.extras) && (extrasState === null || extrasState === void 0 ? void 0 : extrasState.extras.map(function (extra) {
-    var _extraIds$includes;
+  }, t('ADD_PRODUCT_OPTION', 'Add product option'))), (extrasState === null || extrasState === void 0 ? void 0 : extrasState.extras) && (extrasState === null || extrasState === void 0 ? void 0 : extrasState.extras.sort(function (a, b) {
+    return a.rank - b.rank;
+  }).map(function (extra, index) {
+    var _theme$images$icons, _extraIds$includes;
 
+    var isLastExtra = index === extrasState.extras.length - 1;
     return /*#__PURE__*/_react.default.createElement(_styles2.ExtraOption, {
       key: extra.id,
-      active: extra.id === (currentExtra === null || currentExtra === void 0 ? void 0 : currentExtra.id)
-    }, /*#__PURE__*/_react.default.createElement(_styles2.CheckboxContainer, null, /*#__PURE__*/_react.default.createElement(_styles.Checkbox, {
+      active: extra.id === (currentExtra === null || currentExtra === void 0 ? void 0 : currentExtra.id),
+      onClick: function onClick(e) {
+        return handleOpenExtraDetails(e, extra);
+      },
+      isDragOver: dragoverExtaId === extra.id,
+      isBorderBottom: isExtrasBottom && isLastExtra,
+      onDragOver: function onDragOver(e) {
+        return hanldeDragOver(e, extra, isLastExtra);
+      },
+      onDrop: function onDrop(e) {
+        return handleDrop(e, extra);
+      },
+      onDragEnd: handleDragEnd,
+      className: "draggable-extra"
+    }, /*#__PURE__*/_react.default.createElement(_styles2.DragImageWrapper, {
+      className: "draggable-dots"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: (_theme$images$icons = theme.images.icons) === null || _theme$images$icons === void 0 ? void 0 : _theme$images$icons.sixDots,
+      alt: "six dots",
+      draggable: true,
+      onDragStart: function onDragStart(e) {
+        return handleDragStart(e, extra);
+      }
+    })), /*#__PURE__*/_react.default.createElement(_styles2.CheckboxContainer, {
+      className: "extra-checkbox"
+    }, /*#__PURE__*/_react.default.createElement(_styles.Checkbox, {
       checked: (_extraIds$includes = extraIds.includes(extra.id)) !== null && _extraIds$includes !== void 0 ? _extraIds$includes : false,
       onChange: function onChange(e) {
         return handleExtraState(extra.id, e.target.checked);
       }
-    }), /*#__PURE__*/_react.default.createElement("input", {
-      type: "text",
-      defaultValue: extra.name,
-      onChange: function onChange(e) {
-        return handleChangeExtraInput(e, extra.id);
-      }
-    })), /*#__PURE__*/_react.default.createElement(_styles2.MoreContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.Details, {
-      onClick: function onClick() {
-        return handleOpenExtraDetails(extra);
-      }
-    }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null))));
+    })), /*#__PURE__*/_react.default.createElement(_styles2.MoreContainer, null, /*#__PURE__*/_react.default.createElement("span", null, extra.name), /*#__PURE__*/_react.default.createElement(_styles2.Details, null, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null))));
   })), isAddMode && /*#__PURE__*/_react.default.createElement(_styles2.ExtraAddForm, {
     ref: conatinerRef,
     onSubmit: function onSubmit(e) {
@@ -240,6 +269,7 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     },
     business: business,
     extra: currentExtra,
+    handleChangeExtraName: handleChangeExtraInput,
     handleUpdateBusinessState: handleUpdateBusinessState
   })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, openExtraDetails && /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: "80%",
@@ -254,6 +284,7 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     },
     business: business,
     extra: currentExtra,
+    handleChangeExtraName: handleChangeExtraInput,
     handleUpdateBusinessState: handleUpdateBusinessState
   }))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('WEB_APPNAME', 'Ordering'),

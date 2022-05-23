@@ -37,6 +37,10 @@ var _PaymethodOptionStripeConnect = require("../PaymethodOptionStripeConnect");
 
 var _PaymentOptionPaypal = require("../PaymentOptionPaypal");
 
+var _PaymentOptionSquare = require("../PaymentOptionSquare");
+
+var _BusinessWalletsList = require("../BusinessWalletsList");
+
 var _styles2 = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -72,12 +76,13 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
+  var _configs$wallet_enabl;
+
   var business = props.business,
       businessPaymethodsState = props.businessPaymethodsState,
       paymethodsList = props.paymethodsList,
       handleClickPayment = props.handleClickPayment,
       handleSelectAllPaymethods = props.handleSelectAllPaymethods,
-      handleSelectNonePaymethods = props.handleSelectNonePaymethods,
       handleDeleteBusinessPaymethodOption = props.handleDeleteBusinessPaymethodOption,
       setIsExtendExtraOpen = props.setIsExtendExtraOpen,
       actionState = props.actionState,
@@ -95,12 +100,18 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
       handleStripeSave = props.handleStripeSave,
       isSuccessDeleted = props.isSuccessDeleted,
       setIsSuccessDeleted = props.setIsSuccessDeleted,
+      handleSuccessPaymethodUpdate = props.handleSuccessPaymethodUpdate,
+      handleSuccessUpdate = props.handleSuccessUpdate,
       isTutorialMode = props.isTutorialMode,
       handleTutorialContinue = props.handleTutorialContinue;
 
   var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
+
+  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+      _useConfig2 = _slicedToArray(_useConfig, 1),
+      configs = _useConfig2[0].configs;
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
@@ -133,6 +144,12 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
       alertState = _useState10[0],
       setAlertState = _useState10[1];
 
+  var _useState11 = (0, _react.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      isOpenWalletDetails = _useState12[0],
+      setIsOpenWalletDetails = _useState12[1];
+
+  var isWalletCashEnabled = (configs === null || configs === void 0 ? void 0 : (_configs$wallet_enabl = configs.wallet_enabled) === null || _configs$wallet_enabl === void 0 ? void 0 : _configs$wallet_enabl.value) === '1';
   var orderTypes = [{
     value: 1,
     text: t('DELIVERY', 'Delivery')
@@ -229,7 +246,9 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     });
     setSelectedBusinessPaymethod(updatedPaymethod);
   }, [businessPaymethodsState === null || businessPaymethodsState === void 0 ? void 0 : businessPaymethodsState.paymethods, selectedBusinessPaymethod]);
-  return /*#__PURE__*/_react.default.createElement(_styles2.MainContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.PaymentMethodsContainer, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PAYMETHODS', 'Payment methods')), /*#__PURE__*/_react.default.createElement(_styles2.SearchBarWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
+  return /*#__PURE__*/_react.default.createElement(_styles2.MainContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.PaymentMethodsContainer, {
+    isOpenWalletDetails: isOpenWalletDetails
+  }, /*#__PURE__*/_react.default.createElement("h1", null, t('PAYMETHODS', 'Payment methods')), /*#__PURE__*/_react.default.createElement(_styles2.SearchBarWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
     placeholder: t('SEARCH', 'Search'),
     isCustomLayout: true,
     search: searchValue,
@@ -242,13 +261,7 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
       return handleSelectAllPaymethods();
     },
     disabled: paymethodsList.loading || businessPaymethodsState.loading
-  }, t('SELECT_ALL', 'Select all')), /*#__PURE__*/_react.default.createElement(_styles.Button, {
-    color: "secundaryDark",
-    onClick: function onClick() {
-      return handleSelectNonePaymethods();
-    },
-    disabled: paymethodsList.loading || businessPaymethodsState.loading
-  }, t('SELECT_NONE', 'Select none'))), paymethodsList.loading || businessPaymethodsState.loading ? _toConsumableArray(Array(10).keys()).map(function (i) {
+  }, t('SELECT_ALL', 'Select all'))), paymethodsList.loading || businessPaymethodsState.loading ? _toConsumableArray(Array(10).keys()).map(function (i) {
     return /*#__PURE__*/_react.default.createElement(_styles2.PaymethodOptionContainer, {
       key: i
     }, /*#__PURE__*/_react.default.createElement(_styles2.PaymethodOption, null, /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
@@ -261,7 +274,7 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
   }) : /*#__PURE__*/_react.default.createElement(_styles2.PaymethodListWrapper, null, paymethodsList.paymethods.filter(function (paymethod) {
     var _paymethod$name;
 
-    return paymethod === null || paymethod === void 0 ? void 0 : (_paymethod$name = paymethod.name) === null || _paymethod$name === void 0 ? void 0 : _paymethod$name.toLowerCase().includes(searchValue.toLowerCase());
+    return paymethod === null || paymethod === void 0 ? void 0 : (_paymethod$name = paymethod.name) === null || _paymethod$name === void 0 ? void 0 : _paymethod$name.toLowerCase().includes(searchValue === null || searchValue === void 0 ? void 0 : searchValue.toLowerCase());
   }).map(function (paymethod) {
     return /*#__PURE__*/_react.default.createElement(_styles2.PaymethodOptionContainer, {
       key: paymethod.id,
@@ -278,13 +291,20 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     }, isCheckEnableSate(paymethod.id) ? /*#__PURE__*/_react.default.createElement(_RiCheckboxFill.default, {
       className: "fill"
     }) : /*#__PURE__*/_react.default.createElement(_RiCheckboxBlankLine.default, null)), /*#__PURE__*/_react.default.createElement(_styles2.PaymethodName, null, paymethod === null || paymethod === void 0 ? void 0 : paymethod.name), !isTutorialMode && isCheckFoundBusinessPaymethod(paymethod.id) && /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null));
+  }), isWalletCashEnabled && /*#__PURE__*/_react.default.createElement(_BusinessWalletsList.BusinessWalletsList, {
+    business: business,
+    setIsOpenWalletDetails: setIsOpenWalletDetails,
+    setIsExtendExtraOpen: setIsExtendExtraOpen,
+    isClose: isEdit,
+    handleClosePaymethodDetails: handleCloseEdit,
+    handleSuccessUpdate: handleSuccessUpdate
   })), isTutorialMode && /*#__PURE__*/_react.default.createElement(_styles.Button, {
     borderRadius: "8px",
     color: "primary",
     onClick: function onClick() {
       return handleTutorialContinue();
     }
-  }, t('CONTINUE', 'Continue'))), width >= 1000 ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isEdit && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !['stripe_direct', 'paypal', 'paypal_express', 'stripe_redirect', 'stripe_connect'].includes(selectedPaymethodGateway) && /*#__PURE__*/_react.default.createElement(_PaymentOption.PaymentOption, {
+  }, t('CONTINUE', 'Continue'))), width >= 1000 ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isEdit && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !['stripe_direct', 'paypal', 'paypal_express', 'stripe_redirect', 'stripe_connect', 'square'].includes(selectedPaymethodGateway) && /*#__PURE__*/_react.default.createElement(_PaymentOption.PaymentOption, {
     sitesState: sitesState,
     open: isEdit,
     onClose: function onClose() {
@@ -380,6 +400,20 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     handleChangeStripeInput: handleChangeStripeInput,
     handleStripeSave: handleStripeSave,
     handleDeletePaymethod: handleDeleteBusinessPaymethodOption
+  }), selectedPaymethodGateway === 'square' && /*#__PURE__*/_react.default.createElement(_PaymentOptionSquare.PaymentOptionSquare, {
+    open: isEdit,
+    sitesState: sitesState,
+    business: business,
+    changesState: changesState,
+    orderTypes: orderTypes,
+    onClose: function onClose() {
+      return handleCloseEdit();
+    },
+    businessPaymethod: selectedBusinessPaymethod,
+    handleDeletePaymethod: handleDeleteBusinessPaymethodOption,
+    handleChangeBusinessPaymentState: handleChangeBusinessPaymentState,
+    businessPaymethods: businessPaymethodsState === null || businessPaymethodsState === void 0 ? void 0 : businessPaymethodsState.paymethods,
+    handleSuccessPaymethodUpdate: handleSuccessPaymethodUpdate
   }))) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isEdit && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: "80%",
     open: isEdit,
@@ -483,6 +517,20 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     handleChangeStripeInput: handleChangeStripeInput,
     handleStripeSave: handleStripeSave,
     handleDeletePaymethod: handleDeleteBusinessPaymethodOption
+  }), selectedPaymethodGateway === 'square' && /*#__PURE__*/_react.default.createElement(_PaymentOptionSquare.PaymentOptionSquare, {
+    open: isEdit,
+    sitesState: sitesState,
+    business: business,
+    changesState: changesState,
+    orderTypes: orderTypes,
+    onClose: function onClose() {
+      return handleCloseEdit();
+    },
+    businessPaymethod: selectedBusinessPaymethod,
+    handleDeletePaymethod: handleDeleteBusinessPaymethodOption,
+    handleChangeBusinessPaymentState: handleChangeBusinessPaymentState,
+    businessPaymethods: businessPaymethodsState === null || businessPaymethodsState === void 0 ? void 0 : businessPaymethodsState.paymethods,
+    handleSuccessPaymethodUpdate: handleSuccessPaymethodUpdate
   })))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('PAYMETHODS', 'Payment methods'),
     content: alertState.content,

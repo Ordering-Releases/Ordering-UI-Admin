@@ -9,6 +9,8 @@ exports.OrdersTable = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _moment = _interopRequireDefault(require("moment"));
+
 var _RiCheckboxBlankLine = _interopRequireDefault(require("@meronex/icons/ri/RiCheckboxBlankLine"));
 
 var _RiCheckboxFill = _interopRequireDefault(require("@meronex/icons/ri/RiCheckboxFill"));
@@ -62,7 +64,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var OrdersTable = function OrdersTable(props) {
-  var _orderList$orders;
+  var _orderList$orders3;
 
   var isSelectedOrders = props.isSelectedOrders,
       orderList = props.orderList,
@@ -77,7 +79,9 @@ var OrdersTable = function OrdersTable(props) {
       currentTourStep = props.currentTourStep,
       isTourOpen = props.isTourOpen,
       handleOpenTour = props.handleOpenTour,
-      setIsTourOpen = props.setIsTourOpen;
+      setIsTourOpen = props.setIsTourOpen,
+      slaSettingTime = props.slaSettingTime,
+      groupStatus = props.groupStatus;
 
   var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -98,6 +102,10 @@ var OrdersTable = function OrdersTable(props) {
       isAllChecked = _useState2[0],
       setIsAllChecked = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      setCurrentTime = _useState4[1];
+
   var handleChangePage = function handleChangePage(page) {
     getPageOrders(pagination.pageSize, page);
   };
@@ -107,7 +115,11 @@ var OrdersTable = function OrdersTable(props) {
     getPageOrders(pageSize, expectedPage);
   };
 
-  var _useState3 = (0, _react.useState)({
+  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+      _useConfig2 = _slicedToArray(_useConfig, 1),
+      configState = _useConfig2[0];
+
+  var _useState5 = (0, _react.useState)({
     status: true,
     orderNumber: true,
     dateTime: true,
@@ -115,11 +127,13 @@ var OrdersTable = function OrdersTable(props) {
     customer: true,
     driver: true,
     advanced: true,
+    timer: true,
+    slaBar: true,
     total: true
   }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      allowColumns = _useState4[0],
-      setAllowColumns = _useState4[1];
+      _useState6 = _slicedToArray(_useState5, 2),
+      allowColumns = _useState6[0],
+      setAllowColumns = _useState6[1];
 
   var optionsDefault = [{
     value: 'status',
@@ -143,9 +157,59 @@ var OrdersTable = function OrdersTable(props) {
     value: 'advanced',
     content: t('ADVANCED_LOGISTICS', 'Advance Logistics')
   }, {
+    value: 'timer',
+    content: t('SLA_TIMER', 'SLA’s timer')
+  }, {
     value: 'total',
     content: t('EXPORT_TOTAL', 'Total')
   }];
+
+  var getDelayMinutes = function getDelayMinutes(order) {
+    // targetMin = delivery_datetime  + eta_time - now()
+    var offset = 300;
+    var cdtToutc = (0, _moment.default)(order === null || order === void 0 ? void 0 : order.delivery_datetime).add(offset, 'minutes').format('YYYY-MM-DD HH:mm:ss');
+
+    var _delivery = order !== null && order !== void 0 && order.delivery_datetime_utc ? parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : parseDate(cdtToutc);
+
+    var _eta = order === null || order === void 0 ? void 0 : order.eta_time;
+
+    var diffTimeAsSeconds = (0, _moment.default)(_delivery).add(_eta, 'minutes').diff((0, _moment.default)().utc(), 'seconds');
+    return Math.ceil(diffTimeAsSeconds / 60);
+  };
+
+  var displayDelayedTime = function displayDelayedTime(order) {
+    var tagetedMin = getDelayMinutes(order); // get day, hour and minutes
+
+    var sign = tagetedMin >= 0 ? '' : '- ';
+    tagetedMin = Math.abs(tagetedMin);
+    var day = Math.floor(tagetedMin / 1440);
+    var restMinOfTargetedMin = tagetedMin - 1440 * day;
+    var restHours = Math.floor(restMinOfTargetedMin / 60);
+    var restMins = restMinOfTargetedMin - 60 * restHours; // make standard time format
+
+    day = day === 0 ? '' : day + 'day  ';
+    restHours = restHours < 10 ? '0' + restHours : restHours;
+    restMins = restMins < 10 ? '0' + restMins : restMins;
+    var finalTaget = sign + day + restHours + ':' + restMins;
+    return finalTaget;
+  };
+
+  var getStatusClassName = function getStatusClassName(minutes) {
+    var _configState$configs, _configState$configs$;
+
+    if (isNaN(Number(minutes))) return 'in_time';
+    var delayTime = configState === null || configState === void 0 ? void 0 : (_configState$configs = configState.configs) === null || _configState$configs === void 0 ? void 0 : (_configState$configs$ = _configState$configs.order_deadlines_delayed_time) === null || _configState$configs$ === void 0 ? void 0 : _configState$configs$.value;
+    return minutes > 0 ? 'in_time' : Math.abs(minutes) <= delayTime ? 'at_risk' : 'delayed';
+  };
+
+  (0, _react.useEffect)(function () {
+    var interval = setInterval(function () {
+      setCurrentTime(Date.now());
+    }, slaSettingTime);
+    return function () {
+      return clearInterval(interval);
+    };
+  }, []);
 
   var getLogisticTag = function getLogisticTag(status) {
     switch (parseInt(status)) {
@@ -282,7 +346,9 @@ var OrdersTable = function OrdersTable(props) {
   };
 
   var handleSelecteAllOrder = function handleSelecteAllOrder() {
-    var orderIds = orderList.orders.reduce(function (ids, order) {
+    var _orderList$orders;
+
+    var orderIds = (_orderList$orders = orderList.orders) === null || _orderList$orders === void 0 ? void 0 : _orderList$orders.reduce(function (ids, order) {
       return [].concat(_toConsumableArray(ids), [order.id]);
     }, []);
 
@@ -298,8 +364,10 @@ var OrdersTable = function OrdersTable(props) {
   };
 
   (0, _react.useEffect)(function () {
+    var _orderList$orders2;
+
     if (orderList.loading) return;
-    var orderIds = orderList.orders.reduce(function (ids, order) {
+    var orderIds = (_orderList$orders2 = orderList.orders) === null || _orderList$orders2 === void 0 ? void 0 : _orderList$orders2.reduce(function (ids, order) {
       return [].concat(_toConsumableArray(ids), [order.id]);
     }, []);
 
@@ -324,14 +392,30 @@ var OrdersTable = function OrdersTable(props) {
       return document.removeEventListener('keydown', handleChangeKeyboard);
     };
   }, [isTourOpen, currentTourStep]);
+  (0, _react.useEffect)(function () {
+    if (groupStatus === 'completed' || groupStatus === 'cancelled') {
+      setAllowColumns(_objectSpread(_objectSpread({}, allowColumns), {}, {
+        timer: false
+      }));
+    }
+  }, [groupStatus]);
+  (0, _react.useEffect)(function () {
+    var _configState$configs2, _configState$configs3;
+
+    var slaSettings = (configState === null || configState === void 0 ? void 0 : (_configState$configs2 = configState.configs) === null || _configState$configs2 === void 0 ? void 0 : (_configState$configs3 = _configState$configs2.order_deadlines_enabled) === null || _configState$configs3 === void 0 ? void 0 : _configState$configs3.value) === '1';
+    setAllowColumns(_objectSpread(_objectSpread({}, allowColumns), {}, {
+      timer: slaSettings,
+      slaBar: slaSettings
+    }));
+  }, [configState.loading]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles.OrdersContainer, {
     id: "orderTable",
     isSelectedOrders: isSelectedOrders,
     noScroll: isTourOpen && currentTourStep === 0
   }, /*#__PURE__*/_react.default.createElement(_styles.Table, {
     className: "orders_table",
-    noFixedHeader: !orderList.loading && ((_orderList$orders = orderList.orders) === null || _orderList$orders === void 0 ? void 0 : _orderList$orders.length) <= 5
-  }, !isSelectedOrders && /*#__PURE__*/_react.default.createElement("thead", null, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("th", {
+    noFixedHeader: !orderList.loading && ((_orderList$orders3 = orderList.orders) === null || _orderList$orders3 === void 0 ? void 0 : _orderList$orders3.length) <= 5
+  }, !isSelectedOrders && /*#__PURE__*/_react.default.createElement("thead", null, /*#__PURE__*/_react.default.createElement("tr", null, (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.slaBar) && /*#__PURE__*/_react.default.createElement("th", null, /*#__PURE__*/_react.default.createElement(_styles.Timestatus, null)), /*#__PURE__*/_react.default.createElement("th", {
     className: !(allowColumns !== null && allowColumns !== void 0 && allowColumns.orderNumber || allowColumns !== null && allowColumns !== void 0 && allowColumns.dateTime) ? 'orderNo small' : 'orderNo'
   }, /*#__PURE__*/_react.default.createElement(_styles.CheckBox, {
     isChecked: !orderList.loading && isAllChecked,
@@ -348,10 +432,10 @@ var OrdersTable = function OrdersTable(props) {
   }, t('CUSTOMER', 'Customer')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.driver) && /*#__PURE__*/_react.default.createElement("th", {
     className: "driverInfo"
   }, t('DRIVER', 'Driver')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.advanced) && /*#__PURE__*/_react.default.createElement("th", {
-    colSpan: 3,
+    colSpan: "3",
     className: "advanced"
   }, t('ADVANCED_LOGISTICS', 'Advanced logistics')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.timer) && /*#__PURE__*/_react.default.createElement("th", {
-    colSpan: 2,
+    colSpan: "2",
     className: "timer"
   }, t('SLA_TIMER', 'SLA’s timer')), /*#__PURE__*/_react.default.createElement("th", {
     className: "orderPrice"
@@ -362,7 +446,7 @@ var OrdersTable = function OrdersTable(props) {
   })))), orderList.loading ? _toConsumableArray(Array(10).keys()).map(function (i) {
     return /*#__PURE__*/_react.default.createElement(_styles.OrderTbody, {
       key: i
-    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", {
+    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.Timestatus, null)), /*#__PURE__*/_react.default.createElement("td", {
       className: !(allowColumns !== null && allowColumns !== void 0 && allowColumns.orderNumber || allowColumns !== null && allowColumns !== void 0 && allowColumns.dateTime) ? 'orderNo small' : 'orderNo'
     }, /*#__PURE__*/_react.default.createElement(_styles.OrderNumberContainer, null, /*#__PURE__*/_react.default.createElement(_styles.CheckBox, null, /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
       width: 25,
@@ -474,7 +558,7 @@ var OrdersTable = function OrdersTable(props) {
       width: 100
     }))))));
   }) : orderList.orders.map(function (order, i) {
-    var _getOrderStatus, _order$business, _theme$images, _theme$images$dummies, _order$business2, _order$business3, _order$business3$city, _order$customer, _order$customer2, _order$customer3, _order$customer4, _order$summary, _order$summary2;
+    var _getOrderStatus, _order$business, _theme$images, _theme$images$dummies, _order$business2, _order$business3, _order$business3$city, _order$customer, _order$customer2, _order$customer3, _order$customer4, _order$summary;
 
     return /*#__PURE__*/_react.default.createElement(_styles.OrderTbody, {
       key: i,
@@ -483,7 +567,9 @@ var OrdersTable = function OrdersTable(props) {
         return handleClickOrder(order, e);
       },
       "data-tour": i === 0 ? 'tour_start' : ''
-    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", {
+    }, /*#__PURE__*/_react.default.createElement("tr", null, (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.slaBar) && /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.Timestatus, {
+      timeState: getStatusClassName(getDelayMinutes(order))
+    })), /*#__PURE__*/_react.default.createElement("td", {
       className: !(allowColumns !== null && allowColumns !== void 0 && allowColumns.orderNumber || allowColumns !== null && allowColumns !== void 0 && allowColumns.dateTime) ? 'small' : ''
     }, /*#__PURE__*/_react.default.createElement(_styles.OrderNumberContainer, null, !isSelectedOrders && /*#__PURE__*/_react.default.createElement(_styles.CheckBox, {
       isChecked: selectedOrderIds.includes(order === null || order === void 0 ? void 0 : order.id),
@@ -553,21 +639,19 @@ var OrdersTable = function OrdersTable(props) {
       className: "bold"
     }, t('PRIORITY', 'Priority')), /*#__PURE__*/_react.default.createElement("p", null, getPriorityTag(order === null || order === void 0 ? void 0 : order.priority), /*#__PURE__*/_react.default.createElement(_styles.PriorityDot, {
       priority: order === null || order === void 0 ? void 0 : order.priority
-    })))), !isSelectedOrders && /*#__PURE__*/_react.default.createElement("td", {
+    })))), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.timer) && /*#__PURE__*/_react.default.createElement("td", {
+      className: "timer"
+    }, /*#__PURE__*/_react.default.createElement(_styles.Timer, null, !((order === null || order === void 0 ? void 0 : order.status) === 1 || (order === null || order === void 0 ? void 0 : order.status) === 11 || (order === null || order === void 0 ? void 0 : order.status) === 2 || (order === null || order === void 0 ? void 0 : order.status) === 5 || (order === null || order === void 0 ? void 0 : order.status) === 6 || (order === null || order === void 0 ? void 0 : order.status) === 10 || order.status === 12) && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", {
+      className: "bold"
+    }, t('TIMER', 'Timer')), /*#__PURE__*/_react.default.createElement("p", {
+      className: getStatusClassName(getDelayMinutes(order))
+    }, displayDelayedTime(order))))), /*#__PURE__*/_react.default.createElement("td", {
       className: "orderPrice"
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: "info"
     }, (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.total) && /*#__PURE__*/_react.default.createElement("p", {
       className: "bold"
-    }, parsePrice(order === null || order === void 0 ? void 0 : (_order$summary = order.summary) === null || _order$summary === void 0 ? void 0 : _order$summary.total)), !((order === null || order === void 0 ? void 0 : order.status) === 1 || (order === null || order === void 0 ? void 0 : order.status) === 11 || (order === null || order === void 0 ? void 0 : order.status) === 2 || (order === null || order === void 0 ? void 0 : order.status) === 5 || (order === null || order === void 0 ? void 0 : order.status) === 6 || (order === null || order === void 0 ? void 0 : order.status) === 10 || order.status === 12) && /*#__PURE__*/_react.default.createElement(TimgeAgo, {
-      order: order
-    }))), /*#__PURE__*/_react.default.createElement("td", {
-      className: "orderPrice"
-    }, /*#__PURE__*/_react.default.createElement("div", {
-      className: "info"
-    }, (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.total) && /*#__PURE__*/_react.default.createElement("p", {
-      className: "bold"
-    }, parsePrice(order === null || order === void 0 ? void 0 : (_order$summary2 = order.summary) === null || _order$summary2 === void 0 ? void 0 : _order$summary2.total)), !((order === null || order === void 0 ? void 0 : order.status) === 1 || (order === null || order === void 0 ? void 0 : order.status) === 11 || (order === null || order === void 0 ? void 0 : order.status) === 2 || (order === null || order === void 0 ? void 0 : order.status) === 5 || (order === null || order === void 0 ? void 0 : order.status) === 6 || (order === null || order === void 0 ? void 0 : order.status) === 10 || order.status === 12) && /*#__PURE__*/_react.default.createElement("p", null, order !== null && order !== void 0 && order.delivery_datetime_utc ? getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
+    }, parsePrice(order === null || order === void 0 ? void 0 : (_order$summary = order.summary) === null || _order$summary === void 0 ? void 0 : _order$summary.total)), !((order === null || order === void 0 ? void 0 : order.status) === 1 || (order === null || order === void 0 ? void 0 : order.status) === 11 || (order === null || order === void 0 ? void 0 : order.status) === 2 || (order === null || order === void 0 ? void 0 : order.status) === 5 || (order === null || order === void 0 ? void 0 : order.status) === 6 || (order === null || order === void 0 ? void 0 : order.status) === 10 || order.status === 12) && /*#__PURE__*/_react.default.createElement("p", null, order !== null && order !== void 0 && order.delivery_datetime_utc ? getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
       utc: false
     })))), /*#__PURE__*/_react.default.createElement("td", null)));
   }))), pagination && /*#__PURE__*/_react.default.createElement(_styles.WrapperPagination, null, /*#__PURE__*/_react.default.createElement(_Shared.Pagination, {
@@ -580,33 +664,3 @@ var OrdersTable = function OrdersTable(props) {
 };
 
 exports.OrdersTable = OrdersTable;
-
-var TimgeAgo = function TimgeAgo(props) {
-  var order = props.order;
-
-  var _useUtils3 = (0, _orderingComponentsAdmin.useUtils)(),
-      _useUtils4 = _slicedToArray(_useUtils3, 1),
-      getTimeAgo = _useUtils4[0].getTimeAgo;
-
-  var _useState5 = (0, _react.useState)(order !== null && order !== void 0 && order.delivery_datetime_utc ? getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
-    utc: false
-  })),
-      _useState6 = _slicedToArray(_useState5, 2),
-      diffTime = _useState6[0],
-      setDiffTime = _useState6[1];
-
-  (0, _react.useEffect)(function () {
-    var deActive = (order === null || order === void 0 ? void 0 : order.status) === 1 || (order === null || order === void 0 ? void 0 : order.status) === 11 || (order === null || order === void 0 ? void 0 : order.status) === 2 || (order === null || order === void 0 ? void 0 : order.status) === 5 || (order === null || order === void 0 ? void 0 : order.status) === 6 || (order === null || order === void 0 ? void 0 : order.status) === 10 || order.status === 12;
-    if (deActive) return;
-    var timer = setInterval(function () {
-      var diff = order !== null && order !== void 0 && order.delivery_datetime_utc ? getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : getTimeAgo(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
-        utc: false
-      });
-      setDiffTime(diff);
-    }, 60 * 1000);
-    return function () {
-      clearInterval(timer);
-    };
-  }, []);
-  return /*#__PURE__*/_react.default.createElement("p", null, diffTime);
-};

@@ -13,6 +13,8 @@ var _orderingComponentsAdmin = require("ordering-components-admin");
 
 var _BusinessDeliveryZoneInformation = require("../BusinessDeliveryZoneInformation");
 
+var _BusinessDeliveryZoneShare = require("../BusinessDeliveryZoneShare");
+
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
 var _reactBootstrap = require("react-bootstrap");
@@ -49,6 +51,7 @@ var BusinessDeliveryZoneDetailsUI = function BusinessDeliveryZoneDetailsUI(props
   var _zoneState$zone;
 
   var business = props.business,
+      businessZones = props.businessZones,
       zoneState = props.zoneState,
       formState = props.formState,
       handleChangeInput = props.handleChangeInput,
@@ -79,8 +82,10 @@ var BusinessDeliveryZoneDetailsUI = function BusinessDeliveryZoneDetailsUI(props
   var tabs = [{
     key: 'information',
     content: t('INFORMATION', 'Information')
+  }, {
+    key: 'share_with',
+    content: t('SHARE_WITH', 'Share with')
   } // { key: 'channels', content: t('CHANNELS', 'Channels') },
-  // { key: 'share_with', content: t('SHARE_WITH', 'Share with') }
   ];
 
   var onClickDelete = function onClickDelete() {
@@ -115,11 +120,16 @@ var BusinessDeliveryZoneDetailsUI = function BusinessDeliveryZoneDetailsUI(props
   })), selectedMenuOption === 'information' && /*#__PURE__*/_react.default.createElement(_BusinessDeliveryZoneInformation.BusinessDeliveryZoneInformation, {
     business: business,
     zone: zoneState.zone,
+    businessZones: businessZones,
     formState: formState,
     handleChangeInput: handleChangeInput,
     handleChangeFormState: handleChangeFormState,
     handleUpdateBusinessDeliveryZone: handleUpdateBusinessDeliveryZone,
     handleAddBusinessDeliveryZone: handleAddBusinessDeliveryZone
+  }), selectedMenuOption === 'share_with' && /*#__PURE__*/_react.default.createElement(_BusinessDeliveryZoneShare.BusinessDeliveryZoneShare, {
+    business: business,
+    zone: zoneState.zone,
+    handleUpdateBusinessDeliveryZone: handleUpdateBusinessDeliveryZone
   })), /*#__PURE__*/_react.default.createElement(_Shared.Confirm, {
     width: "700px",
     title: t('WEB_APPNAME', 'Ordering'),

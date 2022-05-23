@@ -19,13 +19,17 @@ var _reactBootstrapIcons = require("react-bootstrap-icons");
 
 var _MdcFilterOff = _interopRequireDefault(require("@meronex/icons/mdc/MdcFilterOff"));
 
-var _OrdersDashboardControls = require("../OrdersDashboardControls");
+var _OrdersDashboardSLAControls = require("../OrdersDashboardSLAControls");
+
+var _OrderDashboardSLASetting = require("../OrderDashboardSLASetting");
 
 var _styles = require("../../../styles");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
 var _reactBootstrap = require("react-bootstrap");
+
+var _useWindowSize2 = require("../../../hooks/useWindowSize");
 
 var _styles2 = require("./styles");
 
@@ -48,6 +52,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var OrdersContentHeader = function OrdersContentHeader(props) {
+  var _configState$configs, _configState$configs$;
+
   var isDisableTitle = props.isDisableTitle,
       isDisableControl = props.isDisableControl,
       title = props.title,
@@ -61,11 +67,14 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
       filterValues = props.filterValues,
       selectedOrderIds = props.selectedOrderIds,
       handleChangeFilterValues = props.handleChangeFilterValues,
-      handleDeleteMultiOrders = props.handleDeleteMultiOrders,
-      handleChangeMultiOrdersStatus = props.handleChangeMultiOrdersStatus,
       handleOpenTour = props.handleOpenTour,
       filterModalOpen = props.filterModalOpen,
-      setFilterModalOpen = props.setFilterModalOpen;
+      setFilterModalOpen = props.setFilterModalOpen,
+      setTimeStatus = props.setTimeStatus,
+      setSlaSettingTime = props.setSlaSettingTime;
+
+  var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
+      width = _useWindowSize.width;
 
   var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -80,6 +89,10 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
       _useState2 = _slicedToArray(_useState, 2),
       filterApplied = _useState2[0],
       setFilterApplied = _useState2[1];
+
+  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+      _useConfig2 = _slicedToArray(_useConfig, 1),
+      configState = _useConfig2[0];
 
   (0, _react.useEffect)(function () {
     var _filterApplied = false;
@@ -101,7 +114,7 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
     onClick: function onClick() {
       return handleMenuCollapse(false);
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.List, null)), /*#__PURE__*/_react.default.createElement(_styles2.HeaderTitle, null, title), selectedOrderIds && /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.List, null)), /*#__PURE__*/_react.default.createElement(_styles2.HeaderTitle, null, title), selectedOrderIds && width > 768 && /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
     placement: "bottom",
     overlay: /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, null, t('START_TUTORIAL', 'Start tutorial'))
   }, /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
@@ -110,12 +123,11 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
     onClick: function onClick() {
       return handleOpenTour();
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.LifePreserver, null)))), /*#__PURE__*/_react.default.createElement(_styles2.TopRightSection, null, !isDisableControl && /*#__PURE__*/_react.default.createElement(_OrdersDashboardControls.OrdersDashboardControls, {
-    selectedOrderNumber: selectedOrderIds === null || selectedOrderIds === void 0 ? void 0 : selectedOrderIds.length,
-    filterValues: filterValues,
-    handleChangeMultiOrdersStatus: handleChangeMultiOrdersStatus,
-    handleDeleteMultiOrders: handleDeleteMultiOrders
-  }), /*#__PURE__*/_react.default.createElement(_styles2.WrapperSearchAndFilter, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.LifePreserver, null)))), /*#__PURE__*/_react.default.createElement(_styles2.TopRightSection, null, (configState === null || configState === void 0 ? void 0 : (_configState$configs = configState.configs) === null || _configState$configs === void 0 ? void 0 : (_configState$configs$ = _configState$configs.order_deadlines_enabled) === null || _configState$configs$ === void 0 ? void 0 : _configState$configs$.value) === '1' && /*#__PURE__*/_react.default.createElement(_styles2.SLAControlsWrapper, null, /*#__PURE__*/_react.default.createElement(_OrderDashboardSLASetting.OrderDashboardSLASetting, {
+    setSlaSettingTime: setSlaSettingTime
+  }), /*#__PURE__*/_react.default.createElement(_OrdersDashboardSLAControls.OrdersDashboardSLAControls, {
+    setTimeStatus: setTimeStatus
+  })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperSearchAndFilter, {
     fullWidth: isDisableTitle && isDisableControl
   }, /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
     isCustomLayout: true,
@@ -126,13 +138,13 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
   }), /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
     color: "black",
     onClick: function onClick() {
-      return setFilterModalOpen(true);
+      return setFilterModalOpen && setFilterModalOpen(true);
     },
     name: "filter-btn"
   }, filterApplied ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Funnel, null) : /*#__PURE__*/_react.default.createElement(_MdcFilterOff.default, null))))), /*#__PURE__*/_react.default.createElement(_OrdersFilterGroup.OrdersFilterGroup, {
     open: filterModalOpen,
     handleCloseFilterModal: function handleCloseFilterModal() {
-      return setFilterModalOpen(false);
+      return setFilterModalOpen && setFilterModalOpen(false);
     },
     driverGroupList: driverGroupList,
     driversList: driversList,

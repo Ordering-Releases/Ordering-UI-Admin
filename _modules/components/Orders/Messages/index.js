@@ -240,19 +240,25 @@ var MessagesUI = function MessagesUI(props) {
 
     if (load < 3) {
       var chat = document.getElementById('chat');
-      chat.scrollTop = chat.scrollHeight;
+
+      if (chat) {
+        chat.scrollTop = chat === null || chat === void 0 ? void 0 : chat.scrollHeight;
+      }
     }
   }, [load]);
   (0, _react.useEffect)(function () {
     if (history) return;
     var chat = document.getElementById('chat');
-    chat.scrollTop = chat.scrollHeight;
+
+    if (chat) {
+      chat.scrollTop = chat === null || chat === void 0 ? void 0 : chat.scrollHeight;
+    }
   }, [messages.messages.length, filteredMessages]);
   (0, _react.useEffect)(function () {
     if (history) return;
     setTimeout(function () {
       var chat = document.getElementById('chat');
-      chat.scrollTop = chat.scrollHeight;
+      chat.scrollTop = chat === null || chat === void 0 ? void 0 : chat.scrollHeight;
     }, 10);
   }, [isChat]);
 

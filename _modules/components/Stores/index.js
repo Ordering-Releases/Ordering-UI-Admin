@@ -51,12 +51,6 @@ Object.defineProperty(exports, "BusinessDeliveryDetails", {
     return _BusinessDeliveryDetails.BusinessDeliveryDetails;
   }
 });
-Object.defineProperty(exports, "BusinessDeliveryPickUp", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessDeliveryPickUp.BusinessDeliveryPickUp;
-  }
-});
 Object.defineProperty(exports, "BusinessDeliveryPickupMore", {
   enumerable: true,
   get: function get() {
@@ -91,18 +85,6 @@ Object.defineProperty(exports, "BusinessDetails", {
   enumerable: true,
   get: function get() {
     return _BusinessDetails.BusinessDetails;
-  }
-});
-Object.defineProperty(exports, "BusinessEmailAndPhone", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessEmailAndPhone.BusinessEmailAndPhone;
-  }
-});
-Object.defineProperty(exports, "BusinessExtension", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessExtension.BusinessExtension;
   }
 });
 Object.defineProperty(exports, "BusinessFrontLayout", {
@@ -141,12 +123,6 @@ Object.defineProperty(exports, "BusinessLocation", {
     return _BusinessLocation.BusinessLocation;
   }
 });
-Object.defineProperty(exports, "BusinessLogistic", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessLogistic.BusinessLogistic;
-  }
-});
 Object.defineProperty(exports, "BusinessMenu", {
   enumerable: true,
   get: function get() {
@@ -183,12 +159,6 @@ Object.defineProperty(exports, "BusinessMenuShare", {
     return _BusinessMenuShare.BusinessMenuShare;
   }
 });
-Object.defineProperty(exports, "BusinessMoreDetail", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessMoreDetail.BusinessMoreDetail;
-  }
-});
 Object.defineProperty(exports, "BusinessNotifications", {
   enumerable: true,
   get: function get() {
@@ -223,12 +193,6 @@ Object.defineProperty(exports, "BusinessPickupDetails", {
   enumerable: true,
   get: function get() {
     return _BusinessPickupDetails.BusinessPickupDetails;
-  }
-});
-Object.defineProperty(exports, "BusinessPreorder", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessPreorder.BusinessPreorder;
   }
 });
 Object.defineProperty(exports, "BusinessPreorderDetails", {
@@ -331,12 +295,6 @@ Object.defineProperty(exports, "BusinessSupport", {
   enumerable: true,
   get: function get() {
     return _BusinessSupport.BusinessSupport;
-  }
-});
-Object.defineProperty(exports, "BusinessTax", {
-  enumerable: true,
-  get: function get() {
-    return _BusinessTax.BusinessTax;
   }
 });
 Object.defineProperty(exports, "BusinessTaxAndFees", {
@@ -579,12 +537,6 @@ Object.defineProperty(exports, "SeoOptions", {
     return _SeoOptions.SeoOptions;
   }
 });
-Object.defineProperty(exports, "SingleBusiness", {
-  enumerable: true,
-  get: function get() {
-    return _SingleBusiness.SingleBusiness;
-  }
-});
 Object.defineProperty(exports, "SingleBusinessCategoryEdit", {
   enumerable: true,
   get: function get() {
@@ -644,8 +596,6 @@ var _BusinessLocation = require("./BusinessLocation");
 
 var _BusinessMenu = require("./BusinessMenu");
 
-var _BusinessMoreDetail = require("./BusinessMoreDetail");
-
 var _BusinessNotifications = require("./BusinessNotifications");
 
 var _BusinessOrderingChannels = require("./BusinessOrderingChannels");
@@ -704,23 +654,9 @@ var _BusinessPromotionGeneralForm = require("./BusinessPromotionGeneralForm");
 
 var _BusinessPromotionCustomFields = require("./BusinessPromotionCustomFields");
 
-var _BusinessTax = require("./BusinessTax");
-
-var _BusinessDeliveryPickUp = require("./BusinessDeliveryPickUp");
-
-var _BusinessExtension = require("./BusinessExtension");
-
-var _BusinessLogistic = require("./BusinessLogistic");
-
-var _BusinessPreorder = require("./BusinessPreorder");
-
-var _BusinessEmailAndPhone = require("./BusinessEmailAndPhone");
-
 var _BusinessGprsPrinters = require("./BusinessGprsPrinters");
 
 var _BusinessOwnerSelector = require("./BusinessOwnerSelector");
-
-var _SingleBusiness = require("./SingleBusiness");
 
 var _BusinessProductsCategoyDetails = require("./BusinessProductsCategoyDetails");
 

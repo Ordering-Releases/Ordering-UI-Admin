@@ -47,6 +47,8 @@ var _BatchImageForm = require("../BatchImageForm");
 
 var _BusinessDetails = require("../BusinessDetails");
 
+var _reactBootstrap = require("react-bootstrap");
+
 var _styles2 = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -276,6 +278,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
       setOpenSidebar(null);
       handleChangeSearch(null);
       setViewMethod('list');
+      setShowSelectHeader(true);
     }
   }, [slug]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.CategoryProductsContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.HeaderTitleContainer, null, isCollapse && /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
@@ -301,9 +304,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onClick: function onClick() {
       return setOpenSidebar('business_details');
     }
-  }, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine7 = businessState.business) === null || _businessState$busine7 === void 0 ? void 0 : _businessState$busine7.name)), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null), /*#__PURE__*/_react.default.createElement("span", null, categorySelected === null || categorySelected === void 0 ? void 0 : categorySelected.name))))), /*#__PURE__*/_react.default.createElement(_styles2.ActionsGroup, {
-    isDisabled: !slug
-  }, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  }, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine7 = businessState.business) === null || _businessState$busine7 === void 0 ? void 0 : _businessState$busine7.name)), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null), /*#__PURE__*/_react.default.createElement("span", null, categorySelected === null || categorySelected === void 0 ? void 0 : categorySelected.name))))), slug && /*#__PURE__*/_react.default.createElement(_styles2.ActionsGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     borderRadius: "8px",
     color: "lightPrimary",
     onClick: function onClick() {
@@ -322,9 +323,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     search: searchValue,
     onSearch: handleChangeSearch,
     placeholder: t('SEARCH', 'Search')
-  }))), /*#__PURE__*/_react.default.createElement(_styles2.CategoryProductsContent, {
-    isDisabled: !slug
-  }, /*#__PURE__*/_react.default.createElement(_styles2.CategoryListContainer, {
+  }))), slug && /*#__PURE__*/_react.default.createElement(_styles2.CategoryProductsContent, null, /*#__PURE__*/_react.default.createElement(_styles2.CategoryListContainer, {
     ref: categoryListRef
   }, /*#__PURE__*/_react.default.createElement(_BusinessProductsCategories.BusinessProductsCategories, _extends({}, props, {
     businessState: businessState,
@@ -337,9 +336,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     setCategorySelected: setCategorySelected,
     categoryListRef: categoryListRef === null || categoryListRef === void 0 ? void 0 : categoryListRef.current,
     setCurrentCategory: setCurrentCategory
-  }))), /*#__PURE__*/_react.default.createElement(_styles2.ProductListContainer, {
-    isDisabled: !slug
-  }, /*#__PURE__*/_react.default.createElement(_styles2.ProductHeader, null, /*#__PURE__*/_react.default.createElement(_SingleBusinessCategoryEdit.SingleBusinessCategoryEdit, _extends({}, props, {
+  }))), /*#__PURE__*/_react.default.createElement(_styles2.ProductListContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.ProductHeader, null, /*#__PURE__*/_react.default.createElement(_SingleBusinessCategoryEdit.SingleBusinessCategoryEdit, _extends({}, props, {
     category: categorySelected,
     categorySelected: categorySelected,
     handleChangeCategory: handleChangeCategory,
@@ -367,12 +364,17 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onClick: function onClick() {
       return setViewMethod('list');
     }
-  }, /*#__PURE__*/_react.default.createElement(_BsViewList.default, null)), /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
+  }, /*#__PURE__*/_react.default.createElement(_BsViewList.default, null)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.OverlayTrigger, {
+    placement: "top",
+    overlay: /*#__PURE__*/_react.default.createElement(_reactBootstrap.Tooltip, null, t('SPREADSHEET', 'Spreadsheet'))
+  }, /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
     color: viewMethod === 'spreedsheet' ? 'primary' : 'black',
+    className: "tour_btn",
     onClick: function onClick() {
       return setViewMethod('spreedsheet');
     }
-  }, /*#__PURE__*/_react.default.createElement(_BsTable.default, null)))), /*#__PURE__*/_react.default.createElement(_BusinessProductList.BusinessProductList, _extends({}, props, {
+  }, /*#__PURE__*/_react.default.createElement(_BsTable.default, null))))), /*#__PURE__*/_react.default.createElement(_BusinessProductList.BusinessProductList, _extends({}, props, {
+    categorySelected: categorySelected,
     productDetailsId: selectedProduct === null || selectedProduct === void 0 ? void 0 : selectedProduct.id,
     viewMethod: viewMethod,
     handleOpenProductDetails: handleOpenProductDetails,
