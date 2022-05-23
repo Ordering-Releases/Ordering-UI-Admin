@@ -383,51 +383,6 @@ var SidebarMenu = function SidebarMenu(props) {
         });
       }
     }, item.title);
-  })))), /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
-    eventKey: "8",
-    active: location.pathname === '/marketing/promotions-enterprise' || location.pathname === '/marketing/campaign'
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.GraphUp, null), /*#__PURE__*/_react.default.createElement("span", null, t('MARKETING', 'Marketing'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
-    eventKey: "8"
-  }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, marketingSubmenus.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
-      key: item.id,
-      active: location.pathname.includes(item.pageName) || location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
-      onClick: function onClick() {
-        return handleGoToPage({
-          page: item.pageName
-        });
-      }
-    }, item.title);
-  })))), /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
-    eventKey: "9",
-    active: location.pathname === '/loyalty/rewards-programs' || location.pathname === '/loyalty/levels' || location.pathname === '/loyalty/reports'
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Award, null), /*#__PURE__*/_react.default.createElement("span", null, t('LOYALTY', 'Loyalty'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
-    eventKey: "9"
-  }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, loyaltySubMenus.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
-      key: item.id,
-      active: location.pathname.includes(item.url),
-      onClick: function onClick() {
-        return handleGoToPage({
-          page: item.pageName
-        });
-      }
-    }, item.title);
-  })))), /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
-    eventKey: "10",
-    active: location.pathname === '/cart-recovery/open-carts' || location.pathname === '/cart-recovery/recovery-actions'
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Cart3, null), /*#__PURE__*/_react.default.createElement("span", null, t('CART_RECOVERY', 'Cart recovery'))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion.Collapse, {
-    eventKey: "10"
-  }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, cartRecoveryMenus.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
-      key: item.id,
-      active: location.pathname.includes(item.url),
-      onClick: function onClick() {
-        return handleGoToPage({
-          page: item.pageName
-        });
-      }
-    }, item.title);
   })))))), /*#__PURE__*/_react.default.createElement("div", {
     className: "d-flex flex-column mt-4"
   }, /*#__PURE__*/_react.default.createElement(_styles.LanguageSelectorContainer, null, /*#__PURE__*/_react.default.createElement(_LanguageSelector.LanguageSelector, null)), (sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user10 = sessionState.user) === null || _sessionState$user10 === void 0 ? void 0 : _sessionState$user10.level) === 0 && /*#__PURE__*/_react.default.createElement(_reactBootstrap.Accordion, null, /*#__PURE__*/_react.default.createElement(_styles.MenuContainer, null, /*#__PURE__*/_react.default.createElement(ContextAwareToggle, {
