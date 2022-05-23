@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLanguage, DragAndDrop, ExamineClick, BusinessFormDetails as BusinessFormDetailsController } from 'ordering-components-admin'
 import Skeleton from 'react-loading-skeleton'
-import { Alert } from '../../Shared'
-import { bytesConverter } from '../../../utils'
+import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
+import { bytesConverter, shape } from '../../../utils'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { Button, Input, Switch } from '../../../styles'
+import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
 
 import {
   FormInput,
@@ -17,7 +18,16 @@ import {
   UploadImageIconContainer,
   LogoImage,
   PhoneWrapper,
-  SwitchWrapper
+  SwitchWrapper,
+  ColorShapeWrapper,
+  ColorWrapper,
+  ShapeWrapper,
+  ShapeContentWrapper,
+  ShapeBoxWrapper,
+  RibbonSwitchWrapper
+  // PriceFilterWrapper,
+  // PriceFilterListWrapper,
+  // PriceFilterItem
 } from './styles'
 
 const BusinessInformationUI = (props) => {
@@ -27,13 +37,24 @@ const BusinessInformationUI = (props) => {
     handlechangeImage,
     handleChangeInput,
     handleButtonUpdateClick,
-    handleChangeSwtich
+    handleChangeSwtich,
+    handleChangeRibbon
   } = props
+
   const formMethods = useForm()
   const [, t] = useLanguage()
   const headerImageInputRef = useRef(null)
   const logoImageInputRef = useRef(null)
   const [alertState, setAlertState] = useState({ open: false, content: [] })
+  const [cropState, setCropState] = useState({ name: null, data: null, open: false })
+
+  // const priceList = [
+  //   { key: '$', value: '$' },
+  //   { key: '$$', value: '$$' },
+  //   { key: '$$$', value: '$$$' },
+  //   { key: '$$$$', value: '$$$$' },
+  //   { key: '$$$$$', value: '$$$$$' }
+  // ]
 
   const handleClickImage = (type) => {
     if (type === 'header') {
@@ -63,6 +84,12 @@ const BusinessInformationUI = (props) => {
         })
         return
       }
+      const reader = new window.FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = () => {
+        setCropState({ name: name, data: reader.result, open: true })
+      }
+      reader.onerror = error => console.log(error)
       handlechangeImage(files[0], name)
     }
   }
@@ -80,6 +107,11 @@ const BusinessInformationUI = (props) => {
     }
   }
 
+  const handleChangePhoto = (croppedImg) => {
+    handleChangeSwtich(cropState?.name, croppedImg)
+    setCropState({ name: null, data: null, open: false })
+  }
+
   useEffect(() => {
     if (Object.keys(formMethods.errors).length > 0) {
       const content = Object.values(formMethods.errors).map(error => error.message)
@@ -89,6 +121,15 @@ const BusinessInformationUI = (props) => {
       })
     }
   }, [formMethods.errors])
+
+  useEffect(() => {
+    if (formState?.result?.error) {
+      setAlertState({
+        open: true,
+        content: formState?.result?.result
+      })
+    }
+  }, [formState?.result])
 
   return (
     <>
@@ -227,6 +268,84 @@ const BusinessInformationUI = (props) => {
             onChange={(val) => handleChangeSwtich('featured', val)}
           />
         </SwitchWrapper>
+        <RibbonSwitchWrapper>
+          <span>{t('RIBBON', 'Ribbon')}</span>
+          <Switch
+            defaultChecked={businessState?.business?.ribbon?.enabled || false}
+            onChange={val => handleChangeRibbon({ enabled: val })}
+          />
+        </RibbonSwitchWrapper>
+        {
+          (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : businessState?.business?.ribbon?.enabled) && (
+            <>
+              <InputWrapper>
+                <label>{t('TEXT', 'Text')}</label>
+                <Input
+                  name='text'
+                  placeholder={t('TEXT', 'Text')}
+                  defaultValue={formState?.changes?.ribbon?.text ?? businessState?.business?.ribbon?.text}
+                  onChange={(e) => handleChangeRibbon({ text: e.target.value })}
+                  disabled={formState.loading}
+                  autoComplete='off'
+                  ref={formMethods.register({
+                    required:
+                      (businessState?.business?.ribbon && (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : businessState?.business?.ribbon?.enabled))
+                        ? t(
+                          'VALIDATION_ERROR_REQUIRED',
+                          'The Ribbon text field is required'
+                        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
+                        : false
+                  })}
+                />
+              </InputWrapper>
+              <ColorShapeWrapper>
+                <ColorWrapper>
+                  <label>{t('COLOR', 'Color')}</label>
+                  <ColorPicker
+                    defaultColor={formState?.changes?.ribbon?.color ?? businessState?.business?.ribbon?.color}
+                    onChangeColor={(color) => handleChangeRibbon({ color })}
+                  />
+                </ColorWrapper>
+                <ShapeWrapper>
+                  <label>{t('SHAPE', 'Shape')}</label>
+                  <ShapeContentWrapper>
+                    {shape && Object.keys(shape).map((key, i) => (
+                      <ShapeBoxWrapper
+                        key={i}
+                        shapeRect={shape[key] === shape?.rectangleRound}
+                        round={shape[key] === shape?.capsuleShape}
+                        active={formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (businessState?.business?.ribbon?.shape === shape[key])}
+                        onClick={() => handleChangeRibbon({ shape: shape[key] })}
+                      >
+                        <div />
+                        {(formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (businessState?.business?.ribbon?.shape === shape[key]))
+                          ? <RecordCircleFill />
+                          : <Circle />}
+                      </ShapeBoxWrapper>
+                    ))}
+                  </ShapeContentWrapper>
+                </ShapeWrapper>
+              </ColorShapeWrapper>
+            </>
+          )
+        }
+        {/* <PriceFilterWrapper>
+          <label>{t('PRICE_FILTER', 'Price filter')}</label>
+          <PriceFilterListWrapper>
+            {priceList.map((item, i) => (
+              <PriceFilterItem
+                key={i}
+              >
+                <Circle />
+                <span>{item.value}</span>
+              </PriceFilterItem>
+            ))}
+          </PriceFilterListWrapper>
+        </PriceFilterWrapper> */}
         <ActionsForm>
           <Button
             type='submit'
@@ -247,6 +366,19 @@ const BusinessInformationUI = (props) => {
         onAccept={() => closeAlert()}
         closeOnBackdrop={false}
       />
+      <Modal
+        width='700px'
+        height='80vh'
+        padding='30px'
+        title={t('IMAGE_CROP', 'Image crop')}
+        open={cropState?.open}
+        onClose={() => setCropState({ ...cropState, open: false })}
+      >
+        <ImageCrop
+          photo={cropState?.data}
+          handleChangePhoto={handleChangePhoto}
+        />
+      </Modal>
     </>
   )
 }

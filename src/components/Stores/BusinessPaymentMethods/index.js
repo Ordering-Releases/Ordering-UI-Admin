@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import {
   useLanguage,
+  useConfig,
   BusinessPaymethods as BusinessPaymentMethodsController
 } from 'ordering-components-admin'
 import RiCheckboxBlankLine from '@meronex/icons/ri/RiCheckboxBlankLine'
@@ -16,6 +17,8 @@ import { PaymethodOptionPaypalExpress } from '../PaymethodOptionPaypalExpress'
 import { PaymethodOptionStripeRedirect } from '../PaymethodOptionStripeRedirect'
 import { PaymethodOptionStripeConnect } from '../PaymethodOptionStripeConnect'
 import { PaymentOptionPaypal } from '../PaymentOptionPaypal'
+import { PaymentOptionSquare } from '../PaymentOptionSquare'
+import { BusinessWalletsList } from '../BusinessWalletsList'
 
 import {
   MainContainer,
@@ -35,7 +38,7 @@ const BusinessPaymentMethodsUI = (props) => {
     paymethodsList,
     handleClickPayment,
     handleSelectAllPaymethods,
-    handleSelectNonePaymethods,
+    // handleSelectNonePaymethods,
     handleDeleteBusinessPaymethodOption,
     setIsExtendExtraOpen,
     actionState,
@@ -53,18 +56,23 @@ const BusinessPaymentMethodsUI = (props) => {
     handleStripeSave,
     isSuccessDeleted,
     setIsSuccessDeleted,
+    handleSuccessPaymethodUpdate,
+    handleSuccessUpdate,
 
     isTutorialMode,
     handleTutorialContinue
   } = props
 
   const [, t] = useLanguage()
+  const [{ configs }] = useConfig()
   const { width } = useWindowSize()
   const [isEdit, setIsEdit] = useState(false)
   const [selectedBusinessPaymethod, setSelectedBusinessPaymethod] = useState(null)
   const [selectedPaymethodGateway, setSelectedPaymethodGateway] = useState(null)
   const [searchValue, setSearchValue] = useState('')
   const [alertState, setAlertState] = useState({ open: false, content: [] })
+  const [isOpenWalletDetails, setIsOpenWalletDetails] = useState(false)
+  const isWalletCashEnabled = configs?.wallet_enabled?.value === '1'
 
   const orderTypes = [
     { value: 1, text: t('DELIVERY', 'Delivery') },
@@ -144,7 +152,7 @@ const BusinessPaymentMethodsUI = (props) => {
 
   return (
     <MainContainer>
-      <PaymentMethodsContainer>
+      <PaymentMethodsContainer isOpenWalletDetails={isOpenWalletDetails}>
         <h1>{t('PAYMETHODS', 'Payment methods')}</h1>
         <SearchBarWrapper>
           <SearchBar
@@ -162,13 +170,13 @@ const BusinessPaymentMethodsUI = (props) => {
           >
             {t('SELECT_ALL', 'Select all')}
           </Button>
-          <Button
+          {/* <Button
             color='secundaryDark'
             onClick={() => handleSelectNonePaymethods()}
             disabled={(paymethodsList.loading || businessPaymethodsState.loading)}
           >
             {t('SELECT_NONE', 'Select none')}
-          </Button>
+          </Button> */}
         </ButtonGroup>
 
         {(paymethodsList.loading || businessPaymethodsState.loading) ? (
@@ -184,7 +192,7 @@ const BusinessPaymentMethodsUI = (props) => {
           ))
         ) : (
           <PaymethodListWrapper>
-            {paymethodsList.paymethods.filter(paymethod => paymethod?.name?.toLowerCase().includes(searchValue.toLowerCase())).map(paymethod => (
+            {paymethodsList.paymethods.filter(paymethod => paymethod?.name?.toLowerCase().includes(searchValue?.toLowerCase())).map(paymethod => (
               <PaymethodOptionContainer
                 key={paymethod.id}
                 onClick={e => handleOpenEdit(e, paymethod.id, paymethod.gateway)}
@@ -207,6 +215,16 @@ const BusinessPaymentMethodsUI = (props) => {
                 )}
               </PaymethodOptionContainer>
             ))}
+            {isWalletCashEnabled && (
+              <BusinessWalletsList
+                business={business}
+                setIsOpenWalletDetails={setIsOpenWalletDetails}
+                setIsExtendExtraOpen={setIsExtendExtraOpen}
+                isClose={isEdit}
+                handleClosePaymethodDetails={handleCloseEdit}
+                handleSuccessUpdate={handleSuccessUpdate}
+              />
+            )}
           </PaymethodListWrapper>
         )}
 
@@ -228,7 +246,8 @@ const BusinessPaymentMethodsUI = (props) => {
                 'paypal',
                 'paypal_express',
                 'stripe_redirect',
-                'stripe_connect'
+                'stripe_connect',
+                'square'
               ].includes(selectedPaymethodGateway) && (
                 <PaymentOption
                   sitesState={sitesState}
@@ -329,6 +348,21 @@ const BusinessPaymentMethodsUI = (props) => {
                   handleChangeStripeInput={handleChangeStripeInput}
                   handleStripeSave={handleStripeSave}
                   handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
+                />
+              )}
+              {selectedPaymethodGateway === 'square' && (
+                <PaymentOptionSquare
+                  open={isEdit}
+                  sitesState={sitesState}
+                  business={business}
+                  changesState={changesState}
+                  orderTypes={orderTypes}
+                  onClose={() => handleCloseEdit()}
+                  businessPaymethod={selectedBusinessPaymethod}
+                  handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
+                  handleChangeBusinessPaymentState={handleChangeBusinessPaymentState}
+                  businessPaymethods={businessPaymethodsState?.paymethods}
+                  handleSuccessPaymethodUpdate={handleSuccessPaymethodUpdate}
                 />
               )}
             </>
@@ -449,6 +483,21 @@ const BusinessPaymentMethodsUI = (props) => {
                     handleChangeStripeInput={handleChangeStripeInput}
                     handleStripeSave={handleStripeSave}
                     handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
+                  />
+                )}
+                {selectedPaymethodGateway === 'square' && (
+                  <PaymentOptionSquare
+                    open={isEdit}
+                    sitesState={sitesState}
+                    business={business}
+                    changesState={changesState}
+                    orderTypes={orderTypes}
+                    onClose={() => handleCloseEdit()}
+                    businessPaymethod={selectedBusinessPaymethod}
+                    handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
+                    handleChangeBusinessPaymentState={handleChangeBusinessPaymentState}
+                    businessPaymethods={businessPaymethodsState?.paymethods}
+                    handleSuccessPaymethodUpdate={handleSuccessPaymethodUpdate}
                   />
                 )}
               </Modal>

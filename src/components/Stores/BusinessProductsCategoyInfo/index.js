@@ -6,8 +6,9 @@ import {
   useConfig
 } from 'ordering-components-admin'
 import Skeleton from 'react-loading-skeleton'
-import { bytesConverter } from '../../../utils'
-import { Alert, Confirm } from '../../Shared'
+import { bytesConverter, shape } from '../../../utils'
+import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
+import { Alert, Confirm, Modal, ImageCrop, ColorPicker } from '../../Shared'
 import { Button, DefaultSelect, Input, Switch, TextArea } from '../../../styles'
 // import FiCamera from '@meronex/icons/fi/FiCamera'
 import BiImage from '@meronex/icons/bi/BiImage'
@@ -24,7 +25,14 @@ import {
   SkipButton,
   HeaderImage,
   LogoImage,
-  SkeletonImgWrapper
+  SkeletonImgWrapper,
+  SwitchWrapper,
+  ColorShapeWrapper,
+  ColorWrapper,
+  ShapeWrapper,
+  ShapeContentWrapper,
+  ShapeBoxWrapper,
+  RibbonTextWrapper
 } from './styles'
 
 export const BusinessProductsCategoyInfo = (props) => {
@@ -40,7 +48,8 @@ export const BusinessProductsCategoyInfo = (props) => {
     handleChangeItem,
     isAddMode,
     isTutorialMode,
-    handleTutorialSkip
+    handleTutorialSkip,
+    handleChangeRibbon
   } = props
 
   const [, t] = useLanguage()
@@ -51,6 +60,7 @@ export const BusinessProductsCategoyInfo = (props) => {
   const logoImageInputRef = useRef(null)
   const [parentCategoriesOptions, setParentCategoriesOptions] = useState([])
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
+  const [cropState, setCropState] = useState({ name: null, data: null, open: false })
   const [autoGenerateCode, setAutoGenerate] = useState({
     isAutoGenerate: false,
     autoCodeText: categorySelected?.slug
@@ -86,8 +96,30 @@ export const BusinessProductsCategoyInfo = (props) => {
         })
         return
       }
+
+      const reader = new window.FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = () => {
+        setCropState({ name: name, data: reader.result, open: true })
+      }
+      reader.onerror = error => console.log(error)
+
       handlechangeImage(files[0], name)
     }
+  }
+
+  const onSubmit = () => {
+    if ((typeof (formState?.changes?.ribbon?.enabled) !== 'undefined') && formState?.changes?.ribbon?.text === '') {
+      setAlertState({
+        open: true,
+        content: t(
+          'VALIDATION_ERROR_REQUIRED',
+          'The Ribbon text field is required'
+        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
+      })
+      return
+    }
+    handleUpdateClick && handleUpdateClick()
   }
 
   const closeAlert = () => {
@@ -99,7 +131,7 @@ export const BusinessProductsCategoyInfo = (props) => {
 
   const stringToSlug = str => {
     str = str.replace(/^\s+|\s+$/g, '') // trim
-    str = str.toLowerCase()
+    str = str?.toLowerCase()
 
     // remove accents, swap ñ for n, etc
     var from = 'åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;'
@@ -117,6 +149,11 @@ export const BusinessProductsCategoyInfo = (props) => {
       .replace(/-+$/, '') // trim - from end of text
 
     return str
+  }
+
+  const handleChangePhoto = (croppedImg) => {
+    handleChangeItem({ [cropState?.name]: croppedImg })
+    setCropState({ name: null, data: null, open: false })
   }
 
   useEffect(() => {
@@ -252,6 +289,9 @@ export const BusinessProductsCategoyInfo = (props) => {
           value={
             formState?.changes?.slug || ''
           }
+          onKeyPress={e => {
+            if (e.which === 32) { e.preventDefault() }
+          }}
         />
         <GenerateButtonWrapper>
           <Button
@@ -267,6 +307,56 @@ export const BusinessProductsCategoyInfo = (props) => {
           </Button>
         </GenerateButtonWrapper>
       </CategoryNameWrapper>
+      <SwitchWrapper>
+        <span>{t('RIBBON', 'Ribbon')}</span>
+        <Switch
+          defaultChecked={formState?.changes?.ribbon?.enabled || false}
+          onChange={val => handleChangeRibbon({ enabled: val })}
+        />
+      </SwitchWrapper>
+      {formState?.changes?.ribbon?.enabled && (
+        <>
+          <RibbonTextWrapper>
+            <label>{t('TEXT', 'Text')}</label>
+            <Input
+              name='text'
+              placeholder={t('TEXT', 'Text')}
+              defaultValue={formState?.changes?.ribbon?.text}
+              onChange={(e) => handleChangeRibbon({ text: e.target.value })}
+              disabled={formState.loading}
+              autoComplete='off'
+            />
+          </RibbonTextWrapper>
+          <ColorShapeWrapper>
+            <ColorWrapper>
+              <label>{t('COLOR', 'Color')}</label>
+              <ColorPicker
+                defaultColor={formState?.changes?.ribbon?.color}
+                onChangeColor={(color) => handleChangeRibbon({ color })}
+              />
+            </ColorWrapper>
+            <ShapeWrapper>
+              <label>{t('SHAPE', 'Shape')}</label>
+              <ShapeContentWrapper>
+                {shape && Object.keys(shape).map((key, i) => (
+                  <ShapeBoxWrapper
+                    key={i}
+                    shapeRect={shape[key] === shape?.rectangleRound}
+                    round={shape[key] === shape?.capsuleShape}
+                    active={formState?.changes?.ribbon?.shape === shape[key]}
+                    onClick={() => handleChangeRibbon({ shape: shape[key] })}
+                  >
+                    <div />
+                    {(formState?.changes?.ribbon?.shape === shape[key])
+                      ? <RecordCircleFill />
+                      : <Circle />}
+                  </ShapeBoxWrapper>
+                ))}
+              </ShapeContentWrapper>
+            </ShapeWrapper>
+          </ColorShapeWrapper>
+        </>
+      )}
       {useParentCategory === '1' && (
         <>
           {categorySelected && isAddMode && (
@@ -303,7 +393,7 @@ export const BusinessProductsCategoyInfo = (props) => {
             <Button
               borderRadius='8px'
               color='primary'
-              onClick={handleUpdateClick}
+              onClick={onSubmit}
             >
               {t('SAVE_AND_CONTINUE', 'Save and continue')}
             </Button>
@@ -312,7 +402,7 @@ export const BusinessProductsCategoyInfo = (props) => {
           <Button
             borderRadius='8px'
             color='primary'
-            onClick={handleUpdateClick}
+            onClick={onSubmit}
           >
             {category ? t('SAVE', 'Save') : t('ADD', 'Add')}
           </Button>
@@ -338,6 +428,19 @@ export const BusinessProductsCategoyInfo = (props) => {
         onAccept={confirm.handleOnAccept}
         closeOnBackdrop={false}
       />
+      <Modal
+        width='700px'
+        height='80vh'
+        padding='30px'
+        title={t('IMAGE_CROP', 'Image crop')}
+        open={cropState?.open}
+        onClose={() => setCropState({ ...cropState, open: false })}
+      >
+        <ImageCrop
+          photo={cropState?.data}
+          handleChangePhoto={handleChangePhoto}
+        />
+      </Modal>
     </>
   )
 }

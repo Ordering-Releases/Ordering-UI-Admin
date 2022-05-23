@@ -19,6 +19,7 @@ import logotype from './template/assets/images/logotype.svg'
 import logotypeInvert from './template/assets/images/logotype-invert.svg'
 import isotype from './template/assets/images/isotype.svg'
 import isotypeInvert from './template/assets/images/isotype-invert.svg'
+import logoPdf from './template/assets/images/logo-pdf.png'
 
 import notNetwork from './template/assets/images/not-network.svg'
 import notFound from './template/assets/images/not-found.svg'
@@ -32,6 +33,17 @@ import level from './template/assets/images/level.png'
 import registerOrder from './template/assets/images/register-order.png'
 import mobileHalfMask from './template/assets/images/mobile-half-mask.png'
 import whatsappHeader from './template/assets/images/whatsapp-header.png'
+import appStore from './template/assets/images/app-store.png'
+import googlePlay from './template/assets/images/google-play.png'
+
+/**
+ * Theme apps
+ */
+import storeApp from './template/assets/images/store-app.png'
+import driverApp from './template/assets/images/driver-app.png'
+import posApp from './template/assets/images/pos-app.png'
+import kioskApp from './template/assets/images/kiosk-app.png'
+import callCenterApp from './template/assets/images/call-center-app.png'
 
 /**
  * business tutorials
@@ -87,6 +99,9 @@ import orderCancelled from './template/assets/images/orderStatus/cancelled.svg'
 import noDriver from './template/assets/images/avatars/noDriver.png'
 import driverDelivery from './template/assets/images/icons/driverDelivery.svg'
 import pickUp from './template/assets/images/icons/pickUp.svg'
+import clock1 from './template/assets/images/icons/clock1.svg'
+import clockRisk from './template/assets/images/icons/clock-history1.svg'
+import clockDelayed from './template/assets/images/icons/clock-fill1.svg'
 
 import orderStatus0 from './template/assets/images/order/status-0.svg'
 import orderStatus1 from './template/assets/images/order/status-1.svg'
@@ -113,6 +128,11 @@ import orderStatus21 from './template/assets/images/order/status-21.svg'
 
 import categoryAll from './template/assets/images/categories/category-all.png'
 import exampleCSV from './template/assets/files/ordering_business_example.csv'
+import delivery from './template/assets/images/icons/delivery.svg'
+import poster from './template/assets/images/icons/poster.svg'
+import posTerminal from './template/assets/images/icons/pos-terminal.svg'
+import apple from './template/assets/images/icons/apple.svg'
+import android from './template/assets/images/icons/android.svg'
 
 if (!(window?.location?.hostname === 'localhost')) {
   Sentry.init({
@@ -139,7 +159,8 @@ const logos = {
   logotype,
   logotypeInvert,
   isotype,
-  isotypeInvert
+  isotypeInvert,
+  logoPdf
 }
 
 theme.images = {
@@ -156,7 +177,16 @@ theme.images = {
     level,
     registerOrder,
     mobileHalfMask,
-    whatsappHeader
+    whatsappHeader,
+    appStore,
+    googlePlay
+  },
+  apps: {
+    storeApp,
+    driverApp,
+    posApp,
+    kioskApp,
+    callCenterApp
   },
   order: {
     status0: orderStatus0,
@@ -223,7 +253,15 @@ theme.images = {
     batchWise: batchWise,
     roundRobin: roundRobin,
     leftArrow: leftArrow,
-    rightArrow: rightArrow
+    rightArrow: rightArrow,
+    clock1: clock1,
+    clockRisk: clockRisk,
+    clockDelayed: clockDelayed,
+    delivery: delivery,
+    posTerminal: posTerminal,
+    poster: poster,
+    apple: apple,
+    android: android
   },
   dummies: {
     noOrders: noOrders,
@@ -242,14 +280,14 @@ theme.files = {
 }
 
 const RouteApp = () => {
-  const language = JSON.parse(localStorage.getItem('language'))?.code || 'en'
+  const language = JSON.parse(window.localStorage.getItem('language'))?.code || 'en'
   const [configFile, setConfigFile] = useState({
     ...settings,
     api: {
       ...settings.api,
       language: language
     },
-    project: localStorage.getItem('project') !== null ? localStorage.getItem('project') : null
+    project: window.localStorage.getItem('project') !== null ? window.localStorage.getItem('project') : null
   })
 
   return (

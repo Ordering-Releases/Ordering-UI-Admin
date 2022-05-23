@@ -9,6 +9,9 @@ export const PaymentMethodsContainer = styled.div`
   height: 100%;
   overflow-x: hidden;
   flex: 1;
+  ${({ isOpenWalletDetails }) => isOpenWalletDetails && css`
+    max-width: 500px;
+  `}
   h1 {
     color: ${props => props.theme.colors.headingColor};
     font-size: 20px;
@@ -34,20 +37,24 @@ export const PaymethodOptionContainer = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid ${props => props.theme.colors.borderColor};
   cursor: pointer;
+
   &:hover {
     background-color: ${props => props.theme.colors.lightPrimary};
   }
+
   ${({ disabled }) => disabled && css`
     cursor: initial;
     svg {
       cursor: pointer;
     }
   `}
+
   ${({ active }) => active && css`
     background-color: ${props => props.theme.colors.lightPrimary};
     border-top: 1px solid ${props => props.theme.colors.primary};
     border-bottom: 1px solid ${props => props.theme.colors.primary};
   `}
+
   > svg {
     font-size: 13px;
     color: ${props => props.theme.colors.secundaryLight};

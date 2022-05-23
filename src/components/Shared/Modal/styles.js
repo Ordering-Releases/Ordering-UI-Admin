@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const ModalDialog = styled.div`
   position: relative;
-  background-color: ${({ isTransparent }) => isTransparent ? 'transparent' : '#FFF'};
+  background-color: ${({ isTransparent, theme }) => isTransparent ? 'transparent' : theme.colors.backgroundPage || '#FFF'};
   padding: ${({ padding }) => padding || '20px'};
   width: ${({ width }) => width || '50%'};
   height: ${({ height }) => height};
@@ -25,7 +25,7 @@ export const ModalDialog = styled.div`
   }
   @media (max-width: 768px) {
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100%;
     max-height: calc(var(--vh, 1vh) * 100);
     border-radius: 0px;
   }

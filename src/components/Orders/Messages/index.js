@@ -158,21 +158,25 @@ export const MessagesUI = (props) => {
     if (history) return
     if (load < 3) {
       const chat = document.getElementById('chat')
-      chat.scrollTop = chat.scrollHeight
+      if (chat) {
+        chat.scrollTop = chat?.scrollHeight
+      }
     }
   }, [load])
 
   useEffect(() => {
     if (history) return
     const chat = document.getElementById('chat')
-    chat.scrollTop = chat.scrollHeight
+    if (chat) {
+      chat.scrollTop = chat?.scrollHeight
+    }
   }, [messages.messages.length, filteredMessages])
 
   useEffect(() => {
     if (history) return
     setTimeout(() => {
       const chat = document.getElementById('chat')
-      chat.scrollTop = chat.scrollHeight
+      chat.scrollTop = chat?.scrollHeight
     }, 10)
   }, [isChat])
 

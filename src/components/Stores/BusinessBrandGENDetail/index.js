@@ -6,11 +6,12 @@ import {
   BusinessBrandGENDetail as BusinessBrandGENDetailContorller
 } from 'ordering-components-admin'
 import Skeleton from 'react-loading-skeleton'
-import { Alert } from '../../Shared'
-import { bytesConverter } from '../../../utils'
+import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
+import { bytesConverter, shape } from '../../../utils'
 import FiCamera from '@meronex/icons/fi/FiCamera'
 import BsCardImage from '@meronex/icons/bs/BsCardImage'
-import { Button } from '../../../styles'
+import { Button, Switch } from '../../../styles'
+import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
 import {
   BrandGeneralDetail,
   BrandLogo,
@@ -20,20 +21,29 @@ import {
   CameraIconContainer,
   FormControl,
   Label,
-  SaveBtnWrapper
+  SaveBtnWrapper,
+  SwitchWrapper,
+  ColorShapeWrapper,
+  ColorWrapper,
+  ShapeWrapper,
+  ShapeContentWrapper,
+  ShapeBoxWrapper
 } from './styles'
 
 const BusinessBrandGENDetailUI = (props) => {
   const {
     brandFormState,
     brand,
-    handlechangeImage,
+    // handlechangeImage,
     handleChangeInput,
-    handleUpdateClick
+    handleUpdateClick,
+    handleChangeItem,
+    handleChangeRibbon
   } = props
 
   const [, t] = useLanguage()
   const [alertState, setAlertState] = useState({ open: false, content: [] })
+  const [cropState, setCropState] = useState({ name: null, data: null, open: false })
 
   const brandImageInputRef = useRef(null)
 
@@ -66,15 +76,46 @@ const BusinessBrandGENDetailUI = (props) => {
         })
         return
       }
-      handlechangeImage(files[0], name)
+
+      const reader = new window.FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = () => {
+        setCropState({ name: name, data: reader.result, open: true })
+      }
+      reader.onerror = error => console.log(error)
+
+      // handlechangeImage(files[0], name)
     }
+  }
+
+  const handleChangePhoto = (croppedImg) => {
+    handleChangeItem({ [cropState?.name]: croppedImg })
+    setCropState({ name: null, data: null, open: false })
+  }
+
+  const handleSubmit = () => {
+    if ((typeof (brandFormState?.changes?.ribbon?.enabled) !== 'undefined'
+      ? brandFormState?.changes?.ribbon?.enabled
+      : brand?.ribbon?.enabled) &&
+      brandFormState?.changes?.ribbon?.text === ''
+    ) {
+      setAlertState({
+        open: true,
+        content: t(
+          'VALIDATION_ERROR_REQUIRED',
+          'The Ribbon text field is required'
+        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
+      })
+      return
+    }
+    handleUpdateClick && handleUpdateClick()
   }
 
   useEffect(() => {
     if (brandFormState?.result?.error) {
       setAlertState({
         open: true,
-        content: [brandFormState?.result?.result]
+        content: brandFormState?.result?.result
       })
     }
   }, [brandFormState?.result])
@@ -145,14 +186,74 @@ const BusinessBrandGENDetailUI = (props) => {
             onChange={handleChangeInput}
             disabled={brandFormState.loading}
             autoComplete='off'
+            onKeyPress={e => {
+              if (e.which === 32) { e.preventDefault() }
+            }}
           />
         </FormControl>
+        <SwitchWrapper>
+          <span>{t('RIBBON', 'Ribbon')}</span>
+          <Switch
+            defaultChecked={brand?.ribbon?.enabled || false}
+            onChange={val => handleChangeRibbon({ enabled: val })}
+          />
+        </SwitchWrapper>
+        {
+          (typeof (brandFormState?.changes?.ribbon?.enabled) !== 'undefined' ? brandFormState?.changes?.ribbon?.enabled : brand?.ribbon?.enabled) && (
+            <>
+              <FormControl>
+                <label>{t('TEXT', 'Text')}</label>
+                <input
+                  name='text'
+                  placeholder={t('TEXT', 'Text')}
+                  value={brandFormState?.changes?.ribbon?.text ?? brand?.ribbon?.text}
+                  onChange={(e) => handleChangeRibbon({ text: e.target.value })}
+                  disabled={brandFormState.loading}
+                  autoComplete='off'
+                />
+              </FormControl>
+              <ColorShapeWrapper>
+                <ColorWrapper>
+                  <label>{t('COLOR', 'Color')}</label>
+                  <ColorPicker
+                    defaultColor={brandFormState?.changes?.ribbon?.color ?? brand?.ribbon?.color}
+                    onChangeColor={(color) => handleChangeRibbon({ color })}
+                  />
+                </ColorWrapper>
+                <ShapeWrapper>
+                  <label>{t('SHAPE', 'Shape')}</label>
+                  <ShapeContentWrapper>
+                    {shape && Object.keys(shape).map((key, i) => (
+                      <ShapeBoxWrapper
+                        key={i}
+                        shapeRect={shape[key] === shape?.rectangleRound}
+                        round={shape[key] === shape?.capsuleShape}
+                        active={brandFormState?.changes?.ribbon?.shape
+                          ? (brandFormState?.changes?.ribbon?.shape === shape[key])
+                          : (brand?.ribbon?.shape === shape[key])}
+                        onClick={() => handleChangeRibbon({ shape: shape[key] })}
+                      >
+                        <div />
+                        {(brandFormState?.changes?.ribbon?.shape
+                          ? (brandFormState?.changes?.ribbon?.shape === shape[key])
+                          : (brand?.ribbon?.shape === shape[key]))
+                          ? <RecordCircleFill />
+                          : <Circle />}
+                      </ShapeBoxWrapper>
+                    ))}
+                  </ShapeContentWrapper>
+                </ShapeWrapper>
+              </ColorShapeWrapper>
+            </>
+          )
+        }
+
         <SaveBtnWrapper>
           <Button
             borderRadius='7.6px'
             color='primary'
             disabled={brandFormState.loading}
-            onClick={handleUpdateClick}
+            onClick={handleSubmit}
           >
             {t('SAVE', 'Save')}
           </Button>
@@ -167,6 +268,19 @@ const BusinessBrandGENDetailUI = (props) => {
         onAccept={() => closeAlert()}
         closeOnBackdrop={false}
       />
+      <Modal
+        width='700px'
+        height='80vh'
+        padding='30px'
+        title={t('IMAGE_CROP', 'Image crop')}
+        open={cropState?.open}
+        onClose={() => setCropState({ ...cropState, open: false })}
+      >
+        <ImageCrop
+          photo={cropState?.data}
+          handleChangePhoto={handleChangePhoto}
+        />
+      </Modal>
     </>
   )
 }

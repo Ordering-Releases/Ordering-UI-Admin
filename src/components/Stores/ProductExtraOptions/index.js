@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
-  ToastType,
-  useToast,
   ProductExtraOptions as ProductExtraOptionsController
 } from 'ordering-components-admin'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { PlusCircle, XLg, ThreeDots, Image as ImageIcon, ChevronRight } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
 import { bytesConverter } from '../../../utils'
-import { Alert, Confirm, Modal } from '../../Shared'
+import { Alert, Confirm, Modal, ImageCrop } from '../../Shared'
 import { IconButton } from '../../../styles'
 import { ProductExtraMetaFields } from '../ProductExtraMetaFields'
 import { ProductExtraOptionDetails } from '../ProductExtraOptionDetails'
@@ -35,8 +33,6 @@ const ProductExtraOptionsUI = (props) => {
   const {
     open,
     onClose,
-    editErrors,
-    cleanEditErrors,
     extraState,
     changesState,
     handleChangeImage,
@@ -50,51 +46,36 @@ const ProductExtraOptionsUI = (props) => {
     handleDeleteExtra,
     handleUpdateBusinessState,
     handleSucccessDeleteOption,
-
+    handleUpdateOption,
     curOption,
     openModal,
     setCurOption,
     setOpenModal,
-    handleOpenModal
+    handleOpenModal,
+    handleChangeExtraName,
+    handleChangeItem
   } = props
 
   const theme = useTheme()
   const [, t] = useLanguage()
   const { width } = useWindowSize()
-  const { handleSubmit, register, errors } = useForm()
-  const [, { showToast }] = useToast()
+  const { control, handleSubmit, errors, setValue } = useForm({
+    defaultValues: addChangesState
+  })
 
+  const [extraName, setExtraName] = useState(extraState.extra?.name || '')
+  const [timer, setTimer] = useState(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [alertState, setAlertState] = useState({ open: false, content: [] })
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
   const [isMaxError, setIsMaxError] = useState(false)
+  const [cropState, setCropState] = useState({ name: null, data: null, open: false })
 
   const closeAlert = () => {
-    cleanEditErrors()
     setAlertState({
       open: false,
       content: []
     })
-  }
-
-  const handleChangeOptionInput = (e, option, min) => {
-    const regexp = /^[0-9.\b]+$/
-    if (e.target.value === '' || regexp.test(e.target.value)) {
-      if (min) {
-        const max = changesState?.changes?.max ? changesState?.changes?.max : option?.max
-        if (parseInt(e.target.value) > parseInt(max)) return
-      } else {
-        if (option?.suboptions?.filter(suboption => suboption?.preselected)?.length > parseInt(e?.target?.value)) {
-          setIsMaxError(true)
-          showToast(ToastType.Error, t('ERROR_MATCH_MAX_DEFAULT_SUBOPTIONS', 'Max default suboptions length is less than preselected suboptions'))
-          return
-        }
-        setIsMaxError(false)
-        const min = changesState?.changes?.min ? changesState?.changes?.min : option?.min
-        if (parseInt(e.target.value) < parseInt(min)) return
-      }
-      handleChangeInput(e, option.id)
-    }
   }
 
   const handleChangeAddOptionInput = (e, min) => {
@@ -124,8 +105,21 @@ const ProductExtraOptionsUI = (props) => {
         })
         return
       }
+
+      const reader = new window.FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = () => {
+        setCropState({ name: 'image', data: reader.result, open: true, id: optionId })
+      }
+      reader.onerror = error => console.log(error)
+
       handleChangeImage(files[0], optionId)
     }
+  }
+
+  const handleChangePhoto = (croppedImg) => {
+    handleChangeItem({ [cropState?.name]: croppedImg }, cropState?.id)
+    setCropState({ name: null, data: null, open: false })
   }
 
   const actionSidebar = (value) => {
@@ -163,21 +157,6 @@ const ProductExtraOptionsUI = (props) => {
     actionSidebar(true)
   }, [open])
 
-  useEffect(() => {
-    if (Object.keys(editErrors).length) {
-      const errorContent = []
-      if (editErrors?.name) errorContent.push(t('NAME_REQUIRED', 'The name is required.'))
-      if (editErrors?.min) errorContent.push(t('MIN_PURCHASED_REQUIRED', 'The min is required.'))
-      if (editErrors?.max) errorContent.push(t('MAX_PURCHASED_REQUIRED', 'The max is required.'))
-      if (errorContent.length) {
-        setAlertState({
-          open: true,
-          content: errorContent
-        })
-      }
-    }
-  }, [editErrors])
-
   const handleDeleteExtraClick = () => {
     setConfirm({
       open: true,
@@ -189,11 +168,38 @@ const ProductExtraOptionsUI = (props) => {
     })
   }
 
+  const onChangeExtraName = (e) => {
+    e.persist()
+    clearTimeout(timer)
+    setExtraName(e.target.value)
+    const _timer = setTimeout(function () {
+      handleChangeExtraName(e, extraState.extra.id)
+    }, 750)
+    setTimer(_timer)
+  }
+
+  useEffect(() => {
+    if (!addChangesState?.name && addChangesState?.min === 1 && addChangesState?.max === 1) {
+      setValue('name', addChangesState?.name || '')
+      setValue('min', addChangesState?.min || '')
+      setValue('max', addChangesState?.max || '')
+    }
+  }, [addChangesState])
+
+  useEffect(() => {
+    setExtraName(extraState.extra?.name)
+  }, [extraState.extra?.name])
+
   return (
     <MainContainer id='extra_options'>
       <OptionsContainer>
         <Header>
-          <h1>{extraState.extra.name}</h1>
+          <input
+            type='text'
+            placeholder={t('NAME', '')}
+            value={extraName}
+            onChange={(e) => onChangeExtraName(e)}
+          />
           <div>
             <ActionSelectorWrapper>
               <DropdownButton
@@ -259,44 +265,71 @@ const ProductExtraOptionsUI = (props) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <OptionNameContainer>
-            <input
+            <Controller
               name='name'
-              value={addChangesState?.name || ''}
-              placeholder={t('WRITE_A_NAME', 'Write a name')}
-              onChange={(e) => handleChangeAddOption(e)}
-              ref={register({
+              control={control}
+              render={({ onChange, value }) => (
+                <input
+                  name='name'
+                  placeholder={t('WRITE_A_NAME', 'Write a name')}
+                  value={value}
+                  onChange={(e) => {
+                    onChange(e)
+                    handleChangeAddOption(e)
+                  }}
+                  autoComplete='off'
+                />
+              )}
+              rules={{
                 required: t('NAME_REQUIRED', 'The name is required.')
-              })}
-              autoComplete='off'
+              }}
             />
           </OptionNameContainer>
-          <input
+          <Controller
             name='min'
-            value={addChangesState?.min}
-            onChange={(e) => handleChangeAddOptionInput(e, true)}
-            onKeyPress={(e) => {
-              if (!/^[0-9.]$/.test(e.key)) {
-                e.preventDefault()
-              }
-            }}
-            ref={register({
+            control={control}
+            render={({ onChange, value }) => (
+              <input
+                name='min'
+                value={value}
+                onChange={(e) => {
+                  onChange(e)
+                  handleChangeAddOptionInput(e, true)
+                }}
+                onKeyPress={(e) => {
+                  if (!/^[0-9.]$/.test(e.key)) {
+                    e.preventDefault()
+                  }
+                }}
+                autoComplete='off'
+              />
+            )}
+            rules={{
               required: t('MIN_PURCHASED_REQUIRED', 'The min is required.')
-            })}
-            autoComplete='off'
-          />
-          <input
-            name='max'
-            value={addChangesState?.max}
-            onChange={(e) => handleChangeAddOptionInput(e, false)}
-            onKeyPress={(e) => {
-              if (!/^[0-9.]$/.test(e.key)) {
-                e.preventDefault()
-              }
             }}
-            ref={register({
+          />
+          <Controller
+            name='max'
+            control={control}
+            render={({ onChange, value }) => (
+              <input
+                name='max'
+                value={value}
+                onChange={(e) => {
+                  onChange(e)
+                  handleChangeAddOptionInput(e, false)
+                }}
+                onKeyPress={(e) => {
+                  if (!/^[0-9.]$/.test(e.key)) {
+                    e.preventDefault()
+                  }
+                }}
+                autoComplete='off'
+              />
+            )}
+            rules={{
               required: t('MAX_PURCHASED_REQUIRED', 'The max is required.')
-            })}
-            autoComplete='off'
+            }}
           />
           <IconButton
             type='submit'
@@ -342,7 +375,6 @@ const ProductExtraOptionsUI = (props) => {
             optionChangesState={editOptionId === curOption.id ? changesState : {}}
             handleOptionFiles={handleFiles}
             handleChangeOptionInput={handleChangeInput}
-            handleChangeNumberInput={handleChangeOptionInput}
             handleChangeOptionEnable={handleChangeOptionEnable}
             onClose={() => {
               setOpenModal({ ...openModal, edit: false })
@@ -352,6 +384,7 @@ const ProductExtraOptionsUI = (props) => {
             handleUpdateBusinessState={handleUpdateBusinessState}
             handleSucccessDeleteOption={handleSucccessDeleteOption}
             isMaxError={isMaxError}
+            handleUpdateOption={handleUpdateOption}
           />
         </Modal>
       )}
@@ -363,6 +396,20 @@ const ProductExtraOptionsUI = (props) => {
         <ProductExtraMetaFields
           businessId={business.id}
           extraId={extraState.extra.id}
+        />
+      </Modal>
+      <Modal
+        width='700px'
+        height='80vh'
+        padding='30px'
+        title={t('IMAGE_CROP', 'Image crop')}
+        open={cropState?.open}
+        onClose={() => setCropState({ ...cropState, open: false })}
+        className='ordering-image-crop'
+      >
+        <ImageCrop
+          photo={cropState?.data}
+          handleChangePhoto={handleChangePhoto}
         />
       </Modal>
     </MainContainer>

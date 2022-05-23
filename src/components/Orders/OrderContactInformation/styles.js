@@ -31,10 +31,6 @@ export const PhotoWrapper = styled.div`
     height: 40px;
     border-radius: 50%;
   }
-
-  @media print {
-    display: none;
-  }
 `
 
 const PhotoStyled = styled.div`
@@ -123,17 +119,30 @@ export const DriverSelectorContainer = styled.div`
     margin-bottom: 15px;
   }
   > div {
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
-    border-color: ${props => props.theme.colors?.secundary};
     background-color: ${props => props.theme.colors?.secundary};
+
     > div {
       &:first-child {
-        padding-top: 4px;
-        padding-bottom: 4px;
+        border: none;
+        height: 50px;
       }
       > div:first-child {
         color: ${props => props.theme.colors?.headingColor};
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    > div {
+      width: 50%;
+    }
+  }
+  @media (max-width: 576px) {
+    > div {
+      p {
+        max-width: initial;
       }
     }
   }

@@ -19,6 +19,7 @@ export const ProductMainDetails = (props) => {
     handlechangeImage,
     handleChangeInput,
     handleChangeFormState,
+    handleChangeRibbon,
     handleUpdateClick,
     isExtendExtraOpen,
     setIsExtendExtraOpen,
@@ -66,6 +67,7 @@ export const ProductMainDetails = (props) => {
           product={product}
           formState={formState}
           handlechangeImage={handlechangeImage}
+          handleChangeRibbon={handleChangeRibbon}
           handleChangeInput={handleChangeInput}
           handleChangeFormState={handleChangeFormState}
           handleButtonUpdateClick={handleUpdateClick}
@@ -86,7 +88,7 @@ export const ProductMainDetails = (props) => {
       )}
       {selectedOption === 'labels' && (
         <ProductTagsList
-          tags={product.tags}
+          tags={product?.tags || []}
           businessId={business.id}
           product={product}
           setIsExtendExtraOpen={setIsExtendExtraOpen}

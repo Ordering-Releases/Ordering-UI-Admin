@@ -4,6 +4,7 @@ import {
   BusinessDeliveryZone as BusinessDeliveryZoneController
 } from 'ordering-components-admin'
 import { BusinessDeliveryZoneInformation } from '../BusinessDeliveryZoneInformation'
+import { BusinessDeliveryZoneShare } from '../BusinessDeliveryZoneShare'
 import { ThreeDots } from 'react-bootstrap-icons'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { useTheme } from 'styled-components'
@@ -20,6 +21,7 @@ import {
 const BusinessDeliveryZoneDetailsUI = (props) => {
   const {
     business,
+    businessZones,
     zoneState,
     formState,
     handleChangeInput,
@@ -34,9 +36,9 @@ const BusinessDeliveryZoneDetailsUI = (props) => {
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
   const [selectedMenuOption, setSelectedMenuOption] = useState('information')
   const tabs = [
-    { key: 'information', content: t('INFORMATION', 'Information') }
+    { key: 'information', content: t('INFORMATION', 'Information') },
+    { key: 'share_with', content: t('SHARE_WITH', 'Share with') }
     // { key: 'channels', content: t('CHANNELS', 'Channels') },
-    // { key: 'share_with', content: t('SHARE_WITH', 'Share with') }
   ]
 
   const onClickDelete = () => {
@@ -87,11 +89,20 @@ const BusinessDeliveryZoneDetailsUI = (props) => {
           <BusinessDeliveryZoneInformation
             business={business}
             zone={zoneState.zone}
+            businessZones={businessZones}
             formState={formState}
             handleChangeInput={handleChangeInput}
             handleChangeFormState={handleChangeFormState}
             handleUpdateBusinessDeliveryZone={handleUpdateBusinessDeliveryZone}
             handleAddBusinessDeliveryZone={handleAddBusinessDeliveryZone}
+          />
+        )}
+
+        {selectedMenuOption === 'share_with' && (
+          <BusinessDeliveryZoneShare
+            business={business}
+            zone={zoneState.zone}
+            handleUpdateBusinessDeliveryZone={handleUpdateBusinessDeliveryZone}
           />
         )}
       </Container>

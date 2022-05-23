@@ -209,6 +209,20 @@
     "robots": "index, follow",
     "canonicalUrl": ""
   },
+  "open_carts": {
+    "title": "Open Carts",
+    "description": "a dummy description about this page",
+    "keywords": "test, dummy, data",
+    "robots": "index, follow",
+    "canonicalUrl": ""
+  },
+  "recovery_actions": {
+    "title": "Recovery Actions",
+    "description": "a dummy description about this page",
+    "keywords": "test, dummy, data",
+    "robots": "index, follow",
+    "canonicalUrl": ""
+  },
   "support": {
     "title": "Support",
     "description": "a dummy description about this page",
@@ -224,7 +238,7 @@
     "canonicalUrl": ""
   },
   "campaign": {
-    "title": "Campaiggn",
+    "title": "Campaign",
     "description": "a dummy description about this page",
     "keywords": "test, dummy, data",
     "robots": "index, follow",
@@ -232,6 +246,20 @@
   },
   "rewards_programs": {
     "title": "Rewards Programs",
+    "description": "a dummy description about this page",
+    "keywords": "test, dummy, data",
+    "robots": "index, follow",
+    "canonicalUrl": ""
+  },
+  "free_products": {
+    "title": "Free Products",
+    "description": "a dummy description about this page",
+    "keywords": "test, dummy, data",
+    "robots": "index, follow",
+    "canonicalUrl": ""
+  },
+  "purchased_products": {
+    "title": "Purchased Products",
     "description": "a dummy description about this page",
     "keywords": "test, dummy, data",
     "robots": "index, follow",

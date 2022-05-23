@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage, useConfig } from 'ordering-components-admin'
 import { SearchBar } from '../../Shared'
 import { OrdersFilterGroup } from '../OrdersFilterGroup'
 import { Funnel, List as MenuIcon, LifePreserver } from 'react-bootstrap-icons'
 import MdcFilterOff from '@meronex/icons/mdc/MdcFilterOff'
-import { OrdersDashboardControls } from '../OrdersDashboardControls'
+import { OrdersDashboardSLAControls } from '../OrdersDashboardSLAControls'
+import { OrderDashboardSLASetting } from '../OrderDashboardSLASetting'
 import { IconButton } from '../../../styles'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { useWindowSize } from '../../../hooks/useWindowSize'
 
 import {
   OrderContentHeaderContainer,
   HeaderSection,
   HeaderTitle,
   TopRightSection,
+  SLAControlsWrapper,
   WrapperSearchAndFilter
 } from './styles'
 
@@ -32,18 +35,19 @@ export const OrdersContentHeader = (props) => {
     filterValues,
     selectedOrderIds,
     handleChangeFilterValues,
-    handleDeleteMultiOrders,
-    handleChangeMultiOrdersStatus,
     handleOpenTour,
-
     filterModalOpen,
-    setFilterModalOpen
+    setFilterModalOpen,
+    setTimeStatus,
+    setSlaSettingTime
   } = props
 
+  const { width } = useWindowSize()
   const [, t] = useLanguage()
   const [{ isCollapse }, { handleMenuCollapse }] = useInfoShare()
 
   const [filterApplied, setFilterApplied] = useState(false)
+  const [configState] = useConfig()
 
   useEffect(() => {
     let _filterApplied = false
@@ -51,11 +55,12 @@ export const OrdersContentHeader = (props) => {
       _filterApplied = false
     } else {
       _filterApplied = filterValues?.groupTypes?.length || filterValues.businessIds.length > 0 || filterValues.cityIds.length > 0 ||
-       filterValues.deliveryEndDatetime !== null || filterValues.deliveryFromDatetime !== null || filterValues.deliveryTypes.length > 0 ||
-       filterValues.driverIds.length > 0 || filterValues.paymethodIds.length > 0 || filterValues.statuses.length > 0
+        filterValues.deliveryEndDatetime !== null || filterValues.deliveryFromDatetime !== null || filterValues.deliveryTypes.length > 0 ||
+        filterValues.driverIds.length > 0 || filterValues.paymethodIds.length > 0 || filterValues.statuses.length > 0
     }
     setFilterApplied(_filterApplied)
   }, [filterValues])
+
   return (
     <>
       <OrderContentHeaderContainer
@@ -74,7 +79,7 @@ export const OrdersContentHeader = (props) => {
             <HeaderTitle>
               {title}
             </HeaderTitle>
-            {selectedOrderIds && (
+            {selectedOrderIds && width > 768 && (
               <OverlayTrigger
                 placement='bottom'
                 overlay={
@@ -96,13 +101,15 @@ export const OrdersContentHeader = (props) => {
           </HeaderSection>
         )}
         <TopRightSection>
-          {!isDisableControl && (
-            <OrdersDashboardControls
-              selectedOrderNumber={selectedOrderIds?.length}
-              filterValues={filterValues}
-              handleChangeMultiOrdersStatus={handleChangeMultiOrdersStatus}
-              handleDeleteMultiOrders={handleDeleteMultiOrders}
-            />
+          {(configState?.configs?.order_deadlines_enabled?.value === '1') && (
+            <SLAControlsWrapper>
+              <OrderDashboardSLASetting
+                setSlaSettingTime={setSlaSettingTime}
+              />
+              <OrdersDashboardSLAControls
+                setTimeStatus={setTimeStatus}
+              />
+            </SLAControlsWrapper>
           )}
           <WrapperSearchAndFilter
             fullWidth={isDisableTitle && isDisableControl}
@@ -116,7 +123,7 @@ export const OrdersContentHeader = (props) => {
             />
             <IconButton
               color='black'
-              onClick={() => setFilterModalOpen(true)}
+              onClick={() => setFilterModalOpen && setFilterModalOpen(true)}
               name='filter-btn'
             >
               {filterApplied ? <Funnel /> : <MdcFilterOff />}
@@ -127,7 +134,7 @@ export const OrdersContentHeader = (props) => {
 
       <OrdersFilterGroup
         open={filterModalOpen}
-        handleCloseFilterModal={() => setFilterModalOpen(false)}
+        handleCloseFilterModal={() => setFilterModalOpen && setFilterModalOpen(false)}
         driverGroupList={driverGroupList}
         driversList={driversList}
         paymethodsList={paymethodsList}

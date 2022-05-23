@@ -7,6 +7,7 @@ import { ProductIngredient } from '../ProductIngredient'
 import { ProductMetaFields } from '../ProductMetaFields'
 import { ProductExtras } from '../ProductExtras'
 import { ProductGallery } from '../ProductGallery'
+import { ProductVideos } from '../ProductVideos'
 import { ProductMainDetails } from '../ProductMainDetails'
 
 import {
@@ -31,7 +32,8 @@ const ProductDetailsUI = (props) => {
     handleChangeInput,
     handleUpdateClick,
     handleChangeFormState,
-    handleSuccessUpdate
+    handleSuccessUpdate,
+    handleChangeRibbon
   } = props
   const { width } = useWindowSize()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -131,6 +133,7 @@ const ProductDetailsUI = (props) => {
               formState={formState}
               handlechangeImage={handlechangeImage}
               handleChangeFormState={handleChangeFormState}
+              handleChangeRibbon={handleChangeRibbon}
               handleChangeInput={handleChangeInput}
               handleUpdateClick={handleUpdateClick}
               isExtendExtraOpen={isExtendExtraOpen}
@@ -164,6 +167,14 @@ const ProductDetailsUI = (props) => {
           )}
           {showOption === 'product_images' && (
             <ProductGallery
+              business={business}
+              categoryId={productState.product.category_id}
+              product={productState.product}
+              handleSuccessUpdate={handleSuccessUpdate}
+            />
+          )}
+          {showOption === 'product_video' && (
+            <ProductVideos
               business={business}
               categoryId={productState.product.category_id}
               product={productState.product}

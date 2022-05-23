@@ -30,7 +30,8 @@ const PointsWalletBusinessListUI = (props) => {
     handleCheckBox,
     handleUpdateWalletBusiness,
     handleUpdateBusinessList,
-    handleChangeSwitch
+    handleChangeSwitch,
+    isCloseBusinessDetails
   } = props
 
   const [, t] = useLanguage()
@@ -114,7 +115,7 @@ const PointsWalletBusinessListUI = (props) => {
     let filteredBusinessList = []
     if (businessList?.businesses.length > 0) {
       if (searchVal) {
-        filteredBusinessList = businessList.businesses.filter(business => business?.name.toLowerCase().includes(searchVal.toLowerCase()))
+        filteredBusinessList = businessList.businesses.filter(business => business?.name?.toLowerCase().includes(searchVal?.toLowerCase()))
       } else {
         filteredBusinessList = [...businessList.businesses]
       }
@@ -130,6 +131,12 @@ const PointsWalletBusinessListUI = (props) => {
   useEffect(() => {
     setCurrentPage(1)
   }, [searchVal])
+
+  useEffect(() => {
+    if (!isCloseBusinessDetails) return
+    setExtraOpen(false)
+    setSelectedBusiness(null)
+  }, [isCloseBusinessDetails])
 
   return (
     <Container>
@@ -205,7 +212,7 @@ const PointsWalletBusinessListUI = (props) => {
             <thead>
               <tr>
                 <th className='business-info'>{t('BUSINESSES', 'Businesses')}</th>
-                <th>{t('STATUS', 'Status')}</th>
+                <th>{t('ORDERS_BOX_STATUS_HEADER', 'Status')}</th>
                 <th>{t('Redeeem', 'Redeeem')}</th>
                 <th>{t('ACCUMULATION', 'Accumulation')}</th>
                 <th />

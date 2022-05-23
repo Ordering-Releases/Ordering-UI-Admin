@@ -13,9 +13,11 @@ import {
   Headset as HeadsetIcon,
   Truck,
   GraphUp,
-  // WindowDock,
+  WindowDock,
   Award,
-  BoxArrowUpRight
+  BoxArrowUpRight,
+  Cart3,
+  CloudDownload
 } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
 import { useEvent, useLanguage, useSession } from 'ordering-components-admin'
@@ -83,6 +85,21 @@ export const SidebarMenu = (props) => {
     //   pageName: 'loyalty_reports',
     //   url: '/loyalty/reports'
     // }
+  ]
+
+  const cartRecoveryMenus = [
+    {
+      id: 1,
+      title: t('OPEN_CARTS', 'Open carts'),
+      pageName: 'open_carts',
+      url: '/cart-recovery/open-carts'
+    },
+    {
+      id: 2,
+      title: t('RECOVERY_ACTIONS', 'Recovery actions'),
+      pageName: 'recovery_actions',
+      url: '/cart-recovery/recovery-actions'
+    }
   ]
 
   const storesSubMenus = [
@@ -237,6 +254,21 @@ export const SidebarMenu = (props) => {
     }
   ]
 
+  const downloadsSubMenus = [
+    {
+      id: 1,
+      title: t('FREE_PRODUCTS', 'Free products'),
+      pageName: 'free_products',
+      url: '/downloads/free-products'
+    },
+    {
+      id: 2,
+      title: t('PURCHASED_PRODUCTS', 'Purchased products'),
+      pageName: 'purchased_products',
+      url: '/downloads/purchased-products'
+    }
+  ]
+
   const handleGoToPage = (data) => {
     if (windowSize.width < 768) {
       handleMenuCollapse(true)
@@ -319,9 +351,7 @@ export const SidebarMenu = (props) => {
                     <Accordion.Collapse eventKey='1'>
                       <MenuContent>
                         {ordersSubMenus.map(item => (
-                          !(sessionState?.user?.level === 2 && item.pageName === 'drivers') &&
-                          !(sessionState?.user?.level === 5 && item.pageName === 'drivers') &&
-                          !(sessionState?.user?.level === 5 && item.pageName === 'deliveries') && (
+                          !(sessionState?.user?.level === 2 && item.pageName === 'drivers') && (
                             <SubMenu
                               key={item.id}
                               active={location.pathname.includes(item.pageName)}
@@ -473,7 +503,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {/* <MenuContainer>
+                  <MenuContainer>
                     <ContextAwareToggle
                       eventKey='8'
                       active={
@@ -497,7 +527,7 @@ export const SidebarMenu = (props) => {
                         ))}
                       </MenuContent>
                     </Accordion.Collapse>
-                  </MenuContainer> */}
+                  </MenuContainer>
                   <MenuContainer>
                     <ContextAwareToggle
                       eventKey='9'
@@ -513,6 +543,31 @@ export const SidebarMenu = (props) => {
                     <Accordion.Collapse eventKey='9'>
                       <MenuContent>
                         {loyaltySubMenus.map(item => (
+                          <SubMenu
+                            key={item.id}
+                            active={location.pathname.includes(item.url)}
+                            onClick={() => handleGoToPage({ page: item.pageName })}
+                          >
+                            {item.title}
+                          </SubMenu>
+                        ))}
+                      </MenuContent>
+                    </Accordion.Collapse>
+                  </MenuContainer>
+                  <MenuContainer>
+                    <ContextAwareToggle
+                      eventKey='10'
+                      active={
+                        location.pathname === '/cart-recovery/open-carts' ||
+                        location.pathname === '/cart-recovery/recovery-actions'
+                      }
+                    >
+                      <Cart3 />
+                      <span>{t('CART_RECOVERY', 'Cart recovery')}</span>
+                    </ContextAwareToggle>
+                    <Accordion.Collapse eventKey='10'>
+                      <MenuContent>
+                        {cartRecoveryMenus.map(item => (
                           <SubMenu
                             key={item.id}
                             active={location.pathname.includes(item.url)}
@@ -564,14 +619,14 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   </Accordion>
                 )}
-                {/* <Button
+                <Button
                   className='d-flex align-items-center'
                   variant={location.pathname === '/ordering-products' && 'primary'}
                   onClick={() => handleGoToPage({ page: 'ordering_products' })}
                 >
                   <WindowDock />
                   <span>{t('ORDERING_PRODUCTS', 'Ordering products')}</span>
-                </Button> */}
+                </Button>
                 {sessionState?.user?.level === 0 && (
                   <Button
                     className='d-flex align-items-center'
@@ -592,6 +647,33 @@ export const SidebarMenu = (props) => {
                     <span>{t('MARKETPLACE', 'Marketplace')}</span>
                   </Button>
                 )}
+                <Accordion>
+                  <MenuContainer>
+                    <ContextAwareToggle
+                      eventKey='11'
+                      active={
+                        location.pathname === '/downloads/free-products' ||
+                        location.pathname === '/downloads/purchased-products'
+                      }
+                    >
+                      <CloudDownload />
+                      <span>{t('DOWNLOADS', 'Downloads')}</span>
+                    </ContextAwareToggle>
+                    <Accordion.Collapse eventKey='11'>
+                      <MenuContent>
+                        {downloadsSubMenus.map(item => (
+                          <SubMenu
+                            key={item.id}
+                            active={location.pathname.includes(item.pageName) || location.pathname.includes(item?.url)}
+                            onClick={() => handleGoToPage({ page: item.pageName })}
+                          >
+                            {item.title}
+                          </SubMenu>
+                        ))}
+                      </MenuContent>
+                    </Accordion.Collapse>
+                  </MenuContainer>
+                </Accordion>
               </div>
             </SidebarContent>
             <UserInfo

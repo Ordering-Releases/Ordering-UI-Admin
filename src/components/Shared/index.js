@@ -5,6 +5,7 @@ import { Alert, Confirm } from './Confirm'
 import { ConfirmAdmin } from './ConfirmAdmin'
 import { DragScroll } from './DragScroll'
 import { Image } from './Image'
+import { ImageCrop } from './ImageCrop'
 import { InputPhoneNumber } from './InputPhoneNumber'
 import { Modal } from './Modal'
 import { MoreSidebarLayout } from './MoreSidebarLayout'
@@ -12,6 +13,7 @@ import { NotFoundSource } from './NotFoundSource'
 import { Pagination } from './Pagination'
 import { PaginationButton } from './PaginationButton'
 import { Personalization } from './Personalization'
+import { ProtectedRoute } from './ProtectedRoute'
 import { Schedule } from './Schedule'
 import { SearchBar } from './SearchBar'
 import { RangeCalendar } from './RangeCalendar'
@@ -24,6 +26,7 @@ import { SideBar } from './SideBar'
 import { SpinnerLoader } from './SpinnerLoader'
 import SpreadSheetEditor from './SpreadSheetEditor'
 import { ProgressRing } from './ProgressRing'
+import { ColorPicker } from './ColorPicker'
 
 export {
   AutoScroll,
@@ -34,6 +37,7 @@ export {
   ConfirmAdmin,
   DragScroll,
   Image,
+  ImageCrop,
   InputPhoneNumber,
   Modal,
   MoreSidebarLayout,
@@ -41,6 +45,7 @@ export {
   Pagination,
   PaginationButton,
   Personalization,
+  ProtectedRoute,
   Schedule,
   SearchBar,
   RangeCalendar,
@@ -52,5 +57,6 @@ export {
   SideBar,
   SpinnerLoader,
   SpreadSheetEditor,
-  ProgressRing
+  ProgressRing,
+  ColorPicker
 }

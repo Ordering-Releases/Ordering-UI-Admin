@@ -44,43 +44,51 @@ export const ExtraOption = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 
   ${({ active }) => active && css`
     border-top: 1px solid ${props => props.theme.colors.primary};
     border-bottom: 1px solid ${props => props.theme.colors.primary};
     background: ${props => props.theme.colors.lightPrimary};
   `}
-`
 
-export const CheckboxContainer = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
+  ${({ isDragOver }) => isDragOver && css`
+    border-top: 1px solid ${props => props.theme.colors.primary};
+  `}
 
-  input[type='text'] {
-    flex: 1;
-    margin: 0 5px;
-    color: ${props => props.theme.colors.headingColor};
-    padding: 5px;
-    outline: none;
-    border: none;
-    font-size: 14px;
-    background: transparent;
+  ${({ isBorderBottom }) => isBorderBottom && css`
+    border-bottom: 1px solid ${props => props.theme.colors.primary};
+  `}
+
+  &:hover {
+    background: ${props => props.theme.colors.lightPrimary};
   }
 `
 
-export const MoreContainer = styled.div`
+export const CheckboxContainer = styled.div`
   display: flex;
   align-items: center;
+`
+
+export const MoreContainer = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   svg {
     cursor: pointer;
     font-size: 20px;
     color: ${props => props.theme.colors.headingColor};
   }
+
+  > span {
+    font-size: 14px;
+    padding: 0 10px;
+  }
 `
 
 export const Details = styled.div`
-  cursor: pointer;
   font-size: 14px;
   color: ${props => props.theme.colors.primary};
 
@@ -111,7 +119,8 @@ export const ExtraAddForm = styled.form`
     width: 100%;
     border: none;
     outline: none;
-    border-bottom: 1px solid #E9ECEF;
+    border-bottom: 1px solid ${props => props.theme.colors.borderColor};
+    background: ${props => props.theme.colors?.backgroundPage || '#FFF'};
     padding: 12px 0;
 
     &::placeholder,
@@ -120,6 +129,18 @@ export const ExtraAddForm = styled.form`
     }
     &:-ms-input-placeholder {
       color: #B1BCCC;
+    }
+  }
+`
+export const DragImageWrapper = styled.div`
+  img {
+    ${props => props.theme?.rtl ? css`
+      margin-left: 20px;
+    ` : css`
+      margin-right: 20px;
+    `}
+    &:hover {
+      cursor: grab;
     }
   }
 `

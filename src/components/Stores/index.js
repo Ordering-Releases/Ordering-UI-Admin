@@ -15,7 +15,6 @@ import { BusinessInformation } from './BusinessInformation'
 import { BusinessInfoSettingList } from './BusinessInfoSettingList'
 import { BusinessLocation } from './BusinessLocation'
 import { BusinessMenu } from './BusinessMenu'
-import { BusinessMoreDetail } from './BusinessMoreDetail'
 import { BusinessNotifications } from './BusinessNotifications'
 import { BusinessOrderingChannels } from './BusinessOrderingChannels'
 import { BusinessOwners } from './BusinessOwners'
@@ -45,15 +44,8 @@ import { PaymethodOptionStripeConnect } from './PaymethodOptionStripeConnect'
 import { PaymentOptionPaypal } from './PaymentOptionPaypal'
 import { BusinessPromotionGeneralForm } from './BusinessPromotionGeneralForm'
 import { BusinessPromotionCustomFields } from './BusinessPromotionCustomFields'
-import { BusinessTax } from './BusinessTax'
-import { BusinessDeliveryPickUp } from './BusinessDeliveryPickUp'
-import { BusinessExtension } from './BusinessExtension'
-import { BusinessLogistic } from './BusinessLogistic'
-import { BusinessPreorder } from './BusinessPreorder'
-import { BusinessEmailAndPhone } from './BusinessEmailAndPhone'
 import { BusinessGprsPrinters } from './BusinessGprsPrinters'
 import { BusinessOwnerSelector } from './BusinessOwnerSelector'
-import { SingleBusiness } from './SingleBusiness'
 import { BusinessProductsCategoyDetails } from './BusinessProductsCategoyDetails'
 import { BusinessProductAddForm } from './BusinessProductAddForm'
 import { BusinessBrandGENDetail } from './BusinessBrandGENDetail'
@@ -118,7 +110,6 @@ export {
   BusinessInfoSettingList,
   BusinessLocation,
   BusinessMenu,
-  BusinessMoreDetail,
   BusinessNotifications,
   BusinessOrderingChannels,
   BusinessOwners,
@@ -148,15 +139,8 @@ export {
   PaymentOptionPaypal,
   BusinessPromotionGeneralForm,
   BusinessPromotionCustomFields,
-  BusinessTax,
-  BusinessDeliveryPickUp,
-  BusinessExtension,
-  BusinessLogistic,
-  BusinessPreorder,
-  BusinessEmailAndPhone,
   BusinessGprsPrinters,
   BusinessOwnerSelector,
-  SingleBusiness,
   BusinessProductsCategoyDetails,
   BusinessProductAddForm,
   BusinessBrandGENDetail,

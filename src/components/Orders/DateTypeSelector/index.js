@@ -28,9 +28,9 @@ export const DateTypeSelector = (props) => {
     {
       value: 'term',
       content: (
-        <Option>
+        <Option isDateOption>
           <DateContainer>
-            {t('FROM', 'From')}
+            <span>{t('FROM', 'From')}</span>
             <DatePicker
               selected={startDate}
               placeholderText='mm/dd/yyyy'
@@ -40,13 +40,12 @@ export const DateTypeSelector = (props) => {
             />
           </DateContainer>
           <DateContainer>
-            {t('TO', 'To')}
+            <span>{t('TO', 'To')}</span>
             <DatePicker
               selected={endDate}
               minDate={new Date(startDate)}
               placeholderText='mm/dd/yyyy'
               className='endDate'
-              isClearable
               onChange={date => _handleChangeEndDate(date)}
             />
           </DateContainer>
