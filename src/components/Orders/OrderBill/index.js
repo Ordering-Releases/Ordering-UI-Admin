@@ -140,7 +140,7 @@ export const OrderBill = (props) => {
         <table className='payments'>
           <thead>
             <tr>
-              <th colSpan='2'>{t('PAYMENTS', 'Payments')}</th>
+              <th calSpan={2}>{t('PAYMENTS', 'Payments')}</th>
             </tr>
           </thead>
           <tbody>

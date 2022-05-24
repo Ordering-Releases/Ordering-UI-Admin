@@ -75,9 +75,6 @@ export const BusinessOrderingChannels = (props) => {
                   value={slug}
                   placeholder={t('SLUG', 'Slug')}
                   onChange={(e) => setSlug(e.target.value)}
-                  onKeyPress={e => {
-                    if (e.which === 32) { e.preventDefault() }
-                  }}
                 />
               </FormControl>
               <Button color='primary' onClick={changeCustomslug}>{t('SAVE', 'Save')}</Button>

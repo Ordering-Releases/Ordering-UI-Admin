@@ -9,7 +9,7 @@ export const DriversManagersList = (props) => {
   const usersProps = {
     ...props,
     headerTitle: t('DRIVERS_MANAGERS', 'Drivers managers'),
-    defaultUserTypesSelected: [5],
+    deafultUserTypesSelected: [5],
     disabledActiveStateCondition: true,
     isDriversManagersPage: true,
     onUserRedirect: (userId) => {

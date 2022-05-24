@@ -15,8 +15,6 @@ import { InvoiceGeneral } from '../InvoiceGeneral'
 import { InvoicePayMethods } from '../InvoicePayMethods'
 import { InvoiceOrderType } from '../InvoiceOrdertype'
 import { InvoiceBusinessPdf } from '../InvoiceBusinessPdf'
-import { IconButton } from '../../../styles'
-import { Download } from 'react-bootstrap-icons'
 
 const InvoiceBusinessManagerUI = (props) => {
   const {
@@ -39,6 +37,7 @@ const InvoiceBusinessManagerUI = (props) => {
   useEffect(() => {
     if (!exportInvoiceList?.loading && exportInvoiceList?.invoice) {
       inputRef.current.value = invoicePdfRef?.current.innerHTML
+      submitBtnRef.current.click()
     }
   }, [exportInvoiceList?.loading])
 
@@ -46,13 +45,6 @@ const InvoiceBusinessManagerUI = (props) => {
     <InvoiceDriversContainer>
       <DetailsHeader>
         <h2>{t('BUSINESS_INVOICE', 'Business invoice')}</h2>
-        <IconButton
-          color='black'
-          disabled={exportInvoiceList?.loading || !exportInvoiceList?.invoice}
-          onClick={() => submitBtnRef.current.click()}
-        >
-          <Download />
-        </IconButton>
       </DetailsHeader>
       <DetailsList>
         <DragScroll>

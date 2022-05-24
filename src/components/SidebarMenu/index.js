@@ -13,7 +13,7 @@ import {
   Headset as HeadsetIcon,
   Truck,
   GraphUp,
-  WindowDock,
+  // WindowDock,
   Award,
   BoxArrowUpRight,
   Cart3,
@@ -351,7 +351,9 @@ export const SidebarMenu = (props) => {
                     <Accordion.Collapse eventKey='1'>
                       <MenuContent>
                         {ordersSubMenus.map(item => (
-                          !(sessionState?.user?.level === 2 && item.pageName === 'drivers') && (
+                          !(sessionState?.user?.level === 2 && item.pageName === 'drivers') &&
+                          !(sessionState?.user?.level === 5 && item.pageName === 'drivers') &&
+                          !(sessionState?.user?.level === 5 && item.pageName === 'deliveries') && (
                             <SubMenu
                               key={item.id}
                               active={location.pathname.includes(item.pageName)}

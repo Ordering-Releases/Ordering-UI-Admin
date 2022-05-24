@@ -13,8 +13,6 @@ import {
 import { InvoiceGeneral } from '../InvoiceGeneral'
 import { InvoicePayMethods } from '../InvoicePayMethods'
 import { InvoiceDriverPdf } from '../InvoiceDriverPdf'
-import { Download } from 'react-bootstrap-icons'
-import { IconButton } from '../../../styles'
 
 const InvoiceDriverManagerUI = (props) => {
   const {
@@ -36,6 +34,7 @@ const InvoiceDriverManagerUI = (props) => {
   useEffect(() => {
     if (!exportInvoiceList?.loading && exportInvoiceList?.invoice) {
       inputRef.current.value = invoicePdfRef?.current.innerHTML
+      submitBtnRef.current.click()
     }
   }, [exportInvoiceList?.loading])
 
@@ -43,13 +42,6 @@ const InvoiceDriverManagerUI = (props) => {
     <InvoiceDriversContainer>
       <DetailsHeader>
         <h2>{t('DRIVER_INVOICE', 'Driver invoice')}</h2>
-        <IconButton
-          color='black'
-          disabled={exportInvoiceList?.loading || !exportInvoiceList?.invoice}
-          onClick={() => submitBtnRef.current.click()}
-        >
-          <Download />
-        </IconButton>
       </DetailsHeader>
       <DetailsList>
         <DragScroll>
@@ -76,7 +68,7 @@ const InvoiceDriverManagerUI = (props) => {
       }
       <Form target='_blank' action={`${ordering.root}/pdf/html`} method='POST'>
         <input ref={inputRef} type='hidden' name='html' />
-        <button ref={e => { submitBtnRef.current = e }} type='submit' id='driver-invoice-btn' />
+        <button ref={submitBtnRef} type='submit' />
       </Form>
       <InvoicePdfWrapper ref={invoicePdfRef}>
         <InvoiceDriverPdf {...props} />

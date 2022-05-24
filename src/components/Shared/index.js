@@ -26,7 +26,6 @@ import { SideBar } from './SideBar'
 import { SpinnerLoader } from './SpinnerLoader'
 import SpreadSheetEditor from './SpreadSheetEditor'
 import { ProgressRing } from './ProgressRing'
-import { ColorPicker } from './ColorPicker'
 
 export {
   AutoScroll,
@@ -57,6 +56,5 @@ export {
   SideBar,
   SpinnerLoader,
   SpreadSheetEditor,
-  ProgressRing,
-  ColorPicker
+  ProgressRing
 }

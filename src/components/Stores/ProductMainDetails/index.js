@@ -19,7 +19,6 @@ export const ProductMainDetails = (props) => {
     handlechangeImage,
     handleChangeInput,
     handleChangeFormState,
-    handleChangeRibbon,
     handleUpdateClick,
     isExtendExtraOpen,
     setIsExtendExtraOpen,
@@ -67,7 +66,6 @@ export const ProductMainDetails = (props) => {
           product={product}
           formState={formState}
           handlechangeImage={handlechangeImage}
-          handleChangeRibbon={handleChangeRibbon}
           handleChangeInput={handleChangeInput}
           handleChangeFormState={handleChangeFormState}
           handleButtonUpdateClick={handleUpdateClick}

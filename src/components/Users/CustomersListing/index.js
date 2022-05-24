@@ -24,7 +24,7 @@ import {
 
 const CustomersListingUI = (props) => {
   const {
-    defaultUserTypesSelected,
+    deafultUserTypesSelected,
     disabledActiveStateCondition,
     headerTitle,
 
@@ -136,7 +136,7 @@ const CustomersListingUI = (props) => {
               {t('ADD_USER', 'Add user')}
             </Button>
             <UsersExportCSV
-              defaultUserTypesSelected={defaultUserTypesSelected}
+              deafultUserTypesSelected={deafultUserTypesSelected}
               disabledActiveStateCondition={disabledActiveStateCondition}
               userTypesSelected={userTypesSelected}
               selectedUserActiveState={selectedUserActiveState}

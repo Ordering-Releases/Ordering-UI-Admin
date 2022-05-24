@@ -6,12 +6,11 @@ import {
   BusinessBrandGENDetail as BusinessBrandGENDetailContorller
 } from 'ordering-components-admin'
 import Skeleton from 'react-loading-skeleton'
-import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
-import { bytesConverter, shape } from '../../../utils'
+import { Alert, Modal, ImageCrop } from '../../Shared'
+import { bytesConverter } from '../../../utils'
 import FiCamera from '@meronex/icons/fi/FiCamera'
 import BsCardImage from '@meronex/icons/bs/BsCardImage'
-import { Button, Switch } from '../../../styles'
-import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
+import { Button } from '../../../styles'
 import {
   BrandGeneralDetail,
   BrandLogo,
@@ -21,13 +20,7 @@ import {
   CameraIconContainer,
   FormControl,
   Label,
-  SaveBtnWrapper,
-  SwitchWrapper,
-  ColorShapeWrapper,
-  ColorWrapper,
-  ShapeWrapper,
-  ShapeContentWrapper,
-  ShapeBoxWrapper
+  SaveBtnWrapper
 } from './styles'
 
 const BusinessBrandGENDetailUI = (props) => {
@@ -37,8 +30,7 @@ const BusinessBrandGENDetailUI = (props) => {
     // handlechangeImage,
     handleChangeInput,
     handleUpdateClick,
-    handleChangeItem,
-    handleChangeRibbon
+    handleChangeItem
   } = props
 
   const [, t] = useLanguage()
@@ -93,29 +85,11 @@ const BusinessBrandGENDetailUI = (props) => {
     setCropState({ name: null, data: null, open: false })
   }
 
-  const handleSubmit = () => {
-    if ((typeof (brandFormState?.changes?.ribbon?.enabled) !== 'undefined'
-      ? brandFormState?.changes?.ribbon?.enabled
-      : brand?.ribbon?.enabled) &&
-      brandFormState?.changes?.ribbon?.text === ''
-    ) {
-      setAlertState({
-        open: true,
-        content: t(
-          'VALIDATION_ERROR_REQUIRED',
-          'The Ribbon text field is required'
-        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
-      })
-      return
-    }
-    handleUpdateClick && handleUpdateClick()
-  }
-
   useEffect(() => {
     if (brandFormState?.result?.error) {
       setAlertState({
         open: true,
-        content: brandFormState?.result?.result
+        content: [brandFormState?.result?.result]
       })
     }
   }, [brandFormState?.result])
@@ -186,74 +160,14 @@ const BusinessBrandGENDetailUI = (props) => {
             onChange={handleChangeInput}
             disabled={brandFormState.loading}
             autoComplete='off'
-            onKeyPress={e => {
-              if (e.which === 32) { e.preventDefault() }
-            }}
           />
         </FormControl>
-        <SwitchWrapper>
-          <span>{t('RIBBON', 'Ribbon')}</span>
-          <Switch
-            defaultChecked={brand?.ribbon?.enabled || false}
-            onChange={val => handleChangeRibbon({ enabled: val })}
-          />
-        </SwitchWrapper>
-        {
-          (typeof (brandFormState?.changes?.ribbon?.enabled) !== 'undefined' ? brandFormState?.changes?.ribbon?.enabled : brand?.ribbon?.enabled) && (
-            <>
-              <FormControl>
-                <label>{t('TEXT', 'Text')}</label>
-                <input
-                  name='text'
-                  placeholder={t('TEXT', 'Text')}
-                  value={brandFormState?.changes?.ribbon?.text ?? brand?.ribbon?.text}
-                  onChange={(e) => handleChangeRibbon({ text: e.target.value })}
-                  disabled={brandFormState.loading}
-                  autoComplete='off'
-                />
-              </FormControl>
-              <ColorShapeWrapper>
-                <ColorWrapper>
-                  <label>{t('COLOR', 'Color')}</label>
-                  <ColorPicker
-                    defaultColor={brandFormState?.changes?.ribbon?.color ?? brand?.ribbon?.color}
-                    onChangeColor={(color) => handleChangeRibbon({ color })}
-                  />
-                </ColorWrapper>
-                <ShapeWrapper>
-                  <label>{t('SHAPE', 'Shape')}</label>
-                  <ShapeContentWrapper>
-                    {shape && Object.keys(shape).map((key, i) => (
-                      <ShapeBoxWrapper
-                        key={i}
-                        shapeRect={shape[key] === shape?.rectangleRound}
-                        round={shape[key] === shape?.capsuleShape}
-                        active={brandFormState?.changes?.ribbon?.shape
-                          ? (brandFormState?.changes?.ribbon?.shape === shape[key])
-                          : (brand?.ribbon?.shape === shape[key])}
-                        onClick={() => handleChangeRibbon({ shape: shape[key] })}
-                      >
-                        <div />
-                        {(brandFormState?.changes?.ribbon?.shape
-                          ? (brandFormState?.changes?.ribbon?.shape === shape[key])
-                          : (brand?.ribbon?.shape === shape[key]))
-                          ? <RecordCircleFill />
-                          : <Circle />}
-                      </ShapeBoxWrapper>
-                    ))}
-                  </ShapeContentWrapper>
-                </ShapeWrapper>
-              </ColorShapeWrapper>
-            </>
-          )
-        }
-
         <SaveBtnWrapper>
           <Button
             borderRadius='7.6px'
             color='primary'
             disabled={brandFormState.loading}
-            onClick={handleSubmit}
+            onClick={handleUpdateClick}
           >
             {t('SAVE', 'Save')}
           </Button>

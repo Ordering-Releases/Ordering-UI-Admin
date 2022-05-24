@@ -17,7 +17,6 @@ import { PaymethodOptionPaypalExpress } from '../PaymethodOptionPaypalExpress'
 import { PaymethodOptionStripeRedirect } from '../PaymethodOptionStripeRedirect'
 import { PaymethodOptionStripeConnect } from '../PaymethodOptionStripeConnect'
 import { PaymentOptionPaypal } from '../PaymentOptionPaypal'
-import { PaymentOptionSquare } from '../PaymentOptionSquare'
 import { BusinessWalletsList } from '../BusinessWalletsList'
 
 import {
@@ -38,7 +37,7 @@ const BusinessPaymentMethodsUI = (props) => {
     paymethodsList,
     handleClickPayment,
     handleSelectAllPaymethods,
-    // handleSelectNonePaymethods,
+    handleSelectNonePaymethods,
     handleDeleteBusinessPaymethodOption,
     setIsExtendExtraOpen,
     actionState,
@@ -56,7 +55,6 @@ const BusinessPaymentMethodsUI = (props) => {
     handleStripeSave,
     isSuccessDeleted,
     setIsSuccessDeleted,
-    handleSuccessPaymethodUpdate,
     handleSuccessUpdate,
 
     isTutorialMode,
@@ -170,13 +168,13 @@ const BusinessPaymentMethodsUI = (props) => {
           >
             {t('SELECT_ALL', 'Select all')}
           </Button>
-          {/* <Button
+          <Button
             color='secundaryDark'
             onClick={() => handleSelectNonePaymethods()}
             disabled={(paymethodsList.loading || businessPaymethodsState.loading)}
           >
             {t('SELECT_NONE', 'Select none')}
-          </Button> */}
+          </Button>
         </ButtonGroup>
 
         {(paymethodsList.loading || businessPaymethodsState.loading) ? (
@@ -246,8 +244,7 @@ const BusinessPaymentMethodsUI = (props) => {
                 'paypal',
                 'paypal_express',
                 'stripe_redirect',
-                'stripe_connect',
-                'square'
+                'stripe_connect'
               ].includes(selectedPaymethodGateway) && (
                 <PaymentOption
                   sitesState={sitesState}
@@ -348,21 +345,6 @@ const BusinessPaymentMethodsUI = (props) => {
                   handleChangeStripeInput={handleChangeStripeInput}
                   handleStripeSave={handleStripeSave}
                   handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
-                />
-              )}
-              {selectedPaymethodGateway === 'square' && (
-                <PaymentOptionSquare
-                  open={isEdit}
-                  sitesState={sitesState}
-                  business={business}
-                  changesState={changesState}
-                  orderTypes={orderTypes}
-                  onClose={() => handleCloseEdit()}
-                  businessPaymethod={selectedBusinessPaymethod}
-                  handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
-                  handleChangeBusinessPaymentState={handleChangeBusinessPaymentState}
-                  businessPaymethods={businessPaymethodsState?.paymethods}
-                  handleSuccessPaymethodUpdate={handleSuccessPaymethodUpdate}
                 />
               )}
             </>
@@ -483,21 +465,6 @@ const BusinessPaymentMethodsUI = (props) => {
                     handleChangeStripeInput={handleChangeStripeInput}
                     handleStripeSave={handleStripeSave}
                     handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
-                  />
-                )}
-                {selectedPaymethodGateway === 'square' && (
-                  <PaymentOptionSquare
-                    open={isEdit}
-                    sitesState={sitesState}
-                    business={business}
-                    changesState={changesState}
-                    orderTypes={orderTypes}
-                    onClose={() => handleCloseEdit()}
-                    businessPaymethod={selectedBusinessPaymethod}
-                    handleDeletePaymethod={handleDeleteBusinessPaymethodOption}
-                    handleChangeBusinessPaymentState={handleChangeBusinessPaymentState}
-                    businessPaymethods={businessPaymethodsState?.paymethods}
-                    handleSuccessPaymethodUpdate={handleSuccessPaymethodUpdate}
                   />
                 )}
               </Modal>

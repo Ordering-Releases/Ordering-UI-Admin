@@ -15,7 +15,7 @@ import {
 
 export const UsersListingHeader = (props) => {
   const {
-    defaultUserTypesSelected,
+    deafultUserTypesSelected,
     disabledActiveStateCondition,
     title,
     selectedUsers,
@@ -82,7 +82,7 @@ export const UsersListingHeader = (props) => {
           }
         </Button>
         <UsersExportCSV
-          defaultUserTypesSelected={defaultUserTypesSelected}
+          deafultUserTypesSelected={deafultUserTypesSelected}
           disabledActiveStateCondition={disabledActiveStateCondition}
           userTypesSelected={userTypesSelected}
           selectedUserActiveState={selectedUserActiveState}

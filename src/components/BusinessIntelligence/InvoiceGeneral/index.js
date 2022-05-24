@@ -39,7 +39,7 @@ export const InvoiceGeneral = (props) => {
     handleChangeInvocing({ ...invocing, [type]: value })
   }
 
-  const onSave = () => {
+  const pdfDownload = () => {
     if (businessList && invocing?.business === '') {
       setAlertState({
         open: true,
@@ -330,9 +330,9 @@ export const InvoiceGeneral = (props) => {
             borderRadius='7.6px'
             color='primary'
             disabled={driverList?.loading || businessList?.loading}
-            onClick={onSave}
+            onClick={pdfDownload}
           >
-            {t('SAVE', 'Save')}
+            {t('EXPORT', 'Export')}
           </Button>
         </ActionBtnWrapper>
       </InvoiceGeneralDetailContainer>

@@ -39,7 +39,6 @@ export const TimeBlock = styled.div`
     border: none;
     outline: none;
     color: ${props => props.theme.colors.secundaryLight};
-    background: transparent;
 
     -moz-appearance: none;
     -webkit-appearance: none;
