@@ -108,7 +108,7 @@ var CustomerSelectorUI = function CustomerSelectorUI(props) {
 var CustomerSelector = function CustomerSelector(props) {
   var customerSelectorProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CustomerSelectorUI,
-    defaultUserTypesSelected: [3],
+    deafultUserTypesSelected: [3],
     propsToFetch: ['name', 'lastname', 'photo']
   });
 

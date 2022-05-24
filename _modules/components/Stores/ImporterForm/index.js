@@ -225,12 +225,7 @@ var ImporterFormUI = function ImporterFormUI(props) {
     defaultValue: editState === null || editState === void 0 ? void 0 : editState.slug,
     onChange: handleChangeInput,
     disabled: formState.loading,
-    autoComplete: "off",
-    onKeyPress: function onKeyPress(e) {
-      if (e.which === 32) {
-        e.preventDefault();
-      }
-    }
+    autoComplete: "off"
   })), /*#__PURE__*/_react.default.createElement(_styles2.InputWrapper, null, /*#__PURE__*/_react.default.createElement("label", null, t('TYPE', 'Type')), /*#__PURE__*/_react.default.createElement(_FirstSelect.Select, {
     name: "type",
     options: importypeOptions,

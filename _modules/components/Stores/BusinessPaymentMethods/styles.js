@@ -36,7 +36,7 @@ var PaymethodListWrapper = _styledComponents.default.div(_templateObject4 || (_t
 
 exports.PaymethodListWrapper = PaymethodListWrapper;
 
-var PaymethodOptionContainer = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-bottom: 1px solid ", ";\n  cursor: pointer;\n\n  &:hover {\n    background-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  > svg {\n    font-size: 13px;\n    color: ", ";\n  }\n"])), function (props) {
+var PaymethodOptionContainer = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-bottom: 1px solid ", ";\n  cursor: pointer;\n  &:hover {\n    background-color: ", ";\n  }\n  ", "\n  ", "\n  > svg {\n    font-size: 13px;\n    color: ", ";\n  }\n"])), function (props) {
   return props.theme.colors.borderColor;
 }, function (props) {
   return props.theme.colors.lightPrimary;

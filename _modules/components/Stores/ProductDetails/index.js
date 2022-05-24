@@ -25,8 +25,6 @@ var _ProductExtras = require("../ProductExtras");
 
 var _ProductGallery = require("../ProductGallery");
 
-var _ProductVideos = require("../ProductVideos");
-
 var _ProductMainDetails = require("../ProductMainDetails");
 
 var _styles = require("./styles");
@@ -74,8 +72,7 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
       handleChangeInput = props.handleChangeInput,
       handleUpdateClick = props.handleUpdateClick,
       handleChangeFormState = props.handleChangeFormState,
-      handleSuccessUpdate = props.handleSuccessUpdate,
-      handleChangeRibbon = props.handleChangeRibbon;
+      handleSuccessUpdate = props.handleSuccessUpdate;
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
@@ -185,7 +182,6 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     formState: formState,
     handlechangeImage: handlechangeImage,
     handleChangeFormState: handleChangeFormState,
-    handleChangeRibbon: handleChangeRibbon,
     handleChangeInput: handleChangeInput,
     handleUpdateClick: handleUpdateClick,
     isExtendExtraOpen: isExtendExtraOpen,
@@ -210,11 +206,6 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     handleSuccessUpdate: handleSuccessUpdate,
     handleUpdateBusinessState: handleUpdateBusinessState
   }), showOption === 'product_images' && /*#__PURE__*/_react.default.createElement(_ProductGallery.ProductGallery, {
-    business: business,
-    categoryId: productState.product.category_id,
-    product: productState.product,
-    handleSuccessUpdate: handleSuccessUpdate
-  }), showOption === 'product_video' && /*#__PURE__*/_react.default.createElement(_ProductVideos.ProductVideos, {
     business: business,
     categoryId: productState.product.category_id,
     product: productState.product,

@@ -62,7 +62,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
-  var defaultUserTypesSelected = props.defaultUserTypesSelected,
+  var deafultUserTypesSelected = props.deafultUserTypesSelected,
       disabledActiveStateCondition = props.disabledActiveStateCondition,
       headerTitle = props.headerTitle,
       isShowActiveStateFilter = props.isShowActiveStateFilter,
@@ -269,7 +269,7 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     getDataFromStorage();
   }, [usersList.loading]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles.UsersListingContainer, null, /*#__PURE__*/_react.default.createElement(_UsersListingHeader.UsersListingHeader, {
-    defaultUserTypesSelected: defaultUserTypesSelected,
+    deafultUserTypesSelected: deafultUserTypesSelected,
     disabledActiveStateCondition: disabledActiveStateCondition,
     isDriversPage: isDriversPage,
     isDriversManagersPage: isDriversManagersPage,
