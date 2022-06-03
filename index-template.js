@@ -141,7 +141,7 @@ if (!(window?.location?.hostname === 'localhost')) {
     integrations: [
       new Integrations.BrowserTracing()
     ],
-    release: process.env.npm_package_version ? 'ordering-ui-admin@' + process.env.npm_package_version : 'ordering-ui-admin@' + '0.0.2',
+    release: 'ordering-ui-admin-release@' + process.env.npm_package_version,
     ignoreErrors: [
       'is not defined',
       'is not a function',
@@ -151,7 +151,9 @@ if (!(window?.location?.hostname === 'localhost')) {
     ],
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
-    tracesSampleRate: 0.2
+    tracesSampleRate: 0.2,
+     // Release health
+    autoSessionTracking: true,
   })
 }
 
