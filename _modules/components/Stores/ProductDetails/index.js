@@ -25,6 +25,8 @@ var _ProductExtras = require("../ProductExtras");
 
 var _ProductGallery = require("../ProductGallery");
 
+var _ProductVideos = require("../ProductVideos");
+
 var _ProductMainDetails = require("../ProductMainDetails");
 
 var _styles = require("./styles");
@@ -39,7 +41,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -206,6 +208,11 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     handleSuccessUpdate: handleSuccessUpdate,
     handleUpdateBusinessState: handleUpdateBusinessState
   }), showOption === 'product_images' && /*#__PURE__*/_react.default.createElement(_ProductGallery.ProductGallery, {
+    business: business,
+    categoryId: productState.product.category_id,
+    product: productState.product,
+    handleSuccessUpdate: handleSuccessUpdate
+  }), showOption === 'product_video' && /*#__PURE__*/_react.default.createElement(_ProductVideos.ProductVideos, {
     business: business,
     categoryId: productState.product.category_id,
     product: productState.product,
