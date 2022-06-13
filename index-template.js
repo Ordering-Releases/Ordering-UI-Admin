@@ -142,6 +142,8 @@ if (!(window?.location?.hostname === 'localhost')) {
       new Integrations.BrowserTracing()
     ],
     release: 'ordering-ui-admin-release@' + process.env.npm_package_version,
+    // Release health
+    autoSessionTracking: true,
     ignoreErrors: [
       'is not defined',
       'is not a function',
@@ -151,9 +153,7 @@ if (!(window?.location?.hostname === 'localhost')) {
     ],
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
-    tracesSampleRate: 0.2,
-     // Release health
-    autoSessionTracking: true,
+    tracesSampleRate: 0.2
   })
 }
 
