@@ -556,7 +556,7 @@ export const SidebarMenu = (props) => {
                       </MenuContent>
                     </Accordion.Collapse>
                   </MenuContainer>
-                  {/* <MenuContainer>
+                  <MenuContainer>
                     <ContextAwareToggle
                       eventKey='10'
                       active={
@@ -580,7 +580,7 @@ export const SidebarMenu = (props) => {
                         ))}
                       </MenuContent>
                     </Accordion.Collapse>
-                  </MenuContainer> */}
+                  </MenuContainer>
                 </Accordion>
               </div>
               <div className='d-flex flex-column mt-4'>
