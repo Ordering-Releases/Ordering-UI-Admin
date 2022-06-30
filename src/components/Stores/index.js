@@ -91,6 +91,7 @@ import { ProductExtraOptionMetaFields } from './ProductExtraOptionMetaFields'
 import { ProductExtraSubOptionMetaFields } from './ProductExtraSubOptionMetaFields'
 import { ProductIngredientDetails } from './ProductIngredientDetails'
 import { ProductTagDetails } from './ProductTagDetails'
+import { SingleBusiness } from './SingleBusiness'
 
 export {
   BusinessBrandListing,
@@ -185,5 +186,6 @@ export {
   ProductExtraOptionMetaFields,
   ProductExtraSubOptionMetaFields,
   ProductIngredientDetails,
-  ProductTagDetails
+  ProductTagDetails,
+  SingleBusiness
 }
