@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin'
-import { Alert, Modal, ImageCrop } from '../../Shared'
-import { bytesConverter } from '../../../utils'
+import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
+import { bytesConverter, shape, ribbonValues } from '../../../utils'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { Button, Input, TextArea, Switch } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
+import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
 
 import {
   FormInput,
@@ -18,7 +19,12 @@ import {
   InventoryWrapper,
   Wrapper,
   RegularWrapper,
-  FieldRow
+  FieldRow,
+  ColorShapeWrapper,
+  ColorWrapper,
+  ShapeWrapper,
+  ShapeContentWrapper,
+  ShapeBoxWrapper
 } from './styles'
 
 export const ProductDetatilsInformation = (props) => {
@@ -29,7 +35,8 @@ export const ProductDetatilsInformation = (props) => {
     handleChangeInput,
     handleChangeFormState,
     handleButtonUpdateClick,
-    onCancel
+    onCancel,
+    handleChangeRibbon
   } = props
 
   const [{ parsePrice, optimizeImage }] = useUtils()
@@ -126,6 +133,15 @@ export const ProductDetatilsInformation = (props) => {
     setCropState({ name: null, data: null, open: false })
   }
 
+  const handleChangeEnable = (value) => {
+    if (!product?.ribbon && !value) {
+      const ribbonChanges = { ...ribbonValues }
+      handleChangeFormState({ ribbon: ribbonChanges })
+      return
+    }
+    handleChangeRibbon({ enabled: value })
+  }
+
   useEffect(() => {
     if (Object.keys(formMethods.errors).length > 0) {
       const content = Object.values(formMethods.errors).map(error => {
@@ -138,6 +154,15 @@ export const ProductDetatilsInformation = (props) => {
       })
     }
   }, [formMethods.errors])
+
+  useEffect(() => {
+    if (formState?.result?.error) {
+      setAlertState({
+        open: true,
+        content: formState?.result?.result
+      })
+    }
+  }, [formState?.result])
 
   useEffect(() => {
     if (autoGenerateCode.isAutoGenerate) {
@@ -289,6 +314,9 @@ export const ProductDetatilsInformation = (props) => {
             disabled={formState.loading}
             autoComplete='off'
             defaultValue={product?.slug}
+            onKeyPress={e => {
+              if (e.which === 32) { e.preventDefault() }
+            }}
           />
           <Wrapper
             style={{ paddingTop: 10 }}
@@ -296,6 +324,7 @@ export const ProductDetatilsInformation = (props) => {
             <Button
               color='lightPrimary'
               borderRadius='7.6px'
+              type='button'
               disabled={formState.loading}
               onClick={() => setAutoGenerate({
                 ...autoGenerateCode,
@@ -310,7 +339,7 @@ export const ProductDetatilsInformation = (props) => {
         <InventoryWrapper>
           <span>{t('INVENTORY', 'Inventory')}</span>
           <Switch
-            defaultChecked={product?.inventoried}
+            defaultChecked={product?.inventoried || false}
             onChange={val => handleChangeFormState({ inventoried: val })}
           />
         </InventoryWrapper>
@@ -332,6 +361,72 @@ export const ProductDetatilsInformation = (props) => {
                 }}
               />
             </InputWrapper>
+          )
+        }
+
+        <InventoryWrapper>
+          <span>{t('RIBBON', 'Ribbon')}</span>
+          <Switch
+            defaultChecked={product?.ribbon?.enabled || false}
+            onChange={val => handleChangeEnable(val)}
+          />
+        </InventoryWrapper>
+        {
+          (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : product?.ribbon?.enabled) && (
+            <>
+              <InputWrapper>
+                <label>{t('TEXT', 'Text')}</label>
+                <Input
+                  name='text'
+                  placeholder={t('TEXT', 'Text')}
+                  defaultValue={formState?.changes?.ribbon?.text ?? product?.ribbon?.text}
+                  onChange={(e) => handleChangeRibbon({ text: e.target.value })}
+                  disabled={formState.loading}
+                  autoComplete='off'
+                  ref={formMethods.register({
+                    required:
+                      (product?.ribbon && (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : product?.ribbon?.enabled))
+                        ? t(
+                          'VALIDATION_ERROR_REQUIRED',
+                          'The Ribbon text field is required'
+                        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
+                        : false
+                  })}
+                />
+              </InputWrapper>
+              <ColorShapeWrapper>
+                <ColorWrapper>
+                  <label>{t('COLOR', 'Color')}</label>
+                  <ColorPicker
+                    defaultColor={formState?.changes?.ribbon?.color ?? product?.ribbon?.color}
+                    onChangeColor={(color) => handleChangeRibbon({ color })}
+                  />
+                </ColorWrapper>
+                <ShapeWrapper>
+                  <label>{t('SHAPE', 'Shape')}</label>
+                  <ShapeContentWrapper>
+                    {shape && Object.keys(shape).map((key, i) => (
+                      <ShapeBoxWrapper
+                        key={i}
+                        shapeRect={shape[key] === shape?.rectangleRound}
+                        round={shape[key] === shape?.capsuleShape}
+                        active={formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (product?.ribbon?.shape === shape[key])}
+                        onClick={() => handleChangeRibbon({ shape: shape[key] })}
+                      >
+                        <div />
+                        {(product?.ribbon && formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (product?.ribbon?.shape === shape[key]))
+                          ? <RecordCircleFill />
+                          : <Circle />}
+                      </ShapeBoxWrapper>
+                    ))}
+                  </ShapeContentWrapper>
+                </ShapeWrapper>
+              </ColorShapeWrapper>
+            </>
           )
         }
         <ActionsForm>

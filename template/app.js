@@ -7,7 +7,7 @@ import {
   Redirect,
   useLocation
 } from 'react-router-dom'
-import { useSession, useOrder, useLanguage, useConfig, GoogleTagManager } from 'ordering-components-admin'
+import { useSession, useOrder, useLanguage, useConfig, GoogleTagManager, CannyIdentification } from 'ordering-components-admin'
 import { NotNetworkConnectivity } from '../src/components/NotNetworkConnectivity'
 import { useOnlineStatus } from '../src/hooks/useOnlineStatus'
 import { useWindowSize } from '../src/hooks/useWindowSize'
@@ -58,6 +58,7 @@ import { RecoveryActionListing } from './pages/RecoveryActionListing'
 import { CampaignListing } from './pages/CampaignListing'
 import { FreeProductsList } from './pages/FreeProductsList'
 import { PurchasedProductsList } from './pages/PurchasedProductsList'
+import { Professionals } from './pages/Professionals'
 import { QueryLogin } from '../src/components/Login'
 
 export const App = () => {
@@ -68,6 +69,8 @@ export const App = () => {
   const [, t] = useLanguage()
   const onlineStatus = useOnlineStatus()
   const { height } = useWindowSize()
+
+  const cannyAppId = '5b05e5e2d3f6c47201694ad4'
 
   const { search } = useLocation()
   let queryProject
@@ -111,6 +114,9 @@ export const App = () => {
             <NotNetworkConnectivity />
             {GoogleTagManager && (
               <GoogleTagManager tagId={configs?.google_tag_manager?.value} />
+            )}
+            {cannyAppId && (
+              <CannyIdentification appId={cannyAppId} />
             )}
             <Layout>
               {auth && (
@@ -192,6 +198,9 @@ export const App = () => {
                     </ProtectedRoute>
                     <ProtectedRoute path='/users/managers' allowedLevels={[0]}>
                       <ManagersList />
+                    </ProtectedRoute>
+                    <ProtectedRoute path='/users/professionals' allowedLevels={[0, 2, 5]}>
+                      <Professionals />
                     </ProtectedRoute>
 
                     <ProtectedRoute path='/intelligence/business' allowedLevels={[0, 2]}>

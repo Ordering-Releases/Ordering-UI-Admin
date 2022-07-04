@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLanguage, DragAndDrop, ExamineClick, BusinessFormDetails as BusinessFormDetailsController } from 'ordering-components-admin'
 import Skeleton from 'react-loading-skeleton'
-import { Alert, Modal, ImageCrop } from '../../Shared'
-import { bytesConverter } from '../../../utils'
+import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
+import { bytesConverter, shape, ribbonValues } from '../../../utils'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { Button, Input, Switch } from '../../../styles'
+import { RecordCircleFill, Circle } from 'react-bootstrap-icons'
 
 import {
   FormInput,
@@ -17,7 +18,16 @@ import {
   UploadImageIconContainer,
   LogoImage,
   PhoneWrapper,
-  SwitchWrapper
+  SwitchWrapper,
+  ColorShapeWrapper,
+  ColorWrapper,
+  ShapeWrapper,
+  ShapeContentWrapper,
+  ShapeBoxWrapper,
+  RibbonSwitchWrapper
+  // PriceFilterWrapper,
+  // PriceFilterListWrapper,
+  // PriceFilterItem
 } from './styles'
 
 const BusinessInformationUI = (props) => {
@@ -27,7 +37,8 @@ const BusinessInformationUI = (props) => {
     handlechangeImage,
     handleChangeInput,
     handleButtonUpdateClick,
-    handleChangeSwtich
+    handleChangeSwtich,
+    handleChangeRibbon
   } = props
 
   const formMethods = useForm()
@@ -36,6 +47,14 @@ const BusinessInformationUI = (props) => {
   const logoImageInputRef = useRef(null)
   const [alertState, setAlertState] = useState({ open: false, content: [] })
   const [cropState, setCropState] = useState({ name: null, data: null, open: false })
+
+  // const priceList = [
+  //   { key: '$', value: '$' },
+  //   { key: '$$', value: '$$' },
+  //   { key: '$$$', value: '$$$' },
+  //   { key: '$$$$', value: '$$$$' },
+  //   { key: '$$$$$', value: '$$$$$' }
+  // ]
 
   const handleClickImage = (type) => {
     if (type === 'header') {
@@ -93,6 +112,15 @@ const BusinessInformationUI = (props) => {
     setCropState({ name: null, data: null, open: false })
   }
 
+  const handleChangeEnable = (value) => {
+    if (!businessState?.business?.ribbon && !value) {
+      const ribbonChanges = { ...ribbonValues }
+      handleChangeSwtich('ribbon', ribbonChanges)
+      return
+    }
+    handleChangeRibbon({ enabled: value })
+  }
+
   useEffect(() => {
     if (Object.keys(formMethods.errors).length > 0) {
       const content = Object.values(formMethods.errors).map(error => error.message)
@@ -102,6 +130,15 @@ const BusinessInformationUI = (props) => {
       })
     }
   }, [formMethods.errors])
+
+  useEffect(() => {
+    if (formState?.result?.error) {
+      setAlertState({
+        open: true,
+        content: formState?.result?.result
+      })
+    }
+  }, [formState?.result])
 
   return (
     <>
@@ -173,11 +210,7 @@ const BusinessInformationUI = (props) => {
           <Input
             name='name'
             placeholder={t('Name', 'name')}
-            defaultValue={
-              formState?.result?.result
-                ? formState?.result?.result?.name
-                : formState?.changes?.name ?? businessState?.business?.name
-            }
+            defaultValue={formState?.changes?.name ?? businessState?.business?.name}
             onChange={handleChangeInput}
             ref={formMethods.register({
               required: t('BUSINESS_NAME_REQUIRED', 'Business name is required')
@@ -191,11 +224,7 @@ const BusinessInformationUI = (props) => {
           <Input
             name='description'
             placeholder={t('TYPE_BUSINESS_SHORT_DESCRIPTION', 'Write a little description')}
-            defaultValue={
-              formState?.result?.result
-                ? formState?.result?.result?.description
-                : formState?.changes?.description ?? businessState?.business?.description
-            }
+            defaultValue={formState?.changes?.description ?? businessState?.business?.description}
             onChange={handleChangeInput}
             disabled={formState.loading}
             autoComplete='off'
@@ -207,11 +236,7 @@ const BusinessInformationUI = (props) => {
             <Input
               name='phone'
               placeholder='(000) 0000 000'
-              defaultValue={
-                formState?.result?.result
-                  ? formState?.result?.result?.phone
-                  : formState?.changes?.phone ?? businessState?.business?.phone
-              }
+              defaultValue={formState?.changes?.phone ?? businessState?.business?.phone}
               onChange={handleChangeInput}
               disabled={formState.loading}
               autoComplete='off'
@@ -222,11 +247,7 @@ const BusinessInformationUI = (props) => {
             <Input
               name='cellphone'
               placeholder='(000) 0000 000'
-              defaultValue={
-                formState?.result?.result
-                  ? formState?.result?.result?.cellphone
-                  : formState?.changes?.cellphone ?? businessState?.business?.cellphone
-              }
+              defaultValue={formState?.changes?.cellphone ?? businessState?.business?.cellphone}
               onChange={handleChangeInput}
               disabled={formState.loading}
               autoComplete='off'
@@ -240,6 +261,84 @@ const BusinessInformationUI = (props) => {
             onChange={(val) => handleChangeSwtich('featured', val)}
           />
         </SwitchWrapper>
+        <RibbonSwitchWrapper>
+          <span>{t('RIBBON', 'Ribbon')}</span>
+          <Switch
+            defaultChecked={businessState?.business?.ribbon?.enabled || false}
+            onChange={val => handleChangeEnable(val)}
+          />
+        </RibbonSwitchWrapper>
+        {
+          (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : businessState?.business?.ribbon?.enabled) && (
+            <>
+              <InputWrapper>
+                <label>{t('TEXT', 'Text')}</label>
+                <Input
+                  name='text'
+                  placeholder={t('TEXT', 'Text')}
+                  defaultValue={formState?.changes?.ribbon?.text ?? businessState?.business?.ribbon?.text}
+                  onChange={(e) => handleChangeRibbon({ text: e.target.value })}
+                  disabled={formState.loading}
+                  autoComplete='off'
+                  ref={formMethods.register({
+                    required:
+                      (businessState?.business?.ribbon && (typeof (formState?.changes?.ribbon?.enabled) !== 'undefined' ? formState?.changes?.ribbon?.enabled : businessState?.business?.ribbon?.enabled))
+                        ? t(
+                          'VALIDATION_ERROR_REQUIRED',
+                          'The Ribbon text field is required'
+                        ).replace('_attribute_', t('Ribbon_Text', 'Ribbon text'))
+                        : false
+                  })}
+                />
+              </InputWrapper>
+              <ColorShapeWrapper>
+                <ColorWrapper>
+                  <label>{t('COLOR', 'Color')}</label>
+                  <ColorPicker
+                    defaultColor={formState?.changes?.ribbon?.color ?? businessState?.business?.ribbon?.color}
+                    onChangeColor={(color) => handleChangeRibbon({ color })}
+                  />
+                </ColorWrapper>
+                <ShapeWrapper>
+                  <label>{t('SHAPE', 'Shape')}</label>
+                  <ShapeContentWrapper>
+                    {shape && Object.keys(shape).map((key, i) => (
+                      <ShapeBoxWrapper
+                        key={i}
+                        shapeRect={shape[key] === shape?.rectangleRound}
+                        round={shape[key] === shape?.capsuleShape}
+                        active={formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (businessState?.business?.ribbon?.shape === shape[key])}
+                        onClick={() => handleChangeRibbon({ shape: shape[key] })}
+                      >
+                        <div />
+                        {(formState?.changes?.ribbon?.shape
+                          ? (formState?.changes?.ribbon?.shape === shape[key])
+                          : (businessState?.business?.ribbon?.shape === shape[key]))
+                          ? <RecordCircleFill />
+                          : <Circle />}
+                      </ShapeBoxWrapper>
+                    ))}
+                  </ShapeContentWrapper>
+                </ShapeWrapper>
+              </ColorShapeWrapper>
+            </>
+          )
+        }
+        {/* <PriceFilterWrapper>
+          <label>{t('PRICE_FILTER', 'Price filter')}</label>
+          <PriceFilterListWrapper>
+            {priceList.map((item, i) => (
+              <PriceFilterItem
+                key={i}
+              >
+                <Circle />
+                <span>{item.value}</span>
+              </PriceFilterItem>
+            ))}
+          </PriceFilterListWrapper>
+        </PriceFilterWrapper> */}
         <ActionsForm>
           <Button
             type='submit'

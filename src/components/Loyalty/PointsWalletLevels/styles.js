@@ -49,7 +49,7 @@ export const LevelNameWrapper = styled.div`
 `
 
 export const LastWrapper = styled.div`
-  width: 95px;
+  width: 135px;
   margin: 0px 12px;
 
   > input {
@@ -62,22 +62,18 @@ export const LastWrapper = styled.div`
   }
 
   @media (min-width: 576px) {
-    margin: 0px 24px;
+    margin: 0px 15px;
   }
 `
 
 export const PointsWrapper = styled.div`
-  width: 60px;
+  width: 110px;
   > input {
     width: 100%;
   }
   span {
     font-size: 14px;
     line-height: 24px;
-  }
-
-  @media (min-width: 576px) {
-    width: 95px;
   }
 `
 
@@ -90,9 +86,9 @@ export const ButtonWrapper = styled.div`
   `}
 
   @media (min-width: 576px) {
-    margin-left: 17px;
+    margin-left: 15px;
     ${props => props.theme.rtl && css`
-      margin-right: 17px;
+      margin-right: 15px;
       margin-left: 0px;
     `}
   }
@@ -105,4 +101,53 @@ export const AddSubOption = styled.span`
   line-height: 24px;
   color: ${props => props.theme.colors.lightGray};
   margin-top: 6px;
+`
+
+export const OriginalImageWrapper = styled.div`
+  width: 43px;
+  margin-right: 15px;
+
+  ${props => props.theme.rtl && css`
+    margin-left: 15px;
+    margin-right: 0px;
+  `}
+
+  span {
+    font-size: 14px;
+    line-height: 24px;
+  }
+`
+
+export const ImageWrapper = styled(OriginalImageWrapper)`
+  padding-left: 2px;
+  ${props => props.theme.rtl && css`
+    padding-left: 0px;
+    padding-right: 2px;
+  `}
+
+  img,
+  div {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    box-shadow: 0px 1px 4px rgb(0 0 0 / 10%);
+    height: 43px;
+    border-radius: 8px;
+    background-color: ${props => props.theme.colors.secundaryDarkContrast};
+    position: relative;
+    cursor: -webkit-grab;
+    cursor: grab;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.1));
+    svg {
+      color: #ADB5BD;
+      font-size: 16px;
+    }
+  };
+
+  img{
+    object-fit: cover;
+  }
 `
