@@ -327,6 +327,12 @@ Object.defineProperty(exports, "BusinessVideos", {
     return _BusinessVideos.BusinessVideos;
   }
 });
+Object.defineProperty(exports, "BusinessWalletsList", {
+  enumerable: true,
+  get: function get() {
+    return _BusinessWalletsList.BusinessWalletsList;
+  }
+});
 Object.defineProperty(exports, "BusinessWebhooks", {
   enumerable: true,
   get: function get() {
@@ -369,12 +375,6 @@ Object.defineProperty(exports, "ImporterJobForm", {
     return _ImporterJobForm.ImporterJobForm;
   }
 });
-Object.defineProperty(exports, "ImportersLateralBar", {
-  enumerable: true,
-  get: function get() {
-    return _ImportersLateralBar.ImportersLateralBar;
-  }
-});
 Object.defineProperty(exports, "ImportersList", {
   enumerable: true,
   get: function get() {
@@ -397,6 +397,12 @@ Object.defineProperty(exports, "PaymentOptionPaypal", {
   enumerable: true,
   get: function get() {
     return _PaymentOptionPaypal.PaymentOptionPaypal;
+  }
+});
+Object.defineProperty(exports, "PaymentOptionSquare", {
+  enumerable: true,
+  get: function get() {
+    return _PaymentOptionSquare.PaymentOptionSquare;
   }
 });
 Object.defineProperty(exports, "PaymentOptionStripeDirect", {
@@ -634,8 +640,6 @@ var _SeoOptions = require("./SeoOptions");
 
 var _AddBusinessForm = require("./AddBusinessForm");
 
-var _ImportersLateralBar = require("./ImportersLateralBar");
-
 var _WizardBusiness = require("./WizardBusiness");
 
 var _BusinessMenuOptions = require("./BusinessMenuOptions");
@@ -755,3 +759,7 @@ var _ProductIngredientDetails = require("./ProductIngredientDetails");
 var _ProductTagDetails = require("./ProductTagDetails");
 
 var _SingleBusiness = require("./SingleBusiness");
+
+var _PaymentOptionSquare = require("./PaymentOptionSquare");
+
+var _BusinessWalletsList = require("./BusinessWalletsList");

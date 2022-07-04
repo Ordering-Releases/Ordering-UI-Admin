@@ -21,6 +21,8 @@ var _SettingsSelectUI = require("../SettingsSelectUI");
 
 var _SettingsCountryFilter = require("../SettingsCountryFilter");
 
+var _SettingsImage = require("../SettingsImage");
+
 var _styles2 = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -66,7 +68,8 @@ var SettingsListUI = function SettingsListUI(props) {
       onCloseSettingsList = props.onCloseSettingsList,
       handleCheckBoxChange = props.handleCheckBoxChange,
       handleInputChange = props.handleInputChange,
-      handleClickUpdate = props.handleClickUpdate;
+      handleClickUpdate = props.handleClickUpdate,
+      saveConfig = props.saveConfig;
 
   var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -94,6 +97,8 @@ var SettingsListUI = function SettingsListUI(props) {
   };
 
   var handleSubmit = function handleSubmit() {
+    var invalidMessageList = [];
+
     var _iterator = _createForOfIteratorHelper(formState.changes),
         _step;
 
@@ -101,20 +106,33 @@ var SettingsListUI = function SettingsListUI(props) {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var item = _step.value;
 
-        if (item.key === 'driver_tip_options' && !/^((\d)+,)*(\d)+$/.test(item.value)) {
-          setAlertState({
-            open: true,
-            content: t('DRIVER_TIP_OPTIONS_ERROR')
-          });
-          return;
-        }
+        switch (item === null || item === void 0 ? void 0 : item.key) {
+          case 'driver_tip_options':
+            !/^((\d)+,)*(\d)+$/.test(item.value) && invalidMessageList.push(t('DRIVER_TIP_OPTIONS_ERROR'));
+            break;
 
-        if ((item === null || item === void 0 ? void 0 : item.key) === 'max_days_preorder' && item.value < 1) {
-          setAlertState({
-            open: true,
-            content: t('MAX_PREORDER_DAYS_MUST_BIGGER_ZERO', 'Max preorder days must be bigger than zero')
-          });
-          return;
+          case 'max_days_preorder':
+            item.value < 1 && invalidMessageList.push(t('MAX_PREORDER_DAYS_MUST_BIGGER_ZERO', 'Max preorder days must be bigger than zero'));
+            break;
+
+          case 'platform_fee_fixed':
+          case 'platform_fee_percentage':
+            if (isNaN(Number(item === null || item === void 0 ? void 0 : item.value))) {
+              invalidMessageList.push(t('VALIDATION_ERROR_NUMERIC', "The ".concat(item === null || item === void 0 ? void 0 : item.name, " must be a number.")).replace('_attribute_', item === null || item === void 0 ? void 0 : item.name));
+            }
+
+            if (isNaN(Number(item === null || item === void 0 ? void 0 : item.value)) || Number(item === null || item === void 0 ? void 0 : item.value) < 0) {
+              invalidMessageList.push(t('VALIDATION_MUST_BIGGER_ZERO', "".concat(item === null || item === void 0 ? void 0 : item.name, " must be bigger than zero")).replace('_attribute_', item === null || item === void 0 ? void 0 : item.name));
+            }
+
+            if ((item === null || item === void 0 ? void 0 : item.key) === 'platform_fee_percentage' && Number(item === null || item === void 0 ? void 0 : item.value) > 100) {
+              invalidMessageList.push(t('VALIDATION_MUST_SMALLER_HUNDRED', "".concat(item === null || item === void 0 ? void 0 : item.name, " must be not bigger than 100")).replace('_attribute_', item === null || item === void 0 ? void 0 : item.name));
+            }
+
+            break;
+
+          default:
+            break;
         }
       }
     } catch (err) {
@@ -123,7 +141,27 @@ var SettingsListUI = function SettingsListUI(props) {
       _iterator.f();
     }
 
+    if (invalidMessageList.length > 0) {
+      setAlertState({
+        open: true,
+        content: invalidMessageList
+      });
+      return;
+    }
+
     handleClickUpdate && handleClickUpdate();
+  };
+
+  var handleKeyPress = function handleKeyPress(e, key) {
+    switch (key) {
+      case 'platform_fee_fixed':
+      case 'platform_fee_percentage':
+        !/^[0-9.]$/.test(e.key) && e.preventDefault();
+        break;
+
+      default:
+        break;
+    }
   };
 
   (0, _react.useEffect)(function () {
@@ -154,11 +192,14 @@ var SettingsListUI = function SettingsListUI(props) {
       key: i
     }, config.type === 1 && /*#__PURE__*/_react.default.createElement(_styles2.FormGroupText, {
       className: "form-group"
-    }, /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), /*#__PURE__*/_react.default.createElement("input", {
+    }, /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : config.description) && /*#__PURE__*/_react.default.createElement(_styles2.Description, null, config === null || config === void 0 ? void 0 : config.description), /*#__PURE__*/_react.default.createElement("input", {
       type: "text",
       defaultValue: config === null || config === void 0 ? void 0 : config.value,
       onChange: function onChange(e) {
         return handleInputChange(e.target.value, config === null || config === void 0 ? void 0 : config.id);
+      },
+      onKeyPress: function onKeyPress(e) {
+        return handleKeyPress(e, config === null || config === void 0 ? void 0 : config.key);
       },
       className: "form-control",
       placeholder: config === null || config === void 0 ? void 0 : config.name
@@ -167,14 +208,15 @@ var SettingsListUI = function SettingsListUI(props) {
       handleSelectChange: function handleSelectChange(value) {
         return handleInputChange(value, config === null || config === void 0 ? void 0 : config.id);
       },
-      label: config === null || config === void 0 ? void 0 : config.name
+      label: config === null || config === void 0 ? void 0 : config.name,
+      description: config === null || config === void 0 ? void 0 : config.description
     }) : /*#__PURE__*/_react.default.createElement(_SettingsSelectUI.SettingsSelectUI, {
       config: config,
       defaultValue: config === null || config === void 0 ? void 0 : config.value,
       handleSelectChange: function handleSelectChange(value) {
         return handleInputChange(value, config === null || config === void 0 ? void 0 : config.id);
       }
-    })), config.type === 3 && /*#__PURE__*/_react.default.createElement(_styles2.CheckBoxWrapper, null, (config === null || config === void 0 ? void 0 : config.name) && /*#__PURE__*/_react.default.createElement("p", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : (_config$options = config.options) === null || _config$options === void 0 ? void 0 : _config$options.length) > 0 && (config === null || config === void 0 ? void 0 : (_config$options2 = config.options) === null || _config$options2 === void 0 ? void 0 : _config$options2.map(function (item, j) {
+    })), config.type === 3 && /*#__PURE__*/_react.default.createElement(_styles2.CheckBoxWrapper, null, (config === null || config === void 0 ? void 0 : config.name) && /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : config.description) && /*#__PURE__*/_react.default.createElement("p", null, config === null || config === void 0 ? void 0 : config.description), (config === null || config === void 0 ? void 0 : (_config$options = config.options) === null || _config$options === void 0 ? void 0 : _config$options.length) > 0 && (config === null || config === void 0 ? void 0 : (_config$options2 = config.options) === null || _config$options2 === void 0 ? void 0 : _config$options2.map(function (item, j) {
       return /*#__PURE__*/_react.default.createElement(_styles2.FormGroupWrapper, {
         key: j
       }, /*#__PURE__*/_react.default.createElement(_styles2.FormGroupCheck, {
@@ -190,7 +232,7 @@ var SettingsListUI = function SettingsListUI(props) {
       }), item.text)));
     })), !(config !== null && config !== void 0 && config.options) && /*#__PURE__*/_react.default.createElement(_styles2.OptionsError, null, t('NO_OPTIONS_VALUE', 'There is no options value'))), config.type === 4 && (config.key === 'driver_tip_options' ? /*#__PURE__*/_react.default.createElement(_styles2.FormGroupText, {
       className: "form-group"
-    }, /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), /*#__PURE__*/_react.default.createElement("input", {
+    }, /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : config.description) && /*#__PURE__*/_react.default.createElement(_styles2.Description, null, config === null || config === void 0 ? void 0 : config.description), /*#__PURE__*/_react.default.createElement("input", {
       type: "text",
       defaultValue: formatArray(config === null || config === void 0 ? void 0 : config.value),
       onChange: function onChange(e) {
@@ -198,7 +240,7 @@ var SettingsListUI = function SettingsListUI(props) {
       },
       className: "form-control",
       placeholder: "placeholder"
-    })) : /*#__PURE__*/_react.default.createElement(_styles2.CheckBoxWrapper, null, (config === null || config === void 0 ? void 0 : config.name) && /*#__PURE__*/_react.default.createElement("p", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : (_config$options3 = config.options) === null || _config$options3 === void 0 ? void 0 : _config$options3.length) > 0 && (config === null || config === void 0 ? void 0 : (_config$options4 = config.options) === null || _config$options4 === void 0 ? void 0 : _config$options4.map(function (item, j) {
+    })) : /*#__PURE__*/_react.default.createElement(_styles2.CheckBoxWrapper, null, (config === null || config === void 0 ? void 0 : config.name) && /*#__PURE__*/_react.default.createElement("label", null, config === null || config === void 0 ? void 0 : config.name), (config === null || config === void 0 ? void 0 : config.description) && /*#__PURE__*/_react.default.createElement("p", null, config === null || config === void 0 ? void 0 : config.description), (config === null || config === void 0 ? void 0 : (_config$options3 = config.options) === null || _config$options3 === void 0 ? void 0 : _config$options3.length) > 0 && (config === null || config === void 0 ? void 0 : (_config$options4 = config.options) === null || _config$options4 === void 0 ? void 0 : _config$options4.map(function (item, j) {
       return /*#__PURE__*/_react.default.createElement(_styles2.FormGroupWrapper, {
         key: j
       }, /*#__PURE__*/_react.default.createElement(_styles2.FormGroupCheck, {
@@ -212,7 +254,10 @@ var SettingsListUI = function SettingsListUI(props) {
           return handleCheckBoxChange(e, false, config === null || config === void 0 ? void 0 : config.value);
         }
       }), item.text)));
-    })), !(config !== null && config !== void 0 && config.options) && /*#__PURE__*/_react.default.createElement(_styles2.OptionsError, null, t('NO_OPTIONS_VALUE', 'There is no options value')))));
+    })), !(config !== null && config !== void 0 && config.options) && /*#__PURE__*/_react.default.createElement(_styles2.OptionsError, null, t('NO_OPTIONS_VALUE', 'There is no options value')))), config.type === 5 && /*#__PURE__*/_react.default.createElement(_SettingsImage.SettingsImage, {
+      config: config,
+      saveConfig: saveConfig
+    }));
   }))), !settingsState.loading && settingsState.error && /*#__PURE__*/_react.default.createElement(_Shared.NotFoundSource, {
     content: t('NOT_FOUND_CONFIG', 'Sorry, we couldn\'t find the config.'),
     btnTitle: t('PROFILE_CATEGORY_REDIRECT', 'Go to Category Description'),

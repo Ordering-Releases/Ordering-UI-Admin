@@ -29,6 +29,10 @@ var _ProductVideos = require("../ProductVideos");
 
 var _ProductMainDetails = require("../ProductMainDetails");
 
+var _BusinessServiceProfessionals = require("../BusinessServiceProfessionals");
+
+var _ServiceDetail = require("../ServiceDetail");
+
 var _styles = require("./styles");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -74,7 +78,8 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
       handleChangeInput = props.handleChangeInput,
       handleUpdateClick = props.handleUpdateClick,
       handleChangeFormState = props.handleChangeFormState,
-      handleSuccessUpdate = props.handleSuccessUpdate;
+      handleSuccessUpdate = props.handleSuccessUpdate,
+      handleChangeRibbon = props.handleChangeRibbon;
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
@@ -184,6 +189,7 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     formState: formState,
     handlechangeImage: handlechangeImage,
     handleChangeFormState: handleChangeFormState,
+    handleChangeRibbon: handleChangeRibbon,
     handleChangeInput: handleChangeInput,
     handleUpdateClick: handleUpdateClick,
     isExtendExtraOpen: isExtendExtraOpen,
@@ -196,6 +202,30 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     setTaxes: setTaxes,
     fees: fees,
     setFees: setFees
+  }), showOption === 'service_details' && /*#__PURE__*/_react.default.createElement(_ServiceDetail.ServiceDetail, {
+    product: productState === null || productState === void 0 ? void 0 : productState.product,
+    formState: formState,
+    handlechangeImage: handlechangeImage,
+    handleChangeFormState: handleChangeFormState,
+    handleChangeRibbon: handleChangeRibbon,
+    handleChangeInput: handleChangeInput,
+    handleUpdateClick: handleUpdateClick,
+    isExtendExtraOpen: isExtendExtraOpen,
+    setIsExtendExtraOpen: setIsExtendExtraOpen,
+    business: business,
+    handleSuccessUpdate: handleSuccessUpdate,
+    setFormTaxState: setFormTaxState,
+    formTaxState: formTaxState,
+    taxes: taxes,
+    setTaxes: setTaxes,
+    fees: fees,
+    setFees: setFees
+  }), showOption === 'professionals' && /*#__PURE__*/_react.default.createElement(_BusinessServiceProfessionals.BusinessServiceProfessionals, {
+    product: productState === null || productState === void 0 ? void 0 : productState.product,
+    formState: formState,
+    isExtendExtraOpen: isExtendExtraOpen,
+    setIsExtendExtraOpen: setIsExtendExtraOpen,
+    handleUpdateClick: handleUpdateClick
   }), showOption === 'ingredients' && /*#__PURE__*/_react.default.createElement(_ProductIngredient.ProductIngredient, {
     business: business,
     product: productState.product,
