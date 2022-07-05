@@ -141,12 +141,13 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('MANAGERS', 'Managers'),
     pageName: 'managers',
     url: '/users/managers'
-  }, {
-    id: 3,
-    title: t('PROFESSIONALS', 'Professionals'),
-    pageName: 'professionals',
-    url: '/users/professionals'
-  }];
+  } // {
+  //   id: 3,
+  //   title: t('PROFESSIONALS', 'Professionals'),
+  //   pageName: 'professionals',
+  //   url: '/users/professionals'
+  // }
+  ];
   var settingsSubMenus = [{
     id: 1,
     title: t('BASIC_SETTINGS', 'Basic settings'),
