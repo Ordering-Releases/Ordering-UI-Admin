@@ -106,10 +106,8 @@ var BusinessProductAddFormUI = function BusinessProductAddFormUI(props) {
   var typeList = [{
     value: 'item',
     content: /*#__PURE__*/_react.default.createElement(_styles2.Option, null, t('ITEM', 'Item'))
-  }, {
-    value: 'service',
-    content: /*#__PURE__*/_react.default.createElement(_styles2.Option, null, t('SERVICE', 'Service'))
-  }];
+  } // { value: 'service', content: <Option>{t('SERVICE', 'Service')}</Option> }
+  ];
   var durationList = [{
     value: 15,
     content: /*#__PURE__*/_react.default.createElement(_styles2.Option, null, "15 ", /*#__PURE__*/_react.default.createElement("span", null, t('MINUTES', 'minutes')))

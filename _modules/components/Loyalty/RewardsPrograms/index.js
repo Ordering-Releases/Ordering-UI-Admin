@@ -69,8 +69,18 @@ var RewardsProgramsUI = function RewardsProgramsUI(props) {
       moveDistance = _useState4[0],
       setMoveDistance = _useState4[1];
 
+  var _useState5 = (0, _react.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      levelMoveDistance = _useState6[0],
+      setLevelMoveDistance = _useState6[1];
+
   var hanldeClosePointsWallet = function hanldeClosePointsWallet() {
     setMoveDistance(0);
+    setShowOption(null);
+  };
+
+  var handleCloseLevel = function handleCloseLevel() {
+    setLevelMoveDistance(0);
     setShowOption(null);
   };
 
@@ -83,7 +93,11 @@ var RewardsProgramsUI = function RewardsProgramsUI(props) {
     onClick: function onClick() {
       return setShowOption('points_wallet');
     }
-  }, /*#__PURE__*/_react.default.createElement(_styles2.IconWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Wallet, null)), /*#__PURE__*/_react.default.createElement(_styles2.LoyaltyItemContent, null, /*#__PURE__*/_react.default.createElement("h5", null, t('POINTS_WALLET', 'Points wallet')), /*#__PURE__*/_react.default.createElement("p", null, t('POINTS_WALLET_DESCRIPTION', 'Points wallet general and per business setup.')))))), showOption === 'points_wallet' && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
+  }, /*#__PURE__*/_react.default.createElement(_styles2.IconWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Wallet, null)), /*#__PURE__*/_react.default.createElement(_styles2.LoyaltyItemContent, null, /*#__PURE__*/_react.default.createElement("h5", null, t('POINTS_WALLET', 'Points wallet')), /*#__PURE__*/_react.default.createElement("p", null, t('POINTS_WALLET_DESCRIPTION', 'Points wallet general and per business setup.')))), /*#__PURE__*/_react.default.createElement(_styles2.LoyaltyItemWrapper, {
+    onClick: function onClick() {
+      return setShowOption('levels');
+    }
+  }, /*#__PURE__*/_react.default.createElement(_styles2.IconWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.BarChartSteps, null)), /*#__PURE__*/_react.default.createElement(_styles2.LoyaltyItemContent, null, /*#__PURE__*/_react.default.createElement("h5", null, t('LEVELS', 'Levels')), /*#__PURE__*/_react.default.createElement("p", null, t('LEVELS_DESCRIPTION', 'Setup different loyalty levels for your users.')))))), showOption === 'points_wallet' && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
     sidebarId: "loyaltyWallet",
     open: showOption === 'points_wallet',
     onClose: hanldeClosePointsWallet,
@@ -95,12 +109,17 @@ var RewardsProgramsUI = function RewardsProgramsUI(props) {
     }
   }))), showOption === 'levels' && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
     sidebarId: "loyaltyLevels",
-    defaultSideBarWidth: 600,
     open: showOption === 'levels',
     onClose: function onClose() {
-      return setShowOption(null);
+      return handleCloseLevel();
+    },
+    defaultSideBarWidth: 550 + levelMoveDistance,
+    moveDistance: levelMoveDistance
+  }, /*#__PURE__*/_react.default.createElement(_PointsWalletLevels.PointsWalletLevels, {
+    handleParentSidebarMove: function handleParentSidebarMove(val) {
+      return setLevelMoveDistance(val);
     }
-  }, /*#__PURE__*/_react.default.createElement(_PointsWalletLevels.PointsWalletLevels, null)));
+  })));
 };
 
 var RewardsPrograms = function RewardsPrograms(props) {

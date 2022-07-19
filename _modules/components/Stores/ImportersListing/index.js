@@ -46,7 +46,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var ImportersListingUI = function ImportersListingUI(props) {
-  var importerList = props.importerList,
+  var defaultSlug = props.defaultSlug,
+      importerList = props.importerList,
       paginationDetail = props.paginationDetail,
       handleDeleteImporter = props.handleDeleteImporter,
       setExtraOpen = props.setExtraOpen,
@@ -87,6 +88,11 @@ var ImportersListingUI = function ImportersListingUI(props) {
       isOpenedDefaultImporter = _useState12[0],
       setIsOpenedDefaultImporter = _useState12[1];
 
+  var _useState13 = (0, _react.useState)(false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      openMappingDetails = _useState14[0],
+      setOpenMappingDetails = _useState14[1];
+
   var addNewImporter = function addNewImporter() {
     setSelectedImporter({});
     setOpenImportCsv(false);
@@ -114,14 +120,14 @@ var ImportersListingUI = function ImportersListingUI(props) {
   (0, _react.useEffect)(function () {
     if (importerList.loading || isOpenedDefaultImporter) return;
     var defaultBusinessImporter = importerList === null || importerList === void 0 ? void 0 : importerList.importers.find(function (importer) {
-      return importer.slug === 'sync_businesses_default';
+      return importer.slug === defaultSlug;
     });
 
     if (defaultBusinessImporter) {
       setIsOpenedDefaultImporter(true);
       handleEditImporter(defaultBusinessImporter);
     }
-  }, [importerList, isOpenedDefaultImporter]);
+  }, [importerList, isOpenedDefaultImporter, defaultSlug]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.ImportersListingContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.Header, null, /*#__PURE__*/_react.default.createElement(_styles2.Title, null, t('IMPORTERS', 'Importers')), /*#__PURE__*/_react.default.createElement(_styles2.ActionButtons, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     color: "lightPrimary",
     borderRadius: "5px",
@@ -138,20 +144,26 @@ var ImportersListingUI = function ImportersListingUI(props) {
     setSelectedImporter: setSelectedImporter,
     handleEditImporter: handleEditImporter
   }), openNewImporter && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
-    isBorderShow: true,
+    isBorderShow: !openMappingDetails,
     open: openNewImporter,
+    defaultSideBarWidth: openMappingDetails ? 1000 : 500,
+    moveDistance: openMappingDetails ? 500 : 0,
     onClose: function onClose() {
-      setOpenNewImporter(false);
+      setOpenMappingDetails(false);
       setSelectedImporter({});
+      setOpenNewImporter(false);
     }
   }, /*#__PURE__*/_react.default.createElement(_ImporterForm.ImporterForm, {
     openNewImporter: openNewImporter,
     selectedImporter: selectedImporter,
     handleSuccessAdd: handleSuccessAddImporter,
     handleSuccessUpdateImporter: handleSuccessUpdateImporter,
+    openMappingDetails: openMappingDetails,
+    setOpenMappingDetails: setOpenMappingDetails,
     onClose: function onClose() {
-      setOpenNewImporter(false);
       setSelectedImporter({});
+      setOpenMappingDetails(false);
+      setOpenNewImporter(false);
     }
   }))), openImportCsv && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
     open: openImportCsv,
@@ -169,6 +181,8 @@ var ImportersListingUI = function ImportersListingUI(props) {
     handleCloseChildForm: function handleCloseChildForm() {
       return setImportJobFormMoveDistance(0);
     },
+    openMappingDetails: openMappingDetails,
+    setOpenMappingDetails: setOpenMappingDetails,
     onClose: function onClose() {
       setOpenImportCsv(false);
       setImportJobFormMoveDistance(0);
