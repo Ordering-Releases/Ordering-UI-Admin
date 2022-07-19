@@ -14,6 +14,7 @@ import {
 
 export const ImportersListingUI = (props) => {
   const {
+    defaultSlug,
     importerList,
     paginationDetail,
     handleDeleteImporter,
@@ -28,6 +29,7 @@ export const ImportersListingUI = (props) => {
   const [selectedImporterJob, setSelectedImporterJob] = useState({})
   const [importJobFormMoveDistance, setImportJobFormMoveDistance] = useState(0)
   const [isOpenedDefaultImporter, setIsOpenedDefaultImporter] = useState(false)
+  const [openMappingDetails, setOpenMappingDetails] = useState(false)
 
   const addNewImporter = () => {
     setSelectedImporter({})
@@ -56,12 +58,12 @@ export const ImportersListingUI = (props) => {
 
   useEffect(() => {
     if (importerList.loading || isOpenedDefaultImporter) return
-    const defaultBusinessImporter = importerList?.importers.find(importer => importer.slug === 'sync_businesses_default')
+    const defaultBusinessImporter = importerList?.importers.find(importer => importer.slug === defaultSlug)
     if (defaultBusinessImporter) {
       setIsOpenedDefaultImporter(true)
       handleEditImporter(defaultBusinessImporter)
     }
-  }, [importerList, isOpenedDefaultImporter])
+  }, [importerList, isOpenedDefaultImporter, defaultSlug])
 
   return (
     <>
@@ -92,11 +94,14 @@ export const ImportersListingUI = (props) => {
         />
         {openNewImporter && (
           <SideBar
-            isBorderShow
+            isBorderShow={!openMappingDetails}
             open={openNewImporter}
+            defaultSideBarWidth={openMappingDetails ? 1000 : 500}
+            moveDistance={openMappingDetails ? 500 : 0}
             onClose={() => {
-              setOpenNewImporter(false)
+              setOpenMappingDetails(false)
               setSelectedImporter({})
+              setOpenNewImporter(false)
             }}
           >
             <ImporterForm
@@ -104,9 +109,12 @@ export const ImportersListingUI = (props) => {
               selectedImporter={selectedImporter}
               handleSuccessAdd={handleSuccessAddImporter}
               handleSuccessUpdateImporter={handleSuccessUpdateImporter}
+              openMappingDetails={openMappingDetails}
+              setOpenMappingDetails={setOpenMappingDetails}
               onClose={() => {
-                setOpenNewImporter(false)
                 setSelectedImporter({})
+                setOpenMappingDetails(false)
+                setOpenNewImporter(false)
               }}
             />
           </SideBar>
@@ -126,6 +134,8 @@ export const ImportersListingUI = (props) => {
             selectedImporter={selectedImporterJob}
             handleOpenChildForm={() => setImportJobFormMoveDistance(500)}
             handleCloseChildForm={() => setImportJobFormMoveDistance(0)}
+            openMappingDetails={openMappingDetails}
+            setOpenMappingDetails={setOpenMappingDetails}
             onClose={() => {
               setOpenImportCsv(false)
               setImportJobFormMoveDistance(0)

@@ -22,9 +22,15 @@ const RewardsProgramsUI = (props) => {
 
   const [showOption, setShowOption] = useState(null)
   const [moveDistance, setMoveDistance] = useState(0)
+  const [levelMoveDistance, setLevelMoveDistance] = useState(0)
 
   const hanldeClosePointsWallet = () => {
     setMoveDistance(0)
+    setShowOption(null)
+  }
+
+  const handleCloseLevel = () => {
+    setLevelMoveDistance(0)
     setShowOption(null)
   }
 
@@ -53,7 +59,7 @@ const RewardsProgramsUI = (props) => {
               <p>{t('POINTS_WALLET_DESCRIPTION', 'Points wallet general and per business setup.')}</p>
             </LoyaltyItemContent>
           </LoyaltyItemWrapper>
-          {/* <LoyaltyItemWrapper onClick={() => setShowOption('levels')}>
+          <LoyaltyItemWrapper onClick={() => setShowOption('levels')}>
             <IconWrapper>
               <BarChartSteps />
             </IconWrapper>
@@ -61,7 +67,7 @@ const RewardsProgramsUI = (props) => {
               <h5>{t('LEVELS', 'Levels')}</h5>
               <p>{t('LEVELS_DESCRIPTION', 'Setup different loyalty levels for your users.')}</p>
             </LoyaltyItemContent>
-          </LoyaltyItemWrapper> */}
+          </LoyaltyItemWrapper>
         </LoyaltyListContainer>
       </Container>
       {showOption === 'points_wallet' && (
@@ -81,11 +87,14 @@ const RewardsProgramsUI = (props) => {
       {showOption === 'levels' && (
         <SideBar
           sidebarId='loyaltyLevels'
-          defaultSideBarWidth={600}
           open={showOption === 'levels'}
-          onClose={() => setShowOption(null)}
+          onClose={() => handleCloseLevel()}
+          defaultSideBarWidth={550 + levelMoveDistance}
+          moveDistance={levelMoveDistance}
         >
-          <PointsWalletLevels />
+          <PointsWalletLevels
+            handleParentSidebarMove={val => setLevelMoveDistance(val)}
+          />
         </SideBar>
       )}
     </>
