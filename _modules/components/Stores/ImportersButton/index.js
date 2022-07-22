@@ -68,7 +68,6 @@ var ImportersButton = function ImportersButton(props) {
       return setOpenImporters(false);
     }
   }, /*#__PURE__*/_react.default.createElement(_ImportersListing.ImportersListing, {
-    defaultSlug: defaultSlug,
     setExtraOpen: setExtraOpen
   })));
 };
