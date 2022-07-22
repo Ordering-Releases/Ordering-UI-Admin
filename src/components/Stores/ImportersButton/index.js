@@ -34,7 +34,6 @@ export const ImportersButton = (props) => {
           onClose={() => setOpenImporters(false)}
         >
           <ImportersListing
-            defaultSlug={defaultSlug}
             setExtraOpen={setExtraOpen}
           />
         </SideBar>
