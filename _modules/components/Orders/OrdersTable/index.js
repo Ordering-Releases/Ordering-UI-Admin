@@ -429,10 +429,10 @@ var OrdersTable = function OrdersTable(props) {
   }, t('CUSTOMER', 'Customer')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.driver) && /*#__PURE__*/_react.default.createElement("th", {
     className: "driverInfo"
   }, t('DRIVER', 'Driver')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.advanced) && /*#__PURE__*/_react.default.createElement("th", {
-    colspan: 3,
+    colSpan: "3",
     className: "advanced"
   }, t('ADVANCED_LOGISTICS', 'Advanced logistics')), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.timer) && /*#__PURE__*/_react.default.createElement("th", {
-    colSpan: 3,
+    colSpan: "2",
     className: "timer"
   }, t('SLA_TIMER', 'SLA’s timer')), /*#__PURE__*/_react.default.createElement("th", {
     className: "orderPrice"
@@ -580,7 +580,7 @@ var OrdersTable = function OrdersTable(props) {
       className: "bold"
     }, t('INVOICE_ORDER_NO', 'Order No.'), " ", order === null || order === void 0 ? void 0 : order.id), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.dateTime) && /*#__PURE__*/_react.default.createElement("p", {
       className: "date"
-    }, order !== null && order !== void 0 && order.delivery_datetime_utc ? parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
+    }, parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
       utc: false
     }))))), (allowColumns === null || allowColumns === void 0 ? void 0 : allowColumns.status) && !isSelectedOrders && /*#__PURE__*/_react.default.createElement("td", {
       className: "statusInfo"

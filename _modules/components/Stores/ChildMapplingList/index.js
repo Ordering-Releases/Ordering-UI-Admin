@@ -150,7 +150,8 @@ var ChildMapplingList = function ChildMapplingList(props) {
       mapping: selectedMapping
     },
     handleCustomEditImporter: handleUpdateMappingList,
-    handleCustomAddImporter: handleAddMapping
+    handleCustomAddImporter: handleAddMapping,
+    defaultImporter: defaultImporter
   })));
 };
 
