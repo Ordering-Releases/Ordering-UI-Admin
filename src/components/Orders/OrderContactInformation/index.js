@@ -133,7 +133,7 @@ export const OrderContactInformation = (props) => {
                 <p className='name'>{order?.customer?.name} {order?.customer?.middle_name} {order?.customer?.lastname} {order?.customer?.second_lastname}</p>
                 {order?.customer?.cellphone && (
                   <IconButton
-                    onClick={() => window.open(`tel:${order?.customer?.cellphone}`)}
+                    onClick={() => window.open(`tel:${order?.customer?.country_phone_code ? '+' + order?.customer?.country_phone_code : ''}${order?.customer?.cellphone}`)}
                   >
                     <Telephone />
                   </IconButton>
@@ -158,8 +158,8 @@ export const OrderContactInformation = (props) => {
                   <tr>
                     <td>{t('CELLPHONE', 'Phone / Mobile')}</td>
                     <td>
-                      <a href={`tel:${order?.customer?.cellphone}`}>
-                        {order?.customer?.cellphone}
+                      <a href={`tel:${order?.customer?.country_phone_code ? '+' + order?.customer?.country_phone_code : ''}${order?.customer?.cellphone}`}>
+                        {(order?.customer?.country_phone_code && `+${order?.customer?.country_phone_code}`)} {order?.customer?.cellphone}
                       </a>
                     </td>
                   </tr>
@@ -198,6 +198,12 @@ export const OrderContactInformation = (props) => {
                     <td>{order?.customer?.zipcode}</td>
                   </tr>
                 )}
+                {!!order?.on_behalf_of && (
+                  <tr>
+                    <td>{t('ON_BEHALF_OF', 'On behalf of')}</td>
+                    <td>{order?.on_behalf_of}</td>
+                  </tr>
+                )}
               </tbody>
             </CustomerInfoTable>
           </CutsomerDetail>
@@ -208,7 +214,6 @@ export const OrderContactInformation = (props) => {
           <DriverSelectorContainer>
             <p>{t('DRIVER_ASSIGN', 'Driver assign')}</p>
             <DriverSelector
-              isFirstSelect
               small
               drivers={driversList.drivers}
               isPhoneView

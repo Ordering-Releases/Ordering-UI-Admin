@@ -15,27 +15,29 @@ import {
   FieldName,
   Header,
   CloseButton,
+  TabOption,
+  TabOptionName,
   ActionSelectorWrapper
 } from './styles'
-
 import { Tab, TabsContainer } from '../BusinessMenu/styles'
-import { TabOption, TabOptionName } from '../PaymentOptionStripeDirect/styles'
 
-export const PaymethodOptionStripeRedirect = (props) => {
+export const PaymentOptionMethods = (props) => {
   const {
     open,
     onClose,
+    orderTypes,
+    sitesState,
     changesState,
+    handleChangeBusinessPaymentState,
     cleanChangesState,
     actionState,
-    sitesState,
     handleChangeSandbox,
     handleChangeInput,
     handleSaveClick,
     businessPaymethod,
-    orderTypes,
-    handleChangeBusinessPaymentState,
-    handleDeletePaymethod
+    handleDeletePaymethod,
+    id,
+    title
   } = props
 
   const theme = useTheme()
@@ -81,9 +83,9 @@ export const PaymethodOptionStripeRedirect = (props) => {
   useEffect(() => {
     if (isMenuOpen) {
       if (width < 1000) {
-        document.getElementById('stripe_redirect').style.width = '100%'
+        document.getElementById(id).style.width = '100%'
       } else {
-        document.getElementById('stripe_redirect').style.width = '500px'
+        document.getElementById(id).style.width = '500px'
       }
     }
   }, [width])
@@ -109,9 +111,9 @@ export const PaymethodOptionStripeRedirect = (props) => {
 
   return (
     <>
-      <Container id='stripe_redirect'>
+      <Container id={id}>
         <Header>
-          <h1>{t('STRIPE_REDIRECT', 'Stripe redirect')}</h1>
+          <h1>{t(id.toUpperCase(), title)}</h1>
           <ActionSelectorWrapper>
             <DropdownButton
               menuAlign={theme?.rtl ? 'left' : 'right'}
@@ -163,7 +165,7 @@ export const PaymethodOptionStripeRedirect = (props) => {
             <SandboxWrapper
               onClick={() => handleChangeSandbox()}
             >
-              {changesState?.sandbox ? (
+              {changesState?.sandbox ?? businessPaymethod?.sandbox ? (
                 <RiCheckboxFill className='fill' />
               ) : (
                 <RiCheckboxBlankLine />

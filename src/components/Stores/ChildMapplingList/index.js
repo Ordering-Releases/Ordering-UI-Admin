@@ -103,6 +103,7 @@ export const ChildMapplingList = (props) => {
             selectedImporter={openAddMapping ? {} : { type: selectedMapping?.type, mapping: selectedMapping }}
             handleCustomEditImporter={handleUpdateMappingList}
             handleCustomAddImporter={handleAddMapping}
+            defaultImporter={defaultImporter}
           />
         </SideBar>
       )}

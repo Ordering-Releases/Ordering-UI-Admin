@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLanguage } from 'ordering-components-admin'
 import { DragScroll } from '../../Shared'
+import CgSpinnerTwoAlt from '@meronex/icons/cg/CgSpinnerTwoAlt'
 
 import {
   OrderStatusFilterContainer,
@@ -29,9 +30,14 @@ export const OrderStatusFilterBar = (props) => {
             onClick={() => changeSelectedOrderStatus('pending')}
           >
             {t('PENDING', 'pending')}
-            {numberOfOrdersByStatus && (
-              <span>({numberOfOrdersByStatus?.pending ?? 0})</span>
-            )}
+            <span>(
+              {numberOfOrdersByStatus?.result ? (
+                numberOfOrdersByStatus?.result?.pending ?? 0
+              ) : (
+                <CgSpinnerTwoAlt />
+              )}
+              )
+            </span>
           </Tab>
 
           <Tab
@@ -39,9 +45,14 @@ export const OrderStatusFilterBar = (props) => {
             onClick={() => changeSelectedOrderStatus('inProgress')}
           >
             {t('IN_PROGRESS', 'in progress')}
-            {numberOfOrdersByStatus && (
-              <span>({numberOfOrdersByStatus?.inProgress ?? 0})</span>
-            )}
+            <span>(
+              {numberOfOrdersByStatus?.result ? (
+                numberOfOrdersByStatus?.result?.inProgress ?? 0
+              ) : (
+                <CgSpinnerTwoAlt />
+              )}
+            )
+            </span>
           </Tab>
 
           <Tab
@@ -49,9 +60,14 @@ export const OrderStatusFilterBar = (props) => {
             onClick={() => changeSelectedOrderStatus('completed')}
           >
             {t('COMPLETED', 'completed')}
-            {numberOfOrdersByStatus && (
-              <span>({numberOfOrdersByStatus?.completed ?? 0})</span>
-            )}
+            <span>(
+              {numberOfOrdersByStatus?.result ? (
+                numberOfOrdersByStatus?.result?.completed ?? 0
+              ) : (
+                <CgSpinnerTwoAlt />
+              )}
+            )
+            </span>
           </Tab>
 
           <Tab
@@ -59,9 +75,14 @@ export const OrderStatusFilterBar = (props) => {
             onClick={() => changeSelectedOrderStatus('cancelled')}
           >
             {t('CANCELLED', 'cancelled')}
-            {numberOfOrdersByStatus && (
-              <span>({numberOfOrdersByStatus?.cancelled ?? 0})</span>
-            )}
+            <span>(
+              {numberOfOrdersByStatus?.result ? (
+                numberOfOrdersByStatus?.result?.cancelled ?? 0
+              ) : (
+                <CgSpinnerTwoAlt />
+              )}
+              )
+            </span>
           </Tab>
         </DragScroll>
       </OrderStatusFilterContainer>

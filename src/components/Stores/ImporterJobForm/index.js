@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { InfoCircle } from 'react-bootstrap-icons'
 import { useLanguage, DragAndDrop, ExamineClick, ImporterJobForm as ImporterJobFormController } from 'ordering-components-admin'
-import { Alert, SideBar } from '../../Shared'
+import { Modal, Alert, SideBar } from '../../Shared'
 import { bytesConverter } from '../../../utils'
-import { Button, Input } from '../../../styles'
+import { Button, IconButton, Input } from '../../../styles'
 import { ImporterForm } from '../ImporterForm'
+import { ImporterHelpContent } from '../ImporterHelpContent'
 import {
   FormWrapper,
   Header,
@@ -32,6 +34,7 @@ const ImporterJobFormUI = (props) => {
   const [, t] = useLanguage()
   const formMethods = useForm()
   const [alertState, setAlertState] = useState({ open: false, content: [] })
+  const [openImporterHelp, setOpenImporterHelp] = useState(false)
   const headerCsvInputRef = useRef(null)
   const [hasImportedFile, setImportedFile] = useState(false)
   const [openAdvancedOptions, setOpenAdvancedOptions] = useState(false)
@@ -82,6 +85,21 @@ const ImporterJobFormUI = (props) => {
       case 'sync_products':
         title = t('PRODUCT_IMPORTER', 'Product importer')
         break
+      case 'sync_extra_products':
+        title = t('EXTRA_PRODUCTS', 'Extra products')
+        break
+      case 'sync_extras':
+        title = t('EXTRAS', 'Extras')
+        break
+      case 'sync_extra_options':
+        title = t('EXTRA_OPTIONS', 'Extra options')
+        break
+      case 'sync_extra_option_suboptions':
+        title = t('EXTRA_OPTION_SUBOPTIONS', 'extra option suboptions')
+        break
+      case 'sync_multiple':
+        title = t('MULTIPLE', 'Multiple')
+        break
       default:
         title = type
         break
@@ -120,7 +138,15 @@ const ImporterJobFormUI = (props) => {
   return (
     <>
       <FormWrapper>
-        <Header>{handleGetTitle(selectedImporter?.type)}</Header>
+        <Header>
+          {handleGetTitle(selectedImporter?.type)}
+          {/* <IconButton
+            color='primary'
+            onClick={() => setOpenImporterHelp(true)}
+          >
+            <InfoCircle />
+          </IconButton> */}
+        </Header>
         <FormInput onSubmit={formMethods.handleSubmit(onSubmit)}>
           <InputWrapper>
             <label>{t('SEPARATOR', 'Separator (;)')}</label>
@@ -242,7 +268,16 @@ const ImporterJobFormUI = (props) => {
           onAccept={() => closeAlert()}
           closeOnBackdrop={false}
         />
-
+        <Modal
+          width='50%'
+          height='80vh'
+          padding='30px'
+          title=''
+          open={openImporterHelp}
+          onClose={() => setOpenImporterHelp(false)}
+        >
+          <ImporterHelpContent />
+        </Modal>
         {openAdvancedOptions && (
           <SideBar
             isBorderShow
