@@ -134,7 +134,7 @@ var PriceFilterItem = _styledComponents.default.div(_templateObject29 || (_templ
 
 exports.PriceFilterItem = PriceFilterItem;
 
-var SocialWrapper = _styledComponents.default.div(_templateObject32 || (_templateObject32 = _taggedTemplateLiteral(["\n  margin-top: 20px;\n  padding-bottom: 20px;\n  > h2 {\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 24px;\n    margin-bottom: 0px;\n  }\n"])));
+var SocialWrapper = _styledComponents.default.div(_templateObject32 || (_templateObject32 = _taggedTemplateLiteral(["\n  margin-top: 20px;\n  padding-bottom: 20px;\n\n  > h2 {\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 24px;\n    margin-bottom: 0px;\n  }\n"])));
 
 exports.SocialWrapper = SocialWrapper;
 
@@ -142,7 +142,7 @@ var SocialItemWrapper = _styledComponents.default.div(_templateObject33 || (_tem
 
 exports.SocialItemWrapper = SocialItemWrapper;
 
-var SocialItemHeader = _styledComponents.default.div(_templateObject34 || (_templateObject34 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n  > div {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 27px;\n    height: 27px;\n    border: 1px solid ", ";\n    border-radius: 3px;\n    svg {\n      height: 16px;\n      font-size: 16px;\n      color: ", ";\n    }\n  }\n  span {\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 24px;\n    margin-left: 12px;\n    ", "\n  }\n"])), function (props) {
+var SocialItemHeader = _styledComponents.default.div(_templateObject34 || (_templateObject34 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n\n  > div {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 27px;\n    height: 27px;\n    border: 1px solid ", ";\n    border-radius: 3px;\n\n    svg {\n      height: 16px;\n      font-size: 16px;\n      color: ", ";\n    }\n  }\n\n  span {\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 24px;\n    margin-left: 12px;\n    ", "\n  }\n"])), function (props) {
   return props.theme.colors.borderColor;
 }, function (props) {
   return props.theme.colors.headingColor;
