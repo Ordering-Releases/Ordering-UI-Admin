@@ -315,6 +315,7 @@ export const PriceFilterItem = styled.div`
 export const SocialWrapper = styled.div`
   margin-top: 20px;
   padding-bottom: 20px;
+
   > h2 {
     font-weight: 600;
     font-size: 16px;
@@ -331,6 +332,7 @@ export const SocialItemHeader = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+
   > div {
     display: flex;
     align-items: center;
@@ -339,12 +341,14 @@ export const SocialItemHeader = styled.div`
     height: 27px;
     border: 1px solid ${props => props.theme.colors.borderColor};
     border-radius: 3px;
+
     svg {
       height: 16px;
       font-size: 16px;
       color: ${props => props.theme.colors.headingColor};
     }
   }
+
   span {
     font-weight: 400;
     font-size: 14px;
