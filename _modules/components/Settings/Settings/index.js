@@ -31,6 +31,8 @@ var _AddressFieldsSetting = require("../AddressFieldsSetting");
 
 var _LanguageSetting = require("../LanguageSetting");
 
+var _MultiCountrySettings = require("../MultiCountrySettings");
+
 var _styles2 = require("./styles");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -94,6 +96,16 @@ var SettingsUI = function SettingsUI(props) {
       isOpenSettingDetails = _useState6[0],
       setIsOpenSettingDetails = _useState6[1];
 
+  var _useState7 = (0, _react.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      openMultiCountrySettings = _useState8[0],
+      setOpenMultiCountrySettings = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(0),
+      _useState10 = _slicedToArray(_useState9, 2),
+      moveDistance = _useState10[0],
+      setMoveDistance = _useState10[1];
+
   var _useLocation = (0, _reactRouterDom.useLocation)(),
       search = _useLocation.search;
 
@@ -137,6 +149,7 @@ var SettingsUI = function SettingsUI(props) {
     setIsOpenSettingDetails(null);
     setIsOpenDescription(true);
     setSelectedCategory(category);
+    setOpenMultiCountrySettings(false);
     onBasicSettingsRedirect({
       category: category === null || category === void 0 ? void 0 : category.id
     });
@@ -146,6 +159,7 @@ var SettingsUI = function SettingsUI(props) {
   var handleOpenSettingDetails = function handleOpenSettingDetails(item) {
     setIsOpenDescription(false);
     setSelectedCategory(null);
+    setOpenMultiCountrySettings(false);
     setIsOpenSettingDetails(item);
   };
 
@@ -224,6 +238,18 @@ var SettingsUI = function SettingsUI(props) {
     description: t('ADDRESS_FIELDS_DESC'),
     icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.GeoAltFill, null),
     active: isOpenSettingDetails === 'address'
+  })), /*#__PURE__*/_react.default.createElement(_styles2.SettingItemWrapper, {
+    className: "col-md-4 col-sm-6",
+    onClick: function onClick() {
+      setIsOpenDescription(false);
+      setIsOpenSettingDetails(null);
+      setOpenMultiCountrySettings(true);
+    }
+  }, /*#__PURE__*/_react.default.createElement(_SettingItemUI.SettingItemUI, {
+    title: t('MULTI_COUNTRY_SETTINGS', 'Multi country settings'),
+    description: t('MULTI_COUNTRY_SETTINGS_DESC', 'Settings according country'),
+    icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.GearFill, null),
+    active: openMultiCountrySettings
   }))), categoryList.loading ? _toConsumableArray(Array(12).keys()).map(function (i) {
     return /*#__PURE__*/_react.default.createElement(_styles2.SettingItemWrapper, {
       className: "col-md-4 col-sm-6",
@@ -252,6 +278,16 @@ var SettingsUI = function SettingsUI(props) {
     category: selectedCategory,
     onClose: handleBackRedirect,
     onBasicSettingsRedirect: onBasicSettingsRedirect
+  })), openMultiCountrySettings && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
+    defaultSideBarWidth: 500 + moveDistance,
+    moveDistance: moveDistance,
+    open: openMultiCountrySettings,
+    onClose: function onClose() {
+      setMoveDistance(0);
+      setOpenMultiCountrySettings(false);
+    }
+  }, /*#__PURE__*/_react.default.createElement(_MultiCountrySettings.MultiCountrySettings, {
+    setMoveDistance: setMoveDistance
   })), isOpenSettingDetails && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
     sidebarId: "setting-details",
     defaultSideBarWidth: 550,
