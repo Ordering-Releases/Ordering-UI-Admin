@@ -253,6 +253,7 @@ const PlaceListingUI = (props) => {
             {t('DROPDOWN_OPTIONS', 'Zones dropdown options')}
           </Tab>
         </Tabs>
+
         {showOption === 'countries' && (
           <CountriesList
             actionState={actionState}
