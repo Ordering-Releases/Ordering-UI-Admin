@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Checkbox } from '../../../styles'
-import { useLanguage, useToast, ToastType } from 'ordering-components-admin'
+import { useLanguage, useToast, ToastType } from 'ordering-components-admin-external'
 import {
   InvoiceOrderTypeContainer,
   CheckboxWrapper,

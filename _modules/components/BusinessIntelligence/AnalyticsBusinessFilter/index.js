@@ -9,7 +9,7 @@ exports.AnalyticsBusinessFilter = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -67,7 +67,7 @@ var AnalyticsBusinessFilterUI = function AnalyticsBusinessFilterUI(props) {
       searchValue = props.searchValue,
       _onSearch = props.onSearch;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1]; // Change page
 
@@ -185,7 +185,7 @@ var AnalyticsBusinessFilter = function AnalyticsBusinessFilter(props) {
     UIComponent: AnalyticsBusinessFilterUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AnalyticsBusinessFilter, AnalyticsBusinessFilterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AnalyticsBusinessFilter, AnalyticsBusinessFilterProps);
 };
 
 exports.AnalyticsBusinessFilter = AnalyticsBusinessFilter;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useLanguage, DriversList as DriversController } from 'ordering-components-admin'
+import { useLanguage, DriversList as DriversController } from 'ordering-components-admin-external'
 import { DriversDashboard } from '../DriversDashboard'
 import { OrdersLateralBar } from '../OrdersLateralBar'
 import { SearchBar } from '../../Shared'

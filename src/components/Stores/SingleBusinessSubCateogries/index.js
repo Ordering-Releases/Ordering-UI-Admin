@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Switch } from '../../../styles/Switch'
 import { CaretRightFill } from 'react-bootstrap-icons'
-import { SingleBusinessCategory as SingleBusinessCategoryController } from 'ordering-components-admin'
+import { SingleBusinessCategory as SingleBusinessCategoryController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 

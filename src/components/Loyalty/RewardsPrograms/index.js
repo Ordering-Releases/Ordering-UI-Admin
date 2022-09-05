@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { List as MenuIcon, Wallet, BarChartSteps } from 'react-bootstrap-icons'
-import { useLanguage, RewardsPrograms as RewardsProgramsController } from 'ordering-components-admin'
+import { useLanguage, RewardsPrograms as RewardsProgramsController } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { IconButton } from '../../../styles'
 import { SideBar } from '../../Shared'

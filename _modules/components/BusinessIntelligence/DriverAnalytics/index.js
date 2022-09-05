@@ -9,7 +9,7 @@ exports.DriverAnalytics = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -97,7 +97,7 @@ var DriverAnalyticsUI = function DriverAnalyticsUI(props) {
       pickUpSpendList = props.pickUpSpendList,
       deliverySpendList = props.deliverySpendList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -260,7 +260,7 @@ var DriverAnalytics = function DriverAnalytics(props) {
     UIComponent: DriverAnalyticsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriverAnalytics, driverAnalyticsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriverAnalytics, driverAnalyticsProps);
 };
 
 exports.DriverAnalytics = DriverAnalytics;

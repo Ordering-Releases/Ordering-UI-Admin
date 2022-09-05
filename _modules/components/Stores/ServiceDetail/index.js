@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -63,7 +63,7 @@ var ServiceDetail = function ServiceDetail(props) {
       onCancel = props.onCancel,
       isExtendExtraOpen = props.isExtendExtraOpen;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parsePrice = _useUtils2$.parsePrice,
@@ -71,7 +71,7 @@ var ServiceDetail = function ServiceDetail(props) {
 
   var formMethods = (0, _reactHookForm.useForm)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -347,7 +347,7 @@ var ServiceDetail = function ServiceDetail(props) {
     onClick: function onClick() {
       return handleClickImage();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files);
     },
@@ -356,7 +356,7 @@ var ServiceDetail = function ServiceDetail(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },

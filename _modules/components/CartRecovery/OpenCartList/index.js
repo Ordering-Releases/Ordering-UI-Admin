@@ -13,7 +13,7 @@ var _FaUserAlt = _interopRequireDefault(require("@meronex/icons/fa/FaUserAlt"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -62,13 +62,13 @@ var OpenCartList = function OpenCartList(props) {
       getCartList = props.getCartList,
       handleOpenCartDetail = props.handleOpenCartDetail;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parseDate = _useUtils2$.parseDate,

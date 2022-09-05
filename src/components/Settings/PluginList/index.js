@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   PluginList as PluginListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button, IconButton, Switch } from '../../../styles'
 import { Alert, Confirm, Pagination, SearchBar } from '../../Shared'
 import Skeleton from 'react-loading-skeleton'

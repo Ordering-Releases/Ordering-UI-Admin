@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelmetTags } from '../../components/HelmetTags'
-import { useEvent, useLanguage } from 'ordering-components-admin'
+import { useEvent, useLanguage } from 'ordering-components-admin-external'
 import { CustomersListing } from '../../../src/components/Users'
 
 export const CustomersList = (props) => {

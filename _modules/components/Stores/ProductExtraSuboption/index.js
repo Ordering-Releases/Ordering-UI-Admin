@@ -9,7 +9,7 @@ exports.ProductExtraSuboption = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -76,7 +76,7 @@ var ProductExtraSuboption = function ProductExtraSuboption(props) {
       handleDragEnd = props.handleDragEnd;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -242,14 +242,14 @@ var ProductExtraSuboption = function ProductExtraSuboption(props) {
     onClick: function onClick() {
       return handleClickSubOptionImage("suboption_image_".concat(subOption.id));
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleSubOptionFiles(files, subOption.id);
     },
     childId: "suboption_image_".concat(subOption.id),
     accept: "image/png, image/jpeg, image/jpg",
     disabled: optionState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleSubOptionFiles(dataTransfer.files, subOption.id);
     },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MetaFields as MetaFieldsController, useLanguage } from 'ordering-components-admin'
+import { MetaFields as MetaFieldsController, useLanguage } from 'ordering-components-admin-external'
 import { Alert, SpinnerLoader } from '../../Shared'
 import Skeleton from 'react-loading-skeleton'
 import BsTrash from '@meronex/icons/bs/BsTrash'

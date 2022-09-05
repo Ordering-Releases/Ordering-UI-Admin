@@ -9,7 +9,7 @@ exports.ProductDetails = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _useWindowSize2 = require("../../../hooks/useWindowSize");
 
@@ -261,7 +261,7 @@ var ProductDetails = function ProductDetails(props) {
     UIComponent: ProductDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductDetatils, productDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductDetatils, productDetailsProps);
 };
 
 exports.ProductDetails = ProductDetails;

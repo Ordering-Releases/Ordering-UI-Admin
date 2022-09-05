@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import {
   useLanguage,
   ProductGallery as ProductGalleryController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Confirm } from '../../Shared'
 import { Button, Input } from '../../../styles'

@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _styles = require("./styles");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -30,7 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var PageNotFound = function PageNotFound() {
   var _theme$images, _theme$images$general, _theme$images2, _theme$images2$genera;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

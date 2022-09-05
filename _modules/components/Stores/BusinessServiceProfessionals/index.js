@@ -9,7 +9,7 @@ exports.BusinessServiceProfessionals = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -72,7 +72,7 @@ var BusinessServiceProfessionalsUI = function BusinessServiceProfessionalsUI(pro
       getUsers = props.getUsers,
       paginationProps = props.paginationProps;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -84,7 +84,7 @@ var BusinessServiceProfessionalsUI = function BusinessServiceProfessionalsUI(pro
       selectedProfessional = _useState2[0],
       setSelectedProfessional = _useState2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -224,7 +224,7 @@ var BusinessServiceProfessionals = function BusinessServiceProfessionals(props) 
     UIComponent: BusinessServiceProfessionalsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UsersList, businessProfessionalListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, businessProfessionalListProps);
 };
 
 exports.BusinessServiceProfessionals = BusinessServiceProfessionals;

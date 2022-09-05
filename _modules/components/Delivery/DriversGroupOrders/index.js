@@ -7,7 +7,7 @@ exports.DriversGroupOrders = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -49,7 +49,7 @@ var DriversGroupOrdersUI = function DriversGroupOrdersUI(props) {
       handleChangeMaxTimeBetweenDelivery = props.handleChangeMaxTimeBetweenDelivery,
       onChangeNumberInput = props.onChangeNumberInput;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -147,7 +147,7 @@ var DriversGroupOrders = function DriversGroupOrders(props) {
     UIComponent: DriversGroupOrdersUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversGroupOrders, drivesGroupOrdersProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupOrders, drivesGroupOrdersProps);
 };
 
 exports.DriversGroupOrders = DriversGroupOrders;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useUtils, useLanguage, BusinessDetails as BusinessController } from 'ordering-components-admin'
+import { useUtils, useLanguage, BusinessDetails as BusinessController } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { Switch } from '../../../styles'
 import { StarFill } from 'react-bootstrap-icons'

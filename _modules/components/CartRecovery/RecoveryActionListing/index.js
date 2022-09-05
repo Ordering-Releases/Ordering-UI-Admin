@@ -9,7 +9,7 @@ exports.RecoveryActionListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _RecoveryActionHeader = require("../RecoveryActionHeader");
 
@@ -93,7 +93,7 @@ var RecoveryActionListing = function RecoveryActionListing(props) {
     isSearchByDescription: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.RecoveryActionListing, recoveryActionsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RecoveryActionListing, recoveryActionsProps);
 };
 
 exports.RecoveryActionListing = RecoveryActionListing;

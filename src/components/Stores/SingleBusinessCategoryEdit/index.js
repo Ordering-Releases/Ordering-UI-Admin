@@ -4,7 +4,7 @@ import {
   useLanguage,
   useUtils,
   SingleBusinessCategory as SingleBusinessCategoryController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Alert } from '../../Shared'
 import { IconButton } from '../../../styles'
 import BiImage from '@meronex/icons/bi/BiImage'

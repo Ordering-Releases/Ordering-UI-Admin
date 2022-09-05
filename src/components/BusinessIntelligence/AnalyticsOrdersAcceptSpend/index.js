@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import GiAlarmClock from '@meronex/icons/gi/GiAlarmClock'
 import {
   Container,

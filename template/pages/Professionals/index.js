@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelmetTags } from '../../components/HelmetTags'
-import { useEvent, useLanguage } from 'ordering-components-admin'
+import { useEvent, useLanguage } from 'ordering-components-admin-external'
 import { ProfessionalListing } from '../../../src/components/Users'
 
 export const Professionals = (props) => {

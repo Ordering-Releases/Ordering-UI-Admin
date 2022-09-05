@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, DriverGroupSetting as DriverGroupSettingController } from 'ordering-components-admin'
+import { useLanguage, DriverGroupSetting as DriverGroupSettingController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, SearchBar } from '../../Shared'
 import MdCheckBoxOutlineBlank from '@meronex/icons/md/MdCheckBoxOutlineBlank'

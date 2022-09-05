@@ -17,7 +17,7 @@ var _RiFileCopyLine = _interopRequireDefault(require("@meronex/icons/ri/RiFileCo
 
 var _styledComponents = require("styled-components");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -51,7 +51,7 @@ var BusinessPublishingOption = function BusinessPublishingOption(props) {
       business = props.business,
       onClose = props.onClose;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

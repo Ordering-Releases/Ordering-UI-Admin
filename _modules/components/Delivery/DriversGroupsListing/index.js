@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -80,7 +80,7 @@ var DriversGroupsListingUI = function DriversGroupsListingUI(props) {
       driversCompanyList = props.driversCompanyList;
   var history = (0, _reactRouterDom.useHistory)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -355,7 +355,7 @@ var DriversGroupsListing = function DriversGroupsListing(props) {
     UIComponent: DriversGroupsListingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversGroupsList, driversGroupsListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupsList, driversGroupsListProps);
 };
 
 exports.DriversGroupsListing = DriversGroupsListing;

@@ -7,7 +7,7 @@ exports.DeadlinesTypeSelector = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Select = require("../../styles/Select");
 
@@ -35,7 +35,7 @@ var DeadlinesTypeSelector = function DeadlinesTypeSelector(props) {
   var defaultValue = props.defaultValue,
       handleChangeDeadlineType = props.handleChangeDeadlineType;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

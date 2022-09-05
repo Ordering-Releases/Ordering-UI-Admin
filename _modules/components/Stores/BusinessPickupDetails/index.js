@@ -9,7 +9,7 @@ exports.BusinessPickupDetails = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -45,7 +45,7 @@ var BusinessPickupDetailsUI = function BusinessPickupDetailsUI(props) {
       handleChangeForm = props.handleChangeForm,
       handlePickupStateSave = props.handlePickupStateSave;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -151,7 +151,7 @@ var BusinessPickupDetails = function BusinessPickupDetails(props) {
     UIComponent: BusinessPickupDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessPickupDetails, pickupDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPickupDetails, pickupDetailsProps);
 };
 
 exports.BusinessPickupDetails = BusinessPickupDetails;

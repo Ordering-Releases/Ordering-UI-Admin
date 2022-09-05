@@ -13,7 +13,7 @@ var _reactHookForm = require("react-hook-form");
 
 var _moment = _interopRequireDefault(require("moment"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -66,7 +66,7 @@ var EnterprisePromotionGeneralDetails = function EnterprisePromotionGeneralDetai
       handleAddPromotion = props.handleAddPromotion,
       handleChangeItem = props.handleChangeItem;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -251,14 +251,14 @@ var EnterprisePromotionGeneralDetails = function EnterprisePromotionGeneralDetai
     onClick: function onClick() {
       return handleClickImage();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: handleFiles,
     childRef: function childRef(e) {
       inputRef.current = e;
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: actionState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },

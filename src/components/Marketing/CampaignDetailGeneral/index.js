@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Input, Switch, Button } from '../../../styles'
 import { Modal, RangeCalendar, Alert } from '../../Shared'
 import { CampaignAmountOption } from '../CampaignAmountOption'

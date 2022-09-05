@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, OpenCartsDetail as OpenCartsDetailController } from 'ordering-components-admin'
+import { useLanguage, useUtils, OpenCartsDetail as OpenCartsDetailController } from 'ordering-components-admin-external'
 import { ProductItemAccordion } from '../../Orders/ProductItemAccordion'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { OpenCartBill } from '../OpenCartBill'

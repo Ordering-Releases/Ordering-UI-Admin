@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, useCustomer } from 'ordering-components-admin'
+import { useLanguage, useCustomer } from 'ordering-components-admin-external'
 import { useForm } from 'react-hook-form'
 import parsePhoneNumber from 'libphonenumber-js'
 import { Input, Button, Switch } from '../../../styles'

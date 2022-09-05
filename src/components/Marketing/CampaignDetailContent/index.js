@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, CampaignDetailContent as CampaignDetailContentController } from 'ordering-components-admin'
+import { useLanguage, CampaignDetailContent as CampaignDetailContentController } from 'ordering-components-admin-external'
 import { Select } from '../../../styles/Select/FirstSelect'
 import { CampaignEmail } from '../CampaignEmail'
 import { CampaignSMS } from '../CampaignSMS'

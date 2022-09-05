@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, EnterprisePromotionList as EnterprisePromontioListController } from 'ordering-components-admin'
+import { useLanguage, EnterprisePromotionList as EnterprisePromontioListController } from 'ordering-components-admin-external'
 import { List as MenuIcon } from 'react-bootstrap-icons'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { Button, IconButton } from '../../../styles'

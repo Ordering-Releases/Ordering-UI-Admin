@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useConfig, BusinessWalletsList as BusinessWalletsListController } from 'ordering-components-admin'
+import { useLanguage, useConfig, BusinessWalletsList as BusinessWalletsListController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { ChevronRight } from 'react-bootstrap-icons'
 import { SideBar } from '../../Shared'

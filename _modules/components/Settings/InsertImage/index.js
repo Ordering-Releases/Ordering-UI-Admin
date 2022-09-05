@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -62,7 +62,7 @@ var InsertImage = function InsertImage(props) {
       selectedImageUrl = props.selectedImageUrl,
       setSelectedImageUrl = props.setSelectedImageUrl;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -167,14 +167,14 @@ var InsertImage = function InsertImage(props) {
       return handleClickImage();
     },
     isImage: insertImageState === null || insertImageState === void 0 ? void 0 : (_insertImageState$cha = insertImageState.change) === null || _insertImageState$cha === void 0 ? void 0 : _insertImageState$cha.soucre
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: handleFiles,
     childRef: function childRef(e) {
       imageInputRef.current = e;
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: insertImageState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },

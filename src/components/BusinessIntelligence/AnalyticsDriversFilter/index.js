@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, AnalyticsDriversFilter as AnalyticsDriversFilterController } from 'ordering-components-admin'
+import { useLanguage, AnalyticsDriversFilter as AnalyticsDriversFilterController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import RiCheckboxBlankLine from '@meronex/icons/ri/RiCheckboxBlankLine'
 import AiFillMinusSquare from '@meronex/icons/ai/AiFillMinusSquare'

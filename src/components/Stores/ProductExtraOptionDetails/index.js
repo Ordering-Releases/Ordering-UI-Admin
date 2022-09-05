@@ -4,7 +4,7 @@ import {
   DragAndDrop,
   ExamineClick,
   ProductExtraOptionDetails as ProductExtraOptionDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { IconButton, Input } from '../../../styles'
 import { DropdownButton, Dropdown } from 'react-bootstrap'

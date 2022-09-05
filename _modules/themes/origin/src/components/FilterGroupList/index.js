@@ -7,7 +7,7 @@ exports.FilterGroupList = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Modal = require("../Modal");
 
@@ -74,7 +74,7 @@ var FilterGroupListUI = function FilterGroupListUI(props) {
       handleChangeFilterValues = props.handleChangeFilterValues,
       handleChangeOrderId = props.handleChangeOrderId;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -155,7 +155,7 @@ var FilterGroupList = function FilterGroupList(props) {
     driverGroupList: props.driverGroupList
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.OrdersFilter, FilterControlProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrdersFilter, FilterControlProps));
 };
 
 exports.FilterGroupList = FilterGroupList;

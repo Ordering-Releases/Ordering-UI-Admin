@@ -9,7 +9,7 @@ exports.BusinessFrontLayout = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _AiOutlineShoppingCart = _interopRequireDefault(require("@meronex/icons/ai/AiOutlineShoppingCart"));
 
@@ -59,11 +59,11 @@ var BusinessFrontLayout = function BusinessFrontLayout(props) {
       business = props.business,
       setFormState = props.setFormState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configState = _useConfig2[0];
 

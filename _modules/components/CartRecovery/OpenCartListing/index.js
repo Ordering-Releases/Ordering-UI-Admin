@@ -13,7 +13,7 @@ var _reactRouterDom = require("react-router-dom");
 
 var _OpenCartsHeader = require("../OpenCartsHeader");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _OpenCartsDetail = require("../OpenCartsDetail");
 
@@ -167,7 +167,7 @@ var OpenCartListing = function OpenCartListing(props) {
     isSearchByCityName: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.OpenCartListing, openCartsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OpenCartListing, openCartsProps);
 };
 
 exports.OpenCartListing = OpenCartListing;

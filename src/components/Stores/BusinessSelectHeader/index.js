@@ -4,7 +4,7 @@ import {
   useLanguage,
   useUtils,
   DashboardBusinessList as BusinessListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import {
   PopMenuContatiner,
   BusinessSearch,

@@ -9,7 +9,7 @@ exports.OpenCartDelete = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _FaTrash = _interopRequireDefault(require("@meronex/icons/fa/FaTrash"));
 
@@ -54,7 +54,7 @@ var OpenCartDeleteUI = function OpenCartDeleteUI(props) {
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -125,7 +125,7 @@ var OpenCartDelete = function OpenCartDelete(props) {
     UIComponent: OpenCartDeleteUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CheckPassword, checkPasswordControlProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckPassword, checkPasswordControlProps);
 };
 
 exports.OpenCartDelete = OpenCartDelete;

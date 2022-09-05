@@ -9,7 +9,7 @@ exports.BusinessPreview = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -57,24 +57,24 @@ var BusinessPreview = function BusinessPreview(props) {
   var business = props.business,
       isMobileView = props.isMobileView;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       sessionState = _useSession2[0];
 
-  var _useOrder = (0, _orderingComponentsAdmin.useOrder)(),
+  var _useOrder = (0, _orderingComponentsAdminExternal.useOrder)(),
       _useOrder2 = _slicedToArray(_useOrder, 1),
       orderState = _useOrder2[0];
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parsePrice = _useUtils2$.parsePrice,
@@ -142,7 +142,7 @@ var BusinessPreview = function BusinessPreview(props) {
   };
 
   var convertHoursToMinutes = function convertHoursToMinutes(time) {
-    var _useLanguage3 = (0, _orderingComponentsAdmin.useLanguage)(),
+    var _useLanguage3 = (0, _orderingComponentsAdminExternal.useLanguage)(),
         _useLanguage4 = _slicedToArray(_useLanguage3, 2),
         t = _useLanguage4[1];
 
@@ -304,19 +304,19 @@ var SingleProductCard = function SingleProductCard(props) {
       isMobileView = props.isMobileView;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage5 = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage5 = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage6 = _slicedToArray(_useLanguage5, 2),
       t = _useLanguage6[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       stateConfig = _useConfig2[0];
 
-  var _useOrder3 = (0, _orderingComponentsAdmin.useOrder)(),
+  var _useOrder3 = (0, _orderingComponentsAdminExternal.useOrder)(),
       _useOrder4 = _slicedToArray(_useOrder3, 1),
       orderState = _useOrder4[0];
 
-  var _useUtils3 = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils3 = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils4 = _slicedToArray(_useUtils3, 1),
       _useUtils4$ = _useUtils4[0],
       parsePrice = _useUtils4$.parsePrice,

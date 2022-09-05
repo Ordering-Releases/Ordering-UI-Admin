@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { IconButton } from '../../../styles'
 import { List as MenuIcon, PuzzleFill, Display, KeyFill } from 'react-bootstrap-icons'
 import { useInfoShare } from '../../../contexts/InfoShareContext'

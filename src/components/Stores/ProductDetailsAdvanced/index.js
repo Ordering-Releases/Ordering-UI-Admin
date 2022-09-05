@@ -4,7 +4,7 @@ import {
   useSession,
   useUtils,
   ProductDetailsAdvanced as ProductDetailsAdvancedController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { EditTaxManager } from '../EditTaxManager'
 import { Button, Input, Switch } from '../../../styles'
 import { useForm } from 'react-hook-form'

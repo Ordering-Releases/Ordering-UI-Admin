@@ -9,7 +9,7 @@ exports.EnterprisePromotionListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -60,7 +60,7 @@ var EnterprisePromotionListingUI = function EnterprisePromotionListingUI(props) 
       businessesList = props.businessesList,
       handleSuccessDeletePromotion = props.handleSuccessDeletePromotion;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -184,7 +184,7 @@ var EnterprisePromotionListing = function EnterprisePromotionListing(props) {
     UIComponent: EnterprisePromotionListingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.EnterprisePromotionList, enterpisePromotionsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.EnterprisePromotionList, enterpisePromotionsProps);
 };
 
 exports.EnterprisePromotionListing = EnterprisePromotionListing;

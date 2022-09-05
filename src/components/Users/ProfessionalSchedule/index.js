@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, ProfessionalSchedule as ProfessionalScheduleController } from 'ordering-components-admin'
+import { useLanguage, ProfessionalSchedule as ProfessionalScheduleController } from 'ordering-components-admin-external'
 import { Circle as UnCheckIcon, RecordCircleFill as CheckIcon } from 'react-bootstrap-icons'
 import { Select } from '../../../styles/Select/FirstSelect'
 import { Schedule } from '../../Shared'

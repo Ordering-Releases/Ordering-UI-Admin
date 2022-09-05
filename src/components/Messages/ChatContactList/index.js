@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useUtils, useLanguage, UsersList as UsersListController } from 'ordering-components-admin'
+import { useUtils, useLanguage, UsersList as UsersListController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import Prev from '@meronex/icons/md/MdKeyboardArrowLeft'
 import Next from '@meronex/icons/md/MdKeyboardArrowRight'

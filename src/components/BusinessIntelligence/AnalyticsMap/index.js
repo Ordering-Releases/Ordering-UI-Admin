@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useConfig, useSession, useLanguage, GoogleMapsMap } from 'ordering-components-admin'
+import { useConfig, useSession, useLanguage, GoogleMapsMap } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import {
   Container,

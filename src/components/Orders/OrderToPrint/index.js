@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { useLanguage, useSession, useUtils } from 'ordering-components-admin'
+import { useLanguage, useSession, useUtils } from 'ordering-components-admin-external'
 import EnDotSingle from '@meronex/icons/en/EnDotSingle'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 import BisBusiness from '@meronex/icons/bi/BisBusiness'

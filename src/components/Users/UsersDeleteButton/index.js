@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, CheckPassword as CheckPasswordController } from 'ordering-components-admin'
+import { useLanguage, CheckPassword as CheckPasswordController } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import { Modal } from '../../Shared'
 

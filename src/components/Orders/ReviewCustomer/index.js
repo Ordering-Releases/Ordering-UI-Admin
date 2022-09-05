@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   ReviewCustomer as ReviewCustomerController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 import MdClose from '@meronex/icons/md/MdClose'
 import { useTheme } from 'styled-components'

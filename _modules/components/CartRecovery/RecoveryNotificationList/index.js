@@ -9,7 +9,7 @@ exports.RecoveryNotificationList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -64,7 +64,7 @@ var RecoveryNotificationListUI = function RecoveryNotificationListUI(props) {
       handleDeleteNotifications = props.handleDeleteNotifications,
       actionState = props.actionState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -222,7 +222,7 @@ var RecoveryNotificationList = function RecoveryNotificationList(props) {
     UIComponent: RecoveryNotificationListUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.RecoveryNotificationList, recoveryNotificationsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RecoveryNotificationList, recoveryNotificationsProps);
 };
 
 exports.RecoveryNotificationList = RecoveryNotificationList;

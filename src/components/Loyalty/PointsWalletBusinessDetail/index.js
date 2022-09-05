@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, useUtils, PointsWalletBusinessDetail as PointsWalletBusinessDetailController } from 'ordering-components-admin'
+import { useLanguage, useUtils, PointsWalletBusinessDetail as PointsWalletBusinessDetailController } from 'ordering-components-admin-external'
 import { useForm } from 'react-hook-form'
 import { Button, Input, Switch } from '../../../styles'
 import { RecordCircleFill, Circle } from 'react-bootstrap-icons'

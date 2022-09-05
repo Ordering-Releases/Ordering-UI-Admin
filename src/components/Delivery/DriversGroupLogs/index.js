@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLanguage, useUtils, DriversGroupLogs as DriversGroupLogsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, DriversGroupLogs as DriversGroupLogsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Pagination } from '../../Shared'
 

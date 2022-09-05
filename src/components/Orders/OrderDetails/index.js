@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, useUtils, useSession, OrderDetails as OrderDetailsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, useSession, OrderDetails as OrderDetailsController } from 'ordering-components-admin-external'
 import { ProductItemAccordion } from '../ProductItemAccordion'
 import { OrderStatusTypeSelector } from '../OrderStatusTypeSelector'
 import { Messages } from '../Messages'

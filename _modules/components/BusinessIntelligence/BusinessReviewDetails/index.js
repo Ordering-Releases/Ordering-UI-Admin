@@ -7,7 +7,7 @@ exports.BusinessReviewDetails = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -54,19 +54,19 @@ var BusinessReviewDetailsUI = function BusinessReviewDetailsUI(props) {
       reviewsList = props.reviewsList,
       handleChangeReviewEnabled = props.handleChangeReviewEnabled;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       optimizeImage = _useUtils2$.optimizeImage,
       parseDate = _useUtils2$.parseDate;
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 
@@ -152,7 +152,7 @@ var BusinessReviewDetails = function BusinessReviewDetails(props) {
     UIComponent: BusinessReviewDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessReviews, businessReviewDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessReviews, businessReviewDetailsProps);
 };
 
 exports.BusinessReviewDetails = BusinessReviewDetails;

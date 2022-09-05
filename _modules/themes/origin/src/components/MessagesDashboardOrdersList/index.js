@@ -7,7 +7,7 @@ exports.MessagesDashboardOrdersList = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _OrderListing = require("../OrderListing");
 
@@ -71,11 +71,11 @@ var MessagesDashboardOrdersList = function MessagesDashboardOrdersList(props) {
   var closedOrdersControlProps = {
     orderStatus: [1, 11, 2, 5, 6, 10, 12, 15, 16, 17]
   };
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, openOrclosedOrderView === 'all' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, openOrclosedOrderView === 'all' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     messageListView: true
-  }, OrdersCommonControlProps, allOrdersControlProps))), openOrclosedOrderView === 'open' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  }, OrdersCommonControlProps, allOrdersControlProps))), openOrclosedOrderView === 'open' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     messageListView: true
-  }, OrdersCommonControlProps, openOrdersControlProps))), openOrclosedOrderView === 'close' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  }, OrdersCommonControlProps, openOrdersControlProps))), openOrclosedOrderView === 'close' && /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderlist, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     messageListView: true
   }, OrdersCommonControlProps, closedOrdersControlProps))));
 };

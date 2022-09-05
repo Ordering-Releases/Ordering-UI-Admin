@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Pencil, Check2 } from 'react-bootstrap-icons'
 import { Button } from '../../../styles'
 import { Modal } from '../../Shared'

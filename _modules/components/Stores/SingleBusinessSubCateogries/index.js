@@ -13,7 +13,7 @@ var _Switch = require("../../../styles/Switch");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -163,7 +163,7 @@ var SingleBusinessSubCateogries = function SingleBusinessSubCateogries(props) {
     UIComponent: SingleBusinessSubCateogriesUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessSubCateogriesUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SingleBusinessCategory, singleBusinessSubCateogriesProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessSubCateogriesUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SingleBusinessCategory, singleBusinessSubCateogriesProps));
 };
 
 exports.SingleBusinessSubCateogries = SingleBusinessSubCateogries;

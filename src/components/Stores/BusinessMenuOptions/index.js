@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   BusinessMenuOptions as BusinessMenuOptionsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { XLg, ThreeDots } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useConfig, SettingsList as SettingsListController } from 'ordering-components-admin'
+import { useLanguage, useConfig, SettingsList as SettingsListController } from 'ordering-components-admin-external'
 import { useForm } from 'react-hook-form'
 import { Button } from '../../../styles'
 import { Modal, DragScroll, Alert } from '../../Shared'

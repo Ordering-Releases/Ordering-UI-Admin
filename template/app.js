@@ -7,7 +7,7 @@ import {
   Redirect,
   useLocation
 } from 'react-router-dom'
-import { useSession, useOrder, useLanguage, useConfig, GoogleTagManager, CannyIdentification } from 'ordering-components-admin'
+import { useSession, useOrder, useLanguage, useConfig, GoogleTagManager, CannyIdentification } from 'ordering-components-admin-external'
 import { NotNetworkConnectivity } from '../src/components/NotNetworkConnectivity'
 import { useOnlineStatus } from '../src/hooks/useOnlineStatus'
 import { useWindowSize } from '../src/hooks/useWindowSize'

@@ -9,7 +9,7 @@ exports.MessagesUI = exports.Messages = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactHookForm = require("react-hook-form");
 
@@ -99,7 +99,7 @@ var MessagesUI = function MessagesUI(props) {
       setCurrentTourStep = props.setCurrentTourStep,
       orderDetailClose = props.orderDetailClose;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -111,11 +111,11 @@ var MessagesUI = function MessagesUI(props) {
       errors = _useForm.errors,
       control = _useForm.control;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       user = _useSession2[0].user;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parseDate = _useUtils2$.parseDate,
@@ -813,7 +813,7 @@ var Messages = function Messages(props) {
     UIComponent: MessagesUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Messages, MessagesProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Messages, MessagesProps);
 };
 
 exports.Messages = Messages;

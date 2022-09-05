@@ -15,7 +15,7 @@ var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skelet
 
 var _useWindowSize2 = require("../../../hooks/useWindowSize");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -60,7 +60,7 @@ var SettingsDetail = function SettingsDetail(props) {
       category = props.category,
       isUpdateConfig = props.isUpdateConfig;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

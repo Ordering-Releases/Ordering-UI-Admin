@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useLanguage, LanguageTransTable as LanguageTransTableController } from 'ordering-components-admin'
+import { useLanguage, LanguageTransTable as LanguageTransTableController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Pagination } from '../../Shared'
 

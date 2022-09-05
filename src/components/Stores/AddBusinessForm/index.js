@@ -8,7 +8,7 @@ import {
   GoogleAutocompleteInput,
   GoogleMapsMap,
   BusinessFormDetails as BusinessFormDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import BiImage from '@meronex/icons/bi/BiImage'
 import Skeleton from 'react-loading-skeleton'
 import { bytesConverter } from '../../../utils'

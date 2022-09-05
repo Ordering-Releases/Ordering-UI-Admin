@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { InfoCircle } from 'react-bootstrap-icons'
-import { useLanguage, DragAndDrop, ExamineClick, ImporterJobForm as ImporterJobFormController } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick, ImporterJobForm as ImporterJobFormController } from 'ordering-components-admin-external'
 import { Modal, Alert, SideBar } from '../../Shared'
 import { bytesConverter } from '../../../utils'
 import { Button, IconButton, Input } from '../../../styles'

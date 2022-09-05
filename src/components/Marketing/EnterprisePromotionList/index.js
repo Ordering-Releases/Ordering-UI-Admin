@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 import { Image as ImageIcon } from 'react-bootstrap-icons'

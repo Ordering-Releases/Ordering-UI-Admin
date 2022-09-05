@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import RiCheckboxBlankLine from '@meronex/icons/ri/RiCheckboxBlankLine'
 import RiCheckboxFill from '@meronex/icons/ri/RiCheckboxFill'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import MdcContentCopy from '@meronex/icons/mdc/MdcContentCopy'
 import { Button } from '../../../styles'
 

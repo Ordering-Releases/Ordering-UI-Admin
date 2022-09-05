@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Button, Checkbox, Input } from '../../../styles'
 import { Select } from '../../../styles/Select/FirstSelect'
 import { RecordCircleFill, Circle, ChevronRight } from 'react-bootstrap-icons'

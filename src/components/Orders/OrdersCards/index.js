@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import { useLanguage, useUtils, useConfig } from 'ordering-components-admin'
+import { useLanguage, useUtils, useConfig } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'

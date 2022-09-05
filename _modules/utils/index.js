@@ -15,7 +15,7 @@ var _FaCreditCard = _interopRequireDefault(require("@meronex/icons/fa/FaCreditCa
 
 var _moment = _interopRequireDefault(require("moment"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -446,7 +446,7 @@ var ribbonValues = {
 exports.ribbonValues = ribbonValues;
 
 var reviewCommentList = function reviewCommentList(type) {
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

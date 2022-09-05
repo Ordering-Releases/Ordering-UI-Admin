@@ -9,7 +9,7 @@ exports.MessagesListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Orders = require("../../Orders");
 
@@ -62,7 +62,7 @@ var MessagesListingUI = function MessagesListingUI(props) {
       handleChangeSearch = props.handleChangeSearch,
       handleChangeFilterValues = props.handleChangeFilterValues;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -209,7 +209,7 @@ var MessagesListing = function MessagesListing(props) {
     driversPropsToFetch: ['id', 'name', 'lastname', 'location', 'enabled', 'available', 'busy', 'driver_groups', 'assigned_orders_count', 'last_order_assigned_at', 'last_location_at', 'cellphone', 'photo', 'qualification']
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.OrdersManage, OrdersListControlProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrdersManage, OrdersListControlProps);
 };
 
 exports.MessagesListing = MessagesListing;

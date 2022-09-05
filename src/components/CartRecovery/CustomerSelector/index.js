@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   useLanguage,
   UsersList as UsersListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { MultiSelect } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import {

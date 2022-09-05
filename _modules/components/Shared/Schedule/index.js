@@ -9,7 +9,7 @@ exports.Schedule = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -64,11 +64,11 @@ var ScheduleUI = function ScheduleUI(props) {
       handleSelectCopyTimes = props.handleSelectCopyTimes,
       handleApplyScheduleCopyTimes = props.handleApplyScheduleCopyTimes;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
@@ -297,7 +297,7 @@ var Schedule = function Schedule(props) {
     UIComponent: ScheduleUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Schedule, scheduleProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Schedule, scheduleProps);
 };
 
 exports.Schedule = Schedule;

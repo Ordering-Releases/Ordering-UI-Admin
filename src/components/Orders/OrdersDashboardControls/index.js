@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSession } from 'ordering-components-admin'
+import { useSession } from 'ordering-components-admin-external'
 import { OrderStatusTypeSelector } from '../OrderStatusTypeSelector'
 import { OrdersExportCSV } from '../OrdersExportCSV'
 import { OrderDelete } from '../OrderDelete'

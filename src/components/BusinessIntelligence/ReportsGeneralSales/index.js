@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   AdvancedReports as AdvancedReportsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { ReportsDriverGroupFilter } from '../ReportsDriverGroupFilter'
 import { AnalyticsBusinessFilter } from '../AnalyticsBusinessFilter'
 import { ReportsBrandFilter } from '../ReportsBrandFilter'

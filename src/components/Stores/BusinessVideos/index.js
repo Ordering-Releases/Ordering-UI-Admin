@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, BusinessGallery as BusinessGalleryController } from 'ordering-components-admin'
+import { useLanguage, BusinessGallery as BusinessGalleryController } from 'ordering-components-admin-external'
 import { Confirm, Alert } from '../../Shared'
 import { Input, Button } from '../../../styles'
 

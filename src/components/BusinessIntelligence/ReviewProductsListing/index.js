@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, BusinessProductsListing as BusinessProductsListingController } from 'ordering-components-admin'
+import { useLanguage, useUtils, BusinessProductsListing as BusinessProductsListingController } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { List as MenuIcon, ImageFill } from 'react-bootstrap-icons'
 import Skeleton from 'react-loading-skeleton'

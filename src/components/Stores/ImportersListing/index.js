@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, ImporterListing as ImportersListingController } from 'ordering-components-admin'
+import { useLanguage, ImporterListing as ImportersListingController } from 'ordering-components-admin-external'
 import { InfoCircle } from 'react-bootstrap-icons'
 import { Button, IconButton } from '../../../styles'
 import { ImportersList } from '../ImportersList'

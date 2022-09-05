@@ -9,7 +9,7 @@ exports.BusinessDeliveryZoneInformation = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _FirstSelect = require("../../../styles/Select/FirstSelect");
 
@@ -51,7 +51,7 @@ var BusinessDeliveryZoneInformation = function BusinessDeliveryZoneInformation(p
       handleUploadKmlFiles = props.handleUploadKmlFiles,
       kmlData = props.kmlData;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -60,11 +60,11 @@ var BusinessDeliveryZoneInformation = function BusinessDeliveryZoneInformation(p
       register = _useForm.register,
       errors = _useForm.errors;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parseNumber = _useUtils2[0].parseNumber;
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configState = _useConfig2[0];
 
@@ -258,7 +258,7 @@ var BusinessDeliveryZoneInformation = function BusinessDeliveryZoneInformation(p
     onClick: function onClick() {
       return setClearState(true);
     }
-  }, t('CLEAR', 'Clear')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessZoneGoogleMaps, {
+  }, t('CLEAR', 'Clear')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessZoneGoogleMaps, {
     apiKey: configState === null || configState === void 0 ? void 0 : (_configState$configs2 = configState.configs) === null || _configState$configs2 === void 0 ? void 0 : (_configState$configs3 = _configState$configs2.google_maps_api_key) === null || _configState$configs3 === void 0 ? void 0 : _configState$configs3.value,
     mapControls: googleMapsControls,
     location: business === null || business === void 0 ? void 0 : business.location,
@@ -280,7 +280,7 @@ var BusinessDeliveryZoneInformation = function BusinessDeliveryZoneInformation(p
     onClick: function onClick() {
       return kmlRef.current.click();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleUploadKmlFiles(files);
     },

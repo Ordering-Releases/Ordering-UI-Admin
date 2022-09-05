@@ -13,7 +13,7 @@ var _styledComponents = require("styled-components");
 
 var _reactBootstrap = require("react-bootstrap");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -56,7 +56,7 @@ var CampaignDetailUI = function CampaignDetailUI(props) {
       handleDeleteCampaign = props.handleDeleteCampaign;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -169,7 +169,7 @@ var CampaignDetail = function CampaignDetail(props) {
     UIComponent: CampaignDetailUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CampaignDetail, campaignDetailProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignDetail, campaignDetailProps);
 };
 
 exports.CampaignDetail = CampaignDetail;

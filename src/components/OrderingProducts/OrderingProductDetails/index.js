@@ -12,7 +12,7 @@ import {
   DragAndDrop,
   ExamineClick,
   SiteDetails as SiteDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 
 import {
   DetailContainer,

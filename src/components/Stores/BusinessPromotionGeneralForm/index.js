@@ -9,7 +9,7 @@ import {
   DragAndDrop,
   useLanguage,
   useConfig
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import {
   Camera as CameraIcon,
   CardImage,

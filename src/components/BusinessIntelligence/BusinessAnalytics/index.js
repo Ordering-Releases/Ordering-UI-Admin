@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, BusinessAnalytics as BusinessAnalyticsController } from 'ordering-components-admin'
+import { useLanguage, BusinessAnalytics as BusinessAnalyticsController } from 'ordering-components-admin-external'
 import { List as MenuIcon } from 'react-bootstrap-icons'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { Button, IconButton } from '../../../styles'

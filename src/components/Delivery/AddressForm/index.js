@@ -21,7 +21,7 @@ import {
   useSession,
   useOrder,
   useConfig
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 
 import { Alert } from '../../Shared'
 import { GoogleGpsButton } from '../GoogleGpsButton'

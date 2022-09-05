@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, PageForm as PageFormController } from 'ordering-components-admin'
+import { useLanguage, PageForm as PageFormController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button, Input, Switch } from '../../../styles'
 

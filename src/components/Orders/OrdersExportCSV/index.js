@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, ExportCSV as ExportCSVController } from 'ordering-components-admin'
+import { useLanguage, ExportCSV as ExportCSVController } from 'ordering-components-admin-external'
 import { Modal, SpinnerLoader } from '../../Shared'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { Button } from '../../../styles'

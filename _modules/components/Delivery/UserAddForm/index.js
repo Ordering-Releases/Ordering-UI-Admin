@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -81,11 +81,11 @@ var UserAddFormUI = function UserAddFormUI(props) {
       isTourOpen = props.isTourOpen;
   var formMethods = (0, _reactHookForm.useForm)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 
@@ -358,14 +358,14 @@ var UserAddFormUI = function UserAddFormUI(props) {
       return handleClickImage();
     },
     isImage: (formState === null || formState === void 0 ? void 0 : (_formState$changes2 = formState.changes) === null || _formState$changes2 === void 0 ? void 0 : _formState$changes2.photo) && !formState.result.error
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: handleFiles,
     childRef: function childRef(e) {
       inputRef.current = e;
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -479,7 +479,7 @@ var UserAddForm = function UserAddForm(props) {
     UIComponent: UserAddFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UserFormDetails, UserAddProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserFormDetails, UserAddProps);
 };
 
 exports.UserAddForm = UserAddForm;

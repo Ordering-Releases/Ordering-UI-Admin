@@ -9,7 +9,7 @@ exports.DriversCompaniesListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -60,7 +60,7 @@ var DriversCompaniesListingUI = function DriversCompaniesListingUI(props) {
       handleAllSelectCompany = props.handleAllSelectCompany,
       handleDeleteSelectedCompanies = props.handleDeleteSelectedCompanies;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -216,7 +216,7 @@ var DriversCompaniesListing = function DriversCompaniesListing(props) {
     UIComponent: DriversCompaniesListingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversCompaniesList, driversCompaniesProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversCompaniesList, driversCompaniesProps);
 };
 
 exports.DriversCompaniesListing = DriversCompaniesListing;

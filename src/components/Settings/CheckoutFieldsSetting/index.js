@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, CheckoutFieldsSetting as CheckoutFieldsSettingController } from 'ordering-components-admin'
+import { useLanguage, CheckoutFieldsSetting as CheckoutFieldsSettingController } from 'ordering-components-admin-external'
 import { Switch } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 

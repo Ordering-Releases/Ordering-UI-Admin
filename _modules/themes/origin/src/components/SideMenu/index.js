@@ -7,7 +7,7 @@ exports.SideMenu = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -32,7 +32,7 @@ var SideMenu = function SideMenu(props) {
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 

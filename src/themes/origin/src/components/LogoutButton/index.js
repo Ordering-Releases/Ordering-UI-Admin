@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoutAction, useLanguage } from 'ordering-components-admin'
+import { LogoutAction, useLanguage } from 'ordering-components-admin-external'
 
 import FaSignOutAlt from '@meronex/icons/fa/FaSignOutAlt'
 

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useLanguage, DragAndDrop, ExamineClick, BusinessFormDetails as BusinessFormDetailsController } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick, BusinessFormDetails as BusinessFormDetailsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
 import { bytesConverter, shape, ribbonValues } from '../../../utils'

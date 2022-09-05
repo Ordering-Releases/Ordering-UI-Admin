@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, DashboardBusinessList as BusinessListController } from 'ordering-components-admin'
+import { useLanguage, useUtils, DashboardBusinessList as BusinessListController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 import { StarFill } from 'react-bootstrap-icons'

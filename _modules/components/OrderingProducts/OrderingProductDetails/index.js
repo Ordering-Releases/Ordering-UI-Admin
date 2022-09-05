@@ -23,7 +23,7 @@ var _styles = require("../../../styles");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles2 = require("./styles");
 
@@ -63,7 +63,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
       handleAddSite = props.handleAddSite,
       handleDeleteSite = props.handleDeleteSite;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -248,7 +248,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     onClick: function onClick() {
       return handleClickImage('header');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'header');
     },
@@ -257,7 +257,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'header');
     },
@@ -275,7 +275,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     onClick: function onClick() {
       return handleClickImage('logo');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'logo');
     },
@@ -284,7 +284,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'logo');
     },
@@ -352,7 +352,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     onClick: function onClick() {
       return handleClickImage('social_share');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'social_share');
     },
@@ -361,7 +361,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'social_share');
     },
@@ -539,7 +539,7 @@ var OrderingProductDetails = function OrderingProductDetails(props) {
     UIComponent: OrderingProductDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SiteDetails, productDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SiteDetails, productDetailsProps);
 };
 
 exports.OrderingProductDetails = OrderingProductDetails;

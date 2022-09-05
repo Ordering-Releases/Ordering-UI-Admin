@@ -9,7 +9,7 @@ exports.OpenCartsDetail = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _ProductItemAccordion = require("../../Orders/ProductItemAccordion");
 
@@ -61,14 +61,14 @@ var OpenCartsDetailUI = function OpenCartsDetailUI(props) {
       handleBackRedirect = props.handleBackRedirect,
       cartState = props.cartState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parseDate = _useUtils2[0].parseDate;
 
@@ -188,7 +188,7 @@ var OpenCartsDetail = function OpenCartsDetail(props) {
     UIComponent: OpenCartsDetailUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.OpenCartsDetail, orderDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OpenCartsDetail, orderDetailsProps);
 };
 
 exports.OpenCartsDetail = OpenCartsDetail;

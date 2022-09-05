@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, BusinessSpreadSheet as BusinessSpreadSheetController } from 'ordering-components-admin'
+import { useLanguage, BusinessSpreadSheet as BusinessSpreadSheetController } from 'ordering-components-admin-external'
 import { Alert, SpreadSheetEditor } from '../../Shared'
 import {
   BusinessSpreadSheetContainer

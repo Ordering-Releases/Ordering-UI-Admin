@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { XLg } from 'react-bootstrap-icons'
-import { Popup, useLanguage } from 'ordering-components-admin'
+import { Popup, useLanguage } from 'ordering-components-admin-external'
 import { Button, IconButton } from '../../../styles'
 import {
   ModalDialog,

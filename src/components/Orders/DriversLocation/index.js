@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useConfig } from 'ordering-components-admin'
+import { useConfig } from 'ordering-components-admin-external'
 import GoogleMapReact, { fitBounds } from 'google-map-react'
 import { DriverMapMarkerAndInfo } from '../DriverMapMarkerAndInfo'
 

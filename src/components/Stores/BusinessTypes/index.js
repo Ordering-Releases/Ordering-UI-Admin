@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Alert, SearchBar, Modal, SideBar } from '../../Shared'
 import { ChevronRight, Square, CheckSquareFill } from 'react-bootstrap-icons'
 import { useWindowSize } from '../../../hooks/useWindowSize'

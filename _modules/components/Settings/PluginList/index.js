@@ -9,7 +9,7 @@ exports.PluginList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -72,7 +72,7 @@ var PluginListUI = function PluginListUI(props) {
       handleUpdatePlugin = props.handleUpdatePlugin,
       handleInstallSysPlugin = props.handleInstallSysPlugin;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -333,7 +333,7 @@ var PluginList = function PluginList(props) {
     projectCode: window.localStorage.getItem('project')
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.PluginList, pluginListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PluginList, pluginListProps);
 };
 
 exports.PluginList = PluginList;

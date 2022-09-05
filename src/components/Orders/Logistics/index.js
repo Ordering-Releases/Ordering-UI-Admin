@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils, Logistics as LogisticsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, Logistics as LogisticsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 

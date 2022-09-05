@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 
 import { useTheme } from 'styled-components'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'

@@ -9,7 +9,7 @@ exports.ImportersListingUI = exports.ImportersListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -57,7 +57,7 @@ var ImportersListingUI = function ImportersListingUI(props) {
       handleSuccessAddImporter = props.handleSuccessAddImporter,
       handleSuccessUpdateImporter = props.handleSuccessUpdateImporter;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -204,7 +204,7 @@ var ImportersListing = function ImportersListing(props) {
     asDashboard: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ImporterListing, importersListingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ImporterListing, importersListingProps);
 };
 
 exports.ImportersListing = ImportersListing;

@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Modal = require("../Modal");
 
@@ -49,7 +49,7 @@ var ConfirmAdminUI = function ConfirmAdminUI(props) {
       _onClose = props.onClose,
       onConfirm = props.onConfirm;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -111,7 +111,7 @@ var ConfirmAdmin = function ConfirmAdmin(props) {
     UIComponent: ConfirmAdminUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, props.open && /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CheckPassword, checkPasswordControlProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, props.open && /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckPassword, checkPasswordControlProps));
 };
 
 exports.ConfirmAdmin = ConfirmAdmin;

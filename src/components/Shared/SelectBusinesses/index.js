@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { Checkbox, Button } from '../../../styles'
 import { SearchBar } from '../SearchBar'

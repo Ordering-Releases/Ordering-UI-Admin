@@ -5,7 +5,7 @@ import {
   ExamineClick,
   useUtils,
   BusinessTypeDetail as BusinessTypeDetailController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { DropdownButton, Dropdown } from 'react-bootstrap'

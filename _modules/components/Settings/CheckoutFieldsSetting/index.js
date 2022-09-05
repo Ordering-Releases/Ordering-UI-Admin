@@ -7,7 +7,7 @@ exports.CheckoutFieldsSetting = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -47,7 +47,7 @@ var CheckoutFieldsSettingUI = function CheckoutFieldsSettingUI(props) {
   var checkoutFieldsState = props.checkoutFieldsState,
       handleChangeCheckoutFieldSetting = props.handleChangeCheckoutFieldSetting;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -115,7 +115,7 @@ var CheckoutFieldsSetting = function CheckoutFieldsSetting(props) {
     UIComponent: CheckoutFieldsSettingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CheckoutFieldsSetting, checkoutFieldsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckoutFieldsSetting, checkoutFieldsProps);
 };
 
 exports.CheckoutFieldsSetting = CheckoutFieldsSetting;

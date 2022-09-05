@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _utils = require("../../../utils");
 
@@ -73,11 +73,11 @@ var SingleBusinessProductUI = function SingleBusinessProductUI(props) {
       isProductsBottom = props.isProductsBottom;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parsePrice = _useUtils2$.parsePrice,
@@ -231,7 +231,7 @@ var SingleBusinessProductUI = function SingleBusinessProductUI(props) {
       return handleClickImage();
     },
     disabled: true
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files);
     },
@@ -240,7 +240,7 @@ var SingleBusinessProductUI = function SingleBusinessProductUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: productFormState === null || productFormState === void 0 ? void 0 : productFormState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -315,7 +315,7 @@ var SingleBusinessProduct = function SingleBusinessProduct(props) {
     UIComponent: SingleBusinessProductUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessProductUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SingleBusinessProduct, singleBusinessProductProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessProductUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SingleBusinessProduct, singleBusinessProductProps));
 };
 
 exports.SingleBusinessProduct = SingleBusinessProduct;

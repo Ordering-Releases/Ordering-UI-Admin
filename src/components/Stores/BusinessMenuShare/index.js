@@ -1,5 +1,5 @@
 import React from 'react'
-import { BusinessMenuShare as BusinessMenuShareController } from 'ordering-components-admin'
+import { BusinessMenuShare as BusinessMenuShareController } from 'ordering-components-admin-external'
 import { SelectBusinesses } from '../../Shared'
 
 const BusinessMenuShareUI = (props) => {

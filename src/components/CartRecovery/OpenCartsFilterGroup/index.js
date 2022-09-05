@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useLanguage, OpenCartFilter as OpenCartFilterController } from 'ordering-components-admin'
+import { useLanguage, OpenCartFilter as OpenCartFilterController } from 'ordering-components-admin-external'
 import { BusinessesSelector } from '../BusinessesSelector'
 import { CitySelector } from '../CitySelector'
 import { DateTypeSelector } from '../DateTypeSelector'

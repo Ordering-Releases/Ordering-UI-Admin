@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   BusinessBrandBUSIDetail as BusinessBrandBUSIDetailController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { NotFoundSource, Pagination, SearchBar } from '../../Shared'
 import { Button, Checkbox } from '../../../styles'
 import { useTheme } from 'styled-components'

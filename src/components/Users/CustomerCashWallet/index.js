@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, UserWallet as UserWalletController } from 'ordering-components-admin'
+import { useLanguage, UserWallet as UserWalletController } from 'ordering-components-admin-external'
 import { CustomerCashWalletDetails } from '../CustomerCashWalletDetails'
 import { CustomerWalletEvents } from '../CustomerWalletEvents'
 

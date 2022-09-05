@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   useLanguage,
   SitesList as SitesListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { Alert, Pagination, SearchBar, SideBar } from '../../Shared'
 import { List as MenuIcon } from 'react-bootstrap-icons'

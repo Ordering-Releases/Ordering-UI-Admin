@@ -4,7 +4,7 @@ import {
   DragAndDrop,
   ExamineClick,
   BusinessBrandGENDetail as BusinessBrandGENDetailContorller
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
 import { bytesConverter, shape, ribbonValues } from '../../../utils'

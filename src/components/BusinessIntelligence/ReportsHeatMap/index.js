@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useConfig, useSession, AdvancedReports as AdvancedReportsController, GoogleMapsMap } from 'ordering-components-admin'
+import { useLanguage, useConfig, useSession, AdvancedReports as AdvancedReportsController, GoogleMapsMap } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button } from '../../../styles'
 import { useTheme } from 'styled-components'

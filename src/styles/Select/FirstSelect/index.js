@@ -13,7 +13,7 @@ import {
   SearchBarWrapper
 } from '../../Selects'
 import { Button } from '../../Buttons'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { SearchBar } from '../../../components/Shared'
 
 export const Select = (props) => {

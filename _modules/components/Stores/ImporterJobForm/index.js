@@ -13,7 +13,7 @@ var _reactHookForm = require("react-hook-form");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -64,7 +64,7 @@ var ImporterJobFormUI = function ImporterJobFormUI(props) {
       openMappingDetails = props.openMappingDetails,
       setOpenMappingDetails = props.setOpenMappingDetails;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -251,7 +251,7 @@ var ImporterJobFormUI = function ImporterJobFormUI(props) {
     onClick: function onClick() {
       return headerCsvInputRef.current.click();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files);
     },
@@ -260,7 +260,7 @@ var ImporterJobFormUI = function ImporterJobFormUI(props) {
     },
     accept: ".csv,.xlsx,.xls",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -335,7 +335,7 @@ var ImporterJobForm = function ImporterJobForm(props) {
     UIComponent: ImporterJobFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ImporterJobForm, addCsvDetailProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ImporterJobForm, addCsvDetailProps);
 };
 
 exports.ImporterJobForm = ImporterJobForm;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import parsePhoneNumber from 'libphonenumber-js'
 import PhoneInput from 'react-phone-number-input'
-import { useLanguage, useConfig, useSession } from 'ordering-components-admin'
+import { useLanguage, useConfig, useSession } from 'ordering-components-admin-external'
 
 import { Container, ErrorMsg } from './styles'
 

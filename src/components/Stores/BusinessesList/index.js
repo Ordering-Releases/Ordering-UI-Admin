@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { ColumnAllowSettingPopover, Pagination } from '../../Shared'
 import { Button } from '../../../styles'
 import { useTheme } from 'styled-components'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 
 import { Envelope, Phone, CheckSquareFill, Square } from 'react-bootstrap-icons'

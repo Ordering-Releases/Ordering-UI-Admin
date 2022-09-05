@@ -9,7 +9,7 @@ exports.HomePage = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactChartjs = require("react-chartjs-2");
 
@@ -61,7 +61,7 @@ var HomeUI = function HomeUI(props) {
       monthSalesList = props.monthSalesList,
       getCurrentDateRange = props.getCurrentDateRange;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -75,18 +75,18 @@ var HomeUI = function HomeUI(props) {
       timeAxes = _useState2[0],
       setTimeAxes = _useState2[1];
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parsePrice = _useUtils2[0].parsePrice;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       sessionState = _useSession2[0];
 
@@ -312,7 +312,7 @@ var HomePage = function HomePage(props) {
     UIComponent: HomeUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Home, homeProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Home, homeProps);
 };
 
 exports.HomePage = HomePage;

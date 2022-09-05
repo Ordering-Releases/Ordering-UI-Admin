@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, ApiKeysList as ApiKeysListController } from 'ordering-components-admin'
+import { useLanguage, ApiKeysList as ApiKeysListController } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import { Dropdown, DropdownButton } from 'react-bootstrap'

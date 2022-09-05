@@ -9,7 +9,7 @@ exports.ProfessionalSchedule = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -52,7 +52,7 @@ var ProfessionalScheduleUI = function ProfessionalScheduleUI(props) {
       handleChangeItem = props.handleChangeItem,
       handleUpdateClick = props.handleUpdateClick;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -234,7 +234,7 @@ var ProfessionalSchedule = function ProfessionalSchedule(props) {
     UIComponent: ProfessionalScheduleUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProfessionalSchedule, professionalScheduleProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProfessionalSchedule, professionalScheduleProps);
 };
 
 exports.ProfessionalSchedule = ProfessionalSchedule;

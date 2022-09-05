@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   useLanguage,
   useUtils
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { Button, DefaultSelect } from '../../../styles'
 import { SelectBusinessProducts } from '../../Shared'

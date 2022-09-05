@@ -9,7 +9,7 @@ exports.OrderToPrint = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _EnDotSingle = _interopRequireDefault(require("@meronex/icons/en/EnDotSingle"));
 
@@ -54,15 +54,15 @@ var OrderToPrint = /*#__PURE__*/(0, _react.forwardRef)(function (props, ref) {
       getLogisticTag = props.getLogisticTag,
       getPriorityTag = props.getPriorityTag;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       user = _useSession2[0].user;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parseDate = _useUtils2$.parseDate,

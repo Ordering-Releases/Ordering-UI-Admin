@@ -7,7 +7,7 @@ exports.LanguageSetting = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -49,7 +49,7 @@ var LanguageSettingUI = function LanguageSettingUI(props) {
   var languageFiledsState = props.languageFiledsState,
       handleChangeFieldSetting = props.handleChangeFieldSetting;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 3),
       languageState = _useLanguage2[0],
       t = _useLanguage2[1],
@@ -117,7 +117,7 @@ var LanguageSetting = function LanguageSetting(props) {
     UIComponent: LanguageSettingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LanguageSetting, languageSettingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageSetting, languageSettingProps);
 };
 
 exports.LanguageSetting = LanguageSetting;

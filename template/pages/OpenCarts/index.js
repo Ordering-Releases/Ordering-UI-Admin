@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelmetTags } from '../../components/HelmetTags'
-import { useEvent } from 'ordering-components-admin'
+import { useEvent } from 'ordering-components-admin-external'
 import { OpenCartListing as OpenCartListingController } from '../../../src/components/CartRecovery'
 
 export const OpenCarts = (props) => {

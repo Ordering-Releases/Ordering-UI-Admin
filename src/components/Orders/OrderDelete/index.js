@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, CheckPassword as CheckPasswordController } from 'ordering-components-admin'
+import { useLanguage, CheckPassword as CheckPasswordController } from 'ordering-components-admin-external'
 import FaTrash from '@meronex/icons/fa/FaTrash'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { Button } from '../../../styles/Buttons'

@@ -17,7 +17,7 @@ var _reactBootstrapIcons = require("react-bootstrap-icons");
 
 var _styles = require("../../../styles");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _ReportsDriverGroupFilter = require("../ReportsDriverGroupFilter");
 
@@ -74,7 +74,7 @@ var ReportsDriverScheduleUI = function ReportsDriverScheduleUI(props) {
       handleChangeFilterList = props.handleChangeFilterList,
       reportData = props.reportData;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -328,7 +328,7 @@ var ReportsDriverSchedule = function ReportsDriverSchedule(props) {
     endpoint: 'drivers_operation_events'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AdvancedReports, reportsDriverScheduleProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverScheduleProps);
 };
 
 exports.ReportsDriverSchedule = ReportsDriverSchedule;

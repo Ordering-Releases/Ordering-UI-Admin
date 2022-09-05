@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { Input, Checkbox } from '../../../styles'
 

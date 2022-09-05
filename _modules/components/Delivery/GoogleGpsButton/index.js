@@ -7,7 +7,7 @@ exports.GoogleGpsButton = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -39,7 +39,7 @@ var GoogleGpsButton = function GoogleGpsButton(props) {
     UIComponent: GoogleGpsButtonUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleGpsButton, gpsButtonProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleGpsButton, gpsButtonProps);
 };
 
 exports.GoogleGpsButton = GoogleGpsButton;

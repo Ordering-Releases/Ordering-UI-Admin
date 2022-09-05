@@ -9,7 +9,7 @@ exports.BusinessWalletsList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -56,11 +56,11 @@ var BusinessWalletsListUI = function BusinessWalletsListUI(props) {
       handleClosePaymethodDetails = props.handleClosePaymethodDetails,
       handleUpdateWallet = props.handleUpdateWallet;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
@@ -152,7 +152,7 @@ var BusinessWalletsList = function BusinessWalletsList(props) {
     UIComponent: BusinessWalletsListUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessWalletsList, businessWalletsListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessWalletsList, businessWalletsListProps);
 };
 
 exports.BusinessWalletsList = BusinessWalletsList;

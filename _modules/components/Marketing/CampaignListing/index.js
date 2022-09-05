@@ -17,7 +17,7 @@ var _CampaignHeader = require("../CampaignHeader");
 
 var _CampaignList = require("../CampaignList");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -95,7 +95,7 @@ var CampaignListing = function CampaignListing(props) {
     isSearchByName: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CampaignListing, campaignListingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignListing, campaignListingProps);
 };
 
 exports.CampaignListing = CampaignListing;

@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -64,7 +64,7 @@ var ProfessionalServicesUI = function ProfessionalServicesUI(props) {
       handleDeleteService = props.handleDeleteService,
       actionState = props.actionState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -203,7 +203,7 @@ var ProfessionalServices = function ProfessionalServices(props) {
     propsToFetch: ['id', 'name', 'categories']
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProfessionalServices, professionalServices);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProfessionalServices, professionalServices);
 };
 
 exports.ProfessionalServices = ProfessionalServices;

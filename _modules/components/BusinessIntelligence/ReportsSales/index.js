@@ -15,7 +15,7 @@ require("chartjs-adapter-moment");
 
 var _reactChartjs = require("react-chartjs-2");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -66,11 +66,11 @@ var ReportsSalesUI = function ReportsSalesUI(props) {
       handleChangeFilterList = props.handleChangeFilterList,
       reportData = props.reportData;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parsePrice = _useUtils2[0].parsePrice;
 
@@ -287,7 +287,7 @@ var ReportsSales = function ReportsSales(props) {
     endpoint: 'sales_v2'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AdvancedReports, reportOrdersProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportOrdersProps);
 };
 
 exports.ReportsSales = ReportsSales;

@@ -9,7 +9,7 @@ exports.DriversCompanyDetailsForm = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrap = require("react-bootstrap");
 
@@ -58,7 +58,7 @@ var DriversCompanyDetailsFormUI = function DriversCompanyDetailsFormUI(props) {
       cleanActionState = props.cleanActionState,
       handleDeleteDriversCompany = props.handleDeleteDriversCompany;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -179,7 +179,7 @@ var DriversCompanyDetailsForm = function DriversCompanyDetailsForm(props) {
     UIComponent: DriversCompanyDetailsFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversCompanyDetails, driversCompanyDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversCompanyDetails, driversCompanyDetailsProps);
 };
 
 exports.DriversCompanyDetailsForm = DriversCompanyDetailsForm;

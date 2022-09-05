@@ -3,7 +3,7 @@ import {
   useLanguage,
   useConfig,
   DriversGroupDetails as DriversGroupDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { ThreeDots } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'

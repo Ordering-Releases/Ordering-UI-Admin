@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, useSession, useOrder, useUtils, useConfig } from 'ordering-components-admin'
+import { useLanguage, useSession, useOrder, useUtils, useConfig } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { GeoAlt, Cart3, List, PersonFill, StarFill, ArrowLeft, Search } from 'react-bootstrap-icons'
 import BsInfoCircle from '@meronex/icons/bs/BsInfoCircle'

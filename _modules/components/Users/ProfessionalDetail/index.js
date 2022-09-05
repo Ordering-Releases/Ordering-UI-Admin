@@ -17,7 +17,7 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _styledComponents = require("styled-components");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -69,11 +69,11 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
       handleChangeActiveUser = props.handleChangeActiveUser;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       adminUserState = _useSession2[0];
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -215,7 +215,7 @@ var ProfessionalDetail = function ProfessionalDetail(props) {
     UIComponent: ProfessionalDetailUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UserDetails, userDetailsControlProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserDetails, userDetailsControlProps));
 };
 
 exports.ProfessionalDetail = ProfessionalDetail;

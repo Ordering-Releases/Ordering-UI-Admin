@@ -17,7 +17,7 @@ var _styles = require("./styles");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { useLanguage } from 'ordering-components-admin'
+// import { useLanguage } from 'ordering-components-admin-external'
 // import { useWindowSize } from '../../hooks/useWindowSize'
 // import { Button } from '../../styles/Buttons'
 // import MdcBasket from '@meronex/icons/mdc/MdcBasket'

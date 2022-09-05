@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
-import { useLanguage, UserDetails as UserDetailsController } from 'ordering-components-admin'
+import { useLanguage, UserDetails as UserDetailsController } from 'ordering-components-admin-external'
 import { OrdersManager } from '../../Orders'
 import { AddressList } from '../AddressList'
 import { Personalization, Modal } from '../../Shared'

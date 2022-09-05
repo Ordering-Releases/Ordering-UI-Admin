@@ -9,7 +9,7 @@ exports.ProductGallery = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -70,7 +70,7 @@ var ProductGalleryUI = function ProductGalleryUI(props) {
       handleDeteteProductGalleryItem = props.handleDeteteProductGalleryItem,
       handleChangeItem = props.handleChangeItem;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -219,14 +219,14 @@ var ProductGalleryUI = function ProductGalleryUI(props) {
       onClick: function onClick() {
         return handleClickImage("gallery_image_".concat(photo.id));
       }
-    }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+    }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
       onFiles: function onFiles(files) {
         return handleFiles(files, photo.id);
       },
       childId: "gallery_image_".concat(photo.id),
       accept: "image/png, image/jpeg, image/jpg",
       disabled: changesState.loading || productGalleryState.loading
-    }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+    }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
       onDrop: function onDrop(dataTransfer) {
         return handleFiles(dataTransfer.files, photo.id);
       },
@@ -259,7 +259,7 @@ var ProductGalleryUI = function ProductGalleryUI(props) {
     onClick: function onClick() {
       return handleClickImage('gallery_image_add');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, null);
     },
@@ -269,7 +269,7 @@ var ProductGalleryUI = function ProductGalleryUI(props) {
     childRef: function childRef(e) {
       return setInputRef(e);
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, null);
     },
@@ -346,7 +346,7 @@ var ProductGallery = function ProductGallery(props) {
     UIComponent: ProductGalleryUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductGallery, productGalleryProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductGallery, productGalleryProps);
 };
 
 exports.ProductGallery = ProductGallery;

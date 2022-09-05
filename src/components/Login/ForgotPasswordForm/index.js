@@ -10,7 +10,7 @@ import {
   useLanguage,
   useApi,
   ReCaptcha
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import {
   ForgotPasswordContainer,
   FormSide,

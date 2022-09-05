@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   DashboardBusinessList as BusinessListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { NotFoundSource, Pagination, SearchBar, Modal, SideBar } from '../../Shared'
 import { useTheme } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'

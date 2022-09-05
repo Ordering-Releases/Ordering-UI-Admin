@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, PlaceList as PlaceListController } from 'ordering-components-admin'
+import { useLanguage, PlaceList as PlaceListController } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { Button, IconButton, Switch } from '../../../styles'
 import { List as MenuIcon } from 'react-bootstrap-icons'

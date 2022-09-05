@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils, ProductReviews as ProductReviewController } from 'ordering-components-admin'
+import { useLanguage, useUtils, ProductReviews as ProductReviewController } from 'ordering-components-admin-external'
 import { ImageFill, HandThumbsUp, HandThumbsDown } from 'react-bootstrap-icons'
 import Skeleton from 'react-loading-skeleton'
 

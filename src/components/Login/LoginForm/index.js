@@ -7,7 +7,7 @@ import {
   useLanguage,
   useApi,
   useConfig
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Alert } from '../../Shared'
 import BsArrowRightShort from '@meronex/icons/bs/BsArrowRightShort'
 import MdExitToApp from '@meronex/icons/md/MdExitToApp'

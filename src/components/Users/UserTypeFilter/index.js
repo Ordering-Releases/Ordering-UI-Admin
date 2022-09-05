@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, UserTypeFilter as UserTypeFilterController } from 'ordering-components-admin'
+import { useLanguage, UserTypeFilter as UserTypeFilterController } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import MdClose from '@meronex/icons/ios/MdClose'
 

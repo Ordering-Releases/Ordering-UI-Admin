@@ -9,7 +9,7 @@ exports.ChatContactList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -66,11 +66,11 @@ var ChatContactListUI = function ChatContactListUI(props) {
       getUsers = props.getUsers;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -153,7 +153,7 @@ var ChatContactList = function ChatContactList(props) {
     propsToFetch: ['name', 'lastname', 'photo', 'assigned_orders_count']
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UsersList, customersControlProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, customersControlProps);
 };
 
 exports.ChatContactList = ChatContactList;

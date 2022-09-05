@@ -9,7 +9,7 @@ exports.MetaFields = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Confirm = require("../Confirm");
 
@@ -60,7 +60,7 @@ var MetaFieldsUI = function MetaFieldsUI(props) {
       handleDeleteMetaField = props.handleDeleteMetaField,
       handeAddMetaField = props.handeAddMetaField;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -320,7 +320,7 @@ var MetaFields = function MetaFields(props) {
     UIComponent: MetaFieldsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.MetaFields, MetaFieldsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.MetaFields, MetaFieldsProps);
 };
 
 exports.MetaFields = MetaFields;

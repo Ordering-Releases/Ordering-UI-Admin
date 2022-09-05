@@ -9,7 +9,7 @@ exports.DriversGroupLogs = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -54,11 +54,11 @@ var DriversGroupLogsUI = function DriversGroupLogsUI(props) {
       paginationProps = props.paginationProps,
       getDriversGroupLogs = props.getDriversGroupLogs;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parseDate = _useUtils2[0].parseDate;
 
@@ -184,7 +184,7 @@ var DriversGroupLogs = function DriversGroupLogs(props) {
     UIComponent: DriversGroupLogsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversGroupLogs, driversGroupLogsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupLogs, driversGroupLogsProps);
 };
 
 exports.DriversGroupLogs = DriversGroupLogs;

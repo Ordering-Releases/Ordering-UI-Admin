@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useSession } from 'ordering-components-admin'
+import { useSession } from 'ordering-components-admin-external'
 import { PageNotFound } from '../../PageNotFound'
 
 export const ProtectedRoute = (props) => {

@@ -5,7 +5,7 @@ import {
   useLanguage,
   DragAndDrop,
   ExamineClick
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Input, TextArea, Button, Switch } from '../../../styles'
 import { Select } from '../../../styles/Select/FirstSelect'
 

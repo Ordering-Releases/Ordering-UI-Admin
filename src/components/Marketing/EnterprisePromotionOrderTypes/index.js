@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useConfig } from 'ordering-components-admin'
+import { useLanguage, useConfig } from 'ordering-components-admin-external'
 import { Button, Checkbox } from '../../../styles'
 
 import {

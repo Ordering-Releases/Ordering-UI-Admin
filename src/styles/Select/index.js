@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { useSession } from 'ordering-components-admin'
+import { useSession } from 'ordering-components-admin-external'
 import { usePopper } from 'react-popper'
 import { CaretDownFill } from 'react-bootstrap-icons'
 import FiChevronDown from '@meronex/icons/fi/FiChevronDown'

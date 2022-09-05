@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   BusinessPromotionList as BusinessPromotionListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { useTheme } from 'styled-components'
 import { Button, Checkbox, IconButton } from '../../../styles'

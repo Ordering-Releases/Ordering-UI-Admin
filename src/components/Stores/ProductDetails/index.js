@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ProductDetatils as ProductDetatilsController } from 'ordering-components-admin'
+import { ProductDetatils as ProductDetatilsController } from 'ordering-components-admin-external'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { MoreSidebarLayout, Personalization } from '../../Shared'
 import { ProductSummary } from '../ProductSummary'

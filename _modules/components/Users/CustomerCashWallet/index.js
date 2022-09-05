@@ -9,7 +9,7 @@ exports.CustomerCashWallet = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _CustomerCashWalletDetails = require("../CustomerCashWalletDetails");
 
@@ -40,7 +40,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var CustomerCashWalletUI = function CustomerCashWalletUI(props) {
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -68,7 +68,7 @@ var CustomerCashWallet = function CustomerCashWallet(props) {
     UIComponent: CustomerCashWalletUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UserWallet, customerWalletProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserWallet, customerWalletProps);
 };
 
 exports.CustomerCashWallet = CustomerCashWallet;

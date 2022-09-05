@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { BusinessTypeFilter as BusinessTypeFilterController, useLanguage } from 'ordering-components-admin'
+import { BusinessTypeFilter as BusinessTypeFilterController, useLanguage } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import { DragScroll } from '../../Shared'
 import { TypeContainer } from './styles'

@@ -9,7 +9,7 @@ exports.OrderingProductsListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -68,7 +68,7 @@ var OrderingProductsUI = function OrderingProductsUI(props) {
       setPaginationProps = props.setPaginationProps,
       handleSuccessUpdateSites = props.handleSuccessUpdateSites;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -221,7 +221,7 @@ var OrderingProductsListing = function OrderingProductsListing(props) {
     UIComponent: OrderingProductsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SitesList, sitesProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SitesList, sitesProps);
 };
 
 exports.OrderingProductsListing = OrderingProductsListing;

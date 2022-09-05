@@ -13,7 +13,7 @@ var _ConfigFileContext = require("../../contexts/ConfigFileContext");
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Confirm = require("../Confirm");
 
@@ -69,11 +69,11 @@ var LoginFormUI = function LoginFormUI(props) {
       loginTab = props.loginTab,
       isPopup = props.isPopup;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -274,7 +274,7 @@ var LoginForm = function LoginForm(props) {
     allowedLevels: [0, 2]
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LoginForm, loginControllerProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LoginForm, loginControllerProps);
 };
 
 exports.LoginForm = LoginForm;

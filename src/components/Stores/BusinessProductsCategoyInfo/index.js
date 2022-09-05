@@ -4,7 +4,7 @@ import {
   DragAndDrop,
   ExamineClick,
   useConfig
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { bytesConverter, shape, ribbonValues } from '../../../utils'
 import { RecordCircleFill, Circle } from 'react-bootstrap-icons'

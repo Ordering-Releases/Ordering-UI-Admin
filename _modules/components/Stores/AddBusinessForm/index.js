@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _BiImage = _interopRequireDefault(require("@meronex/icons/bi/BiImage"));
 
@@ -62,11 +62,11 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
       handleChangeCenter = props.handleChangeCenter,
       handleChangeSwtich = props.handleChangeSwtich;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
@@ -211,7 +211,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     onClick: function onClick() {
       return handleClickImage('header');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'header');
     },
@@ -220,7 +220,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'header');
     },
@@ -238,7 +238,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     onClick: function onClick() {
       return handleClickImage('logo');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'logo');
     },
@@ -247,7 +247,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'logo');
     },
@@ -319,7 +319,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
         })
       }));
     }
-  })), /*#__PURE__*/_react.default.createElement(_styles2.InputWrapper, null, /*#__PURE__*/_react.default.createElement("label", null, t('ADDRESS', 'Address')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleAutocompleteInput, {
+  })), /*#__PURE__*/_react.default.createElement(_styles2.InputWrapper, null, /*#__PURE__*/_react.default.createElement("label", null, t('ADDRESS', 'Address')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleAutocompleteInput, {
     name: "address",
     className: "input-autocomplete",
     apiKey: googleMapsApiKey,
@@ -333,7 +333,7 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     defaultValue: formState !== null && formState !== void 0 && (_formState$result17 = formState.result) !== null && _formState$result17 !== void 0 && _formState$result17.result ? formState === null || formState === void 0 ? void 0 : (_formState$result18 = formState.result) === null || _formState$result18 === void 0 ? void 0 : (_formState$result18$r = _formState$result18.result) === null || _formState$result18$r === void 0 ? void 0 : _formState$result18$r.address : (_formState$changes$ad = formState === null || formState === void 0 ? void 0 : (_formState$changes10 = formState.changes) === null || _formState$changes10 === void 0 ? void 0 : _formState$changes10.address) !== null && _formState$changes$ad !== void 0 ? _formState$changes$ad : '',
     autoComplete: "new-field",
     countryCode: (configs === null || configs === void 0 ? void 0 : (_configs$country_auto = configs.country_autocomplete) === null || _configs$country_auto === void 0 ? void 0 : _configs$country_auto.value) || '*'
-  })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleMapsMap, {
+  })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleMapsMap, {
     apiKey: configs === null || configs === void 0 ? void 0 : (_configs$google_maps_2 = configs.google_maps_api_key) === null || _configs$google_maps_2 === void 0 ? void 0 : _configs$google_maps_2.value,
     location: (_formState$changes$lo = formState === null || formState === void 0 ? void 0 : (_formState$changes11 = formState.changes) === null || _formState$changes11 === void 0 ? void 0 : _formState$changes11.location) !== null && _formState$changes$lo !== void 0 ? _formState$changes$lo : defaultPosition,
     mapControls: googleMapsControls,
@@ -378,7 +378,7 @@ var AddBusinessForm = function AddBusinessForm(props) {
     UIComponent: AddBusinessFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessFormDetails, businessFormDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessFormDetails, businessFormDetailsProps);
 };
 
 exports.AddBusinessForm = AddBusinessForm;

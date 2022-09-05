@@ -7,7 +7,7 @@ exports.AnalyticsOrdersAcceptSpend = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _GiAlarmClock = _interopRequireDefault(require("@meronex/icons/gi/GiAlarmClock"));
 
@@ -32,11 +32,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var AnalyticsOrdersAcceptSpend = function AnalyticsOrdersAcceptSpend(props) {
   var dataList = props.dataList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       parseNumber = _useUtils2[0].parseNumber;
 

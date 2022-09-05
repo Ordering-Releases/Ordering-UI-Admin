@@ -15,7 +15,7 @@ var _reactHookForm = require("react-hook-form");
 
 var _Confirm = require("../Confirm");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -72,13 +72,13 @@ var ForgotPasswordUI = function ForgotPasswordUI(props) {
       alertState = _useState2[0],
       setAlertState = _useState2[1];
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -229,7 +229,7 @@ var ForgotPasswordForm = function ForgotPasswordForm(props) {
     UIComponent: ForgotPasswordUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ForgotPasswordForm, ForgotPasswordProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ForgotPasswordForm, ForgotPasswordProps);
 };
 
 exports.ForgotPasswordForm = ForgotPasswordForm;

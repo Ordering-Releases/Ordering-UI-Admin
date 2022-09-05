@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _BsCardImage = _interopRequireDefault(require("@meronex/icons/bs/BsCardImage"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _utils = require("../../../utils");
 
@@ -53,7 +53,7 @@ var BatchImageFormUI = function BatchImageFormUI(props) {
       products = props.products,
       updateProduct = props.updateProduct;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -193,7 +193,7 @@ var BatchImageFormUI = function BatchImageFormUI(props) {
     style: {
       display: 'none'
     }
-  }), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -244,7 +244,7 @@ var BatchImageForm = function BatchImageForm(props) {
     UIComponent: BatchImageFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BatchImageForm, batchImageFormProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BatchImageForm, batchImageFormProps);
 };
 
 exports.BatchImageForm = BatchImageForm;

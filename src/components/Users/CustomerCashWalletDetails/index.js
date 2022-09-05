@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button, Input, TextArea } from '../../../styles'
 import { Alert } from '../../Shared'

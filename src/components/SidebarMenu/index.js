@@ -20,7 +20,7 @@ import {
   CloudDownload
 } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
-import { useEvent, useLanguage, useSession, useConfig } from 'ordering-components-admin'
+import { useEvent, useLanguage, useSession, useConfig } from 'ordering-components-admin-external'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { Accordion, Image, Button, AccordionContext, useAccordionToggle } from 'react-bootstrap'
 import { LanguageSelector } from '../LanguageSelector'

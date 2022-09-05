@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardOrdersList as OrdersListController } from 'ordering-components-admin'
+import { DashboardOrdersList as OrdersListController } from 'ordering-components-admin-external'
 import { OrderListing } from '../OrderListing'
 import { WrapperOrderlist } from './styles'
 

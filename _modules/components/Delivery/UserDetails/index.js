@@ -13,7 +13,7 @@ var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skelet
 
 var _styledComponents = require("styled-components");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Orders = require("../../Orders");
 
@@ -73,7 +73,7 @@ var UserDetailsUI = function UserDetailsUI(props) {
       handleChangeActiveUser = props.handleChangeActiveUser;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -182,7 +182,7 @@ var UserDetails = function UserDetails(props) {
     UIComponent: UserDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UserDetails, userDetailsControlProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserDetails, userDetailsControlProps));
 };
 
 exports.UserDetails = UserDetails;

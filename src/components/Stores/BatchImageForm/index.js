@@ -4,7 +4,7 @@ import {
   DragAndDrop,
   useLanguage,
   BatchImageForm as BatchImageFormController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { bytesConverter } from '../../../utils'
 import { Alert } from '../../Shared'
 import { Button } from '../../../styles'

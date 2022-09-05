@@ -4,7 +4,7 @@ import {
   useConfig,
   useEvent,
   OrderNotification as OrderNotificationController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Modal } from '../../Shared'
 import 'react-toastify/dist/ReactToastify.css'
 import { toast } from 'react-toastify'

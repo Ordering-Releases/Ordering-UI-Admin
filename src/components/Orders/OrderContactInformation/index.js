@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { useLanguage, useSession, useUtils } from 'ordering-components-admin'
+import { useLanguage, useSession, useUtils } from 'ordering-components-admin-external'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 import BisBusiness from '@meronex/icons/bi/BisBusiness'
 import { DriverSelector } from '../DriverSelector'

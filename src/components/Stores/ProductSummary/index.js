@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import BsChevronRight from '@meronex/icons/bs/BsChevronRight'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { XLg, ThreeDots, Laptop, Phone } from 'react-bootstrap-icons'

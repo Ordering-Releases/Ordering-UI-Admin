@@ -19,7 +19,7 @@ var _reactHookForm = require("react-hook-form");
 
 var _Shared = require("../../Shared");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -78,13 +78,13 @@ var ForgotPasswordUI = function ForgotPasswordUI(props) {
       alertState = _useState2[0],
       setAlertState = _useState2[1];
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -228,7 +228,7 @@ var ForgotPasswordUI = function ForgotPasswordUI(props) {
       }
     }),
     autoComplete: "off"
-  }), /*#__PURE__*/_react.default.createElement(_HiOutlineMail.default, null)), isReCaptchaEnable && /*#__PURE__*/_react.default.createElement(_styles.ReCAPTCHAWrapper, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ReCaptcha, {
+  }), /*#__PURE__*/_react.default.createElement(_HiOutlineMail.default, null)), isReCaptchaEnable && /*#__PURE__*/_react.default.createElement(_styles.ReCAPTCHAWrapper, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ReCaptcha, {
     handleReCaptcha: handleReCaptcha
   })), /*#__PURE__*/_react.default.createElement(_styles2.Button, {
     borderRadius: "8px",
@@ -258,7 +258,7 @@ var ForgotPasswordForm = function ForgotPasswordForm(props) {
     UIComponent: ForgotPasswordUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ForgotPasswordForm, ForgotPasswordProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ForgotPasswordForm, ForgotPasswordProps);
 };
 
 exports.ForgotPasswordForm = ForgotPasswordForm;

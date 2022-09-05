@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 import BsDot from '@meronex/icons/bs/BsDot'

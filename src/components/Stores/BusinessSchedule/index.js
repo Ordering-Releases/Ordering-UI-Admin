@@ -2,7 +2,7 @@ import React from 'react'
 import {
   useLanguage,
   BusinessSchedule as BusinessScheduleController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Schedule } from '../../Shared'
 import { Button } from '../../../styles'
 

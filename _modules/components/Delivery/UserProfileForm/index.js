@@ -15,7 +15,7 @@ var _reactBootstrapIcons = require("react-bootstrap-icons");
 
 var _FaUserAlt = _interopRequireDefault(require("@meronex/icons/fa/FaUserAlt"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _UserFormDetails = require("../UserFormDetails");
 
@@ -61,7 +61,7 @@ var UserProfileFormUI = function UserProfileFormUI(props) {
       userState = props.userState,
       handleChangeSwtich = props.handleChangeSwtich;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -170,14 +170,14 @@ var UserProfileFormUI = function UserProfileFormUI(props) {
       return handleClickImage();
     },
     isImage: (userState === null || userState === void 0 ? void 0 : (_userState$result = userState.result) === null || _userState$result === void 0 ? void 0 : (_userState$result$res = _userState$result.result) === null || _userState$result$res === void 0 ? void 0 : _userState$result$res.photo) || (formState === null || formState === void 0 ? void 0 : (_formState$changes3 = formState.changes) === null || _formState$changes3 === void 0 ? void 0 : _formState$changes3.photo) && !formState.result.error
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: handleFiles,
     childRef: function childRef(e) {
       inputRef.current = e;
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -239,7 +239,7 @@ var UserProfileForm = function UserProfileForm(props) {
     UIComponent: UserProfileFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UserFormDetails, UserProfileProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserFormDetails, UserProfileProps);
 };
 
 exports.UserProfileForm = UserProfileForm;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, PaymentOptionSquare as PaymentOptionSquareController } from 'ordering-components-admin'
+import { useLanguage, PaymentOptionSquare as PaymentOptionSquareController } from 'ordering-components-admin-external'
 import { Button, IconButton, Input, Checkbox } from '../../../styles'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { ThreeDots, XLg } from 'react-bootstrap-icons'

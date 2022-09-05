@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import BsDownload from '@meronex/icons/bs/BsDownload'
 import BsArrowsAngleExpand from '@meronex/icons/bs/BsArrowsAngleExpand'
 import { Bar } from 'react-chartjs-2'

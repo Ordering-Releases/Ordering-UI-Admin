@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin-external'
 import { Button, Input, TextArea } from '../../../styles'
 import { Alert, Modal, ImageCrop } from '../../Shared'
 import { bytesConverter } from '../../../utils'

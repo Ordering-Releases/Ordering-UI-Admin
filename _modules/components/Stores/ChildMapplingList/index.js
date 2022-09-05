@@ -9,7 +9,7 @@ exports.ChildMapplingList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -57,7 +57,7 @@ var ChildMapplingList = function ChildMapplingList(props) {
       handleUpdateMultipleMapping = props.handleUpdateMultipleMapping,
       defaultImporter = props.defaultImporter;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

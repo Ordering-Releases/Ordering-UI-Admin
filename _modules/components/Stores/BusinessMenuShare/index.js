@@ -7,7 +7,7 @@ exports.BusinessMenuShare = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -47,7 +47,7 @@ var BusinessMenuShare = function BusinessMenuShare(props) {
     UIComponent: BusinessMenuShareUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessMenuShare, businessMenuShareProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessMenuShare, businessMenuShareProps);
 };
 
 exports.BusinessMenuShare = BusinessMenuShare;

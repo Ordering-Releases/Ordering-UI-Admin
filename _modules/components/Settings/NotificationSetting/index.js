@@ -9,7 +9,7 @@ exports.NotificationSetting = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _SettingsSelectUI = require("../SettingsSelectUI");
 
@@ -62,7 +62,7 @@ var NotificationSettingUI = function NotificationSettingUI(props) {
       settingsState = props.settingsState,
       handleClickUpdate = props.handleClickUpdate;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -268,7 +268,7 @@ var NotificationSetting = function NotificationSetting(props) {
     UIComponent: NotificationSettingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SettingsList, notificationSettingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, notificationSettingProps);
 };
 
 exports.NotificationSetting = NotificationSetting;

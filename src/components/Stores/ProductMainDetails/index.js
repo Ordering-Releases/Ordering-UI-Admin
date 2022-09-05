@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { DragScroll } from '../../Shared'
 import { SeoOptions } from '../SeoOptions'
 import { ProductDetatilsInformation } from '../ProductDetatilsInformation'

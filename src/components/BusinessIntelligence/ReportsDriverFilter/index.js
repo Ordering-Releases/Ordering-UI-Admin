@@ -11,7 +11,7 @@ import {
 import RiCheckboxBlankLine from '@meronex/icons/ri/RiCheckboxBlankLine'
 import RiCheckboxFill from '@meronex/icons/ri/RiCheckboxFill'
 import { Button } from '../../../styles'
-import { useLanguage, ReportsDriverFilter as ReportsDriverFilterController } from 'ordering-components-admin'
+import { useLanguage, ReportsDriverFilter as ReportsDriverFilterController } from 'ordering-components-admin-external'
 
 const ReportsDriverFilterUI = (props) => {
   const {

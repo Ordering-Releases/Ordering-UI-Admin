@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useSession } from 'ordering-components-admin'
+import { useLanguage, useSession } from 'ordering-components-admin-external'
 import { DragScroll } from '../../Shared'
 import {
   SettingListConatiner,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, BusinessMetaFields as BusinessMetaFieldsController } from 'ordering-components-admin'
+import { useLanguage, BusinessMetaFields as BusinessMetaFieldsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import BsTrash from '@meronex/icons/bs/BsTrash'
 import BsPlusSquare from '@meronex/icons/bs/BsPlusSquare'

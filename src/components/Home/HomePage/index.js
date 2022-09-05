@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, useEvent, useSession, Home as HomeController } from 'ordering-components-admin'
+import { useLanguage, useUtils, useEvent, useSession, Home as HomeController } from 'ordering-components-admin-external'
 import { Line } from 'react-chartjs-2'
 import moment from 'moment'
 import { IconButton, Button } from '../../../styles/Buttons'

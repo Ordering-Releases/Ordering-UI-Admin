@@ -17,7 +17,7 @@ var _BsPlusSquare = _interopRequireDefault(require("@meronex/icons/bs/BsPlusSqua
 
 var _BsTrash = _interopRequireDefault(require("@meronex/icons/bs/BsTrash"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -83,7 +83,7 @@ var ImporterFormUI = function ImporterFormUI(props) {
       handleUpdateMultipleMapping = props.handleUpdateMultipleMapping,
       defaultImporter = props.defaultImporter;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -601,7 +601,7 @@ var ImporterForm = function ImporterForm(props) {
     UIComponent: ImporterFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ImporterForm, addImporterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ImporterForm, addImporterProps);
 };
 
 exports.ImporterForm = ImporterForm;

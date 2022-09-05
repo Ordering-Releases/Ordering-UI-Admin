@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { UserDetails as UserDetailsController, useLanguage, useSession } from 'ordering-components-admin'
+import { UserDetails as UserDetailsController, useLanguage, useSession } from 'ordering-components-admin-external'
 import { UserDetailsMenu } from '../UserDetailsMenu'
 import { UserProfileForm } from '../UserProfileForm'
 import { AddressList } from '../../Delivery'

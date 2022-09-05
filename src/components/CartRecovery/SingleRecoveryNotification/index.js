@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, SingleRecoveryNotification as SingleRecoveryNotificationController } from 'ordering-components-admin'
+import { useLanguage, SingleRecoveryNotification as SingleRecoveryNotificationController } from 'ordering-components-admin-external'
 import { Input, TextArea, Button } from '../../../styles'
 import { Select } from '../../../styles/Select'
 import { Alert, Confirm } from '../../Shared'

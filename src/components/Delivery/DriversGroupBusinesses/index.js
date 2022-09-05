@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { useForm } from 'react-hook-form'
 
 import { Checkbox, Button } from '../../../styles'

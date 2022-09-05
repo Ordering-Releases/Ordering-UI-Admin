@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useConfig, useLanguage, useUtils, ExamineClick, BusinessZoneGoogleMaps } from 'ordering-components-admin'
+import { useConfig, useLanguage, useUtils, ExamineClick, BusinessZoneGoogleMaps } from 'ordering-components-admin-external'
 import { Select } from '../../../styles/Select/FirstSelect'
 import { Button, Input } from '../../../styles'
 import { Alert } from '../../Shared'

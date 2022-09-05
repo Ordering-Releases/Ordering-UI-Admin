@@ -9,7 +9,7 @@ exports.BusinessBrandGENDetail = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -61,7 +61,7 @@ var BusinessBrandGENDetailUI = function BusinessBrandGENDetailUI(props) {
       handleChangeItem = props.handleChangeItem,
       handleChangeRibbon = props.handleChangeRibbon;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -189,7 +189,7 @@ var BusinessBrandGENDetailUI = function BusinessBrandGENDetailUI(props) {
     onClick: function onClick() {
       return handleClickImage();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'logo');
     },
@@ -198,7 +198,7 @@ var BusinessBrandGENDetailUI = function BusinessBrandGENDetailUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: brandFormState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'logo');
     },
@@ -305,7 +305,7 @@ var BusinessBrandGENDetail = function BusinessBrandGENDetail(props) {
     UIComponent: BusinessBrandGENDetailUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessBrandGENDetail, businessBrandGENDetailProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessBrandGENDetail, businessBrandGENDetailProps);
 };
 
 exports.BusinessBrandGENDetail = BusinessBrandGENDetail;

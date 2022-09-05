@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, ProfessionalServices as ProfessionalServicesController } from 'ordering-components-admin'
+import { useLanguage, ProfessionalServices as ProfessionalServicesController } from 'ordering-components-admin-external'
 import { SearchBar, Alert } from '../../Shared'
 import { ProfessionalCategoryTreeNode } from '../ProfessionalCategoryTreeNode'
 import {

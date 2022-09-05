@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Button, Input, Switch } from '../../../styles'
 import { CitySelector } from '../../Shared'
 import { CountrySelector } from '../CountrySelector'

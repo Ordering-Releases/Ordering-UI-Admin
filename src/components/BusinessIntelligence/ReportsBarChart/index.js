@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { Bar } from 'react-chartjs-2'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Download } from 'react-bootstrap-icons'
 import {
   ReportsBarChartContainer,

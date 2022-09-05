@@ -9,7 +9,7 @@ exports.BusinessCustomFields = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -72,7 +72,7 @@ var BusinessCustomFieldsUI = function BusinessCustomFieldsUI(props) {
       handleDeleteMetaField = props.handleDeleteMetaField,
       handeAddMetaField = props.handeAddMetaField;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -341,7 +341,7 @@ var BusinessCustomFields = function BusinessCustomFields(props) {
     UIComponent: BusinessCustomFieldsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessMetaFields, MetaFieldsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessMetaFields, MetaFieldsProps);
 };
 
 exports.BusinessCustomFields = BusinessCustomFields;

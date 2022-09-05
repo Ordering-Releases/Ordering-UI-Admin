@@ -9,7 +9,7 @@ exports.LanguageTransSpread = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -57,7 +57,7 @@ var LanguageTransSpreadUI = function LanguageTransSpreadUI(props) {
       handleoutsideClickDeselects = props.handleoutsideClickDeselects,
       searchValue = props.searchValue;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -154,7 +154,7 @@ var LanguageTransSpread = function LanguageTransSpread(props) {
     UIComponent: LanguageTransSpreadUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LanguageTransSpread, languageTransSpreadProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageTransSpread, languageTransSpreadProps);
 };
 
 exports.LanguageTransSpread = LanguageTransSpread;

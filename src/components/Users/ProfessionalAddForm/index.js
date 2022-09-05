@@ -5,7 +5,7 @@ import {
   DragAndDrop,
   ExamineClick,
   UserFormDetails as UserFormDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Input, Button, IconButton } from '../../../styles'
 import { Alert, InputPhoneNumber, RangeCalendar } from '../../Shared'
 import parsePhoneNumber from 'libphonenumber-js'

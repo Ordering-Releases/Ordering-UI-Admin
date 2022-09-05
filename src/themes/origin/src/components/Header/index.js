@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useEvent, useLanguage } from 'ordering-components-admin'
+import { useEvent, useLanguage } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 
 import {

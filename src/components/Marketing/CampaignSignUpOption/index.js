@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useLanguage, CampaignSignUpOption as CampaignSignUpOptionController } from 'ordering-components-admin'
+import { useLanguage, CampaignSignUpOption as CampaignSignUpOptionController } from 'ordering-components-admin-external'
 import { RangeCalendar, Alert } from '../../Shared'
 import {
   Circle as UnCheckIcon,

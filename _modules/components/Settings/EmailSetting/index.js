@@ -9,7 +9,7 @@ exports.EmailSetting = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _SettingsSelectUI = require("../SettingsSelectUI");
 
@@ -62,7 +62,7 @@ var EmailSettingUI = function EmailSettingUI(props) {
       settingsState = props.settingsState,
       handleClickUpdate = props.handleClickUpdate;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -270,7 +270,7 @@ var EmailSetting = function EmailSetting(props) {
     UIComponent: EmailSettingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SettingsList, emailSettingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, emailSettingProps);
 };
 
 exports.EmailSetting = EmailSetting;

@@ -7,7 +7,7 @@ exports.ProductReviewDetails = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -47,11 +47,11 @@ var ProductReviewDetailsUI = function ProductReviewDetailsUI(props) {
   var product = props.product,
       productReviewList = props.productReviewList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -77,7 +77,7 @@ var ProductReviewDetails = function ProductReviewDetails(props) {
     UIComponent: ProductReviewDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductReviews, productReviewProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductReviews, productReviewProps);
 };
 
 exports.ProductReviewDetails = ProductReviewDetails;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   BusinessPickupDetails as BusinessPickupDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button, Input } from '../../../styles'
 
 import {

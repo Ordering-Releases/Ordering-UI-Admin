@@ -7,7 +7,7 @@ exports.LanguageSelector = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -69,7 +69,7 @@ var LanguageSelector = function LanguageSelector(props) {
     defaultCurrentLanguage: 'en'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LanguageSelector, langProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageSelector, langProps);
 };
 
 exports.LanguageSelector = LanguageSelector;

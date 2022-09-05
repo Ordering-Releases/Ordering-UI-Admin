@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { ColumnAllowSettingPopover, Pagination } from '../../Shared'
 import { Switch } from '../../../styles'
 import { useTheme } from 'styled-components'

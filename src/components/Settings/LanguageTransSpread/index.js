@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useLanguage, LanguageTransSpread as LanguageTransSpreadController } from 'ordering-components-admin'
+import { useLanguage, LanguageTransSpread as LanguageTransSpreadController } from 'ordering-components-admin-external'
 import {
   TransSpreadContainer
 } from './styles'

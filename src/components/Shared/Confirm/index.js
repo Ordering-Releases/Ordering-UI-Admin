@@ -1,5 +1,5 @@
 import React from 'react'
-import { Popup, useLanguage } from 'ordering-components-admin'
+import { Popup, useLanguage } from 'ordering-components-admin-external'
 import { Button, IconButton } from '../../../styles'
 import { useTheme } from 'styled-components'
 import { XLg } from 'react-bootstrap-icons'

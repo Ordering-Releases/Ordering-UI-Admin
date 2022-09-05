@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Button, Input } from '../../../styles'
 import { Alert } from '../../Shared'
 

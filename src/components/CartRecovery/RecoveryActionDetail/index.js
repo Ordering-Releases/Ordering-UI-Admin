@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, RecoveryActionDetail as RecoveryActionDetailController } from 'ordering-components-admin'
+import { useLanguage, RecoveryActionDetail as RecoveryActionDetailController } from 'ordering-components-admin-external'
 import { Alert, Confirm } from '../../Shared'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { ThreeDots } from 'react-bootstrap-icons'

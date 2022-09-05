@@ -9,7 +9,7 @@ exports.ProductExtraOptionDetails = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _BiImage = _interopRequireDefault(require("@meronex/icons/bi/BiImage"));
 
@@ -99,7 +99,7 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
       handleDrop = props.handleDrop,
       handleDragEnd = props.handleDragEnd;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -323,14 +323,14 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
         onClick: function onClick() {
           return handleClickSubOptionImage('add_suboption_image');
         }
-      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
         onFiles: function onFiles(files) {
           return handleSubOptionFiles(files, null);
         },
         childId: "add_suboption_image",
         accept: "image/png, image/jpeg, image/jpg",
         disabled: optionState.loading
-      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
         onDrop: function onDrop(dataTransfer) {
           return handleSubOptionFiles(dataTransfer.files, 'add_suboption_image');
         },
@@ -500,7 +500,7 @@ var ProductExtraOptionDetails = function ProductExtraOptionDetails(props) {
     UIComponent: ProductExtraOptionDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductExtraOptionDetails, productExtraOptionProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraOptionDetails, productExtraOptionProps);
 };
 
 exports.ProductExtraOptionDetails = ProductExtraOptionDetails;

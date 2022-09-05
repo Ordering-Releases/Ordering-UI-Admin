@@ -13,7 +13,7 @@ var _RiCheckboxBlankLine = _interopRequireDefault(require("@meronex/icons/ri/RiC
 
 var _RiCheckboxFill = _interopRequireDefault(require("@meronex/icons/ri/RiCheckboxFill"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _MdcContentCopy = _interopRequireDefault(require("@meronex/icons/mdc/MdcContentCopy"));
 
@@ -48,7 +48,7 @@ var ScheduleCopyTimes = function ScheduleCopyTimes(props) {
       cleanSelectedCopyDays = props.cleanSelectedCopyDays,
       handleApplyScheduleCopyTimes = props.handleApplyScheduleCopyTimes;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

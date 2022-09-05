@@ -9,7 +9,7 @@ exports.BusinessProductsCategoyInfo = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -66,11 +66,11 @@ var BusinessProductsCategoyInfo = function BusinessProductsCategoyInfo(props) {
       handleTutorialSkip = props.handleTutorialSkip,
       handleChangeRibbon = props.handleChangeRibbon;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configState = _useConfig2[0];
 
@@ -283,7 +283,7 @@ var BusinessProductsCategoyInfo = function BusinessProductsCategoyInfo(props) {
     onClick: function onClick() {
       return handleClickImage('header');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'header');
     },
@@ -292,7 +292,7 @@ var BusinessProductsCategoyInfo = function BusinessProductsCategoyInfo(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'header');
     },
@@ -310,7 +310,7 @@ var BusinessProductsCategoyInfo = function BusinessProductsCategoyInfo(props) {
     onClick: function onClick() {
       return handleClickImage('image');
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files, 'image');
     },
@@ -319,7 +319,7 @@ var BusinessProductsCategoyInfo = function BusinessProductsCategoyInfo(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files, 'image');
     },

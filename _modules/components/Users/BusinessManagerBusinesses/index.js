@@ -7,7 +7,7 @@ exports.BusinessManagerBusinesses = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -47,7 +47,7 @@ var BusinessManagerBusinesses = function BusinessManagerBusinesses(props) {
     UIComponent: BusinessManagerBusinessesUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessManagerBusinesses, businessMenuShareProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessManagerBusinesses, businessMenuShareProps);
 };
 
 exports.BusinessManagerBusinesses = BusinessManagerBusinesses;

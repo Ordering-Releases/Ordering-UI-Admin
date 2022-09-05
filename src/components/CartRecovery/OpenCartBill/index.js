@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils, useConfig } from 'ordering-components-admin'
+import { useLanguage, useUtils, useConfig } from 'ordering-components-admin-external'
 import { verifyDecimals } from '../../../utils'
 
 import {

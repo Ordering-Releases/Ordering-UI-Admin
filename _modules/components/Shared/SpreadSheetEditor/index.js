@@ -13,7 +13,7 @@ var _react2 = require("@handsontable/react");
 
 require("handsontable/dist/handsontable.full.css");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -52,7 +52,7 @@ var SpreadSheetEditor = function SpreadSheetEditor(props) {
       isBusinessProducts = props.isBusinessProducts,
       hiddenColumns = props.hiddenColumns;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

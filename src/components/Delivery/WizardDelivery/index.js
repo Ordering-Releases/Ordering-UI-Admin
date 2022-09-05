@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import Tour from 'reactour'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Stars } from 'react-bootstrap-icons'

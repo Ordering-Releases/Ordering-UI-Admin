@@ -13,7 +13,7 @@ var _IosMenu = _interopRequireDefault(require("@meronex/icons/ios/IosMenu"));
 
 var _MdClose = _interopRequireDefault(require("@meronex/icons/md/MdClose"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -42,13 +42,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var MobileSidebarMenu = function MobileSidebarMenu(props) {
   var _theme$images, _theme$images$icons, _theme$images2, _theme$images2$icons, _theme$images3, _theme$images3$icons, _theme$images4, _theme$images4$icons;
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

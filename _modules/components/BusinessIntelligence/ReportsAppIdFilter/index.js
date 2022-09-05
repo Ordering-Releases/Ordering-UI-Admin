@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _RiCheckboxBlankLine = _interopRequireDefault(require("@meronex/icons/ri/RiCheckboxBlankLine"));
 
@@ -55,7 +55,7 @@ var ReportsAppIdFilterUI = function ReportsAppIdFilterUI(props) {
       isAllCheck = props.isAllCheck,
       handleChangeAllCheck = props.handleChangeAllCheck;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -109,7 +109,7 @@ var ReportsAppIdFilter = function ReportsAppIdFilter(props) {
     UIComponent: ReportsAppIdFilterUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ReportsAppIdFilter, reportsAppIdFilterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ReportsAppIdFilter, reportsAppIdFilterProps);
 };
 
 exports.ReportsAppIdFilter = ReportsAppIdFilter;

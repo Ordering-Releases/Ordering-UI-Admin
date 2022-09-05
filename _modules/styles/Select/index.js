@@ -9,7 +9,7 @@ exports.Select = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactPopper = require("react-popper");
 
@@ -85,7 +85,7 @@ var Select = function Select(props) {
       open = _useState6[0],
       setOpen = _useState6[1];
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       sessionState = _useSession2[0];
 

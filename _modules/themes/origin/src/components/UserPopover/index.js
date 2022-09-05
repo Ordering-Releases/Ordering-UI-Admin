@@ -9,7 +9,7 @@ exports.UserPopover = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _useWindowSize2 = require("../../hooks/useWindowSize");
 
@@ -56,7 +56,7 @@ var UserPopover = function UserPopover(props) {
 
   var open = props.open;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       sessionState = _useSession2[0]; // const [, t] = useLanguage()
   // const [events] = useEvent()
@@ -142,7 +142,7 @@ var UserPopover = function UserPopover(props) {
 exports.UserPopover = UserPopover;
 
 var LogoutActionUI = function LogoutActionUI(props) {
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -161,5 +161,5 @@ var PopoverListItemLogout = function PopoverListItemLogout(props) {
     UIComponent: LogoutActionUI,
     onClose: props.onClose
   };
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LogoutAction, logoutActionProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LogoutAction, logoutActionProps);
 };

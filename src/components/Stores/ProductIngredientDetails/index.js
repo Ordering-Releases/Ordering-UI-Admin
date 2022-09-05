@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, ProductIngredient as ProductIngredientController } from 'ordering-components-admin'
+import { useLanguage, ProductIngredient as ProductIngredientController } from 'ordering-components-admin-external'
 import { Button, IconButton, Input } from '../../../styles'
 import { XLg, ThreeDots } from 'react-bootstrap-icons'
 import { DropdownButton, Dropdown } from 'react-bootstrap'

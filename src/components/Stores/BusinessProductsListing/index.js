@@ -6,7 +6,7 @@ import RiImageAddFill from '@meronex/icons/ri/RiImageAddFill'
 import {
   useLanguage,
   BusinessProductsListing as BusinessProductsListingController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { BusinessProductsCategoyDetails } from '../BusinessProductsCategoyDetails'
 import BsViewList from '@meronex/icons/bs/BsViewList'
 import BsTable from '@meronex/icons/bs/BsTable'

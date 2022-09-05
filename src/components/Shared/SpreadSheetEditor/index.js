@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState, memo } from 'react'
 import { HotTable, HotColumn } from '@handsontable/react'
 import 'handsontable/dist/handsontable.full.css'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import {
   SpreadSheetContainer
 } from './styles'

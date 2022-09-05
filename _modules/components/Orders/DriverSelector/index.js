@@ -9,7 +9,7 @@ exports.DriverSelector = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styledComponents = require("styled-components");
 
@@ -62,7 +62,7 @@ var DriverSelectorUI = function DriverSelectorUI(props) {
       setCurrentTourStep = props.setCurrentTourStep,
       handleOpenMessages = props.handleOpenMessages;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -289,7 +289,7 @@ var DriverSelector = function DriverSelector(props) {
     propsToFetch: ['id', 'name', 'lastname', 'cellphone', 'photo']
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DriversList, DriversControlProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversList, DriversControlProps));
 };
 
 exports.DriverSelector = DriverSelector;

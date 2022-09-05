@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoutAction, useLanguage } from 'ordering-components-admin'
+import { LogoutAction, useLanguage } from 'ordering-components-admin-external'
 
 import { BoxArrowRight } from 'react-bootstrap-icons'
 import { Button } from 'react-bootstrap'

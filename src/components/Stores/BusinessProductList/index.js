@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { ColumnAllowSettingPopover, NotFoundSource, Pagination, SideBar } from '../../Shared'
 import { SingleBusinessProduct } from '../SingleBusinessProduct'
 import { BusinessSpreadSheet } from '../BusinessSpreadSheet'

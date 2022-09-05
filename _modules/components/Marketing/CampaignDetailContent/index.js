@@ -9,7 +9,7 @@ exports.CampaignDetailContent = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _FirstSelect = require("../../../styles/Select/FirstSelect");
 
@@ -55,7 +55,7 @@ var CampaignDetailContentUI = function CampaignDetailContentUI(props) {
   var handleChangeType = props.handleChangeType,
       contactState = props.contactState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -113,7 +113,7 @@ var CampaignDetailContent = function CampaignDetailContent(props) {
     UIComponent: CampaignDetailContentUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.CampaignDetailContent, campaignDetailContentProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignDetailContent, campaignDetailContentProps);
 };
 
 exports.CampaignDetailContent = CampaignDetailContent;

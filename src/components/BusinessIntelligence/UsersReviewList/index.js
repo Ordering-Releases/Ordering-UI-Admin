@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   UsersList as UsersController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { StarFill, PersonFill } from 'react-bootstrap-icons'
 import { Pagination, SideBar } from '../../Shared'

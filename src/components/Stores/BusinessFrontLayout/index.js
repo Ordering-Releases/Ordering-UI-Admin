@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useConfig } from 'ordering-components-admin'
+import { useLanguage, useConfig } from 'ordering-components-admin-external'
 import AiOutlineShoppingCart from '@meronex/icons/ai/AiOutlineShoppingCart'
 import BsCardImage from '@meronex/icons/bs/BsCardImage'
 import { Button } from '../../../styles'

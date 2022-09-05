@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { Button } from '../../../styles'
 import { ProductIngredientDetails } from '../ProductIngredientDetails'

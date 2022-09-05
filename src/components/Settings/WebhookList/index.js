@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, WebhookList as WebhookListController } from 'ordering-components-admin'
+import { useLanguage, WebhookList as WebhookListController } from 'ordering-components-admin-external'
 import { Button, IconButton } from '../../../styles'
 import { Alert, Confirm, Pagination, SearchBar } from '../../Shared'
 import Skeleton from 'react-loading-skeleton'

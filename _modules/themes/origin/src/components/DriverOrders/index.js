@@ -7,7 +7,7 @@ exports.DriverOrders = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _FaUserAlt = _interopRequireDefault(require("@meronex/icons/fa/FaUserAlt"));
 
@@ -41,7 +41,7 @@ var DriverOrders = function DriverOrders(props) {
       handleSelectedOrderIds = props.handleSelectedOrderIds,
       handleOpenOrderDetail = props.handleOpenOrderDetail;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -68,7 +68,7 @@ var DriverOrders = function DriverOrders(props) {
 
   return /*#__PURE__*/_react.default.createElement(_styles.WrapperDriverOrders, null, /*#__PURE__*/_react.default.createElement(_styles.Header, null, /*#__PURE__*/_react.default.createElement(_styles.WrapperDriverImage, null, driver.photo ? /*#__PURE__*/_react.default.createElement(_styles.DriverImage, {
     bgimage: driver.photo
-  }) : /*#__PURE__*/_react.default.createElement(_FaUserAlt.default, null)), /*#__PURE__*/_react.default.createElement(_styles.DriverInfo, null, /*#__PURE__*/_react.default.createElement("h2", null, driver.name, " ", driver.lastname), /*#__PURE__*/_react.default.createElement("p", null, driver.assigned_orders_count, " ", t('ORDERS', 'Orders')))), /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderListing, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, OrdersControlProps)));
+  }) : /*#__PURE__*/_react.default.createElement(_FaUserAlt.default, null)), /*#__PURE__*/_react.default.createElement(_styles.DriverInfo, null, /*#__PURE__*/_react.default.createElement("h2", null, driver.name, " ", driver.lastname), /*#__PURE__*/_react.default.createElement("p", null, driver.assigned_orders_count, " ", t('ORDERS', 'Orders')))), /*#__PURE__*/_react.default.createElement(_styles.WrapperOrderListing, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, OrdersControlProps)));
 };
 
 exports.DriverOrders = DriverOrders;

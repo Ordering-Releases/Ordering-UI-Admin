@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Select } from '../../styles/Select'
 import { Option, DeadlineOk, DeadlineRisk, DeadlineDelayed } from './styles'
 import { useTheme } from 'styled-components'

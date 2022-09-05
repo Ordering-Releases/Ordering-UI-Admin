@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import TiPencil from '@meronex/icons/ti/TiPencil'
 import IosArrowUp from '@meronex/icons/ios/IosArrowUp'
 import VscTrash from '@meronex/icons/vsc/VscTrash'
-import { useUtils, useLanguage, useOrder } from 'ordering-components-admin'
+import { useUtils, useLanguage, useOrder } from 'ordering-components-admin-external'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 
 import {

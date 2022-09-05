@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
-import { useLanguage, CampaignDetail as CampaignDetailController } from 'ordering-components-admin'
+import { useLanguage, CampaignDetail as CampaignDetailController } from 'ordering-components-admin-external'
 import { ThreeDots } from 'react-bootstrap-icons'
 import { Confirm, Alert } from '../../Shared'
 import { CampaignDetailGeneral } from '../CampaignDetailGeneral'

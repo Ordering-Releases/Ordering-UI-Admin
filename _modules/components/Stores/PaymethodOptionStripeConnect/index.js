@@ -9,7 +9,7 @@ exports.PaymethodOptionStripeConnect = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _BilStripe = _interopRequireDefault(require("@meronex/icons/bi/BilStripe"));
 
@@ -85,7 +85,7 @@ var PaymethodOptionStripeConnect = function PaymethodOptionStripeConnect(props) 
       handleDeletePaymethod = props.handleDeletePaymethod;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

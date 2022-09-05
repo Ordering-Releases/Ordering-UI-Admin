@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, BusinessProductsCategoyDetails as BusinessProductsCategoyDetailsController } from 'ordering-components-admin'
+import { useLanguage, BusinessProductsCategoyDetails as BusinessProductsCategoyDetailsController } from 'ordering-components-admin-external'
 import { ThreeDots } from 'react-bootstrap-icons'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { useTheme } from 'styled-components'

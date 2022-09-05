@@ -7,7 +7,7 @@ exports.AnalyticsDriversFilter = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -61,7 +61,7 @@ var AnalyticsDriversFilterUI = function AnalyticsDriversFilterUI(props) {
       isAllCheck = props.isAllCheck,
       changeAllCheckStatus = props.changeAllCheckStatus;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -144,7 +144,7 @@ var AnalyticsDriversFilter = function AnalyticsDriversFilter(props) {
     UIComponent: AnalyticsDriversFilterUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AnalyticsDriversFilter, analyticsDriversFilterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AnalyticsDriversFilter, analyticsDriversFilterProps);
 };
 
 exports.AnalyticsDriversFilter = AnalyticsDriversFilter;

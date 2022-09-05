@@ -9,7 +9,7 @@ exports.StatusBlock = exports.OrderDashboardSLASettingUI = exports.OrderDashboar
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactHookForm = require("react-hook-form");
 
@@ -50,7 +50,7 @@ var OrderDashboardSLASettingUI = function OrderDashboardSLASettingUI(props) {
       handleInputChange = props.handleInputChange,
       handleClickUpdate = props.handleClickUpdate;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -215,11 +215,11 @@ var StatusBlock = function StatusBlock(props) {
       formMethods = props.formMethods,
       handleInputChange = props.handleInputChange;
 
-  var _useLanguage3 = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage3 = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage4 = _slicedToArray(_useLanguage3, 2),
       t = _useLanguage4[1];
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
@@ -266,7 +266,7 @@ var StatusBlock = function StatusBlock(props) {
 exports.StatusBlock = StatusBlock;
 
 var OrderDashboardSLASetting = function OrderDashboardSLASetting(props) {
-  var _useConfig3 = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig3 = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig4 = _slicedToArray(_useConfig3, 1),
       configs = _useConfig4[0].configs;
 
@@ -277,7 +277,7 @@ var OrderDashboardSLASetting = function OrderDashboardSLASetting(props) {
     UIComponent: OrderDashboardSLASettingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SettingsList, settingsListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, settingsListProps);
 };
 
 exports.OrderDashboardSLASetting = OrderDashboardSLASetting;

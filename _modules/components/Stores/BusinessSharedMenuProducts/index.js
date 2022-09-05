@@ -9,7 +9,7 @@ exports.BusinessSharedMenuProducts = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -52,7 +52,7 @@ var BusinessSharedMenuProductsUI = function BusinessSharedMenuProductsUI(props) 
       setIsOpenSharedProduct = props.setIsOpenSharedProduct,
       handleChangeInput = props.handleChangeInput;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -147,7 +147,7 @@ var BusinessSharedMenuProducts = function BusinessSharedMenuProducts(props) {
     UIComponent: BusinessSharedMenuProductsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessSharedMenuProducts, businessSharedMenuProductsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessSharedMenuProducts, businessSharedMenuProductsProps);
 };
 
 exports.BusinessSharedMenuProducts = BusinessSharedMenuProducts;

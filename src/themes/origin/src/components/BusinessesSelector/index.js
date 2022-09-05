@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   useLanguage
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { MultiSelect } from '../../styles/MultiSelect'
 import {
   Option,

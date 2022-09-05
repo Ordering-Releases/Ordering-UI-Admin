@@ -17,7 +17,7 @@ import {
   useOrder,
   useCustomer,
   useEvent
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 
 import {
   AddressListContainer,

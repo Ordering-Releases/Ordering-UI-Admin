@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { GoogleMapsMap, GoogleAutocompleteInput, useConfig, useLanguage } from 'ordering-components-admin'
+import { GoogleMapsMap, GoogleAutocompleteInput, useConfig, useLanguage } from 'ordering-components-admin-external'
 import { CitySelector } from '../../Shared'
 import { Button, TextArea } from '../../../styles'
 import {

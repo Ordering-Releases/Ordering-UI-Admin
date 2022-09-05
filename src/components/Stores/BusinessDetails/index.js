@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BusinessDetails as BusinessDetailsController, useSession } from 'ordering-components-admin'
+import { BusinessDetails as BusinessDetailsController, useSession } from 'ordering-components-admin-external'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { BusinessSummary } from '../BusinessSummary'
 import { BusinessSupport } from '../BusinessSupport'

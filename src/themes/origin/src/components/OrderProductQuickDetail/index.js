@@ -1,6 +1,6 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, useUtils, OrderDetails as OrderDetailsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, OrderDetails as OrderDetailsController } from 'ordering-components-admin-external'
 import {
   OrderProductsQuickDetailContainer,
   OrderProductsInner,

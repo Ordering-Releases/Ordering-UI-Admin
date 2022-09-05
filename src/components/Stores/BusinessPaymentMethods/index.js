@@ -4,7 +4,7 @@ import {
   useLanguage,
   useConfig,
   BusinessPaymethods as BusinessPaymentMethodsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import RiCheckboxBlankLine from '@meronex/icons/ri/RiCheckboxBlankLine'
 import RiCheckboxFill from '@meronex/icons/ri/RiCheckboxFill'
 import { ChevronRight } from 'react-bootstrap-icons'

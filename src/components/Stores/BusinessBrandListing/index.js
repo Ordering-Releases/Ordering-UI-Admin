@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   BusinessBrandListing as BusinessBrandListingController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { ThreeDots, List as MenuIcon } from 'react-bootstrap-icons'

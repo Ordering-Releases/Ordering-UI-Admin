@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   ProductExtraSubOptionMetaFields as ProductExtraSubOptionMetaFieldsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Alert, SpinnerLoader } from '../../Shared'
 import Skeleton from 'react-loading-skeleton'
 import BsTrash from '@meronex/icons/bs/BsTrash'

@@ -9,7 +9,7 @@ exports.PlaceListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -114,7 +114,7 @@ var PlaceListingUI = function PlaceListingUI(props) {
       handleAllCheckboxZoneClick = props.handleAllCheckboxZoneClick,
       handleSeveralDeleteZones = props.handleSeveralDeleteZones;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -483,7 +483,7 @@ var PlaceListing = function PlaceListing(props) {
     UIComponent: PlaceListingUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.PlaceList, placesProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PlaceList, placesProps);
 };
 
 exports.PlaceListing = PlaceListing;

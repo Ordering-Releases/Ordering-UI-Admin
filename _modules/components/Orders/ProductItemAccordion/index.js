@@ -15,7 +15,7 @@ var _IosArrowUp = _interopRequireDefault(require("@meronex/icons/ios/IosArrowUp"
 
 var _VscTrash = _interopRequireDefault(require("@meronex/icons/vsc/VscTrash"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _useWindowSize = require("../../../hooks/useWindowSize");
 
@@ -66,15 +66,15 @@ var ProductItemAccordion = function ProductItemAccordion(props) {
       onDeleteProduct = props.onDeleteProduct,
       onEditProduct = props.onEditProduct;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useOrder = (0, _orderingComponentsAdmin.useOrder)(),
+  var _useOrder = (0, _orderingComponentsAdminExternal.useOrder)(),
       _useOrder2 = _slicedToArray(_useOrder, 1),
       orderState = _useOrder2[0];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       _useUtils2$ = _useUtils2[0],
       parsePrice = _useUtils2$.parsePrice,

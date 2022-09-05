@@ -7,7 +7,7 @@ exports.OrdersDashboardList = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _OrdersListing = require("../OrdersListing");
 
@@ -39,23 +39,23 @@ var OrdersDashboardList = function OrdersDashboardList(props) {
     driverId: props.driverId
   });
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isMessagesView ? /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isMessagesView ? /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     isMessagesView: true
   }, OrdersCommonControlProps, {
     orderStatus: selectedSubOrderStatus === null || selectedSubOrderStatus === void 0 ? void 0 : selectedSubOrderStatus.all
-  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     groupStatus: "pending"
   }, OrdersCommonControlProps, {
     orderStatus: selectedSubOrderStatus === null || selectedSubOrderStatus === void 0 ? void 0 : selectedSubOrderStatus.pending
-  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     groupStatus: "inProgress"
   }, OrdersCommonControlProps, {
     orderStatus: selectedSubOrderStatus === null || selectedSubOrderStatus === void 0 ? void 0 : selectedSubOrderStatus.inProgress
-  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     groupStatus: "completed"
   }, OrdersCommonControlProps, {
     orderStatus: selectedSubOrderStatus === null || selectedSubOrderStatus === void 0 ? void 0 : selectedSubOrderStatus.completed
-  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardOrdersList, _extends({
+  })), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardOrdersList, _extends({
     groupStatus: "cancelled"
   }, OrdersCommonControlProps, {
     orderStatus: selectedSubOrderStatus === null || selectedSubOrderStatus === void 0 ? void 0 : selectedSubOrderStatus.cancelled

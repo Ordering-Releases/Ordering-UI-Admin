@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { SearchBar } from '../../Shared'
 import { OpenCartsFilterGroup } from '../OpenCartsFilterGroup'
 import { Funnel, List as MenuIcon } from 'react-bootstrap-icons'

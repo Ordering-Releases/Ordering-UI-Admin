@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { SearchBar } from '../../Shared'
 import { List as MenuIcon, LifePreserver } from 'react-bootstrap-icons'
 import { Button, IconButton } from '../../../styles'

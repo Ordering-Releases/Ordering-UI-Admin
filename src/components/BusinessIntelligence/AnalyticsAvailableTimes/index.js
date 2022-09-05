@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import {
   Container,
   ChartHeaderContainer,

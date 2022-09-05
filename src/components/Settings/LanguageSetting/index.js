@@ -2,7 +2,7 @@ import React from 'react'
 import {
   useLanguage,
   LanguageSetting as LanguageSettingController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Switch } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import { Circle, RecordCircle } from 'react-bootstrap-icons'

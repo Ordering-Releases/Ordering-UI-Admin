@@ -8,7 +8,7 @@ import {
   useLanguage,
   DragAndDrop,
   ExamineClick
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 
 import { UserFormDetailsUI } from '../UserFormDetails'
 import { Alert, Modal, ImageCrop } from '../../Shared'

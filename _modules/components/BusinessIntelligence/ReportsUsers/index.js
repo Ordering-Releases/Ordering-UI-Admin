@@ -9,7 +9,7 @@ exports.ReportsUsers = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 require("chartjs-adapter-moment");
 
@@ -72,7 +72,7 @@ var ReportsUsersUI = function ReportsUsersUI(props) {
       filterList = props.filterList,
       handleChangeFilterList = props.handleChangeFilterList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -271,7 +271,7 @@ var ReportsUsers = function ReportsUsers(props) {
     endpoint: 'users_v2'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AdvancedReports, reportsUsersProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsUsersProps);
 };
 
 exports.ReportsUsers = ReportsUsers;

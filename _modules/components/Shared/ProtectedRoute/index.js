@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _PageNotFound = require("../../PageNotFound");
 
@@ -31,7 +31,7 @@ var ProtectedRoute = function ProtectedRoute(props) {
   var path = props.path,
       allowedLevels = props.allowedLevels;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       _useSession2$ = _useSession2[0],
       auth = _useSession2$.auth,

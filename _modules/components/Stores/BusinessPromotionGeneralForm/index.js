@@ -15,7 +15,7 @@ var _FirstSelect = require("../../../styles/Select/FirstSelect");
 
 var _Shared = require("../../Shared");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -67,13 +67,13 @@ var BusinessPromotionGeneralFormUI = function BusinessPromotionGeneralFormUI(pro
       handleUpdateClick = props.handleUpdateClick,
       handleAddClick = props.handleAddClick;
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
   var isAdvancedOffersActivated = configs === null || configs === void 0 ? void 0 : (_configs$advanced_off = configs.advanced_offers_module) === null || _configs$advanced_off === void 0 ? void 0 : _configs$advanced_off.value;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -234,14 +234,14 @@ var BusinessPromotionGeneralFormUI = function BusinessPromotionGeneralFormUI(pro
     onClick: function onClick() {
       return handleClickImage();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: handleFiles,
     childRef: function childRef(e) {
       inputRef.current = e;
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -419,7 +419,7 @@ var BusinessPromotionGeneralForm = function BusinessPromotionGeneralForm(props) 
     UIComponent: BusinessPromotionGeneralFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessPromotionForm, businessPromotionFormProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPromotionForm, businessPromotionFormProps);
 };
 
 exports.BusinessPromotionGeneralForm = BusinessPromotionGeneralForm;

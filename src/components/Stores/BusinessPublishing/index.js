@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTheme } from 'styled-components'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import BsChevronRight from '@meronex/icons/bs/BsChevronRight'
 import { Modal } from '../../Shared'
 import { useWindowSize } from '../../../hooks/useWindowSize'

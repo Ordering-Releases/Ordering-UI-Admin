@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   useLanguage,
   AdvancedReports as AdvancedReportsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import 'chartjs-adapter-moment'
 import { Line } from 'react-chartjs-2'
 import Skeleton from 'react-loading-skeleton'

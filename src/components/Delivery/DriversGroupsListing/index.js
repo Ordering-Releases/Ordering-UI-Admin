@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useLanguage, DriversGroupsList as DriversGroupsListController } from 'ordering-components-admin'
+import { useLanguage, DriversGroupsList as DriversGroupsListController } from 'ordering-components-admin-external'
 import { List as MenuIcon, LifePreserver } from 'react-bootstrap-icons'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { getStorageItem, removeStorageItem } from '../../../utils'

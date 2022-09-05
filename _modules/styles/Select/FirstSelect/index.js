@@ -17,7 +17,7 @@ var _Selects = require("../../Selects");
 
 var _Buttons = require("../../Buttons");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../../components/Shared");
 
@@ -77,7 +77,7 @@ var Select = function Select(props) {
       value = _useState6[0],
       setValue = _useState6[1];
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

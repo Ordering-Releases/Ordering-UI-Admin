@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("./styles");
 
@@ -60,11 +60,11 @@ var BusinessessListingUI = function BusinessessListingUI(props) {
       changeBusinessState = props.changeBusinessState,
       defaultPageSize = props.defaultPageSize;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -218,7 +218,7 @@ var BusinessSelectHeader = function BusinessSelectHeader(props) {
     propsToFetch: (_props$defaultPropsTo = props.defaultPropsToFetch) !== null && _props$defaultPropsTo !== void 0 ? _props$defaultPropsTo : ['name', 'slug', 'logo', 'city']
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardBusinessList, businessListingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardBusinessList, businessListingProps);
 };
 
 exports.BusinessSelectHeader = BusinessSelectHeader;

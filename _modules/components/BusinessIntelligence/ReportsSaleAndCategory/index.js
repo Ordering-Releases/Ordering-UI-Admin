@@ -9,7 +9,7 @@ exports.ReportsSaleAndCategory = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -65,7 +65,7 @@ var ReportsSaleAndCategoryUI = function ReportsSaleAndCategoryUI(props) {
       reportData = props.reportData,
       reportData1 = props.reportData1;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -309,7 +309,7 @@ var ReportsSaleAndCategory = function ReportsSaleAndCategory(props) {
     endpoint1: 'top_categories_v2'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AdvancedReports, reportsSaleAndCategoryProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsSaleAndCategoryProps);
 };
 
 exports.ReportsSaleAndCategory = ReportsSaleAndCategory;

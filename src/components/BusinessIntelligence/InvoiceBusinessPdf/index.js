@@ -1,4 +1,4 @@
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-bootstrap'
 import { useTheme } from 'styled-components'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, PointsWalletLevels as PointsWalletLevelsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, PointsWalletLevels as PointsWalletLevelsController } from 'ordering-components-admin-external'
 import { Alert, NotFoundSource, SideBar, Modal } from '../../Shared'
 import { ChevronRight } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'

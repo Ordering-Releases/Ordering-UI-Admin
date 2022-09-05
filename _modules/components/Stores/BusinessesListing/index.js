@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _BsGrid = _interopRequireDefault(require("@meronex/icons/bs/BsGrid"));
 
@@ -338,7 +338,7 @@ var BusinessesListing = function BusinessesListing(props) {
     isSearchByBusinessPhone: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DashboardBusinessList, businessListingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardBusinessList, businessListingProps);
 };
 
 exports.BusinessesListing = BusinessesListing;

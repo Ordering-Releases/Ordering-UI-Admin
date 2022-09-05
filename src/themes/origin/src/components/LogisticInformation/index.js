@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogisticInformation as LogisticInformationController, useLanguage, useUtils } from 'ordering-components-admin'
+import { LogisticInformation as LogisticInformationController, useLanguage, useUtils } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button } from '../../styles/Buttons'
 import {

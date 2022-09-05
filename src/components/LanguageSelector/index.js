@@ -1,5 +1,5 @@
 import React from 'react'
-import { LanguageSelector as LanguageSelectorController } from 'ordering-components-admin'
+import { LanguageSelector as LanguageSelectorController } from 'ordering-components-admin-external'
 import { Globe2 } from 'react-bootstrap-icons'
 import { Select } from '../../styles/Select'
 import {

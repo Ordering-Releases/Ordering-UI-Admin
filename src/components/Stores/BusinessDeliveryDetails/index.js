@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   BusinessDeliveryDetails as BusinessDeliveryDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { BusinessDeliveryZoneList } from '../BusinessDeliveryZoneList'
 import { Select } from '../../../styles/Select'
 import { Button, Input } from '../../../styles'

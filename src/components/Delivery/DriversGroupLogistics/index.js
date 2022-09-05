@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Circle, RecordCircleFill, ChevronRight } from 'react-bootstrap-icons'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { Button } from '../../../styles'

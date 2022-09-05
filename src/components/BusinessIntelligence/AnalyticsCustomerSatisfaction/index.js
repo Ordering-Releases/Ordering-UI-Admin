@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import BsDownload from '@meronex/icons/bs/BsDownload'
 import Skeleton from 'react-loading-skeleton'
 import AiOutlineStar from '@meronex/icons/ai/AiOutlineStar'

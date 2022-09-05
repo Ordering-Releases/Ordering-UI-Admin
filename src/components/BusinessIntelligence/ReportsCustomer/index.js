@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   useLanguage,
   AdvancedReports as AdvancedReportsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Download } from 'react-bootstrap-icons'
 import { Bar } from 'react-chartjs-2'
 import Skeleton from 'react-loading-skeleton'

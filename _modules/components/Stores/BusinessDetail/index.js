@@ -9,7 +9,7 @@ exports.BusinessDetail = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _BusinessInfoSettingList = require("../BusinessInfoSettingList");
 
@@ -61,7 +61,7 @@ var BusinessDetail = function BusinessDetail(props) {
       isExtendExtraOpen = props.isExtendExtraOpen,
       handleUpdateBusinessState = props.handleUpdateBusinessState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

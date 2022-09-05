@@ -1,7 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import FiMoreVertical from '@meronex/icons/fi/FiMoreVertical'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { Switch } from '../../../styles'
 import { useTheme } from 'styled-components'

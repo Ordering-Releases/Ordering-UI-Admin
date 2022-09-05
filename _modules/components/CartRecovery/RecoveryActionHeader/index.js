@@ -7,7 +7,7 @@ exports.RecoveryActionHeader = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -38,7 +38,7 @@ var RecoveryActionHeader = function RecoveryActionHeader(props) {
       handleChangeSearch = props.handleChangeSearch,
       handleOpenDetail = props.handleOpenDetail;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

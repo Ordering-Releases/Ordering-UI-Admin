@@ -5,7 +5,7 @@ import { Line } from 'react-chartjs-2'
 import {
   useLanguage,
   AdvancedReports as AdvancedReportsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import { Download } from 'react-bootstrap-icons'

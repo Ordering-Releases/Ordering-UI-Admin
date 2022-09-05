@@ -9,7 +9,7 @@ exports.BusinessDetailsUI = exports.BusinessDetails = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _useWindowSize2 = require("../../../hooks/useWindowSize");
 
@@ -93,7 +93,7 @@ var BusinessDetailsUI = function BusinessDetailsUI(props) {
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
       width = _useWindowSize.width;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       user = _useSession2[0].user;
 
@@ -297,7 +297,7 @@ var BusinessDetails = function BusinessDetails(props) {
     UIComponent: BusinessDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessDetails, businessDetailsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDetails, businessDetailsProps);
 };
 
 exports.BusinessDetails = BusinessDetails;

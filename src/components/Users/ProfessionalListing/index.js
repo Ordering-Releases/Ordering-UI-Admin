@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useLanguage, UsersList as UsersListController } from 'ordering-components-admin'
+import { useLanguage, UsersList as UsersListController } from 'ordering-components-admin-external'
 import { ProfessionalList } from '../ProfessionalList'
 import { UsersListingHeader } from '../UsersListingHeader'
 import { UserActiveStateFilter } from '../UserActiveStateFilter'

@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _cropperjs = _interopRequireDefault(require("cropperjs"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -46,7 +46,7 @@ var ImageCrop = function ImageCrop(props) {
       handleChangePhoto = props.handleChangePhoto,
       onClose = props.onClose;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

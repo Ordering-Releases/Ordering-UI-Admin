@@ -21,7 +21,7 @@ var _reactBootstrapIcons = require("react-bootstrap-icons");
 
 var _reactHookForm = require("react-hook-form");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -96,21 +96,21 @@ var AddressFormUI = function AddressFormUI(props) {
       userCustomerSetup = props.userCustomerSetup,
       isSeletectedUserAddresses = props.isSeletectedUserAddresses;
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configState = _useConfig2[0];
 
-  var _useOrder = (0, _orderingComponentsAdmin.useOrder)(),
+  var _useOrder = (0, _orderingComponentsAdminExternal.useOrder)(),
       _useOrder2 = _slicedToArray(_useOrder, 1),
       orderState = _useOrder2[0];
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
   var formMethods = (0, _reactHookForm.useForm)();
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       auth = _useSession2[0].auth;
 
@@ -539,7 +539,7 @@ var AddressFormUI = function AddressFormUI(props) {
     return /*#__PURE__*/_react.default.createElement(BeforeMidComponents, _extends({
       key: i
     }, props));
-  }), locationChange && /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleMapsMap, {
+  }), locationChange && /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleMapsMap, {
     apiKey: googleMapsApiKey,
     location: locationChange,
     fixedLocation: !isEditing ? firstLocationNoEdit.value : null,
@@ -554,7 +554,7 @@ var AddressFormUI = function AddressFormUI(props) {
       key: field.name
     }, /*#__PURE__*/_react.default.createElement(_styles2.InputText, null, t('ADDRESS', 'Addresss')), /*#__PURE__*/_react.default.createElement(_styles2.AddressWrap, {
       className: "google-control"
-    }, /*#__PURE__*/_react.default.createElement(_styles2.WrapAddressInput, null, /*#__PURE__*/_react.default.createElement(_HiOutlineLocationMarker.default, null), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleAutocompleteInput, {
+    }, /*#__PURE__*/_react.default.createElement(_styles2.WrapAddressInput, null, /*#__PURE__*/_react.default.createElement(_HiOutlineLocationMarker.default, null), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleAutocompleteInput, {
       className: "input-autocomplete",
       apiKey: googleMapsApiKey,
       placeholder: t('ADDRESS', 'Address'),
@@ -706,7 +706,7 @@ var AddressForm = function AddressForm(props) {
     isSelectedAfterAdd: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AddressForm, addressFormProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AddressForm, addressFormProps);
 };
 
 exports.AddressForm = AddressForm;

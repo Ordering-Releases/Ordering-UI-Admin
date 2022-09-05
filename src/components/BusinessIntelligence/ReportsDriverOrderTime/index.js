@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { useLanguage, AdvancedReports as AdvancedReportsController } from 'ordering-components-admin'
+import { useLanguage, AdvancedReports as AdvancedReportsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button } from '../../../styles'
 import { Download } from 'react-bootstrap-icons'

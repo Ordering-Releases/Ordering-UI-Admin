@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, AddressFieldsSetting as AddressFieldsSettingController } from 'ordering-components-admin'
+import { useLanguage, AddressFieldsSetting as AddressFieldsSettingController } from 'ordering-components-admin-external'
 import { Switch } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 

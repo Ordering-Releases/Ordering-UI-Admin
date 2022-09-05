@@ -7,7 +7,7 @@ exports.OrdersDashboardControls = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _OrderStatusTypeSelector = require("../OrderStatusTypeSelector");
 
@@ -37,7 +37,7 @@ var OrdersDashboardControls = function OrdersDashboardControls(props) {
       handleDeleteMultiOrders = props.handleDeleteMultiOrders,
       handleChangeMultiOrdersStatus = props.handleChangeMultiOrdersStatus;
 
-  var _useSession = (0, _orderingComponentsAdmin.useSession)(),
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
       _useSession2 = _slicedToArray(_useSession, 1),
       user = _useSession2[0].user;
 

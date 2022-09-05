@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _ProfessionalList = require("../ProfessionalList");
 
@@ -78,7 +78,7 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
       handleSuccessAddUser = props.handleSuccessAddUser,
       handleSuccessDeleteUser = props.handleSuccessDeleteUser;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -212,7 +212,7 @@ var ProfessionalListing = function ProfessionalListing(props) {
     isSearchByUserName: true
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UsersList, usersListingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, usersListingProps);
 };
 
 exports.ProfessionalListing = ProfessionalListing;

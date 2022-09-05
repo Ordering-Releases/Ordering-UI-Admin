@@ -3,7 +3,7 @@ import {
   useLanguage,
   useConfig,
   Schedule as ScheduleController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import {
   Trash,
   PlusSquare,

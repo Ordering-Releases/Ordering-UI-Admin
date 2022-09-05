@@ -21,7 +21,7 @@ var _RiCheckboxFill = _interopRequireDefault(require("@meronex/icons/ri/RiCheckb
 
 var _styles2 = require("../../../styles");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67,7 +67,7 @@ var ReportsDriverFilterUI = function ReportsDriverFilterUI(props) {
       searchValue = props.searchValue,
       _onSearch = props.onSearch;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1]; // Change page
 
@@ -190,7 +190,7 @@ var ReportsDriverFilter = function ReportsDriverFilter(props) {
     UIComponent: ReportsDriverFilterUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ReportsDriverFilter, AnalyticsBusinessFilterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ReportsDriverFilter, AnalyticsBusinessFilterProps);
 };
 
 exports.ReportsDriverFilter = ReportsDriverFilter;

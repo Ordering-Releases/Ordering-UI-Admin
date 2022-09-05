@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, useUtils, useEvent, BusinessReviews as BusinessReviewsController } from 'ordering-components-admin'
+import { useLanguage, useUtils, useEvent, BusinessReviews as BusinessReviewsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 import { PersonFill } from 'react-bootstrap-icons'

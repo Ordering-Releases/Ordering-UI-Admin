@@ -7,7 +7,7 @@ exports.BusinessSchedule = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -43,7 +43,7 @@ var BusinessScheduleUI = function BusinessScheduleUI(props) {
       isTutorialMode = props.isTutorialMode,
       handleTutorialSkip = props.handleTutorialSkip;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -69,7 +69,7 @@ var BusinessSchedule = function BusinessSchedule(props) {
     UIComponent: BusinessScheduleUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessSchedule, businessScheduleProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessSchedule, businessScheduleProps);
 };
 
 exports.BusinessSchedule = BusinessSchedule;

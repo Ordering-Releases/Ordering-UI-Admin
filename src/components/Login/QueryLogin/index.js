@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { QueryLogin as QueryLoginController, useLanguage } from 'ordering-components-admin'
+import { QueryLogin as QueryLoginController, useLanguage } from 'ordering-components-admin-external'
 import { ConfigFileContext } from '../../../contexts/ConfigFileContext'
 import { SpinnerLoader } from '../../Shared'
 

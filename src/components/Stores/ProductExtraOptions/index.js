@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   ProductExtraOptions as ProductExtraOptionsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useForm, Controller } from 'react-hook-form'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { DropdownButton, Dropdown } from 'react-bootstrap'

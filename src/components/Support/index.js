@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconButton, Button } from '../../styles/Buttons'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../contexts/InfoShareContext'
 import { List as MenuIcon } from 'react-bootstrap-icons'
 

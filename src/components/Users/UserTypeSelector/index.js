@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Select } from '../../../styles/Select'
 import { Select as FirstSelect } from '../../../styles/Select/FirstSelect'
 import {

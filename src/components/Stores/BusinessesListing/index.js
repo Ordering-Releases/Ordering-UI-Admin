@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { DashboardBusinessList as BusinessListController } from 'ordering-components-admin'
+import { DashboardBusinessList as BusinessListController } from 'ordering-components-admin-external'
 import BsGrid from '@meronex/icons/bs/BsGrid'
 import BsViewList from '@meronex/icons/bs/BsViewList'
 import { getStorageItem, setStorageItem } from '../../../utils'

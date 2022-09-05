@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUtils, useLanguage } from 'ordering-components-admin'
+import { useUtils, useLanguage } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import BsDot from '@meronex/icons/bs/BsDot'
 import { useTheme } from 'styled-components'

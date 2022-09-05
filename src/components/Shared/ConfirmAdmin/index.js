@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import {
   useLanguage,
   CheckPassword as CheckPasswordController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Modal } from '../Modal'
 import { Button } from '../../../styles'
 

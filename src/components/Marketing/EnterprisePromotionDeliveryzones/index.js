@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, DeliveryzoneList as DeliveryzoneListController } from 'ordering-components-admin'
+import { useLanguage, DeliveryzoneList as DeliveryzoneListController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button, Checkbox } from '../../../styles'
 import { Pagination } from '../../Shared'

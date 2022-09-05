@@ -6,7 +6,7 @@ import {
   DragAndDrop,
   ExamineClick,
   SingleBusinessProduct as SingleBusinessProductController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { bytesConverter } from '../../../utils'
 import { Switch } from '../../../styles/Switch'
 import { Alert } from '../../Shared'

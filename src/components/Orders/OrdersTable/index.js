@@ -8,7 +8,7 @@ import {
   useLanguage,
   useUtils,
   useConfig
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { ColumnAllowSettingPopover, Pagination } from '../../Shared'
 import { ChevronRight } from 'react-bootstrap-icons'

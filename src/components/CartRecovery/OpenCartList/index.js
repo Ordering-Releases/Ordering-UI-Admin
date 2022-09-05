@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton'
 import {
   useLanguage,
   useUtils
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { ColumnAllowSettingPopover, Pagination } from '../../Shared'
 import {

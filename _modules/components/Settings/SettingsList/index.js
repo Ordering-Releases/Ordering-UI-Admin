@@ -9,7 +9,7 @@ exports.SettingsListUI = exports.SettingsList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -71,7 +71,7 @@ var SettingsListUI = function SettingsListUI(props) {
       handleClickUpdate = props.handleClickUpdate,
       saveConfig = props.saveConfig;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -287,7 +287,7 @@ var SettingsList = function SettingsList(props) {
     UIComponent: SettingsListUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.SettingsList, settingsListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, settingsListProps);
 };
 
 exports.SettingsList = SettingsList;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, BusinessMenu as BusinessMenuController } from 'ordering-components-admin'
+import { useLanguage, BusinessMenu as BusinessMenuController } from 'ordering-components-admin-external'
 import { BusinessMenuOptions } from '../BusinessMenuOptions'
 import { Confirm, Modal, SearchBar } from '../../Shared'
 import { useWindowSize } from '../../../hooks/useWindowSize'

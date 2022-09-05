@@ -15,7 +15,7 @@ var _constants = require("../../../config/constants");
 
 var _GoSearch = _interopRequireDefault(require("@meronex/icons/go/GoSearch"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles2 = require("./styles");
 
@@ -47,7 +47,7 @@ var AnalyticsFilterTimeZone = function AnalyticsFilterTimeZone(props) {
   var filterList = props.filterList,
       handleChangeFilterList = props.handleChangeFilterList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

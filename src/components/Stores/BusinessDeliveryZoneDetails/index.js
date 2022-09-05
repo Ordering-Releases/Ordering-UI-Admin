@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   useLanguage,
   BusinessDeliveryZone as BusinessDeliveryZoneController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { BusinessDeliveryZoneInformation } from '../BusinessDeliveryZoneInformation'
 import { BusinessDeliveryZoneShare } from '../BusinessDeliveryZoneShare'
 import { ThreeDots } from 'react-bootstrap-icons'

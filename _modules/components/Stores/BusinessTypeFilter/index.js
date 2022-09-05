@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -60,7 +60,7 @@ var BusinessTypeFilterUI = function BusinessTypeFilterUI(props) {
       error = typesState.error,
       types = typesState.types;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -102,7 +102,7 @@ var BusinessTypeFilter = function BusinessTypeFilter(props) {
     onChangeBusinessType: props.handleChangeBusinessType
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessTypeFilter, businessTypeFilterProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessTypeFilter, businessTypeFilterProps);
 };
 
 exports.BusinessTypeFilter = BusinessTypeFilter;

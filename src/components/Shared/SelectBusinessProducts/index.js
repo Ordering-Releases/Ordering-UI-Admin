@@ -3,7 +3,7 @@ import {
   useUtils,
   useApi,
   BusinessProductsListing as BusinessProductsListingController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import GoTriangleDown from '@meronex/icons/go/GoTriangleDown'
 import { Checkbox } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   useLanguage,
   BusinessSharedMenuProducts as BusinessSharedMenuProductsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Checkbox } from '../../../styles'
 import { Modal, SearchBar, SideBar } from '../../Shared'
 import { BusinessSharedMenuProductDetails } from '../BusinessSharedMenuProductDetails'

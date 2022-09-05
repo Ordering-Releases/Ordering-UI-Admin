@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import moment from 'moment'
 import { DateRange, Calendar } from 'react-date-range'
 import 'react-date-range/dist/styles.css'

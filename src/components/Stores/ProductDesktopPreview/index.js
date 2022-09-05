@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import { XLg } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
 import { Checkbox, TextArea, Button } from '../../../styles'

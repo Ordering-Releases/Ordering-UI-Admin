@@ -11,7 +11,7 @@ import {
   DragAndDrop,
   ExamineClick,
   BusinessProductCreator as BusinessProductCreatorController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 
 import {
   FormInput,

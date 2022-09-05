@@ -6,7 +6,7 @@ import {
   useLanguage,
   useUtils,
   AdvancedReports as AdvancedReportsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import { Download } from 'react-bootstrap-icons'

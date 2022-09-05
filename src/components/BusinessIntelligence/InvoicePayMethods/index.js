@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, useToast, ToastType } from 'ordering-components-admin'
+import { useLanguage, useToast, ToastType } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Button, Checkbox } from '../../../styles'
 import {

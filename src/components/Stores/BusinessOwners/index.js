@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { BusinessOwnerSelector } from '../BusinessOwnerSelector'
 import { Confirm } from '../../Shared'
 import { Button } from '../../../styles'

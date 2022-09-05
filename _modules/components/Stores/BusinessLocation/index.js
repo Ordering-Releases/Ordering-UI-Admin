@@ -9,7 +9,7 @@ exports.BusinessLocation = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -53,11 +53,11 @@ var BusinessLocation = function BusinessLocation(props) {
       setFormState = props.setFormState,
       handleUpdateBusinessClick = props.handleUpdateBusinessClick;
 
-  var _useConfig = (0, _orderingComponentsAdmin.useConfig)(),
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
       _useConfig2 = _slicedToArray(_useConfig, 1),
       configs = _useConfig2[0].configs;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -188,7 +188,7 @@ var BusinessLocation = function BusinessLocation(props) {
   (0, _react.useEffect)(function () {
     setLocation(_objectSpread({}, business === null || business === void 0 ? void 0 : business.location));
   }, [business === null || business === void 0 ? void 0 : business.location]);
-  return /*#__PURE__*/_react.default.createElement(_styles2.Container, null, location && /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleMapsMap, {
+  return /*#__PURE__*/_react.default.createElement(_styles2.Container, null, location && /*#__PURE__*/_react.default.createElement(_styles2.WrapperMap, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleMapsMap, {
     apiKey: configs === null || configs === void 0 ? void 0 : (_configs$google_maps_2 = configs.google_maps_api_key) === null || _configs$google_maps_2 === void 0 ? void 0 : _configs$google_maps_2.value,
     location: location,
     mapControls: googleMapsControls,
@@ -198,7 +198,7 @@ var BusinessLocation = function BusinessLocation(props) {
     isDefault: true,
     defaultValue: business === null || business === void 0 ? void 0 : business.city_id,
     handleChangeCity: handleChangeBusinessCity
-  })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperTimezone, null, /*#__PURE__*/_react.default.createElement("p", null, t('TIMEZONE', 'Timezone')), /*#__PURE__*/_react.default.createElement("p", null, (_ref2 = (_formState$changes$ti = (_formState$changes = formState.changes) === null || _formState$changes === void 0 ? void 0 : _formState$changes.timezone) !== null && _formState$changes$ti !== void 0 ? _formState$changes$ti : business === null || business === void 0 ? void 0 : business.timezone) !== null && _ref2 !== void 0 ? _ref2 : ''))), /*#__PURE__*/_react.default.createElement(_styles2.WrapperGoogleAutoCompleteInput, null, /*#__PURE__*/_react.default.createElement("label", null, t('ADDRESS', 'Address')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.GoogleAutocompleteInput, {
+  })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperTimezone, null, /*#__PURE__*/_react.default.createElement("p", null, t('TIMEZONE', 'Timezone')), /*#__PURE__*/_react.default.createElement("p", null, (_ref2 = (_formState$changes$ti = (_formState$changes = formState.changes) === null || _formState$changes === void 0 ? void 0 : _formState$changes.timezone) !== null && _formState$changes$ti !== void 0 ? _formState$changes$ti : business === null || business === void 0 ? void 0 : business.timezone) !== null && _ref2 !== void 0 ? _ref2 : ''))), /*#__PURE__*/_react.default.createElement(_styles2.WrapperGoogleAutoCompleteInput, null, /*#__PURE__*/_react.default.createElement("label", null, t('ADDRESS', 'Address')), /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleAutocompleteInput, {
     className: "input-autocomplete",
     apiKey: googleMapsApiKey,
     placeholder: t('ADDRESS', 'Address'),

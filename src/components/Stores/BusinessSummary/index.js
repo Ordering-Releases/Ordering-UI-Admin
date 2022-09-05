@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLanguage, useUtils, useEvent } from 'ordering-components-admin'
+import { useLanguage, useUtils, useEvent } from 'ordering-components-admin-external'
 import BsChevronRight from '@meronex/icons/bs/BsChevronRight'
 import { useTheme } from 'styled-components'
 import { Dropdown, DropdownButton } from 'react-bootstrap'

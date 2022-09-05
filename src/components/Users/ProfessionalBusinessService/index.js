@@ -3,7 +3,7 @@ import {
   useLanguage,
   useUtils,
   ProfessionalBusinessService as ProfessionalBusinessServiceController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { NotFoundSource, Pagination, SearchBar, SideBar, Alert } from '../../Shared'
 import { Button } from '../../../styles'
 import { useTheme } from 'styled-components'

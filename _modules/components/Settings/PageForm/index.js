@@ -9,7 +9,7 @@ exports.PageForm = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
@@ -80,7 +80,7 @@ var PageFormUI = function PageFormUI(props) {
       isAddMode = props.isAddMode,
       handleAddPage = props.handleAddPage;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -290,7 +290,7 @@ var PageForm = function PageForm(props) {
     UIComponent: PageFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.PageForm, pageFormProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PageForm, pageFormProps);
 };
 
 exports.PageForm = PageForm;

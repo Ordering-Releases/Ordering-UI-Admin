@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, BusinessWebhooks as BusinessWebhooksController } from 'ordering-components-admin'
+import { useLanguage, BusinessWebhooks as BusinessWebhooksController } from 'ordering-components-admin-external'
 import { Alert } from '../../Shared'
 import { Select } from '../../../styles/Select'
 import BsPlusSquare from '@meronex/icons/bs/BsPlusSquare'

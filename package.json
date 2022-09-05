@@ -1,6 +1,6 @@
 {
   "name": "ordering-ui-admin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Ordering UI Admin Components",
   "main": "./_modules/index.js",
   "exports": {
@@ -15,7 +15,7 @@
     "test": "cypress open"
   },
   "repository": {
-    "url": "git@github.com:Ordering-Inc/Ordering-UI-Admin.git"
+    "url": "git@github.com:Ordering-Releases/Ordering-UI-Admin.git"
   },
   "keywords": [
     "ordering",
@@ -83,7 +83,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "moment-range": "^4.0.2",
-    "ordering-components-admin": "github:Ordering-Releases/ordering-components-admin#release",
+    "ordering-components-admin-external": "1.0.0",
     "polished": "^3.6.7",
     "prop-types": "^15.7.2",
     "react-bootstrap": "^1.6.0",

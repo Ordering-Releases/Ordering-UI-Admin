@@ -21,7 +21,7 @@ var _styles = require("../../../styles");
 
 var _FirstSelect = require("../../../styles/Select/FirstSelect");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles2 = require("./styles");
 
@@ -60,7 +60,7 @@ var BusinessProductAddFormUI = function BusinessProductAddFormUI(props) {
       handleTutorialSkip = props.handleTutorialSkip,
       handleChangeItem = props.handleChangeItem;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -261,7 +261,7 @@ var BusinessProductAddFormUI = function BusinessProductAddFormUI(props) {
     onClick: function onClick() {
       return handleClickImage();
     }
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
     onFiles: function onFiles(files) {
       return handleFiles(files);
     },
@@ -270,7 +270,7 @@ var BusinessProductAddFormUI = function BusinessProductAddFormUI(props) {
     },
     accept: "image/png, image/jpeg, image/jpg",
     disabled: formState.loading
-  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+  }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
     onDrop: function onDrop(dataTransfer) {
       return handleFiles(dataTransfer.files);
     },
@@ -390,7 +390,7 @@ var BusinessProductAddForm = function BusinessProductAddForm(props) {
     UIComponent: BusinessProductAddFormUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessProductCreator, businessProductAddProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductCreator, businessProductAddProps);
 };
 
 exports.BusinessProductAddForm = BusinessProductAddForm;

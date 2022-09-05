@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { ExamineClick, DragAndDrop, useLanguage } from 'ordering-components-admin'
+import { ExamineClick, DragAndDrop, useLanguage } from 'ordering-components-admin-external'
 import { Checkbox, Input, Switch } from '../../../styles'
 import { Select } from '../../../styles/Select/FirstSelect'
 import BiImage from '@meronex/icons/bi/BiImage'

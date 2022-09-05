@@ -3,7 +3,7 @@ import MdcClose from '@meronex/icons/mdc/MdcClose'
 import EnFacebook from '@meronex/icons/en/EnFacebook'
 import RiFileCopyLine from '@meronex/icons/ri/RiFileCopyLine'
 import { useTheme } from 'styled-components'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 
 import {
   Container,

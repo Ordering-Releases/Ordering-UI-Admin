@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useSession, useUtils } from 'ordering-components-admin'
+import { useSession, useUtils } from 'ordering-components-admin-external'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 import BisBusiness from '@meronex/icons/bi/BisBusiness'
 import { IconButton } from '../../../styles'

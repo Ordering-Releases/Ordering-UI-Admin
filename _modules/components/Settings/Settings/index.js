@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _SettingItemUI = require("../SettingItemUI");
 
@@ -72,7 +72,7 @@ var SettingsUI = function SettingsUI(props) {
       settingsType = props.settingsType,
       handChangeConfig = props.handChangeConfig;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -118,7 +118,7 @@ var SettingsUI = function SettingsUI(props) {
 
   var categoryId = category && category.split('=')[1];
 
-  var _useEvent = (0, _orderingComponentsAdmin.useEvent)(),
+  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
       _useEvent2 = _slicedToArray(_useEvent, 1),
       events = _useEvent2[0];
 
@@ -303,7 +303,7 @@ var Settings = function Settings(props) {
     UIComponent: SettingsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Settings, settingsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Settings, settingsProps);
 };
 
 exports.Settings = Settings;

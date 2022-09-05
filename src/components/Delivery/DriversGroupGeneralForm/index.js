@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useConfig } from 'ordering-components-admin'
+import { useLanguage, useConfig } from 'ordering-components-admin-external'
 import { useForm } from 'react-hook-form'
 import { Input, Checkbox, Button, SecondSelect as DefaultSelect } from '../../../styles'
 import { Alert } from '../../Shared'

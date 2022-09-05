@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, ProductTagsList as ProductTagsController } from 'ordering-components-admin'
+import { useLanguage, ProductTagsList as ProductTagsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { SearchBar, SideBar } from '../../Shared'
 import { Button, Checkbox } from '../../../styles'

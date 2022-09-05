@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, useApi, BusinessGprsPrinters as BusinessGprsPrintersController } from 'ordering-components-admin'
+import { useLanguage, useApi, BusinessGprsPrinters as BusinessGprsPrintersController } from 'ordering-components-admin-external'
 import { Switch, TextArea } from '../../../styles'
 import { Select } from '../../../styles/Select'
 

@@ -9,7 +9,7 @@ exports.ProductIngredientDetails = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -56,7 +56,7 @@ var ProductIngredientDetailsUI = function ProductIngredientDetailsUI(props) {
       handleAddIngredient = props.handleAddIngredient,
       handleUpdateIngredient = props.handleUpdateIngredient;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -143,7 +143,7 @@ var ProductIngredientDetails = function ProductIngredientDetails(props) {
     UIComponent: ProductIngredientDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductIngredient, ingredientProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductIngredient, ingredientProps);
 };
 
 exports.ProductIngredientDetails = ProductIngredientDetails;

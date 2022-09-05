@@ -7,7 +7,7 @@ exports.BusinessDeliveryZoneShareUI = exports.BusinessDeliveryZoneShare = void 0
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -49,7 +49,7 @@ var BusinessDeliveryZoneShare = function BusinessDeliveryZoneShare(props) {
     UIComponent: BusinessDeliveryZoneShareUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessDeliveryZoneShare, BusinessDeliveryZoneShareProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDeliveryZoneShare, BusinessDeliveryZoneShareProps);
 };
 
 exports.BusinessDeliveryZoneShare = BusinessDeliveryZoneShare;

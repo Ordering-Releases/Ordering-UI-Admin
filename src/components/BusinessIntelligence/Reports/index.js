@@ -25,7 +25,7 @@ import {
   Bag,
   Tag
 } from 'react-bootstrap-icons'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { SideBar } from '../../Shared'
 import { SettingItemUI } from '../SettingItemUI'
 import { ReportsBusinessDistance } from '../ReportsBusinessDistance'

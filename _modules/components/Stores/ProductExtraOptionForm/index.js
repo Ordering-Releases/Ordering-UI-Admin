@@ -9,7 +9,7 @@ exports.ProductExtraOptionForm = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -59,7 +59,7 @@ var ProductExtraOptionForm = function ProductExtraOptionForm(props) {
       handleChangeConditionalSubOption = props.handleChangeConditionalSubOption,
       handleUpdateOption = props.handleUpdateOption;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -141,7 +141,7 @@ var ProductExtraOptionForm = function ProductExtraOptionForm(props) {
         onClick: function onClick() {
           return handleClickImage();
         }
-      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExamineClick, {
+      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExamineClick, {
         onFiles: function onFiles(files) {
           return handleOptionFiles(files, optionState === null || optionState === void 0 ? void 0 : optionState.option.id);
         },
@@ -150,7 +150,7 @@ var ProductExtraOptionForm = function ProductExtraOptionForm(props) {
         },
         accept: "image/png, image/jpeg, image/jpg",
         disabled: optionState.loading
-      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.DragAndDrop, {
+      }, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DragAndDrop, {
         onDrop: function onDrop(dataTransfer) {
           return handleOptionFiles(dataTransfer.files, optionState === null || optionState === void 0 ? void 0 : optionState.option.id);
         },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AnalyticsStatusSubFilter as AnalyticsStatusSubFilterController } from 'ordering-components-admin'
+import { AnalyticsStatusSubFilter as AnalyticsStatusSubFilterController } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import MdClose from '@meronex/icons/ios/MdClose'
 import { DragScroll } from '../../Shared'

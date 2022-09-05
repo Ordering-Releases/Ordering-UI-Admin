@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, MultiCountrySettings as MultiCountrySettingsController } from 'ordering-components-admin'
+import { useLanguage, MultiCountrySettings as MultiCountrySettingsController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import BsChevronRight from '@meronex/icons/bs/BsChevronRight'
 import { CountrySettingDetail } from '../CountrySettingDetail'

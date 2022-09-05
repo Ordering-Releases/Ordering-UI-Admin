@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, UsersExportCSV as UsersExportCSVController } from 'ordering-components-admin'
+import { useLanguage, UsersExportCSV as UsersExportCSVController } from 'ordering-components-admin-external'
 import { Download as DownloadIcon } from 'react-bootstrap-icons'
 import { SpinnerLoader } from '../../Shared'
 import { Button } from '../../../styles'

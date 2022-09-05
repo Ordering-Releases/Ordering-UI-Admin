@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLanguage, OrdersManage as OrdersManageController } from 'ordering-components-admin'
+import { useLanguage, OrdersManage as OrdersManageController } from 'ordering-components-admin-external'
 import { OrdersContentHeader, OrdersDashboardList, OrderNotification, OrderDetails, Messages } from '../../Orders'
 import { Button } from '../../../styles/Buttons'
 import MdClose from '@meronex/icons/ios/MdClose'

@@ -9,7 +9,7 @@ exports.ReportsTopDrivers = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -66,7 +66,7 @@ var ReportsTopDriversUI = function ReportsTopDriversUI(props) {
       handleChangeFilterList = props.handleChangeFilterList,
       reportData = props.reportData;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -322,7 +322,7 @@ var ReportsTopDrivers = function ReportsTopDrivers(props) {
     endpoint: 'drivers_top_orders_v2'
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.AdvancedReports, reportsTopDriversProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsTopDriversProps);
 };
 
 exports.ReportsTopDrivers = ReportsTopDrivers;

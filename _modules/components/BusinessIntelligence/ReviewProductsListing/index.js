@@ -9,7 +9,7 @@ exports.ReviewProductsListingUI = exports.ReviewProductsListing = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -65,11 +65,11 @@ var ReviewProductsListingUI = function ReviewProductsListingUI(props) {
       handleChangeSearch = props.handleChangeSearch,
       searchValue = props.searchValue;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -219,7 +219,7 @@ var ReviewProductsListing = function ReviewProductsListing(props) {
     }
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessProductsListing, businessProductslistingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductsListing, businessProductslistingProps);
 };
 
 exports.ReviewProductsListing = ReviewProductsListing;

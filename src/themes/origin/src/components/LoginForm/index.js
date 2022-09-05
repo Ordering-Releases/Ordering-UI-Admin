@@ -5,7 +5,7 @@ import {
   LoginForm as LoginFormController,
   useLanguage,
   useApi
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Alert } from '../Confirm'
 import BsArrowRightShort from '@meronex/icons/bs/BsArrowRightShort'
 import MdExitToApp from '@meronex/icons/md/MdExitToApp'

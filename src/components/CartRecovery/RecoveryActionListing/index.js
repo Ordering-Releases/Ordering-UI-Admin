@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { RecoveryActionListing as RecoveryActionListingController } from 'ordering-components-admin'
+import { RecoveryActionListing as RecoveryActionListingController } from 'ordering-components-admin-external'
 import { RecoveryActionHeader } from '../RecoveryActionHeader'
 import { RecoveryActionList } from '../RecoveryActionList'
 import { SideBar } from '../../Shared'

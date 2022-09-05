@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   useLanguage,
   DriversCompaniesList as DriversCompaniesListController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { Button, IconButton } from '../../../styles'
 import { List as MenuIcon } from 'react-bootstrap-icons'

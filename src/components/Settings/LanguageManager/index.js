@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, LanguageManager as LanguageManagerController } from 'ordering-components-admin'
+import { useLanguage, LanguageManager as LanguageManagerController } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 
 import { IconButton } from '../../../styles'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import BilStripe from '@meronex/icons/bi/BilStripe'
 import { Button, Input, IconButton } from '../../../styles'
 import { useWindowSize } from '../../../hooks/useWindowSize'

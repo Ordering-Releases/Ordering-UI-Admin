@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, DragAndDrop, ExamineClick } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick } from 'ordering-components-admin-external'
 import { Circle as UnCheckIcon, ThreeDots, RecordCircleFill as CheckIcon } from 'react-bootstrap-icons'
 import BiImage from '@meronex/icons/bi/BiImage'
 import { Alert, Confirm, ImageCrop, Modal } from '../../Shared'

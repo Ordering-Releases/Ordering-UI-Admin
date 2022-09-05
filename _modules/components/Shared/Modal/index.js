@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -51,7 +51,7 @@ var ModalUI = function ModalUI(props) {
       hideCloseDefault = props.hideCloseDefault,
       className = props.className;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -100,7 +100,7 @@ var Modal = function Modal(props) {
     UIComponent: ModalUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Popup, ModalProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Popup, ModalProps);
 };
 
 exports.Modal = Modal;

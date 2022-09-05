@@ -4,7 +4,7 @@ import {
   useLanguage,
   DragAndDrop,
   ExamineClick
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button, Input } from '../../../styles'
 import { XLg } from 'react-bootstrap-icons'
 import BiImage from '@meronex/icons/bi/BiImage'

@@ -4,7 +4,7 @@ import { lighten } from 'polished'
 import BsArrowsAngleExpand from '@meronex/icons/bs/BsArrowsAngleExpand'
 import BsDownload from '@meronex/icons/bs/BsDownload'
 import { Line } from 'react-chartjs-2'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Modal } from '../../Shared'
 import {

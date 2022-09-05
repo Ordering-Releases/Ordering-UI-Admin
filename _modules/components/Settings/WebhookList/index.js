@@ -9,7 +9,7 @@ exports.WebhookList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -73,7 +73,7 @@ var WebhookListUI = function WebhookListUI(props) {
       changesState = props.changesState,
       handleDeleteWebhook = props.handleDeleteWebhook;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -299,7 +299,7 @@ var WebhookList = function WebhookList(props) {
     UIComponent: WebhookListUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.WebhookList, webhookListProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.WebhookList, webhookListProps);
 };
 
 exports.WebhookList = WebhookList;

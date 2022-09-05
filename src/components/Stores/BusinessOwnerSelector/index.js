@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, UsersList as UsersListController } from 'ordering-components-admin'
+import { useLanguage, UsersList as UsersListController } from 'ordering-components-admin-external'
 import { Select } from '../../../styles/Select/FirstSelect'
 
 import { BusinessOwnerSelectorWrapper, Option } from './styles'

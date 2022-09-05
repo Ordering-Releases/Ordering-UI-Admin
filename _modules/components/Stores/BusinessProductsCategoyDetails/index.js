@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 
@@ -75,7 +75,7 @@ var BusinessProductsCategoyDetailsUI = function BusinessProductsCategoyDetailsUI
       handleTutorialSkip = props.handleTutorialSkip;
   var theme = (0, _styledComponents.useTheme)();
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -235,7 +235,7 @@ var BusinessProductsCategoyDetails = function BusinessProductsCategoyDetails(pro
     UIComponent: BusinessProductsCategoyDetailsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessProductsCategoyDetails, businessCategoryEditProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductsCategoyDetails, businessCategoryEditProps);
 };
 
 exports.BusinessProductsCategoyDetails = BusinessProductsCategoyDetails;

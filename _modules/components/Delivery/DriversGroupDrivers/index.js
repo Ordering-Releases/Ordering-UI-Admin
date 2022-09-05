@@ -9,7 +9,7 @@ exports.DriversGroupDrivers = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -52,7 +52,7 @@ var DriversGroupDrivers = function DriversGroupDrivers(props) {
       handleSelectDriver = props.handleSelectDriver,
       handleSelectAllDriver = props.handleSelectAllDriver;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 

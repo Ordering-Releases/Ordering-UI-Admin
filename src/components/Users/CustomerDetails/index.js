@@ -3,7 +3,7 @@ import {
   UserDetails as UserDetailsController,
   useLanguage,
   useUtils
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import { Envelope, Phone, ThreeDots, PersonFill, ChevronRight } from 'react-bootstrap-icons'

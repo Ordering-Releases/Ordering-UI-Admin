@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { Input, Button } from '../../../styles'
 import { useForm } from 'react-hook-form'
 import { Alert } from '../../Shared'

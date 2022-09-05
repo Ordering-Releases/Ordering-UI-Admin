@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage, DriversGroupAutoassign as DriversGroupAutoassignController } from 'ordering-components-admin'
+import { useLanguage, DriversGroupAutoassign as DriversGroupAutoassignController } from 'ordering-components-admin-external'
 import { PlusSquare, GeoAlt } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
 import { DragScroll } from '../../Shared'

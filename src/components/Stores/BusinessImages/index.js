@@ -6,7 +6,7 @@ import {
   useLanguage,
   useUtils,
   BusinessGallery as BusinessGalleryController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { bytesConverter } from '../../../utils'
 import { Alert, Confirm, DragScroll } from '../../Shared'

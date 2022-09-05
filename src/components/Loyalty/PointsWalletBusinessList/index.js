@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils, PointsWalletBusinessList as PointsWalletBusinessListController } from 'ordering-components-admin'
+import { useLanguage, useUtils, PointsWalletBusinessList as PointsWalletBusinessListController } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 import { useWindowSize } from '../../../hooks/useWindowSize'

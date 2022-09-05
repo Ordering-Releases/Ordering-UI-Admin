@@ -9,7 +9,7 @@ exports.LanguageManager = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 
@@ -51,7 +51,7 @@ var LanguageManagerUI = function LanguageManagerUI(props) {
   var searchValue = props.searchValue,
       _onSearch = props.onSearch;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -96,7 +96,7 @@ var LanguageManager = function LanguageManager(props) {
     UIComponent: LanguageManagerUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.LanguageManager, languageManagerProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageManager, languageManagerProps);
 };
 
 exports.LanguageManager = LanguageManager;

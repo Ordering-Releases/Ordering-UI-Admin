@@ -9,7 +9,7 @@ exports.SelectBusinessProducts = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _GoTriangleDown = _interopRequireDefault(require("@meronex/icons/go/GoTriangleDown"));
 
@@ -65,7 +65,7 @@ var CategoryTreeNode = function CategoryTreeNode(props) {
       include = props.include,
       subCategoriesList = props.subCategoriesList;
 
-  var _useUtils = (0, _orderingComponentsAdmin.useUtils)(),
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
       _useUtils2 = _slicedToArray(_useUtils, 1),
       optimizeImage = _useUtils2[0].optimizeImage;
 
@@ -302,7 +302,7 @@ var SelectBusinessProductsUI = function SelectBusinessProductsUI(props) {
 };
 
 var SelectBusinessProducts = function SelectBusinessProducts(props) {
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -323,7 +323,7 @@ var SelectBusinessProducts = function SelectBusinessProducts(props) {
     }
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessProductsListing, businessProductslistingProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductsListing, businessProductslistingProps);
 };
 
 exports.SelectBusinessProducts = SelectBusinessProducts;

@@ -7,7 +7,7 @@ exports.Confirm = exports.Alert = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -49,7 +49,7 @@ var ConfirmUI = function ConfirmUI(props) {
       acceptText = props.acceptText,
       cancelText = props.cancelText;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -84,7 +84,7 @@ var Confirm = function Confirm(props) {
   });
 
   var theme = (0, _styledComponents.useTheme)();
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, theme && /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.Popup, popupProps));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, theme && /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Popup, popupProps));
 };
 
 exports.Confirm = Confirm;

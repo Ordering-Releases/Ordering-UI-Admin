@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useApi } from 'ordering-components-admin'
+import { useApi } from 'ordering-components-admin-external'
 import { HelmetTags } from '../../components/HelmetTags'
 import { ReviewProductsListing as ReviewProductsListingController } from '../../../src/components/BusinessIntelligence'
 

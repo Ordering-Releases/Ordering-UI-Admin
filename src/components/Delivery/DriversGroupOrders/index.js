@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, DriversGroupOrders as DriversGroupOrdersController } from 'ordering-components-admin'
+import { useLanguage, DriversGroupOrders as DriversGroupOrdersController } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import { Input, Checkbox } from '../../../styles'
 

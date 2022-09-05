@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { useToast, ToastType } from 'ordering-components-admin'
+import { useToast, ToastType } from 'ordering-components-admin-external'
 
 const ToastContainer = styled.div`
   width: 100%;

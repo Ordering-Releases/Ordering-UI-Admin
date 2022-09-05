@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import { AutoScroll } from '../../Shared'
 import {
   ActiveStateFilterContainer,

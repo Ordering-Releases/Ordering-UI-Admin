@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage, OrdersFilter as OrdersFilterController } from 'ordering-components-admin'
+import { useLanguage, OrdersFilter as OrdersFilterController } from 'ordering-components-admin-external'
 import { BusinessesSelector } from '../BusinessesSelector'
 import { DriversGroupTypeSelector } from '../DriversGroupTypeSelector'
 import { DateTypeSelector } from '../DateTypeSelector'

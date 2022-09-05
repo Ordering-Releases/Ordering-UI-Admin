@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 
 import { useHistory } from 'react-router-dom'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import { useTheme } from 'styled-components'
 import EnChevronDown from '@meronex/icons/en/EnChevronDown'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'

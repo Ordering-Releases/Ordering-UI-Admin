@@ -6,7 +6,7 @@ import {
   DragAndDrop,
   ExamineClick,
   UserFormDetails as UserFormDetailsController
-} from 'ordering-components-admin'
+} from 'ordering-components-admin-external'
 import { Button, Input } from '../../../styles'
 import { Alert, InputPhoneNumber, Modal, ImageCrop } from '../../Shared'
 import { sortInputFields, bytesConverter, setStorageItem } from '../../../utils'

@@ -9,7 +9,7 @@ exports.InvoiceDriverManager = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -50,11 +50,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var InvoiceDriverManagerUI = function InvoiceDriverManagerUI(props) {
   var exportInvoiceList = props.exportInvoiceList;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -118,7 +118,7 @@ var InvoiceDriverManager = function InvoiceDriverManager(props) {
     UIComponent: InvoiceDriverManagerUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.InvoiceDriverManager, invoiceDriverManagerProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.InvoiceDriverManager, invoiceDriverManagerProps);
 };
 
 exports.InvoiceDriverManager = InvoiceDriverManager;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
-import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin-external'
 import { Alert, Modal, ImageCrop, ColorPicker } from '../../Shared'
 import { bytesConverter, shape, ribbonValues } from '../../../utils'
 import BiImage from '@meronex/icons/bi/BiImage'

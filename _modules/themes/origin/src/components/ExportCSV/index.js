@@ -9,7 +9,7 @@ exports.ExportCSV = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _SpinnerLoader = require("../SpinnerLoader");
 
@@ -49,7 +49,7 @@ var ExportCSVUI = function ExportCSVUI(props) {
   var actionStatus = props.actionStatus,
       getCSV = props.getCSV;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -109,7 +109,7 @@ var ExportCSV = function ExportCSV(props) {
     filterValues: props.filterValues
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ExportCSV, ExportCSVControlProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExportCSV, ExportCSVControlProps);
 };
 
 exports.ExportCSV = ExportCSV;

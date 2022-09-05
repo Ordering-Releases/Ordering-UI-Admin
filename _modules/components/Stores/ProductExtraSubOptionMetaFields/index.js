@@ -9,7 +9,7 @@ exports.ProductExtraSubOptionMetaFields = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _Shared = require("../../Shared");
 
@@ -72,7 +72,7 @@ var ProductExtraSubOptionMetaFieldsUI = function ProductExtraSubOptionMetaFields
       handleDeleteMetaField = props.handleDeleteMetaField,
       handeAddMetaField = props.handeAddMetaField;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -342,7 +342,7 @@ var ProductExtraSubOptionMetaFields = function ProductExtraSubOptionMetaFields(p
     UIComponent: ProductExtraSubOptionMetaFieldsUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.ProductExtraSubOptionMetaFields, MetaFieldsProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraSubOptionMetaFields, MetaFieldsProps);
 };
 
 exports.ProductExtraSubOptionMetaFields = ProductExtraSubOptionMetaFields;

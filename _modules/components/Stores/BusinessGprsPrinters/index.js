@@ -9,7 +9,7 @@ exports.BusinessGprsPrinters = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _styles = require("../../../styles");
 
@@ -53,11 +53,11 @@ var BusinessGprsPrintersUI = function BusinessGprsPrintersUI(props) {
       setFormState = props.setFormState,
       printersListState = props.printersListState;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
-  var _useApi = (0, _orderingComponentsAdmin.useApi)(),
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
       _useApi2 = _slicedToArray(_useApi, 1),
       ordering = _useApi2[0];
 
@@ -132,7 +132,7 @@ var BusinessGprsPrinters = function BusinessGprsPrinters(props) {
     UIComponent: BusinessGprsPrintersUI
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.BusinessGprsPrinters, businessGprsPrintersProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessGprsPrinters, businessGprsPrintersProps);
 };
 
 exports.BusinessGprsPrinters = BusinessGprsPrinters;

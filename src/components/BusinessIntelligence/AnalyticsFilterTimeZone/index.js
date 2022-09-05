@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Button } from '../../../styles'
 import { timezones } from '../../../config/constants'
 import GoSearch from '@meronex/icons/go/GoSearch'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import {
   AnalyticsTimeZoneContainer,
   TimeZoneSelectWrapper,

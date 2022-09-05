@@ -9,7 +9,7 @@ exports.BusinessOwnerSelector = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _orderingComponentsAdmin = require("ordering-components-admin");
+var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 
 var _FirstSelect = require("../../../styles/Select/FirstSelect");
 
@@ -43,7 +43,7 @@ var BusinessOwnerSelectorUI = function BusinessOwnerSelectorUI(props) {
       handleSelectBusinessOwner = props.handleSelectBusinessOwner,
       selectedOwner = props.selectedOwner;
 
-  var _useLanguage = (0, _orderingComponentsAdmin.useLanguage)(),
+  var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
       _useLanguage2 = _slicedToArray(_useLanguage, 2),
       t = _useLanguage2[1];
 
@@ -116,7 +116,7 @@ var BusinessOwnerSelector = function BusinessOwnerSelector(props) {
     defaultUserTypesSelected: [2]
   });
 
-  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdmin.UsersList, businessOwnersProps);
+  return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, businessOwnersProps);
 };
 
 exports.BusinessOwnerSelector = BusinessOwnerSelector;

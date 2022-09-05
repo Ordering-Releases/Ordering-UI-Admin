@@ -11,7 +11,7 @@ import {
 import BsArrowsAngleExpand from '@meronex/icons/bs/BsArrowsAngleExpand'
 import BsDownload from '@meronex/icons/bs/BsDownload'
 import { Line } from 'react-chartjs-2'
-import { useLanguage } from 'ordering-components-admin'
+import { useLanguage } from 'ordering-components-admin-external'
 import Skeleton from 'react-loading-skeleton'
 import { Modal } from '../../Shared'
 

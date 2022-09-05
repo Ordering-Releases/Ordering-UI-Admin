@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, CityList as CityListController } from 'ordering-components-admin'
+import { useLanguage, CityList as CityListController } from 'ordering-components-admin-external'
 import { Select } from '../../../styles/Select/FirstSelect'
 import { MultiSelect } from '../../../styles/MultiSelect'
 import Skeleton from 'react-loading-skeleton'

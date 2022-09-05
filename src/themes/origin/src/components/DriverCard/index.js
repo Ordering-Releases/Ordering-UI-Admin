@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, useUtils } from 'ordering-components-admin'
+import { useLanguage, useUtils } from 'ordering-components-admin-external'
 import { getStarWidth } from '../../utils'
 import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 

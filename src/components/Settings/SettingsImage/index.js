@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin'
+import { useLanguage, DragAndDrop, ExamineClick, useUtils } from 'ordering-components-admin-external'
 import { Alert, Modal, ImageCrop } from '../../Shared'
 import { bytesConverter } from '../../../utils'
 import BiImage from '@meronex/icons/bi/BiImage'
