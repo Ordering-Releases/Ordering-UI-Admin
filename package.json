@@ -1,5 +1,5 @@
 {
-  "name": "ordering-ui-admin",
+  "name": "ordering-ui-admin-external",
   "version": "1.0.0",
   "description": "Ordering UI Admin Components",
   "main": "./_modules/index.js",
