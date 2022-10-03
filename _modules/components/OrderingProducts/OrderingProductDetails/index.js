@@ -73,10 +73,8 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
   var tabs = [{
     key: 'general',
     content: t('GENERAL', 'General')
-  }, {
-    key: 'theme',
-    content: t('THEME', 'Theme')
-  }];
+  } // { key: 'theme', content: t('THEME', 'Theme') }
+  ];
   var moreOptions = [{
     value: 0,
     content: t('DELETE', 'Delete')
