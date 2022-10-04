@@ -64,12 +64,12 @@ export const SidebarMenu = (props) => {
       id: 3,
       title: t('DRIVERS_DASHBOARD', 'Drivers Dashboard'),
       pageName: 'drivers'
+    },
+    {
+      id: 4,
+      title: t('APPOINTMENTS', 'Appointments'),
+      pageName: 'appointments'
     }
-    // {
-    //   id: 4,
-    //   title: t('APPOINTMENTS', 'Appointments'),
-    //   pageName: 'appointments'
-    // }
   ]
 
   const loyaltySubMenus = [
@@ -141,13 +141,13 @@ export const SidebarMenu = (props) => {
       title: t('MANAGERS', 'Managers'),
       pageName: 'managers',
       url: '/users/managers'
+    },
+    {
+      id: 3,
+      title: t('PROFESSIONALS', 'Professionals'),
+      pageName: 'professionals',
+      url: '/users/professionals'
     }
-    // {
-    //   id: 3,
-    //   title: t('PROFESSIONALS', 'Professionals'),
-    //   pageName: 'professionals',
-    //   url: '/users/professionals'
-    // }
   ]
 
   const settingsSubMenus = [
@@ -272,13 +272,13 @@ export const SidebarMenu = (props) => {
       title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
       pageName: 'enterprise_promotions',
       url: '/marketing/promotions-enterprise'
+    },
+    {
+      id: 2,
+      title: t('CAMPAIGN', 'Campaign'),
+      pageName: 'campaign',
+      url: '/marketing/campaign'
     }
-    // {
-    //   id: 2,
-    //   title: t('CAMPAIGN', 'Campaign'),
-    //   pageName: 'campaign',
-    //   url: '/marketing/campaign'
-    // }
   ]
 
   const downloadsSubMenus = [

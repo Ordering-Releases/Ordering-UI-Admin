@@ -27,7 +27,7 @@ const OrderingProductDetailsUI = (props) => {
 
   const tabs = [
     { key: 'general', content: t('GENERAL', 'General') },
-    // { key: 'theme', content: t('THEME', 'Theme') }
+    { key: 'theme', content: t('THEME', 'Theme') }
   ]
 
   const moreOptions = [
