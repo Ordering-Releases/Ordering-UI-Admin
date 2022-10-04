@@ -60,7 +60,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var PluginListUI = function PluginListUI(props) {
-  var _pluginListState$sysP, _currentPlugins$plugi;
+  var _pluginListState$sysP, _currentPlugins$plugi, _pluginListState$sysP2, _currentPlugins$sysPl;
 
   var pluginListState = props.pluginListState,
       isAddMode = props.isAddMode,
@@ -288,6 +288,36 @@ var PluginListUI = function PluginListUI(props) {
     defaultPageSize: pluginsPerPage.plugins,
     handleChangePageSize: function handleChangePageSize(e) {
       return _handleChangePageSize(e, 'plugins');
+    }
+  }))), !pluginListState.loading && ((_pluginListState$sysP2 = pluginListState.sysPlugins) === null || _pluginListState$sysP2 === void 0 ? void 0 : _pluginListState$sysP2.length) > 0 && /*#__PURE__*/_react.default.createElement(_styles2.PLuginsSeparator, {
+    h: "50%"
+  }, /*#__PURE__*/_react.default.createElement(_styles2.Header, {
+    mb: 0
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    style: {
+      marginTop: 20
+    }
+  }, t('SYSTEM_PLUGINS', 'System Plugins'))), /*#__PURE__*/_react.default.createElement(_styles2.PluginsTable, null, /*#__PURE__*/_react.default.createElement("thead", null, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("th", null, t('PLUGINS', 'Plugins')), /*#__PURE__*/_react.default.createElement("th", null, t('ACTIONS', 'Actions')))), currentPlugins.sysPlugins.map(function (plugin) {
+    return /*#__PURE__*/_react.default.createElement(_styles2.PluginTbody, {
+      key: plugin.id
+    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, plugin === null || plugin === void 0 ? void 0 : plugin.name), /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles2.ActionsContainer, null, plugin !== null && plugin !== void 0 && plugin.installed ? /*#__PURE__*/_react.default.createElement("span", null, t('SYSTEM_PLUGIN_INSTALLED', 'Installed')) : /*#__PURE__*/_react.default.createElement(_styles.Button, {
+      borderRadius: "8px",
+      color: "lightPrimary",
+      onClick: function onClick() {
+        return handleInstallSysPlugin(plugin.id);
+      }
+    }, /*#__PURE__*/_react.default.createElement("span", null, t('INSTALL', 'Install')))))));
+  })), /*#__PURE__*/_react.default.createElement(_styles2.PagesBottomContainer, {
+    justifyContent: "flex-end"
+  }, ((_currentPlugins$sysPl = currentPlugins.sysPlugins) === null || _currentPlugins$sysPl === void 0 ? void 0 : _currentPlugins$sysPl.length) > 0 && /*#__PURE__*/_react.default.createElement(_Shared.Pagination, {
+    currentPage: currentPage.sysPlugins,
+    totalPages: totalPages.sysPlugins,
+    handleChangePage: function handleChangePage(e) {
+      return _handleChangePage(e, 'sysPlugins');
+    },
+    defaultPageSize: pluginsPerPage.sysPlugins,
+    handleChangePageSize: function handleChangePageSize(e) {
+      return _handleChangePageSize(e, 'sysPlugins');
     }
   })))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('WEB_APPNAME', 'Ordering'),
