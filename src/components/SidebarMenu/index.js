@@ -261,13 +261,13 @@ export const SidebarMenu = (props) => {
       title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
       pageName: 'enterprise_promotions',
       url: '/marketing/promotions-enterprise'
-    },
-    {
-      id: 2,
-      title: t('CAMPAIGN', 'Campaign'),
-      pageName: 'campaign',
-      url: '/marketing/campaign'
     }
+    // {
+    //   id: 2,
+    //   title: t('CAMPAIGN', 'Campaign'),
+    //   pageName: 'campaign',
+    //   url: '/marketing/campaign'
+    // }
   ]
 
   const downloadsSubMenus = [
