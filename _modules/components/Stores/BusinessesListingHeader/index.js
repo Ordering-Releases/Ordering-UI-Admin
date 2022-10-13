@@ -89,13 +89,7 @@ var BusinessesListingHeader = function BusinessesListingHeader(props) {
     onClick: function onClick() {
       return handleOpenAddBusiness();
     }
-  }, t('ADD_NEW_STORE', 'Add new store')), /*#__PURE__*/_react.default.createElement(_styles.Button, {
-    color: "lightPrimary",
-    borderRadius: "8px",
-    onClick: function onClick() {
-      return handleOpenSync();
-    }
-  }, t('SYNC', 'Sync')), /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
+  }, t('ADD_NEW_STORE', 'Add new store')), /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
     isCustomLayout: true,
     lazyLoad: true,
     onSearch: onSearch,
