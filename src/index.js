@@ -53,7 +53,8 @@ import {
   OrdersListing,
   OrdersTable,
   OrdersCards,
-  ReviewCustomer
+  ReviewCustomer,
+  OrderToPrint
 } from './components/Orders'
 import { Support } from './components/Support'
 import {
@@ -355,12 +356,13 @@ import {
   CitySelector,
   ColumnAllowSettingPopover,
   Pagination,
-  ImageCrop
+  ImageCrop,
+  NotFoundSource
 } from './components/Shared'
 import { LogoutButton } from './components/LogoutButton'
 import { LanguageSelector } from './components/LanguageSelector'
 
-import { capitalize } from './utils'
+import { capitalize, verifyDecimals } from './utils'
 
 // contexts
 import { ThemeContext, ThemeProvider, useTheme } from './contexts/ThemeContext'
@@ -431,6 +433,7 @@ export {
   OrdersTable,
   OrdersCards,
   ReviewCustomer,
+  OrderToPrint,
 
   BusinessAnalytics,
   DriverAnalytics,
@@ -736,8 +739,10 @@ export {
   ColumnAllowSettingPopover,
   Pagination,
   ImageCrop,
+  NotFoundSource,
 
   capitalize,
+  verifyDecimals,
 
   // contexts
   ThemeContext,
