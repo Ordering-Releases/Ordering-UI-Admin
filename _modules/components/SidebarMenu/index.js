@@ -1,77 +1,49 @@
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.SidebarMenu = void 0;
-
 var _react = _interopRequireWildcard(require("react"));
-
 var _reactRouterDom = require("react-router-dom");
-
 var _LogoutButton = require("../LogoutButton");
-
 var _reactBootstrapIcons = require("react-bootstrap-icons");
-
 var _styledComponents = require("styled-components");
-
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
-
 var _useWindowSize = require("../../hooks/useWindowSize");
-
 var _reactBootstrap = require("react-bootstrap");
-
 var _LanguageSelector = require("../LanguageSelector");
-
 var _InfoShareContext = require("../../contexts/InfoShareContext");
-
 var _styles = require("./styles");
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 var SidebarMenu = function SidebarMenu(props) {
   var _sessionState$user, _sessionState$user2, _sessionState$user3, _sessionState$user4, _sessionState$user5, _sessionState$user6, _sessionState$user7, _configs$dashboard_lo, _theme$images, _theme$images$logos, _sessionState$user8, _sessionState$user11, _sessionState$user12, _sessionState$user14, _sessionState$user15, _sessionState$user16, _sessionState$user17, _sessionState$user18, _sessionState$user19, _sessionState$user20, _sessionState$user21, _sessionState$user22, _sessionState$user23, _sessionState$user24, _sessionState$user25, _sessionState$user26, _sessionState$user27, _sessionState$user28, _sessionState$user29, _sessionState$user30, _sessionState$user31, _sessionState$user32, _sessionState$user33, _sessionState$user34, _sessionState$user35;
-
   var location = (0, _reactRouterDom.useLocation)();
   var theme = (0, _styledComponents.useTheme)();
-
   var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
-      _useEvent2 = _slicedToArray(_useEvent, 1),
-      events = _useEvent2[0];
-
+    _useEvent2 = _slicedToArray(_useEvent, 1),
+    events = _useEvent2[0];
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
-      _useLanguage2 = _slicedToArray(_useLanguage, 2),
-      t = _useLanguage2[1];
-
+    _useLanguage2 = _slicedToArray(_useLanguage, 2),
+    t = _useLanguage2[1];
   var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
-      _useSession2 = _slicedToArray(_useSession, 1),
-      sessionState = _useSession2[0];
-
+    _useSession2 = _slicedToArray(_useSession, 1),
+    sessionState = _useSession2[0];
   var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
-      _useConfig2 = _slicedToArray(_useConfig, 1),
-      configs = _useConfig2[0].configs;
-
+    _useConfig2 = _slicedToArray(_useConfig, 1),
+    configs = _useConfig2[0].configs;
   var _useInfoShare = (0, _InfoShareContext.useInfoShare)(),
-      _useInfoShare2 = _slicedToArray(_useInfoShare, 2),
-      isCollapse = _useInfoShare2[0].isCollapse,
-      handleMenuCollapse = _useInfoShare2[1].handleMenuCollapse;
-
+    _useInfoShare2 = _slicedToArray(_useInfoShare, 2),
+    isCollapse = _useInfoShare2[0].isCollapse,
+    handleMenuCollapse = _useInfoShare2[1].handleMenuCollapse;
   var windowSize = (0, _useWindowSize.useWindowSize)();
   var ordersSubMenus = [{
     id: 1,
@@ -85,18 +57,21 @@ var SidebarMenu = function SidebarMenu(props) {
     id: 3,
     title: t('DRIVERS_DASHBOARD', 'Drivers Dashboard'),
     pageName: 'drivers'
-  } // {
+  }
+  // {
   //   id: 4,
   //   title: t('APPOINTMENTS', 'Appointments'),
   //   pageName: 'appointments'
   // }
   ];
+
   var loyaltySubMenus = [{
     id: 1,
     title: t('REWARDS_PROGRAMS', 'Rewards programs'),
     pageName: 'rewards_programs',
     url: '/loyalty/rewards-programs'
-  } // {
+  }
+  // {
   //   id: 2,
   //   title: t('LOYALTY_LEVELS', 'Loyalty levels'),
   //   pageName: 'loyalty_levels',
@@ -109,6 +84,7 @@ var SidebarMenu = function SidebarMenu(props) {
   //   url: '/loyalty/reports'
   // }
   ];
+
   var cartRecoveryMenus = [{
     id: 1,
     title: t('OPEN_CARTS', 'Open carts'),
@@ -146,13 +122,15 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('MANAGERS', 'Managers'),
     pageName: 'managers',
     url: '/users/managers'
-  } // {
+  }
+  // {
   //   id: 3,
   //   title: t('PROFESSIONALS', 'Professionals'),
   //   pageName: 'professionals',
   //   url: '/users/professionals'
   // }
   ];
+
   var settingsSubMenus = [{
     id: 1,
     title: t('BASIC_SETTINGS', 'Basic settings'),
@@ -246,13 +224,15 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
     pageName: 'enterprise_promotions',
     url: '/marketing/promotions-enterprise'
-  } // {
+  }
+  // {
   //   id: 2,
   //   title: t('CAMPAIGN', 'Campaign'),
   //   pageName: 'campaign',
   //   url: '/marketing/campaign'
   // }
   ];
+
   var downloadsSubMenus = [{
     id: 1,
     title: t('FREE_PRODUCTS', 'Free products'),
@@ -264,19 +244,15 @@ var SidebarMenu = function SidebarMenu(props) {
     pageName: 'purchased_products',
     url: '/downloads/purchased-products'
   }];
-
   var handleGoToPage = function handleGoToPage(data) {
     if (windowSize.width < 768) {
       handleMenuCollapse(true);
     }
-
     events.emit('go_to_page', data);
   };
-
   var handleGoToLink = function handleGoToLink(link) {
     window.open(link, '_blank');
   };
-
   (0, _react.useEffect)(function () {
     if (windowSize.width < 1024) {
       handleMenuCollapse(true);
@@ -324,7 +300,6 @@ var SidebarMenu = function SidebarMenu(props) {
     eventKey: "1"
   }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, ordersSubMenus.map(function (item) {
     var _sessionState$user9, _sessionState$user10;
-
     return !((sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user9 = sessionState.user) === null || _sessionState$user9 === void 0 ? void 0 : _sessionState$user9.level) === 2 && item.pageName === 'drivers') && !((sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user10 = sessionState.user) === null || _sessionState$user10 === void 0 ? void 0 : _sessionState$user10.level) === 5 && item.pageName === 'appointments') && /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
       key: item.id,
       active: location.pathname.includes(item.pageName),
@@ -346,7 +321,6 @@ var SidebarMenu = function SidebarMenu(props) {
     eventKey: "3"
   }, /*#__PURE__*/_react.default.createElement(_styles.MenuContent, null, storesSubMenus.map(function (item) {
     var _sessionState$user13;
-
     return !((sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user13 = sessionState.user) === null || _sessionState$user13 === void 0 ? void 0 : _sessionState$user13.level) === 2 && item.pageName === 'brand') && /*#__PURE__*/_react.default.createElement(_styles.SubMenu, {
       key: item.id,
       active: location.pathname.includes(item === null || item === void 0 ? void 0 : item.url),
@@ -520,32 +494,27 @@ var SidebarMenu = function SidebarMenu(props) {
     roundedCircle: true
   }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.PersonFill, null), /*#__PURE__*/_react.default.createElement("span", null, sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user34 = sessionState.user) === null || _sessionState$user34 === void 0 ? void 0 : _sessionState$user34.name, " ", sessionState === null || sessionState === void 0 ? void 0 : (_sessionState$user35 = sessionState.user) === null || _sessionState$user35 === void 0 ? void 0 : _sessionState$user35.lastname)), /*#__PURE__*/_react.default.createElement(_LogoutButton.LogoutButton, null))))));
 };
-
 exports.SidebarMenu = SidebarMenu;
-
 var ContextAwareToggle = function ContextAwareToggle(_ref) {
   var children = _ref.children,
-      eventKey = _ref.eventKey,
-      callback = _ref.callback,
-      page = _ref.page,
-      handleGoToPage = _ref.handleGoToPage,
-      active = _ref.active;
+    eventKey = _ref.eventKey,
+    callback = _ref.callback,
+    page = _ref.page,
+    handleGoToPage = _ref.handleGoToPage,
+    active = _ref.active;
   var currentEventKey = (0, _react.useContext)(_reactBootstrap.AccordionContext);
   var decoratedOnClick = (0, _reactBootstrap.useAccordionToggle)(eventKey, function () {
     return callback && callback(eventKey);
   });
   var isCurrentEventKey = currentEventKey === eventKey;
-
   var handleButtonClick = function handleButtonClick() {
     if (page) {
       handleGoToPage({
         page: page
       });
     }
-
     decoratedOnClick();
   };
-
   return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
     variant: active ? 'primary' : isCurrentEventKey && 'light',
     onClick: handleButtonClick

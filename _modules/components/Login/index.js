@@ -21,9 +21,6 @@ Object.defineProperty(exports, "QueryLogin", {
     return _QueryLogin.QueryLogin;
   }
 });
-
 var _ForgotPasswordForm = require("./ForgotPasswordForm");
-
 var _LoginForm = require("./LoginForm");
-
 var _QueryLogin = require("./QueryLogin");
