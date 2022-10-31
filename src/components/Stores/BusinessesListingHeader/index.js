@@ -73,13 +73,13 @@ export const BusinessesListingHeader = (props) => {
         >
           {t('ADD_NEW_STORE', 'Add new store')}
         </Button>
-        {/* <Button
+        <Button
           color='lightPrimary'
           borderRadius='8px'
           onClick={() => handleOpenSync()}
         >
           {t('SYNC', 'Sync')}
-        </Button> */}
+        </Button>
         <SearchBar
           isCustomLayout
           lazyLoad

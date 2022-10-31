@@ -258,7 +258,7 @@ export const ribbonValues = {
  * @param {string} url URL of page
  * @param {string} fallback default URL
  */
- export const checkSiteUrl = (url, fallback) => {
+export const checkSiteUrl = (url, fallback) => {
   if (!url) return fallback
   return url[url?.length - 1] === '/' ? url : `${url}/`
 }
