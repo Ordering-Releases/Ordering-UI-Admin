@@ -26,8 +26,8 @@ const OrderingProductDetailsUI = (props) => {
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
 
   const tabs = [
-    { key: 'general', content: t('GENERAL', 'General') },
-    { key: 'theme', content: t('THEME', 'Theme') }
+    { key: 'general', content: t('GENERAL', 'General') }
+    // { key: 'theme', content: t('THEME', 'Theme') }
   ]
 
   const moreOptions = [
