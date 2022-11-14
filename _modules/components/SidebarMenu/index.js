@@ -57,11 +57,14 @@ var SidebarMenu = function SidebarMenu(props) {
     id: 3,
     title: t('DRIVERS_DASHBOARD', 'Drivers Dashboard'),
     pageName: 'drivers'
-  }, {
-    id: 4,
-    title: t('APPOINTMENTS', 'Appointments'),
-    pageName: 'appointments'
-  }];
+  }
+  // {
+  //   id: 4,
+  //   title: t('APPOINTMENTS', 'Appointments'),
+  //   pageName: 'appointments'
+  // }
+  ];
+
   var loyaltySubMenus = [{
     id: 1,
     title: t('REWARDS_PROGRAMS', 'Rewards programs'),
@@ -140,12 +143,15 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('MANAGERS', 'Managers'),
     pageName: 'managers',
     url: '/users/managers'
-  }, {
-    id: 3,
-    title: t('PROFESSIONALS', 'Professionals'),
-    pageName: 'professionals',
-    url: '/users/professionals'
-  }];
+  }
+  // {
+  //   id: 3,
+  //   title: t('PROFESSIONALS', 'Professionals'),
+  //   pageName: 'professionals',
+  //   url: '/users/professionals'
+  // }
+  ];
+
   var settingsSubMenus = [{
     id: 1,
     title: t('BASIC_SETTINGS', 'Basic settings'),
@@ -239,12 +245,15 @@ var SidebarMenu = function SidebarMenu(props) {
     title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
     pageName: 'enterprise_promotions',
     url: '/marketing/promotions-enterprise'
-  }, {
-    id: 2,
-    title: t('CAMPAIGN', 'Campaign'),
-    pageName: 'campaign',
-    url: '/marketing/campaign'
-  }];
+  }
+  // {
+  //   id: 2,
+  //   title: t('CAMPAIGN', 'Campaign'),
+  //   pageName: 'campaign',
+  //   url: '/marketing/campaign'
+  // }
+  ];
+
   var downloadsSubMenus = [{
     id: 1,
     title: t('FREE_PRODUCTS', 'Free products'),
