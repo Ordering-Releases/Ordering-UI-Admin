@@ -38,6 +38,10 @@ export const ListenPageChanges = ({ children }) => {
     reports: '/intelligence/reports',
     open_carts: '/cart-recovery/open-carts',
     recovery_actions: '/cart-recovery/recovery-actions',
+    ordering_website: '/my-products/ordering-website',
+    customer_app: '/my-products/customer-app',
+    store_app: '/my-products/store-app',
+    driver_app: '/my-products/driver-app',
     delivery_drivers: '/delivery/drivers-list',
     drivers_managers: '/delivery/drivers-managers',
     drivers_companies: '/delivery/drivers-companies',
@@ -48,7 +52,9 @@ export const ListenPageChanges = ({ children }) => {
     support: '/support',
     rewards_programs: '/loyalty/rewards-programs',
     free_products: '/downloads/free-products',
-    purchased_products: '/downloads/purchased-products'
+    purchased_products: '/downloads/purchased-products',
+    reset_password: '/password/reset',
+    profile: '/profile'
   }
 
   const handleGoToPage = ({ page, params = {}, search, replace = false }) => {

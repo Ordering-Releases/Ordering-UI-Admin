@@ -48,6 +48,12 @@ import { Support } from './pages/Support'
 import { AdvancedReports } from './pages/AdvancedReports'
 import { EnterprisePromotionList } from './pages/EnterprisePromotionList'
 import { Appointments } from './pages/Appointments'
+// import { GiftCardsList } from './pages/GiftCardsList'
+import { ResetPassword } from './pages/ResetPassword'
+import { OrderingWebsite } from './pages/OrderingWebsite'
+import { CustomerApp } from './pages/CustomerApp'
+import { StoreApp } from './pages/StoreApp'
+import { DriverApp } from './pages/DriverApp'
 
 import { ScrollToTop } from './components/ScrollToTop'
 import { ListenPageChanges } from './components/ListenPageChanges'
@@ -62,6 +68,7 @@ import { PurchasedProductsList } from './pages/PurchasedProductsList'
 import { Professionals } from './pages/Professionals'
 import { QueryLogin } from '../src/components/Login'
 import { PluginSettings } from './pages/PluginSettings'
+import { Profile } from './pages/Profile'
 
 export const App = () => {
   const [{ auth, loading, user }] = useSession()
@@ -131,7 +138,9 @@ export const App = () => {
                     <Route exact path='/'>
                       {
                         auth
-                          ? user?.level !== 5 ? <Redirect to='/home' /> : <Redirect to='/orders' />
+                          ? (user?.level !== 5 && user?.level !== 8)
+                            ? <Redirect to='/home' />
+                            : user?.level === 8 ? <Redirect to='/profile' /> : <Redirect to='/orders' />
                           : (queryProject && queryToken)
                             ? <QueryLogin project={queryProject} token={queryToken} />
                             : <Redirect to='/login' />
@@ -163,10 +172,33 @@ export const App = () => {
                           : <Redirect to='/home' />
                       }
                     </Route>
+
+                    <Route exact path='/password/reset'>
+                      {auth ? (
+                        <Redirect to='/' />
+                      ) : (
+                        <ResetPassword
+                          elementLinkToLogin={<Link to='/login'>{t('LOGIN', 'Login')}</Link>}
+                        />
+                      )}
+                    </Route>
+
+                    <Route exact path='/reset_password'>
+                      {auth ? (
+                        <Redirect to='/' />
+                      ) : (
+                        <ResetPassword
+                          elementLinkToLogin={<Link to='/login'>{t('LOGIN', 'Login')}</Link>}
+                        />
+                      )}
+                    </Route>
+
                     <Route exact path='/home'>
                       {
                         auth
-                          ? user?.level !== 5 ? <Home /> : <Redirect to='/orders' />
+                          ? (user?.level !== 5 && user?.level !== 8)
+                            ? <Home />
+                            : user?.level === 8 ? <Redirect to='/profile' /> : <Redirect to='/orders' />
                           : <Redirect to='/login' />
                       }
                     </Route>
@@ -180,7 +212,7 @@ export const App = () => {
                     <ProtectedRoute path='/drivers' allowedLevels={[0, 5]}>
                       <DriversList />
                     </ProtectedRoute>
-                    <ProtectedRoute path='/appointments' allowedLevels={[0]}>
+                    <ProtectedRoute path='/appointments' allowedLevels={[0, 2]}>
                       <Appointments />
                     </ProtectedRoute>
 
@@ -258,6 +290,22 @@ export const App = () => {
                       <RecoveryActionListing />
                     </ProtectedRoute>
 
+                    <ProtectedRoute path='/my-products/ordering-website' allowedLevels={[0]}>
+                      <OrderingWebsite />
+                    </ProtectedRoute>
+
+                    <ProtectedRoute path='/my-products/customer-app' allowedLevels={[0]}>
+                      <CustomerApp />
+                    </ProtectedRoute>
+
+                    <ProtectedRoute path='/my-products/store-app' allowedLevels={[0]}>
+                      <StoreApp />
+                    </ProtectedRoute>
+
+                    <ProtectedRoute path='/my-products/driver-app' allowedLevels={[0]}>
+                      <DriverApp />
+                    </ProtectedRoute>
+
                     <ProtectedRoute path='/settings/basic' allowedLevels={[0]}>
                       <BasicSettings />
                     </ProtectedRoute>
@@ -292,6 +340,10 @@ export const App = () => {
                     </ProtectedRoute>
                     <ProtectedRoute path='/ordering-products' allowedLevels={[0]}>
                       <OrderingProducts />
+                    </ProtectedRoute>
+
+                    <ProtectedRoute path='/profile' allowedLevels={[0, 2, 5, 8]}>
+                      <Profile />
                     </ProtectedRoute>
 
                     <Route path='*'>

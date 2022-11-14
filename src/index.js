@@ -139,7 +139,7 @@ import {
   GoogleGpsButton
 } from './components/Delivery'
 import { HomePage } from './components/Home'
-import { LoginForm, ForgotPasswordForm, QueryLogin } from './components/Login'
+import { LoginForm, ForgotPasswordForm, QueryLogin, ResetPassword } from './components/Login'
 import {
   EnterprisePromotionListing,
   CampaignListing,
@@ -337,12 +337,20 @@ import {
   PointsWalletBusinessDetail,
   PointsWalletBusinessList
 } from './components/Loyalty'
+import {
+  OrderingWebsite,
+  CustomerApp,
+  StoreApp,
+  DriverApp
+} from './components/MyProducts'
 import { OpenCartListing, RecoveryActionListing } from './components/CartRecovery'
 import { FreeProductsList, PurchasedProductsList } from './components/Downloads'
 
 import { Layout } from './components/Layout'
 import { SidebarMenu } from './components/SidebarMenu'
 import { NotNetworkConnectivity } from './components/NotNetworkConnectivity'
+import { ProfilePage } from './components/Profile'
+
 import {
   Alert,
   SpinnerLoader,
@@ -524,6 +532,7 @@ export {
   HomePage,
   LoginForm,
   QueryLogin,
+  ResetPassword,
 
   EnterprisePromotionListing,
   CampaignListing,
@@ -728,9 +737,16 @@ export {
   FreeProductsList,
   PurchasedProductsList,
 
+  OrderingWebsite,
+  CustomerApp,
+  StoreApp,
+  DriverApp,
+
   Layout,
   SidebarMenu,
   NotNetworkConnectivity,
+  ProfilePage,
+
   Alert,
   SpinnerLoader,
   Modal,

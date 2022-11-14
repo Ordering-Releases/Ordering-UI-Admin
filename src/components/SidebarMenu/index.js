@@ -17,7 +17,9 @@ import {
   Award,
   BoxArrowUpRight,
   Cart3,
-  CloudDownload
+  Cash,
+  CloudDownload,
+  BagCheck
 } from 'react-bootstrap-icons'
 import { useTheme } from 'styled-components'
 import { useEvent, useLanguage, useSession, useConfig } from 'ordering-components-admin-external'
@@ -64,12 +66,12 @@ export const SidebarMenu = (props) => {
       id: 3,
       title: t('DRIVERS_DASHBOARD', 'Drivers Dashboard'),
       pageName: 'drivers'
+    },
+    {
+      id: 4,
+      title: t('APPOINTMENTS', 'Appointments'),
+      pageName: 'appointments'
     }
-    // {
-    //   id: 4,
-    //   title: t('APPOINTMENTS', 'Appointments'),
-    //   pageName: 'appointments'
-    // }
   ]
 
   const loyaltySubMenus = [
@@ -108,6 +110,33 @@ export const SidebarMenu = (props) => {
     }
   ]
 
+  const myProductMenus = [
+    {
+      id: 1,
+      title: t('ORDERING_WEBSITE', 'Ordering website'),
+      pageName: 'ordering_website',
+      url: '/my-products/ordering-website'
+    },
+    {
+      id: 2,
+      title: t('CUSTOMER_APP', 'Customer app'),
+      pageName: 'customer_app',
+      url: '/my-products/customer-app'
+    },
+    {
+      id: 3,
+      title: t('STORE_APP', 'Store app'),
+      pageName: 'store_app',
+      url: '/my-products/store-app'
+    },
+    {
+      id: 4,
+      title: t('DRIVER_APP', 'Driver app'),
+      pageName: 'driver_app',
+      url: '/my-products/driver-app'
+    }
+  ]
+
   const storesSubMenus = [
     {
       id: 1,
@@ -141,13 +170,13 @@ export const SidebarMenu = (props) => {
       title: t('MANAGERS', 'Managers'),
       pageName: 'managers',
       url: '/users/managers'
+    },
+    {
+      id: 3,
+      title: t('PROFESSIONALS', 'Professionals'),
+      pageName: 'professionals',
+      url: '/users/professionals'
     }
-    // {
-    //   id: 3,
-    //   title: t('PROFESSIONALS', 'Professionals'),
-    //   pageName: 'professionals',
-    //   url: '/users/professionals'
-    // }
   ]
 
   const settingsSubMenus = [
@@ -267,13 +296,13 @@ export const SidebarMenu = (props) => {
       title: t('PROMOTIONS_ENTERPRISE', 'Promotions enterprise'),
       pageName: 'enterprise_promotions',
       url: '/marketing/promotions-enterprise'
+    },
+    {
+      id: 2,
+      title: t('CAMPAIGN', 'Campaign'),
+      pageName: 'campaign',
+      url: '/marketing/campaign'
     }
-    // {
-    //   id: 2,
-    //   title: t('CAMPAIGN', 'Campaign'),
-    //   pageName: 'campaign',
-    //   url: '/marketing/campaign'
-    // }
   ]
 
   const downloadsSubMenus = [
@@ -337,7 +366,7 @@ export const SidebarMenu = (props) => {
             <SidebarContent className='d-flex flex-column justify-content-between p-1 pt-0'>
               <div className='d-flex flex-column'>
                 <Accordion>
-                  {sessionState?.user?.level !== 5 && (
+                  {sessionState?.user?.level !== 5 && sessionState?.user?.level !== 8 && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='0'
@@ -353,38 +382,41 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  <MenuContainer>
-                    <ContextAwareToggle
-                      eventKey='1'
-                      active={
-                        location.pathname === '/orders' ||
-                        location.pathname === '/deliveries' ||
-                        location.pathname === '/drivers' ||
-                        location.pathname === '/appointments'
-                      }
-                    >
-                      <ListCheck />
-                      <span>{t('ORDERS', 'Orders')}</span>
-                    </ContextAwareToggle>
-                    <Accordion.Collapse eventKey='1'>
-                      <MenuContent>
-                        {ordersSubMenus.map(item => (
-                          !(sessionState?.user?.level === 2 && item.pageName === 'drivers') &&
-                          !(sessionState?.user?.level === 5 && item.pageName === 'appointments') && (
-                            <SubMenu
-                              key={item.id}
-                              active={location.pathname.includes(item.pageName)}
-                              onClick={() => handleGoToPage({ page: item.pageName })}
-                            >
-                              {item.title}
-                            </SubMenu>
-                          )
-                        ))}
-                      </MenuContent>
-                    </Accordion.Collapse>
-                  </MenuContainer>
+                  {sessionState?.user?.level !== 8 && (
+                    <MenuContainer>
+                      <ContextAwareToggle
+                        eventKey='1'
+                        active={
+                          location.pathname === '/orders' ||
+                          location.pathname === '/deliveries' ||
+                          location.pathname === '/drivers' ||
+                          location.pathname === '/appointments' ||
+                          location.pathname === '/gift-cards'
+                        }
+                      >
+                        <ListCheck />
+                        <span>{t('ORDERS', 'Orders')}</span>
+                      </ContextAwareToggle>
+                      <Accordion.Collapse eventKey='1'>
+                        <MenuContent>
+                          {ordersSubMenus.map(item => (
+                            !(sessionState?.user?.level === 2 && item.pageName === 'drivers') &&
+                            !(sessionState?.user?.level === 5 && item.pageName === 'appointments') && (
+                              <SubMenu
+                                key={item.id}
+                                active={location.pathname.includes(item.url)}
+                                onClick={() => handleGoToPage({ page: item.pageName })}
+                              >
+                                {item.title}
+                              </SubMenu>
+                            )
+                          ))}
+                        </MenuContent>
+                      </Accordion.Collapse>
+                    </MenuContainer>
+                  )}
 
-                  {sessionState?.user?.level !== 5 && (
+                  {(sessionState?.user?.level !== 5 && sessionState?.user?.level !== 8) && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='2'
@@ -398,7 +430,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {sessionState?.user?.level !== 5 && (
+                  {(sessionState?.user?.level !== 5 && sessionState?.user?.level !== 8) && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='3'
@@ -457,7 +489,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {sessionState?.user?.level !== 5 && (
+                  {(sessionState?.user?.level !== 5 && sessionState?.user?.level !== 8) && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='5'
@@ -525,7 +557,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {sessionState?.user?.level !== 5 && sessionState?.user?.level !== 2 && (
+                  {sessionState?.user?.level === 0 && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='8'
@@ -553,7 +585,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {sessionState?.user?.level !== 5 && sessionState?.user?.level !== 2 && (
+                  {sessionState?.user?.level === 0 && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='9'
@@ -582,7 +614,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   )}
 
-                  {sessionState?.user?.level !== 5 && sessionState?.user?.level !== 2 && (
+                  {sessionState?.user?.level === 0 && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='10'
@@ -597,6 +629,36 @@ export const SidebarMenu = (props) => {
                       <Accordion.Collapse eventKey='10'>
                         <MenuContent>
                           {cartRecoveryMenus.map(item => (
+                            <SubMenu
+                              key={item.id}
+                              active={location.pathname.includes(item.url)}
+                              onClick={() => handleGoToPage({ page: item.pageName })}
+                            >
+                              {item.title}
+                            </SubMenu>
+                          ))}
+                        </MenuContent>
+                      </Accordion.Collapse>
+                    </MenuContainer>
+                  )}
+                  {sessionState?.user?.level === 0 && (
+                    <MenuContainer>
+                      <span>{t('SALES_CHANNELS_AND_PRODUCTS', 'Sales channels and products')}</span>
+                      <ContextAwareToggle
+                        eventKey='12'
+                        active={
+                          location.pathname === '/my-products/ordering-website' ||
+                          location.pathname === '/my-products/customer-app' ||
+                          location.pathname === '/my-products/store-app' ||
+                          location.pathname === '/my-products/driver-app'
+                        }
+                      >
+                        <BagCheck />
+                        <span>{t('MY_PRODUCTS', 'My products')}</span>
+                      </ContextAwareToggle>
+                      <Accordion.Collapse eventKey='12'>
+                        <MenuContent>
+                          {myProductMenus.map(item => (
                             <SubMenu
                               key={item.id}
                               active={location.pathname.includes(item.url)}
@@ -649,7 +711,7 @@ export const SidebarMenu = (props) => {
                     </MenuContainer>
                   </Accordion>
                 )}
-                {sessionState?.user?.level !== 5 && sessionState?.user?.level !== 2 && (
+                {sessionState?.user?.level === 0 && (
                   <Button
                     className='d-flex align-items-center'
                     variant={location.pathname === '/ordering-products' && 'primary'}
@@ -715,9 +777,9 @@ export const SidebarMenu = (props) => {
               className='d-flex flex-column px-1'
             >
               <Button
-                className='d-flex align-items-center'
-                onClick={() => handleGoToPage({ page: 'profile' })}
+                className='d-000flex align-items-center'
                 variant={location.pathname === '/profile' && 'primary'}
+                onClick={() => handleGoToPage({ page: 'profile' })}
               >
                 {sessionState?.user?.photo ? (
                   <Image src={sessionState?.user?.photo} width='30px' height='30px' roundedCircle />

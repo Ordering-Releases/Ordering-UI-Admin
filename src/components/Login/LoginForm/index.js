@@ -44,7 +44,8 @@ const LoginFormUI = (props) => {
     loginTab,
     isPopup,
     isReCaptchaEnable,
-    handleReCaptcha
+    handleReCaptcha,
+    useProjectDomain
   } = props
   const [, t] = useLanguage()
   const [ordering] = useApi()
@@ -180,24 +181,26 @@ const LoginFormUI = (props) => {
             isPopup={isPopup}
             onSubmit={handleSubmit(onSubmit)}
           >
-            <InputWithIcon>
-              <Input
-                type='text'
-                name='project'
-                aria-label='project'
-                placeholder={t('PROJECT', 'Project')}
-                ref={register({
-                  required: t(
-                    'VALIDATION_ERROR_REQUIRED',
-                    'Project is required'
-                  ).replace('_attribute_', t('PROJECT', 'Project'))
-                })}
-                onChange={(e) => hanldeChangeProject(e)}
-                autoComplete='off'
-                autoCapitalize='off'
-              />
-              <MdExitToApp />
-            </InputWithIcon>
+            {!useProjectDomain && (
+              <InputWithIcon>
+                <Input
+                  type='text'
+                  name='project'
+                  aria-label='project'
+                  placeholder={t('PROJECT', 'Project')}
+                  ref={register({
+                    required: t(
+                      'VALIDATION_ERROR_REQUIRED',
+                      'Project is required'
+                    ).replace('_attribute_', t('PROJECT', 'Project'))
+                  })}
+                  onChange={(e) => hanldeChangeProject(e)}
+                  autoComplete='off'
+                  autoCapitalize='off'
+                />
+                <MdExitToApp />
+              </InputWithIcon>
+            )}
 
             {useLoginByEmail && loginTab === 'email' && (
               <InputWithIcon>
@@ -321,7 +324,7 @@ export const LoginForm = (props) => {
   const loginControllerProps = {
     ...props,
     UIComponent: LoginFormUI,
-    allowedLevels: [0, 2, 5]
+    allowedLevels: [0, 2, 5, 8]
   }
   return <LoginFormController {...loginControllerProps} />
 }
