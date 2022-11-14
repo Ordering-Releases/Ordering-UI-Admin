@@ -17,6 +17,7 @@ var _Shared = require("../../Shared");
 var _UsersDeleteButton = require("../UsersDeleteButton");
 var _UsersExportCSV = require("../UsersExportCSV");
 var _styles = require("../../../styles");
+var _OccupationsFilter = require("../OccupationsFilter");
 var _styles2 = require("./styles");
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -50,7 +51,11 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
     onUserRedirect = props.onUserRedirect,
     handleSuccessUpdate = props.handleSuccessUpdate,
     handleSuccessAddUser = props.handleSuccessAddUser,
-    handleSuccessDeleteUser = props.handleSuccessDeleteUser;
+    handleSuccessDeleteUser = props.handleSuccessDeleteUser,
+    occupationsState = props.occupationsState,
+    selectedOccupation = props.selectedOccupation,
+    handleSelectOccupation = props.handleSelectOccupation,
+    setSelectedUsers = props.setSelectedUsers;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -113,7 +118,11 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
   }), /*#__PURE__*/_react.default.createElement(_UserActiveStateFilter.UserActiveStateFilter, {
     selectedUserActiveState: selectedUserActiveState,
     handleChangeUserActiveState: handleChangeUserActiveState
-  }), /*#__PURE__*/_react.default.createElement(_styles2.ActionsContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.ActionButtonsGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  }), /*#__PURE__*/_react.default.createElement(_styles2.ActionsContainer, null, /*#__PURE__*/_react.default.createElement(_OccupationsFilter.OccupationsFilter, {
+    occupationsState: occupationsState,
+    selectedOccupation: selectedOccupation,
+    handleSelectOccupation: handleSelectOccupation
+  }), /*#__PURE__*/_react.default.createElement(_styles2.ActionButtonsGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     borderRadius: "8px",
     color: "lightPrimary",
     onClick: function onClick() {
@@ -138,12 +147,14 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
     handleSelectedUsers: handleSelectedUsers,
     userDetailsId: (openUser === null || openUser === void 0 ? void 0 : openUser.id) || queryId,
     handleOpenUserDetails: handleOpenUserDetails,
-    handleOpenUserAddForm: handleOpenUserAddForm
+    handleOpenUserAddForm: handleOpenUserAddForm,
+    setSelectedUsers: setSelectedUsers
   })), isOpenUserDetails && /*#__PURE__*/_react.default.createElement(_UserDetailsLateralBar.UserDetailsLateralBar, {
     isProfessionals: true,
     open: isOpenUserDetails,
     user: openUser,
     userId: (openUser === null || openUser === void 0 ? void 0 : openUser.id) || queryId,
+    occupations: occupationsState.occupations,
     onClose: function onClose() {
       return handleBackRedirect();
     },

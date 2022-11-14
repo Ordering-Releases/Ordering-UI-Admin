@@ -52,7 +52,8 @@ var UsersListingUI = function UsersListingUI(props) {
     onUserRedirect = props.onUserRedirect,
     handleSuccessUpdate = props.handleSuccessUpdate,
     handleSuccessAddUser = props.handleSuccessAddUser,
-    handleSuccessDeleteUser = props.handleSuccessDeleteUser;
+    handleSuccessDeleteUser = props.handleSuccessDeleteUser,
+    setSelectedUsers = props.setSelectedUsers;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -143,7 +144,8 @@ var UsersListingUI = function UsersListingUI(props) {
     handleSelectedUsers: handleSelectedUsers,
     userDetailsId: (openUser === null || openUser === void 0 ? void 0 : openUser.id) || queryId,
     handleOpenUserDetails: handleOpenUserDetails,
-    handleOpenUserAddForm: handleOpenUserAddForm
+    handleOpenUserAddForm: handleOpenUserAddForm,
+    setSelectedUsers: setSelectedUsers
   })), isOpenUserDetails && /*#__PURE__*/_react.default.createElement(_UserDetailsLateralBar.UserDetailsLateralBar, {
     isManagers: true,
     open: isOpenUserDetails,

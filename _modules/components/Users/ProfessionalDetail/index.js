@@ -32,12 +32,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
-  var _userState$user, _userState$user2, _userState$user3, _adminUserState$user, _userState$user5, _userState$user6;
+  var _userState$user, _userState$user2, _userState$user3, _adminUserState$user, _userState$user4, _userState$user5;
   var userState = props.userState,
+    occupations = props.occupations,
     setExtraOpen = props.setExtraOpen,
     handleSuccessUserUpdate = props.handleSuccessUserUpdate,
     handleDeleteUser = props.handleDeleteUser,
-    handleChangeActiveUser = props.handleChangeActiveUser;
+    handleChangeActiveUser = props.handleChangeActiveUser,
+    handleGoogleCalendarSync = props.handleGoogleCalendarSync,
+    actionStatus = props.actionStatus;
   var theme = (0, _styledComponents.useTheme)();
   var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
     _useSession2 = _slicedToArray(_useSession, 1),
@@ -61,6 +64,13 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
     _useState6 = _slicedToArray(_useState5, 2),
     confirm = _useState6[0],
     setConfirm = _useState6[1];
+  var _useState7 = (0, _react.useState)({
+      open: false,
+      content: []
+    }),
+    _useState8 = _slicedToArray(_useState7, 2),
+    alertState = _useState8[0],
+    setAlertState = _useState8[1];
   var onDeleteCustomer = function onDeleteCustomer() {
     setConfirm({
       open: true,
@@ -86,6 +96,14 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
     setExtraOpen(false);
     setExtraSelected(null);
   }, [currentMenuSelected]);
+  (0, _react.useEffect)(function () {
+    if (actionStatus.error) {
+      setAlertState({
+        open: true,
+        content: actionStatus.error
+      });
+    }
+  }, [actionStatus.error]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.DetailsHeader, null, /*#__PURE__*/_react.default.createElement(_styles2.UserName, null, userState !== null && userState !== void 0 && userState.loading ? /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
     width: 150
   }) : /*#__PURE__*/_react.default.createElement("span", {
@@ -98,13 +116,15 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
   }) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, handleChangeActiveUser && /*#__PURE__*/_react.default.createElement(_styles.Switch, {
     defaultChecked: (userState === null || userState === void 0 ? void 0 : (_userState$user3 = userState.user) === null || _userState$user3 === void 0 ? void 0 : _userState$user3.enabled) || false,
     onChange: function onChange(enabled) {
-      var _userState$user4;
-      return handleChangeActiveUser({
-        id: userState === null || userState === void 0 ? void 0 : (_userState$user4 = userState.user) === null || _userState$user4 === void 0 ? void 0 : _userState$user4.id,
+      return handleChangeActiveUser(_objectSpread(_objectSpread({}, userState === null || userState === void 0 ? void 0 : userState.user), {}, {
         enabled: enabled
-      });
+      }));
     }
-  }))), ((_adminUserState$user = adminUserState.user) === null || _adminUserState$user === void 0 ? void 0 : _adminUserState$user.id) !== ((_userState$user5 = userState.user) === null || _userState$user5 === void 0 ? void 0 : _userState$user5.id) && /*#__PURE__*/_react.default.createElement(_styles2.ActionSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.DropdownButton, {
+  }))), /*#__PURE__*/_react.default.createElement(_styles2.CalendarSyncWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    borderRadius: "8px",
+    color: "lightPrimary",
+    onClick: handleGoogleCalendarSync
+  }, /*#__PURE__*/_react.default.createElement("span", null, t('CALENDAR_SYNC', 'Calendar sync')), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Calendar4Event, null))), ((_adminUserState$user = adminUserState.user) === null || _adminUserState$user === void 0 ? void 0 : _adminUserState$user.id) !== ((_userState$user4 = userState.user) === null || _userState$user4 === void 0 ? void 0 : _userState$user4.id) && /*#__PURE__*/_react.default.createElement(_styles2.ActionSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.DropdownButton, {
     menuAlign: theme !== null && theme !== void 0 && theme.rtl ? 'left' : 'right',
     title: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ThreeDots, null),
     id: theme !== null && theme !== void 0 && theme.rtl ? 'dropdown-menu-align-left' : 'dropdown-menu-align-right'
@@ -126,6 +146,7 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
     isProfessional: true
   }), !(userState !== null && userState !== void 0 && userState.loading) && (userState === null || userState === void 0 ? void 0 : userState.user) && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, currentMenuSelected === 'profile' && /*#__PURE__*/_react.default.createElement(_UserProfileForm.UserProfileForm, {
     user: userState.user,
+    occupations: occupations,
     handleSuccessUpdate: handleSuccessUserUpdate,
     isProfessional: true
   }), currentMenuSelected === 'schedule' && /*#__PURE__*/_react.default.createElement(_ProfessionalSchedule.ProfessionalSchedule, {
@@ -148,7 +169,7 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
       return handleOpenExtra();
     }
   }, /*#__PURE__*/_react.default.createElement(_styles2.SideBarWrapper, null, extraSelected === 'custom_fields' && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, t('CUSTOM_FIELDS', 'Custom fields')), /*#__PURE__*/_react.default.createElement(_UserMetaFields.UserMetaFields, {
-    userId: (_userState$user6 = userState.user) === null || _userState$user6 === void 0 ? void 0 : _userState$user6.id
+    userId: (_userState$user5 = userState.user) === null || _userState$user5 === void 0 ? void 0 : _userState$user5.id
   })), extraSelected === 'personalization' && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PERSONALIZATION', 'Personalization')), /*#__PURE__*/_react.default.createElement(_Shared.Personalization, null)))), /*#__PURE__*/_react.default.createElement(_Shared.Confirm, {
     width: "700px",
     title: t('WEB_APPNAME', 'Ordering'),
@@ -166,6 +187,24 @@ var ProfessionalDetailUI = function ProfessionalDetailUI(props) {
       }));
     },
     onAccept: confirm.handleOnAccept,
+    closeOnBackdrop: false
+  }), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
+    title: t('WEB_APPNAME', 'Ordering'),
+    content: alertState.content,
+    acceptText: t('ACCEPT', 'Accept'),
+    open: alertState.open,
+    onClose: function onClose() {
+      return setAlertState({
+        open: false,
+        content: []
+      });
+    },
+    onAccept: function onAccept() {
+      return setAlertState({
+        open: false,
+        content: []
+      });
+    },
     closeOnBackdrop: false
   }));
 };

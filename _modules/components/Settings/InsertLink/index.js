@@ -23,7 +23,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var InsertLink = function InsertLink(props) {
   var editorContext = props.editorContext,
     onClose = props.onClose,
-    handleRestoreEditor = props.handleRestoreEditor;
+    handleRestoreEditor = props.handleRestoreEditor,
+    isLinkButton = props.isLinkButton;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -38,7 +39,7 @@ var InsertLink = function InsertLink(props) {
     var _changesState$isNewWi;
     handleRestoreEditor();
     editorContext.invoke('editor.createLink', {
-      text: (changesState === null || changesState === void 0 ? void 0 : changesState.text) || '',
+      text: isLinkButton ? "<button style='font-size: 9px;color: white;padding: 6px 11px; cursor: pointer; border-radius: 4px; background: #2C7BE5; border: none;'>".concat((changesState === null || changesState === void 0 ? void 0 : changesState.text) || 'button', "</button>") : (changesState === null || changesState === void 0 ? void 0 : changesState.text) || '',
       url: (changesState === null || changesState === void 0 ? void 0 : changesState.url) || '',
       isNewWindow: (_changesState$isNewWi = changesState === null || changesState === void 0 ? void 0 : changesState.isNewWindow) !== null && _changesState$isNewWi !== void 0 ? _changesState$isNewWi : true
     });

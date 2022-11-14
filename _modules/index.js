@@ -699,6 +699,12 @@ Object.defineProperty(exports, "CountrySelector", {
     return _Settings.CountrySelector;
   }
 });
+Object.defineProperty(exports, "CustomerApp", {
+  enumerable: true,
+  get: function get() {
+    return _MyProducts.CustomerApp;
+  }
+});
 Object.defineProperty(exports, "CustomerCashWallet", {
   enumerable: true,
   get: function get() {
@@ -781,6 +787,12 @@ Object.defineProperty(exports, "DriverAnalytics", {
   enumerable: true,
   get: function get() {
     return _BusinessIntelligence.DriverAnalytics;
+  }
+});
+Object.defineProperty(exports, "DriverApp", {
+  enumerable: true,
+  get: function get() {
+    return _MyProducts.DriverApp;
   }
 });
 Object.defineProperty(exports, "DriverGroupSetting", {
@@ -1407,6 +1419,12 @@ Object.defineProperty(exports, "OrderingProductsListing", {
     return _OrderingProducts.OrderingProductsListing;
   }
 });
+Object.defineProperty(exports, "OrderingWebsite", {
+  enumerable: true,
+  get: function get() {
+    return _MyProducts.OrderingWebsite;
+  }
+});
 Object.defineProperty(exports, "OrdersCards", {
   enumerable: true,
   get: function get() {
@@ -1725,6 +1743,12 @@ Object.defineProperty(exports, "ProfessionalListing", {
     return _Users.ProfessionalListing;
   }
 });
+Object.defineProperty(exports, "ProfilePage", {
+  enumerable: true,
+  get: function get() {
+    return _Profile.ProfilePage;
+  }
+});
 Object.defineProperty(exports, "ProtectedRoute", {
   enumerable: true,
   get: function get() {
@@ -1905,6 +1929,12 @@ Object.defineProperty(exports, "ReportsUsers", {
     return _BusinessIntelligence.ReportsUsers;
   }
 });
+Object.defineProperty(exports, "ResetPassword", {
+  enumerable: true,
+  get: function get() {
+    return _Login.ResetPassword;
+  }
+});
 Object.defineProperty(exports, "ReviewCustomer", {
   enumerable: true,
   get: function get() {
@@ -2035,6 +2065,12 @@ Object.defineProperty(exports, "SpinnerLoader", {
   enumerable: true,
   get: function get() {
     return _Shared.SpinnerLoader;
+  }
+});
+Object.defineProperty(exports, "StoreApp", {
+  enumerable: true,
+  get: function get() {
+    return _MyProducts.StoreApp;
   }
 });
 Object.defineProperty(exports, "Support", {
@@ -2273,11 +2309,13 @@ var _Settings = require("./components/Settings");
 var _Stores = require("./components/Stores");
 var _Users = require("./components/Users");
 var _Loyalty = require("./components/Loyalty");
+var _MyProducts = require("./components/MyProducts");
 var _CartRecovery = require("./components/CartRecovery");
 var _Downloads = require("./components/Downloads");
 var _Layout = require("./components/Layout");
 var _SidebarMenu = require("./components/SidebarMenu");
 var _NotNetworkConnectivity = require("./components/NotNetworkConnectivity");
+var _Profile = require("./components/Profile");
 var _Shared = require("./components/Shared");
 var _LogoutButton = require("./components/LogoutButton");
 var _LanguageSelector = require("./components/LanguageSelector");

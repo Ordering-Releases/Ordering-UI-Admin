@@ -211,6 +211,13 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     setBatchImageFormOpen(true);
   };
   (0, _react.useEffect)(function () {
+    if (slug && !isInitialRender) {
+      setOpenSidebar(null);
+      setSelectedProduct(null);
+      handleUpdateInitialRender(false);
+    }
+  }, [slug, isInitialRender]);
+  (0, _react.useEffect)(function () {
     if (!slug) {
       setSelectedBusiness(null);
       setOpenSidebar(null);

@@ -43,7 +43,8 @@ var LoginFormUI = function LoginFormUI(props) {
     loginTab = props.loginTab,
     isPopup = props.isPopup,
     isReCaptchaEnable = props.isReCaptchaEnable,
-    handleReCaptcha = props.handleReCaptcha;
+    handleReCaptcha = props.handleReCaptcha,
+    useProjectDomain = props.useProjectDomain;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -195,7 +196,7 @@ var LoginFormUI = function LoginFormUI(props) {
     noValidate: true,
     isPopup: isPopup,
     onSubmit: handleSubmit(onSubmit)
-  }, /*#__PURE__*/_react.default.createElement(_styles2.InputWithIcon, null, /*#__PURE__*/_react.default.createElement(_styles.Input, {
+  }, !useProjectDomain && /*#__PURE__*/_react.default.createElement(_styles2.InputWithIcon, null, /*#__PURE__*/_react.default.createElement(_styles.Input, {
     type: "text",
     name: "project",
     "aria-label": "project",
@@ -288,7 +289,7 @@ var LoginFormUI = function LoginFormUI(props) {
 var LoginForm = function LoginForm(props) {
   var loginControllerProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LoginFormUI,
-    allowedLevels: [0, 2, 5]
+    allowedLevels: [0, 2, 5, 8]
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LoginForm, loginControllerProps);
 };
