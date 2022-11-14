@@ -641,7 +641,7 @@ export const SidebarMenu = (props) => {
                       </Accordion.Collapse>
                     </MenuContainer>
                   )}
-                  {sessionState?.user?.level === 0 && (
+                  {/* {sessionState?.user?.level === 0 && (
                     <MenuContainer>
                       <span>{t('SALES_CHANNELS_AND_PRODUCTS', 'Sales channels and products')}</span>
                       <ContextAwareToggle
@@ -670,7 +670,7 @@ export const SidebarMenu = (props) => {
                         </MenuContent>
                       </Accordion.Collapse>
                     </MenuContainer>
-                  )}
+                  )} */}
                 </Accordion>
               </div>
               <div className='d-flex flex-column mt-4'>
