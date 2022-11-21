@@ -42,6 +42,9 @@ export const ListenPageChanges = ({ children }) => {
     customer_app: '/my-products/customer-app',
     store_app: '/my-products/store-app',
     driver_app: '/my-products/driver-app',
+    pos_app: '/my-products/pos-app',
+    call_center_app: '/my-products/call-center-app',
+    kiosk_app: '/my-products/kiosk-app',
     delivery_drivers: '/delivery/drivers-list',
     drivers_managers: '/delivery/drivers-managers',
     drivers_companies: '/delivery/drivers-companies',
@@ -51,8 +54,6 @@ export const ListenPageChanges = ({ children }) => {
     ordering_products: '/ordering-products',
     support: '/support',
     rewards_programs: '/loyalty/rewards-programs',
-    free_products: '/downloads/free-products',
-    purchased_products: '/downloads/purchased-products',
     reset_password: '/password/reset',
     profile: '/profile'
   }

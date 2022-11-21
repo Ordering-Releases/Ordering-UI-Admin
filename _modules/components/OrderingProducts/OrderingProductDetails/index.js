@@ -25,7 +25,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
-  var _siteState$site, _siteState$site2;
+  var _siteState$site;
   var siteState = props.siteState,
     isAddMode = props.isAddMode,
     handleDeleteSite = props.handleDeleteSite;
@@ -47,10 +47,10 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
   var tabs = [{
     key: 'general',
     content: t('GENERAL', 'General')
-  }
-  // { key: 'theme', content: t('THEME', 'Theme') }
-  ];
-
+  }, {
+    key: 'theme',
+    content: t('THEME', 'Theme')
+  }];
   var moreOptions = [{
     value: 0,
     content: t('DELETE', 'Delete')
@@ -81,9 +81,7 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
         return setSelectedTab(tab.key);
       }
     }, tab.content);
-  })), selectedTab === 'general' && /*#__PURE__*/_react.default.createElement(_OrderingProductGeneralDetails.OrderingProductGeneralDetails, props), selectedTab === 'theme' && /*#__PURE__*/_react.default.createElement(_SiteTheme.SiteTheme, {
-    siteId: (_siteState$site2 = siteState.site) === null || _siteState$site2 === void 0 ? void 0 : _siteState$site2.id
-  }), /*#__PURE__*/_react.default.createElement(_Shared.Confirm, {
+  })), selectedTab === 'general' && /*#__PURE__*/_react.default.createElement(_OrderingProductGeneralDetails.OrderingProductGeneralDetails, props), /*#__PURE__*/_react.default.createElement(_Shared.Confirm, {
     width: "700px",
     title: t('WEB_APPNAME', 'Ordering'),
     content: confirm.content,

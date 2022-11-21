@@ -26,8 +26,8 @@ const OrderingProductDetailsUI = (props) => {
   const [confirm, setConfirm] = useState({ open: false, content: null, handleOnAccept: null })
 
   const tabs = [
-    { key: 'general', content: t('GENERAL', 'General') }
-    // { key: 'theme', content: t('THEME', 'Theme') }
+    { key: 'general', content: t('GENERAL', 'General') },
+    { key: 'theme', content: t('THEME', 'Theme') }
   ]
 
   const moreOptions = [
@@ -77,9 +77,9 @@ const OrderingProductDetailsUI = (props) => {
       {selectedTab === 'general' && (
         <OrderingProductGeneralDetails {...props} />
       )}
-      {selectedTab === 'theme' && (
+      {/* {selectedTab === 'theme' && (
         <SiteTheme siteId={siteState.site?.id} />
-      )}
+      )} */}
 
       <Confirm
         width='700px'

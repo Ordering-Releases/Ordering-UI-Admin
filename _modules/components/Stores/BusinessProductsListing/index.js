@@ -27,6 +27,7 @@ var _BatchImageForm = require("../BatchImageForm");
 var _BusinessDetails = require("../BusinessDetails");
 var _reactBootstrap = require("react-bootstrap");
 var _ImportersButton = require("../ImportersButton");
+var _AddBusinessForm = require("../AddBusinessForm");
 var _styles2 = require("./styles");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -42,7 +43,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
-  var _businessState$busine5, _businessState$busine6, _businessState$busine7, _businessState$busine8, _businessState$busine9, _businessState$busine10;
+  var _businessState$busine5, _businessState$busine7, _businessState$busine8, _businessState$busine9, _businessState$busine10, _businessState$busine11;
   var categorySelected = props.categorySelected,
     searchValue = props.searchValue,
     handleChangeCategory = props.handleChangeCategory,
@@ -72,6 +73,9 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     t = _useLanguage2[1];
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
     width = _useWindowSize.width;
+  var _useApi = (0, _orderingComponentsAdminExternal.useApi)(),
+    _useApi2 = _slicedToArray(_useApi, 1),
+    ordering = _useApi2[0];
   var _useInfoShare = (0, _InfoShareContext.useInfoShare)(),
     _useInfoShare2 = _slicedToArray(_useInfoShare, 2),
     isCollapse = _useInfoShare2[0].isCollapse,
@@ -210,6 +214,14 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
   var openBatchImageUploader = function openBatchImageUploader() {
     setBatchImageFormOpen(true);
   };
+  var handleOpenSite = function handleOpenSite() {
+    var _businessState$busine6;
+    window.open("https://".concat(ordering.project, ".tryordering.com/store/").concat(businessState === null || businessState === void 0 ? void 0 : (_businessState$busine6 = businessState.business) === null || _businessState$busine6 === void 0 ? void 0 : _businessState$busine6.slug), '_blank');
+  };
+  var handleOpenAddBusiness = function handleOpenAddBusiness() {
+    setOpenSidebar('add_business');
+    handleClose();
+  };
   (0, _react.useEffect)(function () {
     if (slug && !isInitialRender) {
       setOpenSidebar(null);
@@ -238,19 +250,20 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onClick: function onClick() {
       return handleSelectHeader();
     }
-  }, /*#__PURE__*/_react.default.createElement("h1", null, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine6 = businessState.business) === null || _businessState$busine6 === void 0 ? void 0 : _businessState$busine6.name) || t('SELECT_BUSINESS', 'Select a business'), " \xA0 ", /*#__PURE__*/_react.default.createElement(_BisDownArrow.default, {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine7 = businessState.business) === null || _businessState$busine7 === void 0 ? void 0 : _businessState$busine7.name) || t('SELECT_BUSINESS', 'Select a business'), " \xA0 ", /*#__PURE__*/_react.default.createElement(_BisDownArrow.default, {
     className: showSelectHeader ? 'rotate-arrow' : ''
   }))), showSelectHeader && /*#__PURE__*/_react.default.createElement(_BusinessSelectHeader.BusinessSelectHeader, {
     close: handleClose,
     isOpen: showSelectHeader,
     changeBusinessState: changeBusinessState,
-    noActiveStatusCondition: true
+    noActiveStatusCondition: true,
+    handleOpenAddBusiness: handleOpenAddBusiness
   })), slug && /*#__PURE__*/_react.default.createElement(_styles2.Breadcrumb, null, /*#__PURE__*/_react.default.createElement("span", {
     className: "business",
     onClick: function onClick() {
       return setOpenSidebar('business_details');
     }
-  }, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine7 = businessState.business) === null || _businessState$busine7 === void 0 ? void 0 : _businessState$busine7.name)), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null), /*#__PURE__*/_react.default.createElement("span", null, categorySelected === null || categorySelected === void 0 ? void 0 : categorySelected.name))))), slug && /*#__PURE__*/_react.default.createElement(_styles2.ActionsGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  }, (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.name) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine8 = businessState.business) === null || _businessState$busine8 === void 0 ? void 0 : _businessState$busine8.name)), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null), /*#__PURE__*/_react.default.createElement("span", null, categorySelected === null || categorySelected === void 0 ? void 0 : categorySelected.name))))), slug && /*#__PURE__*/_react.default.createElement(_styles2.ActionsGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     color: "lightPrimary",
     borderRadius: "8px",
     onClick: function onClick() {
@@ -276,7 +289,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onClick: function onClick() {
       return handleProductAdd(true);
     },
-    disabled: (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine8 = businessState.business) === null || _businessState$busine8 === void 0 ? void 0 : (_businessState$busine9 = _businessState$busine8.categories) === null || _businessState$busine9 === void 0 ? void 0 : _businessState$busine9.length) === 0
+    disabled: (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine9 = businessState.business) === null || _businessState$busine9 === void 0 ? void 0 : (_businessState$busine10 = _businessState$busine9.categories) === null || _businessState$busine10 === void 0 ? void 0 : _businessState$busine10.length) === 0
   }, t('ADD_PRODUCT', 'Add product')), /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
     isCustomLayout: true,
     lazyLoad: true,
@@ -284,7 +297,12 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onSearch: handleChangeSearch,
     placeholder: t('SEARCH', 'Search'),
     customClass: "searchBar"
-  }))), slug && /*#__PURE__*/_react.default.createElement(_styles2.CategoryProductsContent, null, /*#__PURE__*/_react.default.createElement(_styles2.CategoryListContainer, {
+  }))), /*#__PURE__*/_react.default.createElement(_styles2.ButtonWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    color: "primary",
+    outline: true,
+    borderRadius: "8px",
+    onClick: handleOpenSite
+  }, t('STORE_WEBSITE', 'Store website'))), slug && /*#__PURE__*/_react.default.createElement(_styles2.CategoryProductsContent, null, /*#__PURE__*/_react.default.createElement(_styles2.CategoryListContainer, {
     ref: categoryListRef
   }, /*#__PURE__*/_react.default.createElement(_BusinessProductsCategories.BusinessProductsCategories, _extends({}, props, {
     businessState: businessState,
@@ -368,7 +386,7 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     setFees: setFees
   }), openSidebar === 'business_details' && /*#__PURE__*/_react.default.createElement(_BusinessDetails.BusinessDetails, {
     open: openSidebar === 'business_details',
-    businessId: (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.id) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine10 = businessState.business) === null || _businessState$busine10 === void 0 ? void 0 : _businessState$busine10.id),
+    businessId: (selectedBusiness === null || selectedBusiness === void 0 ? void 0 : selectedBusiness.id) || (businessState === null || businessState === void 0 ? void 0 : (_businessState$busine11 = businessState.business) === null || _businessState$busine11 === void 0 ? void 0 : _businessState$busine11.id),
     handleSucessRemoveBusiness: function handleSucessRemoveBusiness() {
       return handleStoresRedirect();
     }
@@ -377,7 +395,16 @@ var BusinessProductsListingUI = function BusinessProductsListingUI(props) {
     onClose: function onClose() {
       return setOpenSidebar(null);
     }
-  }), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
+  }), openSidebar === 'add_business' && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
+    open: openSidebar === 'add_business',
+    onClose: function onClose() {
+      return setOpenSidebar(null);
+    }
+  }, /*#__PURE__*/_react.default.createElement(_AddBusinessForm.AddBusinessForm, {
+    handleSucessAddBusiness: function handleSucessAddBusiness() {
+      return setOpenSidebar(false);
+    }
+  })), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: width > 1440 ? '40%' : '60%',
     padding: "20px",
     open: batchImageFormOpen,
