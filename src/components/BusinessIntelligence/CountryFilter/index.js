@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLanguage, CountryList } from 'ordering-components-admin'
+import { useLanguage, CountryList } from 'ordering-components-admin-external'
 import { Button } from '../../../styles'
 import Skeleton from 'react-loading-skeleton'
 import { SearchBar, Pagination } from '../../Shared'
