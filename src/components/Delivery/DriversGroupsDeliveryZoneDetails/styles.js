@@ -2,72 +2,75 @@ import styled, { css } from 'styled-components'
 import { darken } from 'polished'
 
 export const Container = styled.div`
+  width: 100%;
   padding: 20px;
-  overflow: auto;
-  transition: 0.3s;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-
+  
   > button {
-    margin-top: 20px;
-    position: sticky;
-    top: 100%;
-    width: fit-content;
-    height: 42px;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
-
-  @media (min-width: 1000px) {
-    width: 0;
-    ${props => props.theme?.rtl ? css`
-      border-right: 1px solid #E9ECEF;
-    ` : css`
-      border-left: 1px solid #E9ECEF;
-    `}
-  }
-`
-
-export const SandboxWrapper = styled.div`
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  color: ${props => props.theme.colors.headingColor};
-  span {
-    ${props => props.theme?.rtl ? css`
-      margin-right: 10px;
-    ` : css`
-      margin-left: 10px;
-    `}
-  }
-`
-
-export const FieldName = styled.p`
-  color: ${props => props.theme.colors.headingColor};
-  margin: 30px 0 10px;
 `
 
 export const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   h1 {
     font-size: 20px;
-    color: ${props => props.theme.colors.headingColor};
     font-weight: 700;
-    flex: 1;
-    margin: 0;
+    color: ${props => props.theme.colors.headingColor};
+    margin-bottom: 0;
   }
+  ${props => props.theme?.rtl ? css`
+    margin-left: 35px;
+  ` : css`
+    margin-right: 35px;
+  `}
 `
 
-export const CloseButton = styled.div`
-  display: none;
-  @media (min-width: 1000px) {
-    display: flex;
-    align-items: center;
-  }
+export const TabContainer = styled.div`
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid ${props => props.theme.colors.borderColor};
+  margin-bottom: 24px;
+  margin-top: 15px;
+`
+
+export const Tab = styled.div`
+  padding: 10px 0px;
+  cursor: pointer;
+  color: ${props => props.theme.colors?.headingColor};
+  white-space: nowrap;
+  font-size: 14px;
+  position: relative;
+  ${props => props.theme?.rtl ? css`
+    margin-left: 30px;
+  ` : css`
+    margin-right: 30px;
+  `}
+
+  ${({ active }) => active && css`
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      background: #344050;
+      height: 1px;
+      position: absolute;
+      width: 100%;
+      bottom: -1px;
+      ${props => props.theme?.rtl ? css`
+        right: 0;
+      ` : css`
+        left: 0;
+      `}
+    }
+  `}
+  ${({ active }) => !active && css`
+    color: ${props => props.theme.colors?.lightGray};
+  `}
 `
 export const ActionSelectorWrapper = styled.div`
-  margin: 0 10px;
   button {
     background: transparent !important;
     border: none;

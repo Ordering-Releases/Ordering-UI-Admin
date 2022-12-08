@@ -51,8 +51,8 @@ const BusinessProductAddFormUI = (props) => {
   const [isCustom, setIsCustom] = useState(false)
 
   const typeList = [
-    { value: 'item', content: <Option>{t('ITEM', 'Item')}</Option> }
-    // { value: 'service', content: <Option>{t('SERVICE', 'Service')}</Option> }
+    { value: 'item', content: <Option>{t('ITEM', 'Item')}</Option> },
+    { value: 'service', content: <Option>{t('SERVICE', 'Service')}</Option> }
   ]
 
   const durationList = [
