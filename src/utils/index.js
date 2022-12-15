@@ -3,7 +3,7 @@ import FaCcMastercard from '@meronex/icons/fa/FaCcMastercard'
 import FaCcVisa from '@meronex/icons/fa/FaCcVisa'
 import FaCreditCard from '@meronex/icons/fa/FaCreditCard'
 import moment from 'moment'
-import { useLanguage } from 'ordering-components-admin-external'
+import { useLanguage } from 'ordering-components-admin'
 
 export const optimizeImage = (url, params, fallback) => {
   if (!url && fallback) return fallback
@@ -290,36 +290,6 @@ export const formatSeconds = (seconds) => {
 export const checkSiteUrl = (url, fallback) => {
   if (!url) return fallback
   return url[url?.length - 1] === '/' ? url : `${url}/`
-}
-
-/**
- * Function to insert intercom script dynamically
- */
-export const insertIntercom = () => {
-  if (document.getElementById('intercom-sdk')) return
-
-  const script = document.createElement('script')
-  script.async = true
-  script.id = 'intercom-sdk'
-  script.defer = true
-  script.innerHTML = 'window.intercomSettings = { api_base: \'https://api-iam.intercom.io\', app_id: \'o912y2nt\' };(function () { var w = window; var ic = w.Intercom; if (typeof ic === \'function\') { ic(\'reattach_activator\'); ic(\'update\', w.intercomSettings) } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Intercom = i; var l = function () { var s = d.createElement(\'script\'); s.type = \'text/javascript\'; s.async = true; s.src = \'https://widget.intercom.io/widget/o912y2nt\'; var x = d.getElementsByTagName(\'script\')[0]; x.parentNode.insertBefore(s, x) }; if (document.readyState === \'complete\') { l() } else if (w.attachEvent) { w.attachEvent(\'onload\', l) } else { w.addEventListener(\'load\', l, false) } } })();'
-  document.body.appendChild(script)
-}
-
-/**
- * Function to remove intercom script dynamically
- */
-export const removeIntercom = () => {
-  const intercomSDK = document.getElementById('intercom-sdk')
-  const intercomContainer = document.getElementById('intercom-container')
-  const intercomFrame = document.getElementById('intercom-frame')
-  const intercomLightWeight = document.querySelector('.intercom-lightweight-app')
-  intercomSDK && document.body.removeChild(intercomSDK)
-  intercomContainer && document.body.removeChild(intercomContainer)
-  intercomFrame && document.body.removeChild(intercomFrame)
-  intercomLightWeight && document.body.removeChild(intercomLightWeight)
-  window.Intercom = null
-  window.intercomSettings = null
 }
 
 /**
