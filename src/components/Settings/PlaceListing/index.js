@@ -246,12 +246,12 @@ const PlaceListingUI = (props) => {
           >
             {t('CITIES', 'Cities')}
           </Tab>
-          <Tab
+          {/* <Tab
             active={showOption === 'zones'}
             onClick={() => setShowOption('zones')}
           >
             {t('DROPDOWN_OPTIONS', 'Zones dropdown options')}
-          </Tab>
+          </Tab> */}
         </Tabs>
 
         {showOption === 'countries' && (
