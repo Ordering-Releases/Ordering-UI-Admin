@@ -251,12 +251,7 @@ var PlaceListingUI = function PlaceListingUI(props) {
     onClick: function onClick() {
       return setShowOption('cities');
     }
-  }, t('CITIES', 'Cities')), /*#__PURE__*/_react.default.createElement(_styles2.Tab, {
-    active: showOption === 'zones',
-    onClick: function onClick() {
-      return setShowOption('zones');
-    }
-  }, t('DROPDOWN_OPTIONS', 'Zones dropdown options'))), showOption === 'countries' && /*#__PURE__*/_react.default.createElement(_CountriesList.CountriesList, {
+  }, t('CITIES', 'Cities'))), showOption === 'countries' && /*#__PURE__*/_react.default.createElement(_CountriesList.CountriesList, {
     actionState: actionState,
     countriesState: countriesState,
     handleUpdateCountry: handleUpdateCountry,
