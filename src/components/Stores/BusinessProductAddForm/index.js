@@ -52,7 +52,7 @@ const BusinessProductAddFormUI = (props) => {
 
   const typeList = [
     { value: 'item', content: <Option>{t('ITEM', 'Item')}</Option> },
-    { value: 'service', content: <Option>{t('SERVICE', 'Service')}</Option> }
+    // { value: 'service', content: <Option>{t('SERVICE', 'Service')}</Option> }
   ]
 
   const durationList = [

@@ -217,7 +217,7 @@ export const BusinessDeliveryZoneInformation = (props) => {
                 maxLength={2}
                 value={formState.changes?.data?.distance ?? zone?.data?.distance ?? ''}
                 onInput={(e) => {
-                  e.target.value = e.target.value.match("^[1-9]{1,2}$")
+                  e.target.value = e.target.value.match('^[1-9]{1,2}$')
                 }}
                 onChange={e => handleChangeInput(e, configState?.configs?.distance_unit?.value)}
                 ref={register({
@@ -225,8 +225,7 @@ export const BusinessDeliveryZoneInformation = (props) => {
                 })}
               />
             </FormControl>
-          </Row>
-        }
+          </Row>}
         <FormControl>
           <label>{t('BUSINESS_ADDRESS', 'Business address')}</label>
           <Input
@@ -240,13 +239,12 @@ export const BusinessDeliveryZoneInformation = (props) => {
             <WrapperMap>
               {zoneType !== 5 &&
                 isMyZone &&
-                <button
-                  type='button'
-                  onClick={() => setClearState(true)}
-                >
-                  {t('CLEAR', 'Clear')}
-                </button>
-              }
+                  <button
+                    type='button'
+                    onClick={() => setClearState(true)}
+                  >
+                    {t('CLEAR', 'Clear')}
+                  </button>}
               <BusinessZoneGoogleMaps
                 distance={formState.changes?.data?.distance}
                 disabled={isMyZone}
