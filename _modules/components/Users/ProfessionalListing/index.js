@@ -114,6 +114,7 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
     }
   }, [usersList]);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.UsersListingContainer, null, /*#__PURE__*/_react.default.createElement(_UsersListingHeader.UsersListingHeader, {
+    isProfessionals: true,
     title: headerTitle,
     searchValue: searchValue,
     onSearch: onSearch
@@ -170,6 +171,7 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
       return setOpenUserAddForm(false);
     }
   }, /*#__PURE__*/_react.default.createElement(_ProfessionalAddForm.ProfessionalAddForm, {
+    occupations: occupationsState.occupations,
     handleSuccessAdd: handleSuccessAddUser,
     onClose: function onClose() {
       return setOpenUserAddForm(false);
