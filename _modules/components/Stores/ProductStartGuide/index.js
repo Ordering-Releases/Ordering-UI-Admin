@@ -17,12 +17,13 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ProductStartGuide = function ProductStartGuide(props) {
   var onClose = props.onClose,
     setStep = props.setStep,
+    setOption = props.setOption,
     countriesState = props.countriesState;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -39,9 +40,35 @@ var ProductStartGuide = function ProductStartGuide(props) {
     description: t('IMPORT_MENU_ONLY_USA_CANADA_DESC', 'Import your menu from the Ordering Network that includes over 1M restaurants and stores from the US and Canada.'),
     icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ColumnsGap, null),
     enabled: countriesState === null || countriesState === void 0 ? void 0 : countriesState.enabled
+  }, {
+    id: 3,
+    title: t('UPLOAD_YOUR_MENU', 'Upload your Menu'),
+    description: t('UPLOAD_YOUR_MENU_DESC', 'Click to upload your menu (PDF or image file) or share your menu link (For website or another online ordering system)'),
+    icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.FileEarmarkArrowUp, null),
+    enabled: true
+  }, {
+    id: 4,
+    title: t('INTEGRATE_MY_POS_TO_EXTRACT_MENU', 'Integrate my POS to extract the menu'),
+    icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.TabletLandscape, null),
+    enabled: true
   }];
   var handleChangeStep = function handleChangeStep(id) {
-    if (id === 1) onClose();else if (id === 2) setStep(2);
+    switch (id) {
+      case 2:
+        setStep(2);
+        setOption(2);
+        break;
+      case 3:
+        setStep(2);
+        setOption(3);
+        break;
+      case 4:
+        setStep(2);
+        setOption(4);
+        break;
+      default:
+        onClose();
+    }
   };
   return /*#__PURE__*/_react.default.createElement(_styles.Container, null, /*#__PURE__*/_react.default.createElement("h2", null, t('HOW_DO_YOU_WANT_TO_START', 'How do you want to start?')), (countriesState === null || countriesState === void 0 ? void 0 : countriesState.loading) && _toConsumableArray(Array(4).keys()).map(function (idx) {
     return /*#__PURE__*/_react.default.createElement(_styles.GuideItemContainer, {
@@ -63,7 +90,7 @@ var ProductStartGuide = function ProductStartGuide(props) {
       onClick: function onClick() {
         return handleChangeStep(guide.id);
       }
-    }, /*#__PURE__*/_react.default.createElement(_styles.IconWrapper, null, guide.icon), /*#__PURE__*/_react.default.createElement(_styles.InfoWrapper, null, /*#__PURE__*/_react.default.createElement("h3", null, guide.title), /*#__PURE__*/_react.default.createElement("p", null, guide.description)));
+    }, /*#__PURE__*/_react.default.createElement(_styles.IconWrapper, null, guide.icon), /*#__PURE__*/_react.default.createElement(_styles.InfoWrapper, null, /*#__PURE__*/_react.default.createElement("h3", null, guide.title), guide.description && /*#__PURE__*/_react.default.createElement("p", null, guide.description)));
   }));
 };
 exports.ProductStartGuide = ProductStartGuide;

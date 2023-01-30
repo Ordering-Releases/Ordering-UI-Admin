@@ -31,11 +31,11 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var BusinessAddUI = function BusinessAddUI(props) {
-  var _orderStatus$options;
+  var _formState$changes, _orderStatus$options, _configs$google_maps_, _configs$google_maps_2;
   var formState = props.formState,
     handleChangeAddress = props.handleChangeAddress,
     handleChangeInput = props.handleChangeInput,
@@ -52,7 +52,9 @@ var BusinessAddUI = function BusinessAddUI(props) {
     gallery = props.gallery,
     handleChangePaymethodIds = props.handleChangePaymethodIds,
     paymethodIds = props.paymethodIds,
-    handleChangeSchedule = props.handleChangeSchedule;
+    handleChangeSchedule = props.handleChangeSchedule,
+    placeId = props.placeId,
+    setDetails = props.setDetails;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -62,6 +64,9 @@ var BusinessAddUI = function BusinessAddUI(props) {
   var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
     _useEvent2 = _slicedToArray(_useEvent, 1),
     events = _useEvent2[0];
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
+    _useConfig2 = _slicedToArray(_useConfig, 1),
+    configs = _useConfig2[0].configs;
   var _useInfoShare = (0, _InfoShareContext.useInfoShare)(),
     _useInfoShare2 = _slicedToArray(_useInfoShare, 2),
     isCollapse = _useInfoShare2[0].isCollapse,
@@ -74,6 +79,13 @@ var BusinessAddUI = function BusinessAddUI(props) {
     alertState = _useState2[0],
     setAlertState = _useState2[1];
   var handleSubmit = function handleSubmit() {
+    if ((paymethodIds === null || paymethodIds === void 0 ? void 0 : paymethodIds.length) === 0) {
+      setAlertState({
+        open: true,
+        content: t('AT_LEAST_A_PAYMENT_METHOD_REQUIRED', 'At least a payment method is required')
+      });
+      return;
+    }
     handleAddBusiness();
   };
   var handleGoToBusinessList = function handleGoToBusinessList() {
@@ -100,6 +112,22 @@ var BusinessAddUI = function BusinessAddUI(props) {
   var changeSchedule = (0, _react.useCallback)(function (e) {
     return handleChangeSchedule(e);
   }, []);
+  var googleMapsControls = {
+    defaultZoom: 15,
+    zoomControl: true,
+    streetViewControl: false,
+    fullscreenControl: false,
+    mapTypeId: 'roadmap',
+    // 'roadmap', 'satellite', 'hybrid', 'terrain'
+    mapTypeControl: false,
+    mapTypeControlOptions: {
+      mapTypeIds: ['roadmap', 'satellite']
+    }
+  };
+  var defaultPosition = {
+    lat: 40.77473399999999,
+    lng: -73.9653844
+  };
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.AddNewBusinessContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.HeaderTitleContainer, null, isCollapse && /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
     color: "black",
     onClick: function onClick() {
@@ -109,12 +137,14 @@ var BusinessAddUI = function BusinessAddUI(props) {
     formState: formState,
     handleChangeAddress: handleChangeAddress,
     handleChangeInput: handleChangeInput,
-    handleChangeCenter: handleChangeCenter
+    handleChangeCenter: handleChangeCenter,
+    placeId: placeId
   })), /*#__PURE__*/_react.default.createElement(_styles2.BoxLayout, null, /*#__PURE__*/_react.default.createElement(_Images.Images, {
     formState: formState,
     handleChangeSwtich: handleChangeSwtich
   })), /*#__PURE__*/_react.default.createElement(_styles2.BoxLayout, null, /*#__PURE__*/_react.default.createElement(_Schedule.Schedule, {
-    handleChangeSchedule: changeSchedule
+    handleChangeSchedule: changeSchedule,
+    schedule: formState === null || formState === void 0 ? void 0 : (_formState$changes = formState.changes) === null || _formState$changes === void 0 ? void 0 : _formState$changes.schedule
   })), /*#__PURE__*/_react.default.createElement(_styles2.BoxLayout, null, /*#__PURE__*/_react.default.createElement(_Photos.Photos, {
     gallery: gallery,
     handleChangeGallery: handleChangeGallery
@@ -143,7 +173,14 @@ var BusinessAddUI = function BusinessAddUI(props) {
     color: "primary",
     onClick: handleSubmit,
     disabled: formState === null || formState === void 0 ? void 0 : formState.loading
-  }, t('CONFIRM', 'Confirm')))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
+  }, t('CONFIRM', 'Confirm'))), /*#__PURE__*/_react.default.createElement(_styles2.MapWrapper, null, placeId && (configs === null || configs === void 0 ? void 0 : (_configs$google_maps_ = configs.google_maps_api_key) === null || _configs$google_maps_ === void 0 ? void 0 : _configs$google_maps_.value) && /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GoogleMapsMap, {
+    apiKey: configs === null || configs === void 0 ? void 0 : (_configs$google_maps_2 = configs.google_maps_api_key) === null || _configs$google_maps_2 === void 0 ? void 0 : _configs$google_maps_2.value,
+    location: defaultPosition,
+    mapControls: googleMapsControls,
+    isFitCenter: true,
+    setDetails: setDetails,
+    placeId: placeId
+  }))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('WEB_APPNAME', 'Ordering'),
     content: alertState.content,
     acceptText: t('ACCEPT', 'Accept'),

@@ -31,12 +31,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var localizer = (0, _reactBigCalendar.momentLocalizer)(_moment.default);
 var AppointmentsUI = function AppointmentsUI(props) {
-  var _configs$format_time;
+  var _configs$appointments, _configs$format_time;
   var selectedBusiness = props.selectedBusiness,
     setSelectedBusiness = props.setSelectedBusiness,
     businessCalendarEvents = props.businessCalendarEvents;
@@ -46,6 +46,9 @@ var AppointmentsUI = function AppointmentsUI(props) {
   var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
     _useConfig2 = _slicedToArray(_useConfig, 1),
     configs = _useConfig2[0].configs;
+  var _useUtils = (0, _orderingComponentsAdminExternal.useUtils)(),
+    _useUtils2 = _slicedToArray(_useUtils, 1),
+    parseDate = _useUtils2[0].parseDate;
   var _useInfoShare = (0, _InfoShareContext.useInfoShare)(),
     _useInfoShare2 = _slicedToArray(_useInfoShare, 2),
     isCollapse = _useInfoShare2[0].isCollapse,
@@ -62,6 +65,7 @@ var AppointmentsUI = function AppointmentsUI(props) {
     _useState6 = _slicedToArray(_useState5, 2),
     selectedAppointment = _useState6[0],
     setSelectedAppointment = _useState6[1];
+  var isEnabledAppointmentsFeature = configs === null || configs === void 0 ? void 0 : (_configs$appointments = configs.appointments) === null || _configs$appointments === void 0 ? void 0 : _configs$appointments.value;
   var changeBusinessState = function changeBusinessState(business) {
     setShowSelectHeader(false);
     setSelectedBusiness(business);
@@ -75,7 +79,7 @@ var AppointmentsUI = function AppointmentsUI(props) {
     onClick: function onClick() {
       return handleMenuCollapse(false);
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.List, null)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, t('APPOINTMENT', 'Appointment')), /*#__PURE__*/_react.default.createElement(_styles3.BusinessSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_styles3.BusinessName, {
+  }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.List, null)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, t('APPOINTMENT', 'Appointment')), isEnabledAppointmentsFeature && /*#__PURE__*/_react.default.createElement(_styles3.BusinessSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_styles3.BusinessName, {
     onClick: function onClick() {
       return setShowSelectHeader(!showSelectHeader);
     }
@@ -87,7 +91,7 @@ var AppointmentsUI = function AppointmentsUI(props) {
     changeBusinessState: changeBusinessState
   }), /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ChevronRight, null), /*#__PURE__*/_react.default.createElement("span", {
     className: "calendar"
-  }, t('CALENDAR', 'Calendar')))))), /*#__PURE__*/_react.default.createElement(_styles3.CalendarWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBigCalendar.Calendar, {
+  }, t('CALENDAR', 'Calendar')))))), isEnabledAppointmentsFeature ? /*#__PURE__*/_react.default.createElement(_styles3.CalendarWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBigCalendar.Calendar, {
     localizer: localizer,
     formats: {
       timeGutterFormat: (configs === null || configs === void 0 ? void 0 : (_configs$format_time = configs.format_time) === null || _configs$format_time === void 0 ? void 0 : _configs$format_time.value) === '24' ? 'HH:mm' : 'HH:mm A'
@@ -95,10 +99,14 @@ var AppointmentsUI = function AppointmentsUI(props) {
     defaultView: _reactBigCalendar.Views.MONTH,
     events: businessCalendarEvents.result,
     startAccessor: function startAccessor(event) {
-      return (0, _moment.default)(event.start, 'YYYY-MM-DD HH:mm:ss').toDate();
+      return (0, _moment.default)(parseDate(event.start, {
+        outputFormat: 'YYYY-MM-DD HH:mm:ss'
+      })).toDate();
     },
     endAccessor: function endAccessor(event) {
-      return (0, _moment.default)(event.end, 'YYYY-MM-DD HH:mm:ss').toDate();
+      return (0, _moment.default)(parseDate(event.end, {
+        outputFormat: 'YYYY-MM-DD HH:mm:ss'
+      })).toDate();
     },
     views: ['month', 'week', 'day'],
     showMultiDayTimes: false,
@@ -114,7 +122,7 @@ var AppointmentsUI = function AppointmentsUI(props) {
       toolbar: _CalendarHeader.CalendarHeader,
       event: _EventComponent.EventComponent
     }
-  })), openDetails && /*#__PURE__*/_react.default.createElement(_OrderDetails.OrderDetails, {
+  })) : /*#__PURE__*/_react.default.createElement(_styles3.WarningText, null, t('APPOINTMENTS_FEATURE_NOT_ENABLED', 'The appointments feature is not enabled.')), openDetails && /*#__PURE__*/_react.default.createElement(_OrderDetails.OrderDetails, {
     isServiceOrder: true,
     open: openDetails,
     orderId: selectedAppointment === null || selectedAppointment === void 0 ? void 0 : selectedAppointment.order_id,

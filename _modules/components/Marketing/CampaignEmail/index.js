@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CampaignEmail = void 0;
 var _react = _interopRequireWildcard(require("react"));
+var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _styles = require("../../../styles");
 var _jquery = _interopRequireDefault(require("jquery"));
@@ -18,10 +19,16 @@ require("bootstrap/dist/css/bootstrap.css");
 var _Shared = require("../../Shared");
 var _InsertImage = require("../../Settings/InsertImage");
 var _InsertLink = require("../../Settings/InsertLink");
+var _SettingsList = require("../../Settings/SettingsList");
 var _styles2 = require("./styles");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -31,8 +38,8 @@ function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var CampaignEmailUI = function CampaignEmailUI(props) {
   var _contactState$changes5, _contactState$changes6, _contactState$changes7, _contactState$changes8, _contactState$changes9, _contactState$changes13, _contactState$changes14, _contactState$changes15, _contactState$changes16;
@@ -48,13 +55,11 @@ var CampaignEmailUI = function CampaignEmailUI(props) {
     handleInsertImage = props.handleInsertImage,
     handleDeleteImage = props.handleDeleteImage,
     selectedImageUrl = props.selectedImageUrl,
-    setSelectedImageUrl = props.setSelectedImageUrl;
+    setSelectedImageUrl = props.setSelectedImageUrl,
+    categoryList = props.categoryList;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
-  var _useEvent = (0, _orderingComponentsAdminExternal.useEvent)(),
-    _useEvent2 = _slicedToArray(_useEvent, 1),
-    events = _useEvent2[0];
   var _useState = (0, _react.useState)({
       open: false,
       content: []
@@ -74,6 +79,19 @@ var CampaignEmailUI = function CampaignEmailUI(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     emailBody = _useState8[0],
     setEmailBody = _useState8[1];
+  var _useState9 = (0, _react.useState)(),
+    _useState10 = _slicedToArray(_useState9, 2),
+    category = _useState10[0],
+    setCategory = _useState10[1];
+  var generalList = ['email_smtp_use_default', 'email_smtp_host', 'email_smtp_username', 'email_smtp_password', 'email_smtp_encryption', 'email_smtp_port'];
+  var isEnableConfig = (0, _react.useMemo)(function () {
+    var _category$configs;
+    return category === null || category === void 0 ? void 0 : (_category$configs = category.configs) === null || _category$configs === void 0 ? void 0 : _category$configs.filter(function (config) {
+      return generalList.includes(config.key);
+    }).every(function (config) {
+      return !!(config !== null && config !== void 0 && config.value);
+    });
+  }, [category]);
   var handleCloseModal = function handleCloseModal() {
     setOpenModal(false);
     setEditorContext(null);
@@ -166,21 +184,25 @@ var CampaignEmailUI = function CampaignEmailUI(props) {
     });
     return button.render();
   };
-  var handleGoToPage = function handleGoToPage() {
-    events.emit('go_to_page', {
-      page: 'operation_settings',
-      search: '?category=10'
-    });
-  };
   (0, _react.useEffect)(function () {
     if (!emailBody) return;
     handleChangeContact('body', emailBody);
   }, [emailBody]);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.Container, null, /*#__PURE__*/_react.default.createElement(_styles2.Description, null, t('SMTP_SETTINGS_LINK_DESC', 'You need to complete SMTP configuration first, you can do it here:'), " ", /*#__PURE__*/_react.default.createElement("span", {
-    onClick: function onClick() {
-      return handleGoToPage();
+  (0, _react.useEffect)(function () {
+    var _categoryList$categor;
+    if ((categoryList === null || categoryList === void 0 ? void 0 : (_categoryList$categor = categoryList.categories) === null || _categoryList$categor === void 0 ? void 0 : _categoryList$categor.length) > 0) {
+      var selectedCategory = categoryList === null || categoryList === void 0 ? void 0 : categoryList.categories.find(function (item) {
+        return item.key === 'email_configs';
+      });
+      var configs = selectedCategory === null || selectedCategory === void 0 ? void 0 : selectedCategory.configs.filter(function (config) {
+        return generalList.includes(config.key);
+      });
+      setCategory(_objectSpread(_objectSpread({}, selectedCategory), {}, {
+        configs: configs
+      }));
     }
-  }, t('EMAIL_SETTINGS', 'Email settings'))), /*#__PURE__*/_react.default.createElement(_styles2.InputWrapper, null, /*#__PURE__*/_react.default.createElement("label", null, t('TITLE', 'Title')), /*#__PURE__*/_react.default.createElement(_styles.Input, {
+  }, [categoryList]);
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isEnableConfig ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.Container, null, /*#__PURE__*/_react.default.createElement(_styles2.InputWrapper, null, /*#__PURE__*/_react.default.createElement("label", null, t('TITLE', 'Title')), /*#__PURE__*/_react.default.createElement(_styles.Input, {
     name: "title",
     placeholder: t('TITLE', 'Title'),
     value: (contactState === null || contactState === void 0 ? void 0 : (_contactState$changes5 = contactState.changes) === null || _contactState$changes5 === void 0 ? void 0 : (_contactState$changes6 = _contactState$changes5.contact_data) === null || _contactState$changes6 === void 0 ? void 0 : _contactState$changes6.title) || '',
@@ -216,7 +238,16 @@ var CampaignEmailUI = function CampaignEmailUI(props) {
     color: "primary",
     onClick: handleSaveEmail,
     disabled: contactState.loading
-  }, isAddMode ? t('ADD', 'Add') : t('SAVE', 'Save'))), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
+  }, isAddMode ? t('ADD', 'Add') : t('SAVE', 'Save')))) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.Description, null, /*#__PURE__*/_react.default.createElement("span", null, t('SMTP_SETTINGS_LINK_DESC', 'You need to complete SMTP configuration first'))), (categoryList === null || categoryList === void 0 ? void 0 : categoryList.loading) && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, _toConsumableArray(Array(5).keys()).map(function (i) {
+    return /*#__PURE__*/_react.default.createElement("p", {
+      key: i
+    }, /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
+      height: 20
+    }));
+  })), !(categoryList !== null && categoryList !== void 0 && categoryList.loading) && category && /*#__PURE__*/_react.default.createElement(_SettingsList.SettingsList, _extends({}, props, {
+    category: category,
+    isCampaign: true
+  })), /*#__PURE__*/_react.default.createElement(_styles2.BottomSpace, null)), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: "60%",
     open: openModal === 'image',
     onClose: function onClose() {
