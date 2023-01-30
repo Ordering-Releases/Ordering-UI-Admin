@@ -30,7 +30,8 @@ import {
   PlaceSpotContainer,
   RejectReasonsContainer,
   RejectReasonWrapper,
-  RejectReasonsList
+  RejectReasonsList,
+  DetailBottom
 } from './styles'
 
 const OrderDetailsUI = (props) => {
@@ -326,6 +327,7 @@ const OrderDetailsUI = (props) => {
               <p>
                 {parseDate(order?.delivery_datetime, { utc: false })}
               </p>
+              <p>{order?.eta_time} min</p>
             </div>
             <OrderStatusSelectorWrapper>
               <OrderStatusTypeSelector
@@ -398,6 +400,7 @@ const OrderDetailsUI = (props) => {
               handleRefundOrder={handleRefundOrder}
             />
           </div>
+          <DetailBottom />
         </OrderDetailsContent>
       )}
 
