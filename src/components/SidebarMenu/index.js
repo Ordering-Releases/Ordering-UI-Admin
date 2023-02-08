@@ -86,13 +86,13 @@ const SidebarMenuUI = (props) => {
       title: t('APPOINTMENTS', 'Appointments'),
       pageName: 'appointments',
       url: '/appointments'
-    },
-    {
-      id: 5,
-      title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
-      pageName: 'giftCards',
-      url: '/gift-cards'
     }
+    // {
+    //   id: 5,
+    //   title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
+    //   pageName: 'giftCards',
+    //   url: '/gift-cards'
+    // }
   ]
 
   const loyaltySubMenus = [
@@ -209,13 +209,13 @@ const SidebarMenuUI = (props) => {
       title: t('MANAGERS', 'Managers'),
       pageName: 'managers',
       url: '/users/managers'
+    },
+    {
+      id: 3,
+      title: t('PROFESSIONALS', 'Professionals'),
+      pageName: 'professionals',
+      url: '/users/professionals'
     }
-    // {
-    //   id: 3,
-    //   title: t('PROFESSIONALS', 'Professionals'),
-    //   pageName: 'professionals',
-    //   url: '/users/professionals'
-    // }
   ]
 
   const buisnessOwnerUsersMenuIncluded = [3]
