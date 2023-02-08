@@ -49,7 +49,8 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     handleDragStart = props.handleDragStart,
     hanldeDragOver = props.hanldeDragOver,
     handleDrop = props.handleDrop,
-    handleDragEnd = props.handleDragEnd;
+    handleDragEnd = props.handleDragEnd,
+    handleUpdateExtraState = props.handleUpdateExtraState;
   var theme = (0, _styledComponents.useTheme)();
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -222,7 +223,8 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     business: business,
     extra: currentExtra,
     handleChangeExtraName: handleChangeExtraInput,
-    handleUpdateBusinessState: handleUpdateBusinessState
+    handleUpdateBusinessState: handleUpdateBusinessState,
+    handleUpdateExtraState: handleUpdateExtraState
   })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, openExtraDetails && /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
     width: "80%",
     open: openExtraDetails,
@@ -238,7 +240,8 @@ var ProductExtrasUI = function ProductExtrasUI(props) {
     business: business,
     extra: currentExtra,
     handleChangeExtraName: handleChangeExtraInput,
-    handleUpdateBusinessState: handleUpdateBusinessState
+    handleUpdateBusinessState: handleUpdateBusinessState,
+    handleUpdateExtraState: handleUpdateExtraState
   }))), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('WEB_APPNAME', 'Ordering'),
     content: alertState.content,
