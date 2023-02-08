@@ -85,12 +85,15 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
     title: t('APPOINTMENTS', 'Appointments'),
     pageName: 'appointments',
     url: '/appointments'
-  }, {
-    id: 5,
-    title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
-    pageName: 'giftCards',
-    url: '/gift-cards'
-  }];
+  }
+  // {
+  //   id: 5,
+  //   title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
+  //   pageName: 'giftCards',
+  //   url: '/gift-cards'
+  // }
+  ];
+
   var loyaltySubMenus = [{
     id: 1,
     title: t('LOYALTY_AUTOMATION', 'Loyalty automation'),
@@ -184,15 +187,12 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
     title: t('MANAGERS', 'Managers'),
     pageName: 'managers',
     url: '/users/managers'
-  }
-  // {
-  //   id: 3,
-  //   title: t('PROFESSIONALS', 'Professionals'),
-  //   pageName: 'professionals',
-  //   url: '/users/professionals'
-  // }
-  ];
-
+  }, {
+    id: 3,
+    title: t('PROFESSIONALS', 'Professionals'),
+    pageName: 'professionals',
+    url: '/users/professionals'
+  }];
   var buisnessOwnerUsersMenuIncluded = [3];
   var settingsSubMenus = [{
     id: 1,
