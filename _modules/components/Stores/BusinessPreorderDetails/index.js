@@ -9,6 +9,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _styles = require("../../../styles");
 var _styles2 = require("./styles");
+var _styles3 = require("../ProductDesktopPreview/styles");
+var _BusinessCateringDelivery = require("../BusinessCateringDelivery");
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -26,7 +28,9 @@ var BusinessPreorderDetails = function BusinessPreorderDetails(props) {
   var business = props.business,
     formState = props.formState,
     setFormState = props.setFormState,
-    handleUpdateBusinessClick = props.handleUpdateBusinessClick;
+    handleUpdateBusinessClick = props.handleUpdateBusinessClick,
+    handleUpdatePreorderConfigs = props.handleUpdatePreorderConfigs,
+    actionStatus = props.actionStatus;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -74,6 +78,16 @@ var BusinessPreorderDetails = function BusinessPreorderDetails(props) {
       }
     }));
   };
+  var changePreorderConfigs = function changePreorderConfigs(params) {
+    var _business$configs, _business$configs$fin;
+    var cateringString = business === null || business === void 0 ? void 0 : (_business$configs = business.configs) === null || _business$configs === void 0 ? void 0 : (_business$configs$fin = _business$configs.find(function (config) {
+      return (config === null || config === void 0 ? void 0 : config.id) === (params === null || params === void 0 ? void 0 : params.id);
+    })) === null || _business$configs$fin === void 0 ? void 0 : _business$configs$fin.value;
+    var stringParam = cateringString.split('|').map(function (string) {
+      return string.includes(params.type) ? "".concat(params.type, ",").concat(params.value) : string;
+    }).join('|');
+    handleUpdatePreorderConfigs(stringParam, params.id);
+  };
   (0, _react.useEffect)(function () {
     setFormState(_objectSpread(_objectSpread({}, formState), {}, {
       changes: {}
@@ -84,7 +98,7 @@ var BusinessPreorderDetails = function BusinessPreorderDetails(props) {
       minute: business !== null && business !== void 0 && business.preorder_time ? (business === null || business === void 0 ? void 0 : business.preorder_time) % 60 : '0'
     });
   }, []);
-  return /*#__PURE__*/_react.default.createElement(_styles2.BusinessPreorderContainer, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PREORDER_SETTING', 'Preorder')), /*#__PURE__*/_react.default.createElement(_styles2.PreorderTimeWrapper, null, /*#__PURE__*/_react.default.createElement("p", {
+  return /*#__PURE__*/_react.default.createElement(_styles2.BusinessPreorderContainer, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PREORDERS_SETTING', 'Preorders and lead times')), /*#__PURE__*/_react.default.createElement(_styles2.PreorderTimeWrapper, null, /*#__PURE__*/_react.default.createElement("p", {
     className: "name"
   }, t('PREORDER_TIME', 'Pre order time')), /*#__PURE__*/_react.default.createElement("p", {
     className: "description"
@@ -106,11 +120,11 @@ var BusinessPreorderDetails = function BusinessPreorderDetails(props) {
       value: minute.minute,
       key: i
     }, minute.text);
-  })))), /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  }))), /*#__PURE__*/_react.default.createElement(_styles.Button, {
     borderRadius: "8px",
     color: "primary",
     disabled: formState.loading || Object.keys(formState.changes).length === 0,
     onClick: handleUpdateBusinessClick
-  }, t('SAVE', 'Save')));
+  }, t('SAVE', 'Save'))));
 };
 exports.BusinessPreorderDetails = BusinessPreorderDetails;

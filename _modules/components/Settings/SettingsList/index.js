@@ -59,6 +59,7 @@ var SettingsListUI = function SettingsListUI(props) {
       content: []
     });
   };
+  var valuesTypeSix = ['catering_delivery', 'catering_pickup'];
   var formatArray = function formatArray(values) {
     values = values.replace('[', '');
     values = values.replace(']', '');
@@ -104,6 +105,21 @@ var SettingsListUI = function SettingsListUI(props) {
       return;
     }
     handleClickUpdate && handleClickUpdate();
+  };
+  var timeout = null;
+  var previousSearch = null;
+  var handleChangeTypeSix = function handleChangeTypeSix(catering, config) {
+    if (previousSearch !== catering.value) {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        var cateringString = config === null || config === void 0 ? void 0 : config.value;
+        var stringParam = cateringString.split('|').map(function (string) {
+          return string.includes(catering.type) ? "".concat(catering.type, ",").concat(catering.value) : string;
+        }).join('|');
+        handleInputChange(stringParam, config.id);
+      }, 1500);
+    }
+    previousSearch = catering.value;
   };
   var handleKeyPress = function handleKeyPress(e, key) {
     switch (key) {
