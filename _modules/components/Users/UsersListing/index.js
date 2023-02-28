@@ -55,7 +55,9 @@ var UsersListingUI = function UsersListingUI(props) {
     handleSuccessUpdate = props.handleSuccessUpdate,
     handleSuccessAddUser = props.handleSuccessAddUser,
     handleSuccessDeleteUser = props.handleSuccessDeleteUser,
-    setSelectedUsers = props.setSelectedUsers;
+    setSelectedUsers = props.setSelectedUsers,
+    handleChangeMultiFilterValues = props.handleChangeMultiFilterValues,
+    multiFilterValues = props.multiFilterValues;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -114,7 +116,10 @@ var UsersListingUI = function UsersListingUI(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.UsersListingContainer, null, /*#__PURE__*/_react.default.createElement(_UsersListingHeader.UsersListingHeader, {
     title: headerTitle,
     searchValue: searchValue,
-    onSearch: onSearch
+    onSearch: onSearch,
+    handleChangeMultiFilterValues: handleChangeMultiFilterValues,
+    multiFilterValues: multiFilterValues,
+    isManagers: true
   }), /*#__PURE__*/_react.default.createElement(_UserActiveStateFilter.UserActiveStateFilter, {
     selectedUserActiveState: selectedUserActiveState,
     handleChangeUserActiveState: handleChangeUserActiveState
@@ -164,7 +169,8 @@ var UsersListingUI = function UsersListingUI(props) {
     open: openUserAddForm,
     onClose: function onClose() {
       return setOpenUserAddForm(false);
-    }
+    },
+    showExpandIcon: true
   }, /*#__PURE__*/_react.default.createElement(_UserAddForm.UserAddForm, {
     handleSuccessAdd: handleSuccessAddUser,
     onClose: function onClose() {
