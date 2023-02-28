@@ -8082,9 +8082,9 @@ optionator@^0.8.3:
   dependencies:
     "@babel/runtime" "^7.10.4"
 
-ordering-components-admin-external@1.13.3:
+ordering-components-admin-external-external@1.13.3:
   version "1.13.3"
-  resolved "https://registry.yarnpkg.com/ordering-components-admin-external/-/ordering-components-admin-external-1.13.3.tgz#875d580c78f1d4b8daad9ac27cf51ccb865f1207"
+  resolved "https://registry.yarnpkg.com/ordering-components-admin-external-external/-/ordering-components-admin-external-external-1.13.3.tgz#875d580c78f1d4b8daad9ac27cf51ccb865f1207"
   integrity sha512-Cp9dQpjYHnISYWsFizyby6QvFKgkzMm+Uy59Mpx5Fs5IMZryQzOB8AtNUygeE59LNBAiec+sMKL5y9gnjXLt4Q==
   dependencies:
     "@babel/runtime" "^7.10.4"
