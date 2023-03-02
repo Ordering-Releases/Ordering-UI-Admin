@@ -53,12 +53,9 @@ var RewardsPrograms = function RewardsPrograms() {
     name: t('LEVELS', 'Levels'),
     description: t('LEVELS_DESCRIPTION', 'Setup different loyalty levels for your users.'),
     icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.BarChartSteps, null)
-  }, {
-    key: 'gift_card',
-    name: t('GIFT_CARD', 'Gift Card'),
-    description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'),
-    icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Gift, null)
-  }, {
+  },
+  // { key: 'gift_card', name: t('GIFT_CARD', 'Gift Card'), description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'), icon: <Gift /> },
+  {
     key: 'cashback',
     name: t('CASH_WALLET', 'Cash wallet'),
     description: t('CASH_WALLET_DESCRIPTION', 'Cash wallet general and per business setup.'),
