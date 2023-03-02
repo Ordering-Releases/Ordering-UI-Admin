@@ -29,7 +29,7 @@ export const RewardsPrograms = () => {
   const walletList = [
     { key: 'credit_point', name: t('POINTS_WALLET', 'Points wallet'), description: t('POINTS_WALLET_DESCRIPTION', 'Points wallet general and per business setup.'), icon: <Cash /> },
     { key: 'levels', name: t('LEVELS', 'Levels'), description: t('LEVELS_DESCRIPTION', 'Setup different loyalty levels for your users.'), icon: <BarChartSteps /> },
-    { key: 'gift_card', name: t('GIFT_CARD', 'Gift Card'), description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'), icon: <Gift /> },
+    // { key: 'gift_card', name: t('GIFT_CARD', 'Gift Card'), description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'), icon: <Gift /> },
     { key: 'cashback', name: t('CASH_WALLET', 'Cash wallet'), description: t('CASH_WALLET_DESCRIPTION', 'Cash wallet general and per business setup.'), icon: <Cash /> }
   ]
 
