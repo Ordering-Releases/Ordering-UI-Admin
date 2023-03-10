@@ -121,14 +121,6 @@ var IntegrationListing = function IntegrationListing(props) {
     src: theme.images.general.lalamove
   })), /*#__PURE__*/_react.default.createElement(_styles2.SettingItemContent, null, /*#__PURE__*/_react.default.createElement("h5", null, t('CONNECT_WITH_LALAMOVE', 'Connect with Lalamove')), /*#__PURE__*/_react.default.createElement("p", null, t('CONNECT_LALAMOVE_DESCRIPTION', 'Send orders directly to your drivers in LalaMove and keep customers happy with their deliveries.')))), /*#__PURE__*/_react.default.createElement(_styles2.SettingItemContainer, {
     onClick: function onClick() {
-      return handleOpenSetting('picker_express');
-    }
-  }, /*#__PURE__*/_react.default.createElement(_styles2.IconWrapper, {
-    fullWidth: true
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    src: theme.images.general.pickerExpress
-  })), /*#__PURE__*/_react.default.createElement(_styles2.SettingItemContent, null, /*#__PURE__*/_react.default.createElement("h5", null, t('CONNECT_WITH_PICKER_EXPRESS', 'Connect with Picker Express')), /*#__PURE__*/_react.default.createElement("p", null, t('CONNECT_PICKER_EXPRESS_DESCRIPTION', 'Picker express connect you with +200 hundred thousand driver from +10 delivery companies from your city.')))), /*#__PURE__*/_react.default.createElement(_styles2.SettingItemContainer, {
-    onClick: function onClick() {
       return handleOpenSetting('deliverect');
     }
   }, /*#__PURE__*/_react.default.createElement(_styles2.IconWrapper, null, /*#__PURE__*/_react.default.createElement("img", {
