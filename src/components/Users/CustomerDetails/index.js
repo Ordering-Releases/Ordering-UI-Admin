@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import {
   UserDetails as UserDetailsController,
   useLanguage,
@@ -37,6 +38,8 @@ const CustomerDetailsUI = (props) => {
     handleChangeActiveUser
   } = props
 
+  const history = useHistory()
+  const query = new URLSearchParams(useLocation().search)
   const theme = useTheme()
   const [, t] = useLanguage()
   const [{ optimizeImage }] = useUtils()
@@ -67,10 +70,15 @@ const CustomerDetailsUI = (props) => {
     })
   }
 
-  const handleClickMenu = (key) => {
+  const handleClickMenu = (key, isInitialRender) => {
     setShowOption(key)
     handleParentSidebarMove(500)
     setIsOpenMenu(true)
+    if (!isInitialRender) {
+      const enabled = query.get('enabled')
+      const id = query.get('id')
+      history.replace(`${location.pathname}?enabled=${enabled}&id=${id}&section=${key}`)
+    }
   }
 
   const handleCloseMenu = () => {
@@ -78,6 +86,9 @@ const CustomerDetailsUI = (props) => {
     setShowOption(null)
     setIsOpenMenu(false)
     setMenuMoveDistance(0)
+    const enabled = query.get('enabled')
+    const id = query.get('id')
+    history.replace(`${location.pathname}?eanbled=${enabled}&id=${id}`)
   }
 
   const expandSidebar = () => {
@@ -96,6 +107,14 @@ const CustomerDetailsUI = (props) => {
   useEffect(() => {
     if (isOpenMenu) setIsExpand(false)
   }, [isOpenMenu])
+
+  useEffect(() => {
+    if (userState.loading) return
+    const section = query.get('section')
+    if (section) {
+      handleClickMenu(section, true)
+    }
+  }, [userState.loading])
 
   return (
     <>

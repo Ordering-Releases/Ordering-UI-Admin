@@ -224,8 +224,6 @@ const SidebarMenuUI = (props) => {
     }
   ]
 
-  const buisnessOwnerUsersMenuIncluded = [3]
-
   const settingsSubMenus = [
     {
       id: 1,

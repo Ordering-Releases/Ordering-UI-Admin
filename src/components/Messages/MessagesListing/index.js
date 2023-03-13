@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import { useLanguage, OrdersManage as OrdersManageController } from 'ordering-components-admin-external'
 import { OrdersContentHeader, OrdersDashboardList, OrderNotification, OrderDetails, Messages } from '../../Orders'
 import { Button } from '../../../styles/Buttons'
@@ -34,6 +35,9 @@ const MessagesListingUI = (props) => {
     handleChangeFilterValues
   } = props
 
+  const history = useHistory()
+  const query = new URLSearchParams(useLocation().search)
+
   const [, t] = useLanguage()
   const { width } = useWindowSize()
   const [selectedOption, setSelectedOption] = useState('orders')
@@ -44,11 +48,14 @@ const MessagesListingUI = (props) => {
   const [detailsOrder, setDetailsOrder] = useState(null)
   const [selectedOrder, setSelectedOrder] = useState(null)
   const [orderIdForUnreadCountUpdate, setOrderIdForUnreadCountUpdate] = useState(null)
+  const [filterModalOpen, setFilterModalOpen] = useState(false)
 
   const handleOpenOrderDetail = (order) => {
     setDetailsOrder(order)
     setOrderDetailId(order.id)
     setIsOpenOrderDetail(true)
+
+    history.replace(`${location.pathname}?id=${order.id}`)
   }
 
   const handleOrderCardClick = (order) => {
@@ -59,6 +66,14 @@ const MessagesListingUI = (props) => {
     if (width >= 768) return
     document.body.style.overflow = isOpenOrderDetail ? 'hidden' : 'auto'
   }, [width, isOpenOrderDetail])
+
+  useEffect(() => {
+    const id = query.get('id')
+    if (id) {
+      setOrderDetailId(id)
+      setIsOpenOrderDetail(true)
+    }
+  }, [])
 
   return (
     <>
@@ -74,6 +89,8 @@ const MessagesListingUI = (props) => {
           filterValues={filterValues}
           handleChangeSearch={handleChangeSearch}
           handleChangeFilterValues={handleChangeFilterValues}
+          filterModalOpen={filterModalOpen}
+          setFilterModalOpen={setFilterModalOpen}
         />
         <MessagesContent>
           <OrdersContainer>
