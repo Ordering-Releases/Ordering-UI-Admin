@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MessagesListing = void 0;
 var _react = _interopRequireWildcard(require("react"));
+var _reactRouterDom = require("react-router-dom");
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _Orders = require("../../Orders");
 var _Buttons = require("../../../styles/Buttons");
@@ -39,6 +40,8 @@ var MessagesListingUI = function MessagesListingUI(props) {
     selectedSubOrderStatus = props.selectedSubOrderStatus,
     handleChangeSearch = props.handleChangeSearch,
     handleChangeFilterValues = props.handleChangeFilterValues;
+  var history = (0, _reactRouterDom.useHistory)();
+  var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -76,10 +79,15 @@ var MessagesListingUI = function MessagesListingUI(props) {
     _useState16 = _slicedToArray(_useState15, 2),
     orderIdForUnreadCountUpdate = _useState16[0],
     setOrderIdForUnreadCountUpdate = _useState16[1];
+  var _useState17 = (0, _react.useState)(false),
+    _useState18 = _slicedToArray(_useState17, 2),
+    filterModalOpen = _useState18[0],
+    setFilterModalOpen = _useState18[1];
   var handleOpenOrderDetail = function handleOpenOrderDetail(order) {
     setDetailsOrder(order);
     setOrderDetailId(order.id);
     setIsOpenOrderDetail(true);
+    history.replace("".concat(location.pathname, "?id=").concat(order.id));
   };
   var handleOrderCardClick = function handleOrderCardClick(order) {
     setSelectedOrder(_objectSpread({}, order));
@@ -88,6 +96,13 @@ var MessagesListingUI = function MessagesListingUI(props) {
     if (width >= 768) return;
     document.body.style.overflow = isOpenOrderDetail ? 'hidden' : 'auto';
   }, [width, isOpenOrderDetail]);
+  (0, _react.useEffect)(function () {
+    var id = query.get('id');
+    if (id) {
+      setOrderDetailId(id);
+      setIsOpenOrderDetail(true);
+    }
+  }, []);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles.MessagesListingContainer, {
     id: "deliveryDashboard"
   }, /*#__PURE__*/_react.default.createElement(_Orders.OrdersContentHeader, {
@@ -100,7 +115,9 @@ var MessagesListingUI = function MessagesListingUI(props) {
     businessesList: businessesList,
     filterValues: filterValues,
     handleChangeSearch: handleChangeSearch,
-    handleChangeFilterValues: handleChangeFilterValues
+    handleChangeFilterValues: handleChangeFilterValues,
+    filterModalOpen: filterModalOpen,
+    setFilterModalOpen: setFilterModalOpen
   }), /*#__PURE__*/_react.default.createElement(_styles.MessagesContent, null, /*#__PURE__*/_react.default.createElement(_styles.OrdersContainer, null, /*#__PURE__*/_react.default.createElement(_styles.FilterContainer, null, /*#__PURE__*/_react.default.createElement(_styles.MessagesOptionTabs, null, /*#__PURE__*/_react.default.createElement(_styles.Tab, {
     active: selectedOption === 'orders',
     onClick: function onClick() {

@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BusinessPaymentMethods = void 0;
 var _react = _interopRequireWildcard(require("react"));
+var _reactRouterDom = require("react-router-dom");
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _RiCheckboxBlankLine = _interopRequireDefault(require("@meronex/icons/ri/RiCheckboxBlankLine"));
@@ -71,6 +72,8 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     handleSuccessUpdate = props.handleSuccessUpdate,
     isTutorialMode = props.isTutorialMode,
     handleTutorialContinue = props.handleTutorialContinue;
+  var history = (0, _reactRouterDom.useHistory)();
+  var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -146,8 +149,9 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     });
     return found;
   };
-  var handleOpenEdit = function handleOpenEdit(e, paymethodId, paymethodGateway) {
-    var inValid = e.target.closest('.paymethod-checkbox');
+  var handleOpenEdit = function handleOpenEdit(e, paymethodId, paymethodGateway, isInitialRender) {
+    var _e$target;
+    var inValid = e === null || e === void 0 ? void 0 : (_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.closest('.paymethod-checkbox');
     if (inValid) return true;
     if (!isTutorialMode && isCheckFoundBusinessPaymethod(paymethodId)) {
       setSelectedPaymethodGateway(paymethodGateway);
@@ -157,6 +161,11 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
       setSelectedBusinessPaymethod(businessPaymethod);
       setIsEdit(true);
       setIsExtendExtraOpen(true);
+    }
+    if (!isInitialRender) {
+      var businessId = query.get('id');
+      var section = query.get('section');
+      history.replace("".concat(location.pathname, "?id=").concat(businessId, "&section=").concat(section, "&paymethod=").concat(paymethodId));
     }
   };
   var handleClickCheckBox = function handleClickCheckBox(id) {
@@ -180,6 +189,9 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     setIsEdit(false);
     setSelectedBusinessPaymethod(null);
     setIsSuccessDeleted(false);
+    var businessId = query.get('id');
+    var section = query.get('section');
+    history.replace("".concat(location.pathname, "?id=").concat(businessId, "&section=").concat(section));
   };
   (0, _react.useEffect)(function () {
     if (!isSuccessDeleted) return;
@@ -192,6 +204,18 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     });
     setSelectedBusinessPaymethod(updatedPaymethod);
   }, [businessPaymethodsState === null || businessPaymethodsState === void 0 ? void 0 : businessPaymethodsState.paymethods, selectedBusinessPaymethod]);
+  (0, _react.useEffect)(function () {
+    if (paymethodsList.loading || businessPaymethodsState.loading) return;
+    var paymethodId = query.get('paymethod');
+    if (paymethodId) {
+      var initPaymethod = paymethodsList.paymethods.find(function (paymethod) {
+        return paymethod.id === Number(paymethodId);
+      });
+      if (initPaymethod) {
+        handleOpenEdit(null, initPaymethod.id, initPaymethod.gateway, true);
+      }
+    }
+  }, [paymethodsList.loading, businessPaymethodsState.loading]);
   return /*#__PURE__*/_react.default.createElement(_styles2.MainContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.PaymentMethodsContainer, {
     isOpenWalletDetails: isOpenWalletDetails
   }, /*#__PURE__*/_react.default.createElement("h1", null, t('PAYMETHODS', 'Payment methods')), /*#__PURE__*/_react.default.createElement(_styles2.SearchBarWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {

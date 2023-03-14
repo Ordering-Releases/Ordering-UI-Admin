@@ -198,7 +198,6 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
     pageName: 'professionals',
     url: '/users/professionals'
   }];
-  var buisnessOwnerUsersMenuIncluded = [3];
   var settingsSubMenus = [{
     id: 1,
     title: t('BASIC_SETTINGS', 'Basic settings'),
