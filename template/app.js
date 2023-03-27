@@ -47,7 +47,7 @@ import { Support } from './pages/Support'
 import { AdvancedReports } from './pages/AdvancedReports'
 import { EnterprisePromotionList } from './pages/EnterprisePromotionList'
 import { Appointments } from './pages/Appointments'
-// import { GiftCardsList } from './pages/GiftCardsList'
+import { GiftCardsList } from './pages/GiftCardsList'
 import { ResetPassword } from './pages/ResetPassword'
 import { OrderingWebsite } from './pages/OrderingWebsite'
 import { CustomerApp } from './pages/CustomerApp'
@@ -73,6 +73,7 @@ import { Profile } from './pages/Profile'
 import settings from './config.json'
 import { BusinessAdd } from './pages/BusinessAdd'
 import { CustomProject } from './pages/CustomProject'
+import { OrderingWidgets } from './pages/OrderingWidgets'
 
 export const App = () => {
   const [{ auth, loading, user }] = useSession()
@@ -219,6 +220,9 @@ export const App = () => {
                     <ProtectedRoute path='/appointments' allowedLevels={[0, 2]}>
                       <Appointments />
                     </ProtectedRoute>
+                    <ProtectedRoute path='/gift-cards' allowedLevels={[0]}>
+                      <GiftCardsList />
+                    </ProtectedRoute>
 
                     <ProtectedRoute path='/messages' allowedLevels={[0, 2]}>
                       <MessagesList />
@@ -320,6 +324,9 @@ export const App = () => {
                     </ProtectedRoute>
                     <ProtectedRoute path='/my-products/custom-project' allowedLevels={[0]}>
                       <CustomProject />
+                    </ProtectedRoute>
+                    <ProtectedRoute path='/my-products/ordering-widgets' allowedLevels={[0]}>
+                      <OrderingWidgets />
                     </ProtectedRoute>
 
                     <ProtectedRoute path='/settings/basic' allowedLevels={[0]}>
