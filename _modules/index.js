@@ -1119,6 +1119,12 @@ Object.defineProperty(exports, "FreeProductsList", {
     return _Downloads.FreeProductsList;
   }
 });
+Object.defineProperty(exports, "GiftCardsListing", {
+  enumerable: true,
+  get: function get() {
+    return _Orders.GiftCardsListing;
+  }
+});
 Object.defineProperty(exports, "GoogleGpsButton", {
   enumerable: true,
   get: function get() {
@@ -1477,6 +1483,12 @@ Object.defineProperty(exports, "OrderingWebsite", {
   enumerable: true,
   get: function get() {
     return _MyProducts.OrderingWebsite;
+  }
+});
+Object.defineProperty(exports, "OrderingWidgets", {
+  enumerable: true,
+  get: function get() {
+    return _MyProducts.OrderingWidgets;
   }
 });
 Object.defineProperty(exports, "OrdersCards", {
