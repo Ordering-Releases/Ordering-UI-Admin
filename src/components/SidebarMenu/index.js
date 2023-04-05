@@ -230,6 +230,8 @@ const SidebarMenuUI = (props) => {
     }
   ]
 
+  const buisnessOwnerUsersMenuIncluded = [3]
+
   const settingsSubMenus = [
     {
       id: 1,
@@ -369,13 +371,13 @@ const SidebarMenuUI = (props) => {
     events.emit('go_to_page', data)
   }
 
-  const handleGoToLink = (link) => {
-    window.open(link, '_blank')
-  }
+  // const handleGoToLink = (link) => {
+  //   window.open(link, '_blank')
+  // }
 
-  const handleOpenSite = () => {
-    handleGoToLink(`https://${ordering.project}.tryordering.com`)
-  }
+  // const handleOpenSite = () => {
+  //   handleGoToLink(`https://${ordering.project}.tryordering.com`)
+  // }
 
   useEffect(() => {
     if (windowSize.width < 1024) {
@@ -439,7 +441,7 @@ const SidebarMenuUI = (props) => {
           <SidebarMainContent>
             <SidebarContent className='d-flex flex-column justify-content-between p-1 pt-0'>
               <div className='d-flex flex-column'>
-                {sessionState?.user?.level === 0 && (
+                {/* {sessionState?.user?.level === 0 && (
                   <Button
                     className='d-flex align-items-center'
                     variant={false}
@@ -448,7 +450,7 @@ const SidebarMenuUI = (props) => {
                     <BoxArrowUpRight />
                     <span>{t('MY_WEBSITE', 'My Website')}</span>
                   </Button>
-                )}
+                )} */}
                 <Accordion>
                   {/* {sessionState?.user?.level === 0 && (
                     <Button
@@ -566,7 +568,7 @@ const SidebarMenuUI = (props) => {
                     </MenuContainer>
                   )}
 
-                  {(sessionState?.user?.level === 0) && (
+                  {(sessionState?.user?.level === 0 || sessionState?.user?.level === 2) && (
                     <MenuContainer>
                       <ContextAwareToggle
                         eventKey='4'
@@ -583,7 +585,10 @@ const SidebarMenuUI = (props) => {
                       <Accordion.Collapse eventKey='4'>
                         <MenuContent>
                           {
-                            usersSubMenus.map(item => (
+                            (sessionState?.user?.level === 2
+                              ? usersSubMenus.filter(menu => buisnessOwnerUsersMenuIncluded.includes(menu.id))
+                              : usersSubMenus
+                            ).map(item => (
                               item.pageName === 'professionals' ? (
                                 isEnabledAppointmentsFeature && (
                                   <SubMenu
