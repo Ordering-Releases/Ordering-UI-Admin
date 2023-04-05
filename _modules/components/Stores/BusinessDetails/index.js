@@ -41,7 +41,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var BusinessDetailsUI = function BusinessDetailsUI(props) {
-  var _businessState$busine, _businessState$busine2, _businessState$busine3, _businessState$busine4;
+  var _businessState$busine, _businessState$busine2, _businessState$busine3, _businessState$busine4, _businessState$busine5;
   var open = props.open,
     businessId = props.businessId,
     businessState = props.businessState,
@@ -172,6 +172,13 @@ var BusinessDetailsUI = function BusinessDetailsUI(props) {
     });
   }, [actionStatus === null || actionStatus === void 0 ? void 0 : actionStatus.error]);
   (0, _react.useEffect)(function () {
+    if (!(businessState !== null && businessState !== void 0 && businessState.error)) return;
+    setAlertState({
+      open: true,
+      content: businessState === null || businessState === void 0 ? void 0 : businessState.error
+    });
+  }, [businessState === null || businessState === void 0 ? void 0 : businessState.error]);
+  (0, _react.useEffect)(function () {
     if (businessState !== null && businessState !== void 0 && businessState.loading) return;
     var detailKey = query.get('section');
     if (detailKey) {
@@ -251,8 +258,8 @@ var BusinessDetailsUI = function BusinessDetailsUI(props) {
     handleUpdateBusinessClick: handleUpdateBusinessClick,
     handleUpdatePreorderConfigs: handleUpdatePreorderConfigs
   }), selectedItem === 'custom_fields' && /*#__PURE__*/_react.default.createElement(_BusinessCustomFields.BusinessCustomFields, {
-    businessId: businessState === null || businessState === void 0 ? void 0 : businessState.business.id,
-    metafields: businessState === null || businessState === void 0 ? void 0 : (_businessState$busine4 = businessState.business) === null || _businessState$busine4 === void 0 ? void 0 : _businessState$busine4.metafields,
+    businessId: businessState === null || businessState === void 0 ? void 0 : (_businessState$busine4 = businessState.business) === null || _businessState$busine4 === void 0 ? void 0 : _businessState$busine4.id,
+    metafields: businessState === null || businessState === void 0 ? void 0 : (_businessState$busine5 = businessState.business) === null || _businessState$busine5 === void 0 ? void 0 : _businessState$busine5.metafields,
     handleSuccessAddMetaFields: function handleSuccessAddMetaFields(result) {
       return handleSuccessAddBusinessItem('metafields', result);
     },
