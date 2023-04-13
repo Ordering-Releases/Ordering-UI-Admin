@@ -125,6 +125,18 @@ var BusinessPreorderDetails = function BusinessPreorderDetails(props) {
     color: "primary",
     disabled: formState.loading || Object.keys(formState.changes).length === 0,
     onClick: handleUpdateBusinessClick
-  }, t('SAVE', 'Save'))));
+  }, t('SAVE', 'Save'))), /*#__PURE__*/_react.default.createElement(_styles3.Divider, null), /*#__PURE__*/_react.default.createElement(_BusinessCateringDelivery.BusinessCateringDelivery, {
+    minutes: minutes,
+    type: "catering_delivery",
+    business: business,
+    changePreorderConfigs: changePreorderConfigs,
+    disabled: actionStatus === null || actionStatus === void 0 ? void 0 : actionStatus.loading
+  }), /*#__PURE__*/_react.default.createElement(_BusinessCateringDelivery.BusinessCateringDelivery, {
+    minutes: minutes,
+    type: "catering_pickup",
+    business: business,
+    changePreorderConfigs: changePreorderConfigs,
+    disabled: actionStatus === null || actionStatus === void 0 ? void 0 : actionStatus.loading
+  }), /*#__PURE__*/_react.default.createElement(_styles2.Margin, null));
 };
 exports.BusinessPreorderDetails = BusinessPreorderDetails;
