@@ -235,7 +235,7 @@ const PluginListUI = (props) => {
           )}
         </PLuginsSeparator>
 
-        {/* {!pluginListState.loading && pluginListState.sysPlugins?.length > 0 && (
+        {!pluginListState.loading && pluginListState.sysPlugins?.length > 0 && (
           <PLuginsSeparator h='50%'>
             <Header mb={0}>
               <h1 style={{ marginTop: 20 }}>{t('SYSTEM_PLUGINS', 'System Plugins')}</h1>
@@ -283,7 +283,7 @@ const PluginListUI = (props) => {
               )}
             </PagesBottomContainer>
           </PLuginsSeparator>
-        )} */}
+        )}
       </PluginListContainer>
       <Alert
         title={t('WEB_APPNAME', 'Ordering')}
