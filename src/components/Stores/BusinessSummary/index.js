@@ -126,10 +126,11 @@ export const BusinessSummary = (props) => {
       key: 'webhooks',
       value: t('WEBHOOKS', 'Webhooks')
     },
+    // {
+    //   key: 'places',
+    //   value: t('PLACES', 'Places')
+    // },
     {
-      key: 'places',
-      value: t('PLACES', 'Places')
-    }, {
       key: 'spoonity_key',
       value: t('SPOONITY_KEY', 'Sponity key')
     }
