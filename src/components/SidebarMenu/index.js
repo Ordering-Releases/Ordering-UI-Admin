@@ -86,13 +86,13 @@ const SidebarMenuUI = (props) => {
       title: t('APPOINTMENTS', 'Appointments'),
       pageName: 'appointments',
       url: '/appointments'
+    },
+    {
+      id: 5,
+      title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
+      pageName: 'giftCards',
+      url: '/gift-cards'
     }
-    // {
-    //   id: 5,
-    //   title: t('GIFT_CARD_MANAGER', 'Gift card manager'),
-    //   pageName: 'giftCards',
-    //   url: '/gift-cards'
-    // }
   ]
 
   const loyaltySubMenus = [
@@ -350,12 +350,12 @@ const SidebarMenuUI = (props) => {
       pageName: 'enterprise_promotions',
       url: '/marketing/promotions-enterprise'
     },
-    // {
-    //   id: 2,
-    //   title: t('CAMPAIGN', 'Campaign'),
-    //   pageName: 'campaign',
-    //   url: '/marketing/campaign'
-    // },
+    {
+      id: 2,
+      title: t('CAMPAIGN', 'Campaign'),
+      pageName: 'campaign',
+      url: '/marketing/campaign'
+    },
     {
       id: 3,
       title: t('AD_BANNERS', 'Ad banners'),
@@ -843,7 +843,7 @@ const SidebarMenuUI = (props) => {
                     </MenuContainer>
                   </Accordion>
                 )}
-                {/* {sessionState?.user?.level === 0 && (
+                {sessionState?.user?.level === 0 && (
                   <Button
                     className='d-flex align-items-center'
                     variant={location.pathname === '/ordering-products' && 'primary'}
@@ -852,7 +852,7 @@ const SidebarMenuUI = (props) => {
                     <WindowDock />
                     <span>{t('ORDERING_PRODUCTS', 'Ordering products')}</span>
                   </Button>
-                )} */}
+                )}
                 {sessionState?.user?.level === 0 && (
                   <Button
                     className='d-flex align-items-center'
