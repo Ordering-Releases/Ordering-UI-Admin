@@ -141,7 +141,7 @@ export const IntegrationListing = (props) => {
               <p>{t('CONNECT_LALAMOVE_DESCRIPTION', 'Send orders directly to your drivers in LalaMove and keep customers happy with their deliveries.')}</p>
             </SettingItemContent>
           </SettingItemContainer>
-          {/* <SettingItemContainer
+          <SettingItemContainer
             onClick={() => handleOpenSetting('picker_express')}
           >
             <IconWrapper fullWidth>
@@ -151,7 +151,7 @@ export const IntegrationListing = (props) => {
               <h5>{t('CONNECT_WITH_PICKER_EXPRESS', 'Connect with Picker Express')}</h5>
               <p>{t('CONNECT_PICKER_EXPRESS_DESCRIPTION', 'Picker express connect you with +200 hundred thousand driver from +10 delivery companies from your city.')}</p>
             </SettingItemContent>
-          </SettingItemContainer> */}
+          </SettingItemContainer>
           <SettingItemContainer
             onClick={() => handleOpenSetting('deliverect')}
           >

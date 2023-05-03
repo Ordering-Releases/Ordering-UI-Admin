@@ -33,7 +33,7 @@ export const SettingsListUI = (props) => {
     saveConfig
   } = props
 
-  const settingsNotAllowed = ['guest_checkout_enabled', 'allowed_order_types_guest_checkout', 'platform_store_giftcard_enabled']
+  const settingsNotAllowed = ['guest_checkout_enabled', 'allowed_order_types_guest_checkout']
 
   const [, t] = useLanguage()
   const [alertState, setAlertState] = useState({ open: false, content: [] })
