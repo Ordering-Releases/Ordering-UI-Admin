@@ -61,9 +61,12 @@ var RewardsPrograms = function RewardsPrograms() {
     name: t('LEVELS', 'Levels'),
     description: t('LEVELS_DESCRIPTION', 'Setup different loyalty levels for your users.'),
     icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.BarChartSteps, null)
-  },
-  // { key: 'gift_card', name: t('GIFT_CARD', 'Gift Card'), description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'), icon: <Gift /> },
-  {
+  }, {
+    key: 'gift_card',
+    name: t('GIFT_CARD', 'Gift Card'),
+    description: t('GIFT_CARD_DESCRIPTION', 'Setup different gift cards for your customers.'),
+    icon: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Gift, null)
+  }, {
     key: 'cashback',
     name: t('CASH_WALLET', 'Cash wallet'),
     description: t('CASH_WALLET_DESCRIPTION', 'Cash wallet general and per business setup.'),
@@ -137,6 +140,18 @@ var RewardsPrograms = function RewardsPrograms() {
   }, /*#__PURE__*/_react.default.createElement(_PointsWalletLevels.PointsWalletLevels, {
     handleParentSidebarMove: function handleParentSidebarMove(val) {
       return setLevelMoveDistance(val);
+    }
+  })), showOption === 'gift_card' && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
+    open: showOption === 'gift_card',
+    onClose: function onClose() {
+      return handleCloseGiftCard();
+    },
+    defaultSideBarWidth: 550 + giftCardMoveDistance,
+    moveDistance: giftCardMoveDistance,
+    showExpandIcon: true
+  }, /*#__PURE__*/_react.default.createElement(_GiftCards.GiftCards, {
+    handleParentSidebarMove: function handleParentSidebarMove(val) {
+      return setGiftCardMoveDistance(val);
     }
   })));
 };
