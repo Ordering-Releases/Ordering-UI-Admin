@@ -14,7 +14,7 @@ import {
   DataListTable
 } from './styles'
 
-const DriversGroupLogsUI = (props) => {
+export const DriversGroupLogsUI = (props) => {
   const {
     logsList,
     paginationProps,
@@ -70,8 +70,6 @@ const DriversGroupLogsUI = (props) => {
       handleChangePage(paginationProps.currentPage - 1)
     }
   }, [logsList.logs, paginationProps])
-
-  console.log(logsList)
 
   return (
     <>
@@ -133,7 +131,7 @@ const DriversGroupLogsUI = (props) => {
                       </td>
                       <td>
                         <DataListTable>
-                          {(typeof log?.data === 'object' ? Object.values(log?.data) : log?.data).map((item, i) => (
+                          {log?.data && (typeof log?.data === 'object' ? Object.values(log?.data) : log?.data).map((item, i) => (
                             <tbody key={i}>
                               <tr>
                                 <td>{getAttributeName(item?.attribute)}</td>
