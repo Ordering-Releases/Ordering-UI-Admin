@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DriversGroupLogs = void 0;
+exports.DriversGroupLogsUI = exports.DriversGroupLogs = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
@@ -117,7 +117,6 @@ var DriversGroupLogsUI = function DriversGroupLogsUI(props) {
       handleChangePage(paginationProps.currentPage - 1);
     }
   }, [logsList.logs, paginationProps]);
-  console.log(logsList);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles.DriversGroupLogsContainer, {
     disabled: actionDisabled
   }, /*#__PURE__*/_react.default.createElement(_styles.TableWrapper, null, logsList.loading || logsList.logs.length > 0 ? /*#__PURE__*/_react.default.createElement(_styles.Table, null, /*#__PURE__*/_react.default.createElement("thead", null, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("th", null, t('CONTROL_PANEL_USERS', 'Users')), /*#__PURE__*/_react.default.createElement("th", null, t('DETAILS', 'Details')), /*#__PURE__*/_react.default.createElement("th", null, t('EXPORT_DATE', 'Date')), /*#__PURE__*/_react.default.createElement("th", null, t('USER_AGENT', 'User agent')))), logsList.loading ? _toConsumableArray(Array(10).keys()).map(function (i) {
@@ -138,7 +137,7 @@ var DriversGroupLogsUI = function DriversGroupLogsUI(props) {
     var _log$user, _log$user2, _log$user3;
     return /*#__PURE__*/_react.default.createElement("tbody", {
       key: log.id
-    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.UserInfoContainer, null, /*#__PURE__*/_react.default.createElement("p", null, log === null || log === void 0 ? void 0 : (_log$user = log.user) === null || _log$user === void 0 ? void 0 : _log$user.name, " ", log === null || log === void 0 ? void 0 : (_log$user2 = log.user) === null || _log$user2 === void 0 ? void 0 : _log$user2.lastname), /*#__PURE__*/_react.default.createElement("p", null, log === null || log === void 0 ? void 0 : (_log$user3 = log.user) === null || _log$user3 === void 0 ? void 0 : _log$user3.email))), /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.DataListTable, null, (_typeof(log === null || log === void 0 ? void 0 : log.data) === 'object' ? Object.values(log === null || log === void 0 ? void 0 : log.data) : log === null || log === void 0 ? void 0 : log.data).map(function (item, i) {
+    }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.UserInfoContainer, null, /*#__PURE__*/_react.default.createElement("p", null, log === null || log === void 0 ? void 0 : (_log$user = log.user) === null || _log$user === void 0 ? void 0 : _log$user.name, " ", log === null || log === void 0 ? void 0 : (_log$user2 = log.user) === null || _log$user2 === void 0 ? void 0 : _log$user2.lastname), /*#__PURE__*/_react.default.createElement("p", null, log === null || log === void 0 ? void 0 : (_log$user3 = log.user) === null || _log$user3 === void 0 ? void 0 : _log$user3.email))), /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_styles.DataListTable, null, (log === null || log === void 0 ? void 0 : log.data) && (_typeof(log === null || log === void 0 ? void 0 : log.data) === 'object' ? Object.values(log === null || log === void 0 ? void 0 : log.data) : log === null || log === void 0 ? void 0 : log.data).map(function (item, i) {
       return /*#__PURE__*/_react.default.createElement("tbody", {
         key: i
       }, /*#__PURE__*/_react.default.createElement("tr", null, /*#__PURE__*/_react.default.createElement("td", null, getAttributeName(item === null || item === void 0 ? void 0 : item.attribute)), /*#__PURE__*/_react.default.createElement("td", null, typeof (item === null || item === void 0 ? void 0 : item.new) !== 'undefined' ? "".concat(item === null || item === void 0 ? void 0 : item.new) : (item === null || item === void 0 ? void 0 : item.added.length) > 0 ? item === null || item === void 0 ? void 0 : item.added.toString() : t('NONE', 'None')), /*#__PURE__*/_react.default.createElement("td", null, typeof (item === null || item === void 0 ? void 0 : item.old) !== 'undefined' ? "".concat(item === null || item === void 0 ? void 0 : item.old) : (item === null || item === void 0 ? void 0 : item.removed.length) > 0 ? item === null || item === void 0 ? void 0 : item.removed.toString() : t('NONE', 'None'))));
@@ -153,6 +152,7 @@ var DriversGroupLogsUI = function DriversGroupLogsUI(props) {
     handleChangePageSize: handleChangePageSize
   }))));
 };
+exports.DriversGroupLogsUI = DriversGroupLogsUI;
 var DriversGroupLogs = function DriversGroupLogs(props) {
   var driversGroupLogsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversGroupLogsUI
