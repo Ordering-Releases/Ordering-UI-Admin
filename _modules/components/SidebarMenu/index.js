@@ -294,12 +294,14 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
     title: t('PROMOTION_AUTOMATION', 'Promotions automation'),
     pageName: 'enterprise_promotions',
     url: '/marketing/promotions-enterprise'
-  }, {
-    id: 2,
-    title: t('CAMPAIGN', 'Campaign'),
-    pageName: 'campaign',
-    url: '/marketing/campaign'
-  }, {
+  },
+  // {
+  //   id: 2,
+  //   title: t('CAMPAIGN', 'Campaign'),
+  //   pageName: 'campaign',
+  //   url: '/marketing/campaign'
+  // },
+  {
     id: 3,
     title: t('AD_BANNERS', 'Ad banners'),
     pageName: 'ad_banners',
