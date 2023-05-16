@@ -21,6 +21,7 @@ var _reactBootstrapIcons = require("react-bootstrap-icons");
 var _Shared = require("../../Shared");
 var _styles = require("../../../styles");
 var _OrderToPrint = require("../OrderToPrint");
+var _OrderToPrintTicket = require("../OrderToPrintTicket");
 var _styles2 = require("./styles");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -51,7 +52,8 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     setIsTourFlag = props.setIsTourFlag,
     setIsTourOpen = props.setIsTourOpen,
     actionStatus = props.actionStatus,
-    handleRefundOrder = props.handleRefundOrder,
+    handleRefundPaymentsStripe = props.handleRefundPaymentsStripe,
+    handleOrderRefund = props.handleOrderRefund,
     isServiceOrder = props.isServiceOrder;
   var history = (0, _reactRouterDom.useHistory)();
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
@@ -78,6 +80,7 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     _useSession2 = _slicedToArray(_useSession, 1),
     user = _useSession2[0].user;
   var printRef = (0, _react.useRef)();
+  var printTicketRef = (0, _react.useRef)();
   var _useState5 = (0, _react.useState)({
       business: false,
       driver: false,
@@ -487,7 +490,8 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     isTourOpen: isTourOpen,
     currentTourStep: currentTourStep,
     setIsTourOpen: setIsTourOpen,
-    printRef: printRef
+    printRef: printRef,
+    printTicketRef: printTicketRef
   }), /*#__PURE__*/_react.default.createElement(_styles2.OrderStatus, {
     isDisabled: isTourOpen && currentTourStep === 1
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, t('ORDER_STATUS_TEXT', 'Order status')), /*#__PURE__*/_react.default.createElement("p", null, order !== null && order !== void 0 && order.delivery_datetime_utc ? parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime_utc) : parseDate(order === null || order === void 0 ? void 0 : order.delivery_datetime, {
@@ -520,7 +524,8 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
   }))), /*#__PURE__*/_react.default.createElement(_OrderBill.OrderBill, {
     order: order,
     actionStatus: actionStatus,
-    handleRefundOrder: handleRefundOrder
+    handleRefundPaymentsStripe: handleRefundPaymentsStripe,
+    handleOrderRefund: handleOrderRefund
   })), /*#__PURE__*/_react.default.createElement(_styles2.DetailBottom, null)), extraOpen && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, width >= 1000 ? /*#__PURE__*/_react.default.createElement(_styles2.OrderDetailsExtraContent, null, /*#__PURE__*/_react.default.createElement(_styles2.CloseButtonWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.IconButton, {
     color: "black",
     onClick: function onClick() {
@@ -608,6 +613,10 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     getOrderStatus: getOrderStatus,
     getLogisticTag: getLogisticTag,
     getPriorityTag: getPriorityTag
+  }), order && Object.keys(order).length > 0 && !loading && /*#__PURE__*/_react.default.createElement(_OrderToPrintTicket.OrderToPrintTicket, {
+    ref: printTicketRef,
+    order: order,
+    getOrderStatus: getOrderStatus
   }));
 };
 var OrderDetails = function OrderDetails(props) {
