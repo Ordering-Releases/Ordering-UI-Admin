@@ -70,6 +70,7 @@ export const OrdersTable = (props) => {
     getPageOrders(pageSize, expectedPage)
   }
   const [configState] = useConfig()
+  const isEnabledRowInColor = configState?.configs?.row_in_color_enabled?.value === '1'
 
   const optionsDefault = [
     {
@@ -83,6 +84,10 @@ export const OrdersTable = (props) => {
     {
       value: 'cartGroupId',
       content: t('GROUP_ORDER', 'Group Order')
+    },
+    {
+      value: 'driverGroupId',
+      content: t('EXPORT_DRIVER_GROUP_ID', 'Driver Group Id')
     },
     {
       value: 'dateTime',
@@ -498,6 +503,15 @@ export const OrdersTable = (props) => {
                       </StatusInfo>
                     </td>
                   )}
+                  {allowColumns?.driverGroupId?.visable && (
+                    <td className='statusInfo'>
+                      <StatusInfo>
+                        <div className='info'>
+                          <p className='bold'><Skeleton width={100} /></p>
+                        </div>
+                      </StatusInfo>
+                    </td>
+                  )}
                   {allowColumns?.status?.visable && !isSelectedOrders && (
                     <td className='statusInfo'>
                       <StatusInfo>
@@ -597,7 +611,7 @@ export const OrdersTable = (props) => {
                 className={parseInt(orderDetailId) === order.id ? 'active' : ''}
                 onClick={(e) => handleClickOrder(order, e)}
                 data-tour={i === 0 ? 'tour_start' : ''}
-                data-status={getStatusClassName(getDelayMinutes(order))}
+                data-status={isEnabledRowInColor && getStatusClassName(getDelayMinutes(order))}
               >
                 <tr>
                   {Object.keys(allowColumns).filter(col => allowColumns[col]?.visable)
@@ -674,6 +688,17 @@ export const OrdersTable = (props) => {
                             <StatusInfo>
                               {order?.cart_group_id && (
                                 <p className='bold'>{t('No', 'No')}. {order?.cart_group_id}</p>
+                              )}
+                            </StatusInfo>
+                          </td>
+                        )
+                      }
+                      if (column === 'driverGroupId') {
+                        return (
+                          <td className='orderGroupId' key={`cart_group_id${i}-${index}`}>
+                            <StatusInfo>
+                              {order?.driver_group_id && (
+                                <p className='bold'>{t('No', 'No')}. {order?.driver_group_id}</p>
                               )}
                             </StatusInfo>
                           </td>
@@ -815,7 +840,7 @@ export const OrdersTable = (props) => {
                         )
                       }
                     })}
-                    <td />
+                  <td />
                 </tr>
               </OrderTbody>
             ))

@@ -14,6 +14,7 @@ import { XLg } from 'react-bootstrap-icons'
 import { NotFoundSource, Modal } from '../../Shared'
 import { IconButton } from '../../../styles'
 import { OrderToPrint } from '../OrderToPrint'
+import { OrderToPrintTicket } from '../OrderToPrintTicket'
 
 import {
   Container,
@@ -50,7 +51,8 @@ const OrderDetailsUI = (props) => {
     setIsTourFlag,
     setIsTourOpen,
     actionStatus,
-    handleRefundOrder,
+    handleRefundPaymentsStripe,
+    handleOrderRefund,
     isServiceOrder
   } = props
 
@@ -63,6 +65,7 @@ const OrderDetailsUI = (props) => {
   const [{ parseDate }] = useUtils()
   const [{ user }] = useSession()
   const printRef = useRef()
+  const printTicketRef = useRef()
 
   const [unreadAlert, setUnreadAlert] = useState({ business: false, driver: false, customer: false })
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -334,6 +337,7 @@ const OrderDetailsUI = (props) => {
             currentTourStep={currentTourStep}
             setIsTourOpen={setIsTourOpen}
             printRef={printRef}
+            printTicketRef={printTicketRef}
           />
           <OrderStatus isDisabled={isTourOpen && currentTourStep === 1}>
             <div>
@@ -415,7 +419,8 @@ const OrderDetailsUI = (props) => {
             <OrderBill
               order={order}
               actionStatus={actionStatus}
-              handleRefundOrder={handleRefundOrder}
+              handleRefundPaymentsStripe={handleRefundPaymentsStripe}
+              handleOrderRefund={handleOrderRefund}
             />
           </div>
           <DetailBottom />
@@ -541,6 +546,13 @@ const OrderDetailsUI = (props) => {
           getLogisticTag={getLogisticTag}
           getPriorityTag={getPriorityTag}
         />
+      )}
+      {order && Object.keys(order).length > 0 && !loading && (
+          <OrderToPrintTicket
+            ref={printTicketRef}
+            order={order}
+            getOrderStatus={getOrderStatus}
+          />
       )}
     </Container>
   )
