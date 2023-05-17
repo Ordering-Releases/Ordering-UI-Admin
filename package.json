@@ -1,6 +1,6 @@
 {
   "name": "ordering-ui-admin-external",
-  "version": "1.23.2",
+  "version": "1.23.3",
   "description": "Ordering UI Admin Components",
   "main": "./_modules/index.js",
   "exports": {
