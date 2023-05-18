@@ -178,6 +178,18 @@ export const TemporalDomail = styled.div`
   > a {
     color: ${props => props.theme.colors.primary};
   }
+
+  ${({ isDisabled }) => isDisabled && css`
+    pointer-events: none;
+    color: ${props => props.theme.colors.disabled};
+    > a {
+      color: ${props => props.theme.colors.disabled};
+    }
+  `}
+
+  ${({ marginBottom }) => marginBottom && css`
+    margin-bottom: 10px;
+  `}
 `
 
 export const ImageFormGroup = styled.div`
@@ -429,6 +441,10 @@ export const InfoContent = styled.div`
     right: initial;
   `}
 
+  span {
+    display: block;
+  }
+
   > a {
     color: ${props => props.theme.colors.primary};
     margin: 0 5px;
@@ -472,16 +488,123 @@ export const RadioItem = styled.div`
     line-height: 24px;
   }
 `
-export const SlugWrapper = styled.div`
-  margin-bottom: 20px;
-  label {
-    display: block;
-    margin-bottom: 12px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+
+export const CustomeDomainDesc = styled.p`
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-weight: 400;
+  font-size: 12px;
+`
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const CustomDomainInfo = styled.div`
+  position: relative;
+
+  > button {
+    height: 21px;
+    svg {
+      width: 13px;
+      height: 13px;
+      color: ${props => props.theme.colors.headingColor};
+    }
   }
-  > input, textarea {
+  &:hover > div {
+    visibility: visible;
+    opacity: 1;
+  }
+`
+
+export const CustomDomainInfoContent = styled.div`
+  position: absolute;
+  top: 100%;
+  z-index: 999;
+  background: ${props => props.theme.colors.backgroundInfo};
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 7.6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 18px;
+  min-width: 150px;
+  transition: all 0.3s linear;
+  visibility: hidden;
+  opacity: 0;
+  right: -100px;
+  ${props => props.theme.rtl && css`
+    left: 0px;s
+    right: initial;
+  `}
+
+  span {
+    display: block;
+  }
+
+  a {
+    color: ${props => props.theme.colors.primary};
+    padding-left: 5px;
+  }
+
+  @media (min-width: 576px) {
+    min-width: 350px;
+    padding: 10px 16px;
+    left: 0px;
+    ${props => props.theme.rtl && css`
+      right: 0px;
+      left: initial;
+    `}
+  }
+`
+export const Option = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 7.6px;
+  img {
+    min-height: 38px;
+    min-width: 38px;
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    ${props => props.theme?.rtl ? css`
+      margin-left: 8px;
+    ` : css`
+      margin-right: 8px;
+    `}
+  }
+  > span {
+    max-width: 200px;
+    font-size: 14px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    > span {
+      max-width: 560px;
+    }
+  }
+`
+export const SelectWrapper = styled.div`
+  margin-bottom: 20px;
+
+  .select {
     width: 100%;
+    background: ${props => props.theme.colors.secundary};
+    border: none;
+    font-size: 14px;
+
+    > div:first-child {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
   }
 `
