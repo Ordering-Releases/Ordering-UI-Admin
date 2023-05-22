@@ -190,22 +190,22 @@ export const SettingsListUI = (props) => {
                                 <p>{config?.description}</p>
                               )}
                               {
-                                config?.options?.length > 0 && config?.options?.map((item, j) => (
-                                  <FormGroupWrapper key={j}>
-                                    <FormGroupCheck className='checkbox'>
-                                      <label>
-                                        <input
-                                          type='checkbox'
-                                          name={item?.value}
-                                          data-id={config?.id}
-                                          defaultChecked={config?.value.split('|').includes(item?.value)}
-                                          onChange={(e) => handleCheckBoxChange(e, true, config?.value)}
-                                        />
-                                        {t(item.text.toUpperCase())}
-                                      </label>
-                                    </FormGroupCheck>
-                                  </FormGroupWrapper>
-                                ))
+                              config?.options?.length > 0 && config?.options?.map((item, j) => (
+                                <FormGroupWrapper key={j}>
+                                  <FormGroupCheck className='checkbox'>
+                                    <label>
+                                      <input
+                                        type='checkbox'
+                                        name={item?.value}
+                                        data-id={config?.id}
+                                        defaultChecked={config?.value.split('|').includes(item?.value)}
+                                        onChange={(e) => handleCheckBoxChange(e, true, config?.value)}
+                                      />
+                                      {t(item.text.toUpperCase(), item.text.replace(/_/g, ' ').toLowerCase())}
+                                    </label>
+                                  </FormGroupCheck>
+                                </FormGroupWrapper>
+                              ))
                               }
                               {
                                 !config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>
@@ -236,22 +236,22 @@ export const SettingsListUI = (props) => {
                                   <p>{config?.description}</p>
                                 )}
                                 {
-                                  config?.options?.length > 0 && config?.options?.map((item, j) => (
-                                    <FormGroupWrapper key={j}>
-                                      <FormGroupCheck className='checkbox'>
-                                        <label>
-                                          <input
-                                            type='checkbox'
-                                            name={item?.value}
-                                            data-id={config?.id}
-                                            defaultChecked={JSON.parse(config?.value).includes(parseInt(item?.value))}
-                                            onChange={(e) => handleCheckBoxChange(e, false, config?.value)}
-                                          />
-                                          {item.text}
-                                        </label>
-                                      </FormGroupCheck>
-                                    </FormGroupWrapper>
-                                  ))
+                                config?.options?.length > 0 && config?.options?.map((item, j) => (
+                                  <FormGroupWrapper key={j}>
+                                    <FormGroupCheck className='checkbox'>
+                                      <label>
+                                        <input
+                                          type='checkbox'
+                                          name={item?.value}
+                                          data-id={config?.id}
+                                          defaultChecked={JSON.parse(config?.value).includes(parseInt(item?.value))}
+                                          onChange={(e) => handleCheckBoxChange(e, false, config?.value)}
+                                        />
+                                        {item.text}
+                                      </label>
+                                    </FormGroupCheck>
+                                  </FormGroupWrapper>
+                                ))
                                 }
                                 {!config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>}
                               </CheckBoxWrapper>
@@ -267,27 +267,27 @@ export const SettingsListUI = (props) => {
                           )
                         }
                         {/* {config.type === 6 && (
-                          <>
-                            <FormGroupText className='form-group'>
-                              <label>{config?.name}</label>
-                              {config?.description && <Description>{config?.description}</Description>}
-                              {config?.value?.split('|')?.filter(value => valuesTypeSix.includes(value?.split(',')[0]))?.map((value, i, hash) => (
-                                <React.Fragment key={`${config?.id} ${value}`}>
-                                  <Description typeSix>{t(value?.split(',')[0], value?.split(',')[0].replace('_', ' '))}</Description>
-                                  <input
-                                    type='text'
-                                    defaultValue={value?.split(',')[1]}
-                                    onChange={(e) => handleChangeTypeSix({
-                                      value: e.target.value,
-                                      type: value?.split(',')[0]
-                                    }, config)}
-                                    className='form-control'
-                                    placeholder={0}
-                                  />
-                                </React.Fragment>
-                              ))}
-                            </FormGroupText>
-                          </>
+                        <>
+                          <FormGroupText className='form-group'>
+                            <label>{config?.name}</label>
+                            {config?.description && <Description>{config?.description}</Description>}
+                            {config?.value?.split('|')?.filter(value => valuesTypeSix.includes(value?.split(',')[0]))?.map((value, i, hash) => (
+                              <React.Fragment key={`${config?.id} ${value}`}>
+                                <Description typeSix>{t(value?.split(',')[0], value?.split(',')[0].replace('_', ' '))}</Description>
+                                <input
+                                  type='text'
+                                  defaultValue={value?.split(',')[1]}
+                                  onChange={(e) => handleChangeTypeSix({
+                                    value: e.target.value,
+                                    type: value?.split(',')[0]
+                                  }, config)}
+                                  className='form-control'
+                                  placeholder={0}
+                                />
+                              </React.Fragment>
+                            ))}
+                          </FormGroupText>
+                        </>
                         )} */}
                       </div>
                     )

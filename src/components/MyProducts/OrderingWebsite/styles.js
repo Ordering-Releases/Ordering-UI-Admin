@@ -441,10 +441,6 @@ export const InfoContent = styled.div`
     right: initial;
   `}
 
-  span {
-    display: block;
-  }
-
   > a {
     color: ${props => props.theme.colors.primary};
     margin: 0 5px;

@@ -27,9 +27,10 @@ export const BoxLayout = styled.div`
     margin-top: 0px;
     margin-bottom: 20px;
   }
+  button.custom {
+    height: 44px;
+  }
 `
-
-export const HomePageWrapper = styled.div``
 
 export const FormControlWithCheck = styled.div`
   > p {
@@ -67,15 +68,6 @@ export const HideCheckWrapper = styled.div`
   ${({ isBottom }) => isBottom && css`
     margin-bottom: 25px;
   `}
-`
-
-export const ShadowWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 576px) {
-    flex-direction: row;
-  }
 `
 
 export const InnerShadowWrapper = styled.div``
