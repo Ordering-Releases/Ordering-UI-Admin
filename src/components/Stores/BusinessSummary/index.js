@@ -265,7 +265,7 @@ export const BusinessSummary = (props) => {
             >
               {t('CATEGORIES_AND_PRODUCTS', 'Categories & products')}
             </Button>
-            <Button
+            {/* <Button
               color='primary'
               outline
               borderRadius='8px'
@@ -273,7 +273,7 @@ export const BusinessSummary = (props) => {
               disabled={businessState?.loading}
             >
               {t('STORE_WEBSITE', 'Store website')}
-            </Button>
+            </Button> */}
           </ButtonWrapper>
           <BusinessDescription>
             {businessState?.loading ? (
