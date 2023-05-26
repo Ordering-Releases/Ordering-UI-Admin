@@ -232,7 +232,13 @@ var BusinessSummary = function BusinessSummary(props) {
     borderRadius: "8px",
     onClick: handleOpenCategory,
     disabled: businessState === null || businessState === void 0 ? void 0 : businessState.loading
-  }, t('CATEGORIES_AND_PRODUCTS', 'Categories & products'))), /*#__PURE__*/_react.default.createElement(_styles2.BusinessDescription, null, businessState !== null && businessState !== void 0 && businessState.loading ? /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
+  }, t('CATEGORIES_AND_PRODUCTS', 'Categories & products')), /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    color: "primary",
+    outline: true,
+    borderRadius: "8px",
+    onClick: handleOpenSite,
+    disabled: businessState === null || businessState === void 0 ? void 0 : businessState.loading
+  }, t('STORE_WEBSITE', 'Store website'))), /*#__PURE__*/_react.default.createElement(_styles2.BusinessDescription, null, businessState !== null && businessState !== void 0 && businessState.loading ? /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
     width: 300
   }) : businessState === null || businessState === void 0 ? void 0 : (_businessState$busine8 = businessState.business) === null || _businessState$busine8 === void 0 ? void 0 : _businessState$busine8.description), /*#__PURE__*/_react.default.createElement(_styles2.BusinessConfigsContainer, {
     isLoading: businessState === null || businessState === void 0 ? void 0 : businessState.loading
