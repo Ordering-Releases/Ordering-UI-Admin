@@ -3,7 +3,7 @@ import { useLanguage, RecoveryNotificationList as RecoveryNotificationListContro
 import { useTheme } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import { Modal, Alert } from '../../Shared'
-import { Switch, Button } from '../../../styles'
+import { Switch, Button, LinkButton } from '../../../styles'
 import { SingleRecoveryNotification } from '../SingleRecoveryNotification'
 
 import {
@@ -122,7 +122,11 @@ const RecoveryNotificationListUI = (props) => {
                       </EmailPreviewHeader>
                       <EmailPreviewContent>
                         <h2>{notification?.title}</h2>
-                        <p>{notification.body}</p>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: (notification.body)
+                          }}
+                        />
                       </EmailPreviewContent>
                     </EmailPreviewWrapper>
                   )}
@@ -154,7 +158,7 @@ const RecoveryNotificationListUI = (props) => {
               </NotificationBlock>
             ))}
             <AddNewNotificationButton>
-              <span onClick={() => setIsAddModal(true)}>{t('ADD_NEW_NOTIFICATION', 'Add new notification')}</span>
+              <LinkButton onClick={() => setIsAddModal(true)}>{t('ADD_NEW_NOTIFICATION', 'Add new notification')}</LinkButton>
             </AddNewNotificationButton>
           </>
         )}

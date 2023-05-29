@@ -33,7 +33,7 @@ export const SettingsListUI = (props) => {
     saveConfig
   } = props
 
-  const settingsNotAllowed = ['guest_checkout_enabled', 'allowed_order_types_guest_checkout']
+  const settingsNotAllowed = ['']
 
   const [, t] = useLanguage()
   const [alertState, setAlertState] = useState({ open: false, content: [] })
@@ -145,51 +145,51 @@ export const SettingsListUI = (props) => {
                 {
                   configs.length > 0 && configs.map((config, i) => (
                     !settingsNotAllowed.includes(config.key) && (
-                      <div key={i}>
-                        {
-                          config.type === 1 && (
-                            <FormGroupText className='form-group'>
+                    <div key={i}>
+                      {
+                        config.type === 1 && (
+                          <FormGroupText className='form-group'>
+                            <label>{config?.name}</label>
+                            {config?.description && <Description>{config?.description}</Description>}
+                            <input
+                              type='text'
+                              value={config?.value}
+                              onChange={(e) => handleInputChange(e.target.value, config?.id)}
+                              onKeyPress={(e) => handleKeyPress(e, config?.key)}
+                              className='form-control'
+                              placeholder={config?.name}
+                            />
+                          </FormGroupText>
+                        )
+                      }
+                      {
+                        config.type === 2 && (
+                          config.key === 'country_autocomplete' ? (
+                            <SettingsCountryFilter
+                              defaultValue={config?.value}
+                              handleSelectChange={(value) => handleInputChange(value, config?.id)}
+                              label={config?.name}
+                              description={config?.description}
+                            />
+                          ) : (
+                            <SettingsSelectUI
+                              config={config}
+                              defaultValue={config?.value}
+                              handleSelectChange={(value) => handleInputChange(value, config?.id)}
+                            />
+                          )
+                        )
+                      }
+                      {
+                        config.type === 3 && (
+                          <CheckBoxWrapper>
+                            {config?.name && (
                               <label>{config?.name}</label>
-                              {config?.description && <Description>{config?.description}</Description>}
-                              <input
-                                type='text'
-                                value={config?.value}
-                                onChange={(e) => handleInputChange(e.target.value, config?.id)}
-                                onKeyPress={(e) => handleKeyPress(e, config?.key)}
-                                className='form-control'
-                                placeholder={config?.name}
-                              />
-                            </FormGroupText>
-                          )
-                        }
-                        {
-                          config.type === 2 && (
-                            config.key === 'country_autocomplete' ? (
-                              <SettingsCountryFilter
-                                defaultValue={config?.value}
-                                handleSelectChange={(value) => handleInputChange(value, config?.id)}
-                                label={config?.name}
-                                description={config?.description}
-                              />
-                            ) : (
-                              <SettingsSelectUI
-                                config={config}
-                                defaultValue={config?.value}
-                                handleSelectChange={(value) => handleInputChange(value, config?.id)}
-                              />
-                            )
-                          )
-                        }
-                        {
-                          config.type === 3 && (
-                            <CheckBoxWrapper>
-                              {config?.name && (
-                                <label>{config?.name}</label>
-                              )}
-                              {config?.description && (
-                                <p>{config?.description}</p>
-                              )}
-                              {
+                            )}
+                            {config?.description && (
+                              <p>{config?.description}</p>
+                            )}
+                            {
                               config?.options?.length > 0 && config?.options?.map((item, j) => (
                                 <FormGroupWrapper key={j}>
                                   <FormGroupCheck className='checkbox'>
@@ -206,36 +206,36 @@ export const SettingsListUI = (props) => {
                                   </FormGroupCheck>
                                 </FormGroupWrapper>
                               ))
-                              }
-                              {
-                                !config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>
-                              }
-                            </CheckBoxWrapper>
-                          )
-                        }
-                        {
-                          config.type === 4 && (
-                            config.key === 'driver_tip_options' ? (
-                              <FormGroupText className='form-group'>
+                            }
+                            {
+                              !config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>
+                            }
+                          </CheckBoxWrapper>
+                        )
+                      }
+                      {
+                        config.type === 4 && (
+                          config.key === 'driver_tip_options' ? (
+                            <FormGroupText className='form-group'>
+                              <label>{config?.name}</label>
+                              {config?.description && <Description>{config?.description}</Description>}
+                              <input
+                                type='text'
+                                defaultValue={formatArray(config?.value)}
+                                onChange={(e) => handleInputChange(e.target.value, config?.id)}
+                                className='form-control'
+                                placeholder='placeholder'
+                              />
+                            </FormGroupText>
+                          ) : (
+                            <CheckBoxWrapper>
+                              {config?.name && (
                                 <label>{config?.name}</label>
-                                {config?.description && <Description>{config?.description}</Description>}
-                                <input
-                                  type='text'
-                                  defaultValue={formatArray(config?.value)}
-                                  onChange={(e) => handleInputChange(e.target.value, config?.id)}
-                                  className='form-control'
-                                  placeholder='placeholder'
-                                />
-                              </FormGroupText>
-                            ) : (
-                              <CheckBoxWrapper>
-                                {config?.name && (
-                                  <label>{config?.name}</label>
-                                )}
-                                {config?.description && (
-                                  <p>{config?.description}</p>
-                                )}
-                                {
+                              )}
+                              {config?.description && (
+                                <p>{config?.description}</p>
+                              )}
+                              {
                                 config?.options?.length > 0 && config?.options?.map((item, j) => (
                                   <FormGroupWrapper key={j}>
                                     <FormGroupCheck className='checkbox'>
@@ -252,20 +252,20 @@ export const SettingsListUI = (props) => {
                                     </FormGroupCheck>
                                   </FormGroupWrapper>
                                 ))
-                                }
-                                {!config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>}
-                              </CheckBoxWrapper>
-                            )
+                              }
+                              {!config?.options && <OptionsError>{t('NO_OPTIONS_VALUE', 'There is no options value')}</OptionsError>}
+                            </CheckBoxWrapper>
                           )
-                        }
-                        {
-                          config.type === 5 && (
-                            <SettingsImage
-                              config={config}
-                              saveConfig={saveConfig}
-                            />
-                          )
-                        }
+                        )
+                      }
+                      {
+                        config.type === 5 && (
+                          <SettingsImage
+                            config={config}
+                            saveConfig={saveConfig}
+                          />
+                        )
+                      }
                         {/* {config.type === 6 && (
                         <>
                           <FormGroupText className='form-group'>
@@ -289,7 +289,7 @@ export const SettingsListUI = (props) => {
                           </FormGroupText>
                         </>
                         )} */}
-                      </div>
+                    </div>
                     )
                   ))
                 }
