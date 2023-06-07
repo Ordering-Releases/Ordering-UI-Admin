@@ -337,48 +337,56 @@ const OrderingWebsiteUI = (props) => {
                   {orderingTheme?.loading ? (
                     <Skeleton height={40} style={{ width: '100%' }} />
                   ) : (
-                    <>
-                      {site?.domain && site?.ssl_status !== 'error' && (
-                        <TemporalDomail isDisabled={site?.ssl_process_status === 'pending'} marginBottom={site?.ssl_process_status === 'ended'}>
-                          {t('VISIT', 'Visit')}: <a href={`https://${site?.domain}`} rel='noopener noreferrer' target='_blank'>https://{site?.domain}</a>
-                        </TemporalDomail>
-                      )}
-                      {(site?.ssl_process_status === 'ended') && (
-                        <Button
-                          color='primary'
-                          outline
-                          borderRadius='8px'
-                          onClick={() => setIsCustomDomain(true)}
-                        >
-                          {site?.domain ? t('REQUEST_CUSTOM_DOMAIN', 'Request custom domain') : t('CHANGE_CUSTOM_DOMAIN', 'Change custom domain')}
-                        </Button>
-                      )}
-                      {site?.domain && (
-                        <>
-                          {site?.ssl_status === 'issued' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_ISSUED', 'Your domain is now added , please verify the custom domain link above.')}</CustomeDomainDesc>
-                          )}
-                          {site?.ssl_status === 'pre-issued' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_PRE_ISSUED', 'Process almost finish, please wait')}</CustomeDomainDesc>
-                          )}
-                          {site?.ssl_status === 'error' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_ERROR', 'Custom domain can\'t be created, please try again with valid data')}</CustomeDomainDesc>
-                          )}
-                          {((site?.ssl_status === 'pending_validation') || (site?.ssl_status === 'void' && site?.ssl_process_status === 'pending')) && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_PENDING_VALIDATION', 'A custom domain is being created, please wait')}</CustomeDomainDesc>
-                          )}
-                          {site?.ssl_status === 'revoked' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_REVOKED', 'Warning: Custom domain is revoked')}</CustomeDomainDesc>
-                          )}
-                          {site?.ssl_status === 'cancelled' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_CANCELLED', 'Custom domain is cancelled')}</CustomeDomainDesc>
-                          )}
-                          {site?.ssl_status === 'expired' && (
-                            <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_EXPIRED', 'Custom domain is expired')}</CustomeDomainDesc>
-                          )}
-                        </>
-                      )}
-                    </>
+                    <Button
+                      color='primary'
+                      outline
+                      borderRadius='8px'
+                      onClick={() => window.open('https://www.ordering.co/custom-domain-change', '_blank')}
+                    >
+                      {t('REQUEST_CUSTOM_DOMAIN', 'Request custom domain')}
+                    </Button>
+                    // <>
+                    //   {site?.domain && site?.ssl_status !== 'error' && (
+                    //     <TemporalDomail isDisabled={site?.ssl_process_status === 'pending'} marginBottom={site?.ssl_process_status === 'ended'}>
+                    //       {t('VISIT', 'Visit')}: <a href={`https://${site?.domain}`} rel='noopener noreferrer' target='_blank'>https://{site?.domain}</a>
+                    //     </TemporalDomail>
+                    //   )}
+                    //   {(site?.ssl_process_status === 'ended') && (
+                    //     <Button
+                    //       color='primary'
+                    //       outline
+                    //       borderRadius='8px'
+                    //       onClick={() => setIsCustomDomain(true)}
+                    //     >
+                    //       {site?.domain ? t('REQUEST_CUSTOM_DOMAIN', 'Request custom domain') : t('CHANGE_CUSTOM_DOMAIN', 'Change custom domain')}
+                    //     </Button>
+                    //   )}
+                    //   {site?.domain && (
+                    //     <>
+                    //       {site?.ssl_status === 'issued' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_ISSUED', 'Your domain is now added , please verify the custom domain link above.')}</CustomeDomainDesc>
+                    //       )}
+                    //       {site?.ssl_status === 'pre-issued' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_PRE_ISSUED', 'Process almost finish, please wait')}</CustomeDomainDesc>
+                    //       )}
+                    //       {site?.ssl_status === 'error' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_ERROR', 'Custom domain can\'t be created, please try again with valid data')}</CustomeDomainDesc>
+                    //       )}
+                    //       {((site?.ssl_status === 'pending_validation') || (site?.ssl_status === 'void' && site?.ssl_process_status === 'pending')) && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_PENDING_VALIDATION', 'A custom domain is being created, please wait')}</CustomeDomainDesc>
+                    //       )}
+                    //       {site?.ssl_status === 'revoked' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_REVOKED', 'Warning: Custom domain is revoked')}</CustomeDomainDesc>
+                    //       )}
+                    //       {site?.ssl_status === 'cancelled' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_CANCELLED', 'Custom domain is cancelled')}</CustomeDomainDesc>
+                    //       )}
+                    //       {site?.ssl_status === 'expired' && (
+                    //         <CustomeDomainDesc>{t('CUSTOM_DOMAIN_STATUS_EXPIRED', 'Custom domain is expired')}</CustomeDomainDesc>
+                    //       )}
+                    //     </>
+                    //   )}
+                    // </>
                   )}
                 </FormGroup>
               </InnerBlock>
