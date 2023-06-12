@@ -74,7 +74,7 @@ var BusinessQRCodeOption = function BusinessQRCodeOption(props) {
       return;
     }
     var storeUrl = siteState !== null && siteState !== void 0 && (_siteState$site = siteState.site) !== null && _siteState$site !== void 0 && _siteState$site.domain && (siteState === null || siteState === void 0 ? void 0 : (_siteState$site2 = siteState.site) === null || _siteState$site2 === void 0 ? void 0 : _siteState$site2.ssl_process_status) === 'ended' ? "https://".concat(siteState === null || siteState === void 0 ? void 0 : (_siteState$site3 = siteState.site) === null || _siteState$site3 === void 0 ? void 0 : _siteState$site3.domain, "/store/").concat(business === null || business === void 0 ? void 0 : business.slug) : "https://".concat(ordering.project, ".tryordering.com/store/").concat(business === null || business === void 0 ? void 0 : business.slug);
-    var tsNumber = (item === null || item === void 0 ? void 0 : item.key) !== 'pick_up' ? (item === null || item === void 0 ? void 0 : item.key) === 'eat_in' ? "&table_numer=".concat(numberRef === null || numberRef === void 0 ? void 0 : (_numberRef$current2 = numberRef.current) === null || _numberRef$current2 === void 0 ? void 0 : _numberRef$current2.value) : "&spot_numer=".concat(numberRef === null || numberRef === void 0 ? void 0 : (_numberRef$current3 = numberRef.current) === null || _numberRef$current3 === void 0 ? void 0 : _numberRef$current3.value) : '';
+    var tsNumber = (item === null || item === void 0 ? void 0 : item.key) !== 'pick_up' ? (item === null || item === void 0 ? void 0 : item.key) === 'eat_in' ? "&table_number=".concat(numberRef === null || numberRef === void 0 ? void 0 : (_numberRef$current2 = numberRef.current) === null || _numberRef$current2 === void 0 ? void 0 : _numberRef$current2.value) : "&spot_number=".concat(numberRef === null || numberRef === void 0 ? void 0 : (_numberRef$current3 = numberRef.current) === null || _numberRef$current3 === void 0 ? void 0 : _numberRef$current3.value) : '';
     var compltedUrl = "".concat(storeUrl, "?order_type=").concat(item.value).concat(tsNumber);
     setCode(compltedUrl);
   };
@@ -121,10 +121,15 @@ var BusinessQRCodeOption = function BusinessQRCodeOption(props) {
     },
     value: code,
     viewBox: "0 0 256 256"
-  })), (item === null || item === void 0 ? void 0 : item.key) === 'pick_up' ? /*#__PURE__*/_react.default.createElement("p", null, t('GENERATE_QR_CODE', 'Generate QR Code')) : /*#__PURE__*/_react.default.createElement(_styles2.FormControl, null, /*#__PURE__*/_react.default.createElement("label", null, (item === null || item === void 0 ? void 0 : item.key) === 'eat_in' ? t('TABLE_NUMBER', 'Table number') : t('SPOT_NUMBER', 'Spot number')), /*#__PURE__*/_react.default.createElement(_styles.Input, {
+  })), (item === null || item === void 0 ? void 0 : item.key) === 'pick_up' ? /*#__PURE__*/_react.default.createElement("h4", null, t('GENERATE_QR_CODE', 'Generate QR Code')) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, (item === null || item === void 0 ? void 0 : item.key) === 'eat_in' && code && /*#__PURE__*/_react.default.createElement(_styles2.TableNumberHintText, null, t('TO_GENERATE_NEW_QR_CODE_UPDATE_TABLE_NUMBER', 'To generate new QR codes, update the table number and regenerate the code.')), /*#__PURE__*/_react.default.createElement(_styles2.FormControl, null, /*#__PURE__*/_react.default.createElement("label", null, (item === null || item === void 0 ? void 0 : item.key) === 'eat_in' ? t('TABLE_NUMBER', 'Table number') : t('SPOT_NUMBER', 'Spot number')), /*#__PURE__*/_react.default.createElement(_styles.Input, {
     placeholder: "0",
-    ref: numberRef
-  })), /*#__PURE__*/_react.default.createElement(_styles2.ButtonGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    ref: numberRef,
+    onKeyPress: function onKeyPress(e) {
+      if (!/^[0-9.]$/.test(e.key)) {
+        e.preventDefault();
+      }
+    }
+  }))), /*#__PURE__*/_react.default.createElement(_styles2.ButtonGroup, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     color: "primary",
     outline: true,
     onClick: generateQRCode
