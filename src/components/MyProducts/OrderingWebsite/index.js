@@ -188,6 +188,11 @@ const OrderingWebsiteUI = (props) => {
     orderingTheme.themes[0]?.values && setAdvancedValues(JSON.parse(JSON.stringify(orderingTheme.themes[0]?.values)))
   }
 
+  const handleChangeTab = (key) => {
+    setSelectedSetting(key)
+    setSelectedSubSetting('')
+  }
+
   return (
     <>
       <Container>
@@ -240,7 +245,7 @@ const OrderingWebsiteUI = (props) => {
                 <Tab
                   key={setting.key}
                   active={selectedSetting === setting.key}
-                  onClick={() => !orderingTheme?.loading && setSelectedSetting(setting.key)}
+                  onClick={() => !orderingTheme?.loading && handleChangeTab(setting.key)}
                 >
                   {setting.name}
                 </Tab>
@@ -340,14 +345,14 @@ const OrderingWebsiteUI = (props) => {
                   {orderingTheme?.loading ? (
                     <Skeleton height={40} style={{ width: '100%' }} />
                   ) : (
-                    <Button
-                      color='primary'
-                      outline
-                      borderRadius='8px'
+                        <Button
+                          color='primary'
+                          outline
+                          borderRadius='8px'
                       onClick={() => window.open('https://www.ordering.co/custom-domain-change', '_blank')}
-                    >
+                        >
                       {t('REQUEST_CUSTOM_DOMAIN', 'Request custom domain')}
-                    </Button>
+                        </Button>
                     // <>
                     //   {site?.domain && site?.ssl_status !== 'error' && (
                     //     <TemporalDomail isDisabled={site?.ssl_process_status === 'pending'} marginBottom={site?.ssl_process_status === 'ended'}>
@@ -628,49 +633,51 @@ const OrderingWebsiteUI = (props) => {
           </FormWrapper>
         )}
         {selectedSetting === 'advanced' && (
-          <InputFormWrapper>
-            <TitleWrapper isMargin>
-              <h4>{t('SETTINGS', 'Settings')}</h4>
-              <CustomDomainInfo>
-                <IconButton
-                  color='primary'
-                >
-                  <InfoCircleFill />
-                </IconButton>
-                <CustomDomainInfoContent>
-                  <span>{t('ADVANCED_SETTING_HELP', 'For now you can\'t use layouts and advanced setting together, if you change between layouts and advance settings the settings will be reset to default')}</span>
-                </CustomDomainInfoContent>
-              </CustomDomainInfo>
-            </TitleWrapper>
-            <RadioItem
-              onClick={() => handleChangeSubSetting('advanced')}
-            >
-              {selectedSubSetting === 'advanced' ? <RecordCircleFill className='active' /> : <Circle />}
-              <span>{t('ADVANCED_SETTINGS', 'Advanced Settings')}</span>
-            </RadioItem>
-            <RadioItem
-              onClick={() => handleChangeSubSetting('advanced_layouts')}
-            >
-              {selectedSubSetting === 'advanced_layouts' ? <RecordCircleFill className='active' /> : <Circle />}
-              <span>{t('ADVANCED_LAYOUTS', 'Advanced Layouts')}</span>
-            </RadioItem>
-          </InputFormWrapper>
-        )}
-        {selectedSubSetting === 'advanced' && !orderingTheme?.loading && (
-          <AdvancedSettings
-            themesList={themesList}
-            advancedValues={advancedValues}
-            setAdvancedValues={setAdvancedValues}
-            handleUpdateSiteTheme={handleUpdateSiteTheme}
-          />
-        )}
-        {selectedSubSetting === 'advanced_layouts' && !orderingTheme?.loading && (
-          <AdvancedLayouts
-            themesList={themesList}
-            advancedValues={advancedValues}
-            setAdvancedValues={setAdvancedValues}
-            handleUpdateSiteTheme={handleUpdateSiteTheme}
-          />
+          <>
+            <InputFormWrapper>
+              <TitleWrapper isMargin>
+                <h4>{t('SETTINGS', 'Settings')}</h4>
+                <CustomDomainInfo>
+                  <IconButton
+                    color='primary'
+                  >
+                    <InfoCircleFill />
+                  </IconButton>
+                  <CustomDomainInfoContent>
+                    <span>{t('ADVANCED_SETTING_HELP', 'For now you can\'t use layouts and advanced setting together, if you change between layouts and advance settings the settings will be reset to default')}</span>
+                  </CustomDomainInfoContent>
+                </CustomDomainInfo>
+              </TitleWrapper>
+              <RadioItem
+                onClick={() => handleChangeSubSetting('advanced')}
+              >
+                {selectedSubSetting === 'advanced' ? <RecordCircleFill className='active' /> : <Circle />}
+                <span>{t('ADVANCED_SETTINGS', 'Advanced Settings')}</span>
+              </RadioItem>
+              <RadioItem
+                onClick={() => handleChangeSubSetting('advanced_layouts')}
+              >
+                {selectedSubSetting === 'advanced_layouts' ? <RecordCircleFill className='active' /> : <Circle />}
+                <span>{t('ADVANCED_LAYOUTS', 'Advanced Layouts')}</span>
+              </RadioItem>
+            </InputFormWrapper>
+            {selectedSubSetting === 'advanced' && !orderingTheme?.loading && (
+              <AdvancedSettings
+                themesList={themesList}
+                advancedValues={advancedValues}
+                setAdvancedValues={setAdvancedValues}
+                handleUpdateSiteTheme={handleUpdateSiteTheme}
+              />
+            )}
+            {selectedSubSetting === 'advanced_layouts' && !orderingTheme?.loading && (
+              <AdvancedLayouts
+                themesList={themesList}
+                advancedValues={advancedValues}
+                setAdvancedValues={setAdvancedValues}
+                handleUpdateSiteTheme={handleUpdateSiteTheme}
+              />
+            )}
+          </>
         )}
       </Container>
       <Alert
