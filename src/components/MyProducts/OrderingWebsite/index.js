@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useLanguage, ExamineClick, DragAndDrop, useApi, OrderingWebsite as OrderingWebsiteController } from 'ordering-components-admin-external'
+import { useLanguage, ExamineClick, DragAndDrop, useConfig, useApi, OrderingWebsite as OrderingWebsiteController } from 'ordering-components-admin-external'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { useLocation } from 'react-router-dom'
 import { Button, IconButton, Input, TextArea } from '../../../styles'
@@ -75,6 +75,7 @@ const OrderingWebsiteUI = (props) => {
   } = props
 
   const [, t] = useLanguage()
+  const [{ configs }] = useConfig()
   const [{ isCollapse }, { handleMenuCollapse }] = useInfoShare()
   const theme = useTheme()
   const [ordering] = useApi()
@@ -228,7 +229,7 @@ const OrderingWebsiteUI = (props) => {
               <Button
                 color='primary'
                 borderRadius='8px'
-                onClick={() => window.open(`https://${ordering?.project}.tryordering.com`, '_blank')}
+                onClick={() => window.open(configs?.site_url?.value || `https://${ordering?.project}.tryordering.com`, '_blank')}
               >
                 {t('VISIT_MY_WEBSITE', 'Visit My Website')}
               </Button>
@@ -345,14 +346,14 @@ const OrderingWebsiteUI = (props) => {
                   {orderingTheme?.loading ? (
                     <Skeleton height={40} style={{ width: '100%' }} />
                   ) : (
-                        <Button
-                          color='primary'
-                          outline
-                          borderRadius='8px'
+                    <Button
+                      color='primary'
+                      outline
+                      borderRadius='8px'
                       onClick={() => window.open('https://www.ordering.co/custom-domain-change', '_blank')}
-                        >
+                    >
                       {t('REQUEST_CUSTOM_DOMAIN', 'Request custom domain')}
-                        </Button>
+                    </Button>
                     // <>
                     //   {site?.domain && site?.ssl_status !== 'error' && (
                     //     <TemporalDomail isDisabled={site?.ssl_process_status === 'pending'} marginBottom={site?.ssl_process_status === 'ended'}>
