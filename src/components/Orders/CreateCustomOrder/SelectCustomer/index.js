@@ -199,6 +199,7 @@ export const SelectCustomer = (props) => {
         >
           <UserAddForm
             isFromCustomOrder
+            hideUserTypeSelector
             // defaultPhoneNumber={
             //   findExitingCountryPhoneCode(configs?.default_country_code?.value?.toUpperCase())
             //     ? `+${findExitingCountryPhoneCode(configs?.default_country_code?.value?.toUpperCase())} ${selectedUser?.cellphone || selectedUser?.phone || phone}`
