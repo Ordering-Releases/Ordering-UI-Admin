@@ -157,7 +157,8 @@ var SelectCustomer = function SelectCustomer(props) {
       return handleCloseSidebar();
     }
   }, /*#__PURE__*/_react.default.createElement(_Users.UserAddForm, {
-    isFromCustomOrder: true
+    isFromCustomOrder: true,
+    hideUserTypeSelector: true
     // defaultPhoneNumber={
     //   findExitingCountryPhoneCode(configs?.default_country_code?.value?.toUpperCase())
     //     ? `+${findExitingCountryPhoneCode(configs?.default_country_code?.value?.toUpperCase())} ${selectedUser?.cellphone || selectedUser?.phone || phone}`
