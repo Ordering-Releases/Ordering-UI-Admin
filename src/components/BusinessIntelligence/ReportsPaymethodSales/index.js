@@ -103,7 +103,7 @@ const ReportsPaymethodSalesUI = (props) => {
   }
 
   const thObj = {
-    REPORT_HEADER_PAYMETHOD: 'Paymethod',
+    REPORT_HEADER_PAYMETHOD: 'Paymethod'
   }
 
   return (
@@ -122,12 +122,12 @@ const ReportsPaymethodSalesUI = (props) => {
             {t('BRAND', 'Brand')} ({filterList?.franchises_id ? filterList?.franchises_id?.length : t('ALL', 'All')})
           </Button>
         </BrandBusinessWrapper>
-        <CalendarWrapper>
-          <AnalyticsCalendar
-            handleChangeDate={handleChangeDate}
-            defaultValue={filterList}
-          />
-        </CalendarWrapper>
+          <CalendarWrapper>
+            <AnalyticsCalendar
+              handleChangeDate={handleChangeDate}
+              defaultValue={filterList}
+            />
+          </CalendarWrapper>
       </ButtonActionList>
       <DistancePerBrandWrapper>
         <DistanceTitleBlock active={reportData?.content?.body?.rows?.length > 0}>
