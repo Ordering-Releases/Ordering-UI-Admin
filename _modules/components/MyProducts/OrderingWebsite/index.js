@@ -37,7 +37,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
-  var _themeValues$website_, _themeValues$website_2, _themeValues$website_3, _themeValues$website_4, _themeValues$website_5, _themeValues$website_6, _themeValues$website_7, _themeValues$website_8, _themeValues$website_9, _themeValues$website_10, _themeValues$website_11, _themeValues$images, _themeValues$images2, _themeValues$images3, _themeValues$images4, _themeValues$images5, _themeValues$images6, _themeValues$images7, _themeValues$images8, _themeValues$images9, _themeValues$images11, _themeValues$theme_se, _orderingTheme$themes3, _themeValues$theme_se2, _themeValues$theme_se3;
+  var _themeValues$website_, _themeValues$website_2, _themeValues$website_3, _themeValues$website_4, _themeValues$website_5, _themeValues$website_6, _themeValues$website_7, _themeValues$website_8, _themeValues$website_9, _themeValues$images, _themeValues$images2, _themeValues$images3, _themeValues$images4, _themeValues$images5, _themeValues$images6, _themeValues$images7, _themeValues$images8, _themeValues$images9, _themeValues$images11, _themeValues$theme_se, _themeValues$theme_se2, _themeValues$theme_se3, _orderingTheme$themes3, _themeValues$theme_se4, _themeValues$theme_se5;
   var themeValues = props.themeValues,
     orderingTheme = props.orderingTheme,
     setThemeValues = props.setThemeValues,
@@ -48,7 +48,8 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     site = props.site,
     setSite = props.setSite,
     businessesList = props.businessesList,
-    franchisesList = props.franchisesList;
+    franchisesList = props.franchisesList,
+    handleChangeInput = props.handleChangeInput;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
@@ -192,6 +193,7 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
   };
   var handleChangeSiteSettings = function handleChangeSiteSettings(e) {
     handleChangeValue(e.target.value, 'website_settings', "values.".concat(e.target.name));
+    handleChangeInput(e);
   };
   var handleChangeContent = function handleChangeContent(type, content) {
     handleChangeValue(content, 'theme_settings', "values.".concat(type));
@@ -251,7 +253,7 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
   }) : /*#__PURE__*/_react.default.createElement(_styles.Input, {
     name: "name",
     placeholder: t('SOURCE_DEMO_WEBSITE', 'Source demo website'),
-    value: (themeValues === null || themeValues === void 0 || (_themeValues$website_ = themeValues.website_settings) === null || _themeValues$website_ === void 0 || (_themeValues$website_ = _themeValues$website_.components) === null || _themeValues$website_ === void 0 || (_themeValues$website_ = _themeValues$website_.values) === null || _themeValues$website_ === void 0 ? void 0 : _themeValues$website_.name) || '',
+    value: (site === null || site === void 0 ? void 0 : site.name) || '',
     onChange: handleChangeSiteSettings
   })), /*#__PURE__*/_react.default.createElement(_styles2.FormGroup, null, /*#__PURE__*/_react.default.createElement("label", null, orderingTheme !== null && orderingTheme !== void 0 && orderingTheme.loading ? /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
     height: 20,
@@ -264,7 +266,7 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
   }) : /*#__PURE__*/_react.default.createElement(_styles.TextArea, {
     name: "description",
     placeholder: t('DESCRIPTION', 'Decription'),
-    value: (themeValues === null || themeValues === void 0 || (_themeValues$website_2 = themeValues.website_settings) === null || _themeValues$website_2 === void 0 || (_themeValues$website_2 = _themeValues$website_2.components) === null || _themeValues$website_2 === void 0 || (_themeValues$website_2 = _themeValues$website_2.values) === null || _themeValues$website_2 === void 0 ? void 0 : _themeValues$website_2.description) || '',
+    value: (site === null || site === void 0 ? void 0 : site.description) || '',
     onChange: handleChangeSiteSettings
   })), /*#__PURE__*/_react.default.createElement(_styles2.FormGroup, null, /*#__PURE__*/_react.default.createElement("label", null, orderingTheme !== null && orderingTheme !== void 0 && orderingTheme.loading ? /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
     height: 20,
@@ -343,16 +345,16 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     onClick: function onClick() {
       return handleChangeValue('marketplace', 'website_theme', 'type');
     }
-  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_3 = themeValues.website_theme) === null || _themeValues$website_3 === void 0 || (_themeValues$website_3 = _themeValues$website_3.components) === null || _themeValues$website_3 === void 0 ? void 0 : _themeValues$website_3.type) === 'marketplace' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
+  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_ = themeValues.website_theme) === null || _themeValues$website_ === void 0 || (_themeValues$website_ = _themeValues$website_.components) === null || _themeValues$website_ === void 0 ? void 0 : _themeValues$website_.type) === 'marketplace' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
     className: "active"
   }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Circle, null), /*#__PURE__*/_react.default.createElement("span", null, t('MARKETPLACE', 'Marketplace'))), /*#__PURE__*/_react.default.createElement(_styles2.RadioItem, {
     onClick: function onClick() {
       return handleChangeValue('franchise', 'website_theme', 'type');
     }
-  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_4 = themeValues.website_theme) === null || _themeValues$website_4 === void 0 || (_themeValues$website_4 = _themeValues$website_4.components) === null || _themeValues$website_4 === void 0 ? void 0 : _themeValues$website_4.type) === 'franchise' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
+  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_2 = themeValues.website_theme) === null || _themeValues$website_2 === void 0 || (_themeValues$website_2 = _themeValues$website_2.components) === null || _themeValues$website_2 === void 0 ? void 0 : _themeValues$website_2.type) === 'franchise' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
     className: "active"
-  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Circle, null), /*#__PURE__*/_react.default.createElement("span", null, t('REPORT_HEADER_FRANCHISES', 'Franchise'))), (themeValues === null || themeValues === void 0 || (_themeValues$website_5 = themeValues.website_theme) === null || _themeValues$website_5 === void 0 || (_themeValues$website_5 = _themeValues$website_5.components) === null || _themeValues$website_5 === void 0 ? void 0 : _themeValues$website_5.type) === 'franchise' && /*#__PURE__*/_react.default.createElement(_SelectFranchise.SelectFranchise, {
-    defaultValue: themeValues === null || themeValues === void 0 || (_themeValues$website_6 = themeValues.website_theme) === null || _themeValues$website_6 === void 0 || (_themeValues$website_6 = _themeValues$website_6.components) === null || _themeValues$website_6 === void 0 ? void 0 : _themeValues$website_6.franchise_slug,
+  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Circle, null), /*#__PURE__*/_react.default.createElement("span", null, t('REPORT_HEADER_FRANCHISES', 'Franchise'))), (themeValues === null || themeValues === void 0 || (_themeValues$website_3 = themeValues.website_theme) === null || _themeValues$website_3 === void 0 || (_themeValues$website_3 = _themeValues$website_3.components) === null || _themeValues$website_3 === void 0 ? void 0 : _themeValues$website_3.type) === 'franchise' && /*#__PURE__*/_react.default.createElement(_SelectFranchise.SelectFranchise, {
+    defaultValue: themeValues === null || themeValues === void 0 || (_themeValues$website_4 = themeValues.website_theme) === null || _themeValues$website_4 === void 0 || (_themeValues$website_4 = _themeValues$website_4.components) === null || _themeValues$website_4 === void 0 ? void 0 : _themeValues$website_4.franchise_slug,
     franchisesList: franchisesList,
     onChange: function onChange(value) {
       return handleChangeValue(value, 'website_theme', 'franchise_slug');
@@ -361,16 +363,16 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     onClick: function onClick() {
       return handleChangeValue('single_store', 'website_theme', 'type');
     }
-  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_7 = themeValues.website_theme) === null || _themeValues$website_7 === void 0 || (_themeValues$website_7 = _themeValues$website_7.components) === null || _themeValues$website_7 === void 0 ? void 0 : _themeValues$website_7.type) === 'single_store' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
+  }, (themeValues === null || themeValues === void 0 || (_themeValues$website_5 = themeValues.website_theme) === null || _themeValues$website_5 === void 0 || (_themeValues$website_5 = _themeValues$website_5.components) === null || _themeValues$website_5 === void 0 ? void 0 : _themeValues$website_5.type) === 'single_store' ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.RecordCircleFill, {
     className: "active"
-  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Circle, null), /*#__PURE__*/_react.default.createElement("span", null, t('SINGLE_STORE', 'Single Store'))), (themeValues === null || themeValues === void 0 || (_themeValues$website_8 = themeValues.website_theme) === null || _themeValues$website_8 === void 0 || (_themeValues$website_8 = _themeValues$website_8.components) === null || _themeValues$website_8 === void 0 ? void 0 : _themeValues$website_8.type) === 'single_store' && /*#__PURE__*/_react.default.createElement(_SelectBusiness.SelectBusiness, {
-    defaultValue: themeValues === null || themeValues === void 0 || (_themeValues$website_9 = themeValues.website_theme) === null || _themeValues$website_9 === void 0 || (_themeValues$website_9 = _themeValues$website_9.components) === null || _themeValues$website_9 === void 0 ? void 0 : _themeValues$website_9.business_slug,
+  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Circle, null), /*#__PURE__*/_react.default.createElement("span", null, t('SINGLE_STORE', 'Single Store'))), (themeValues === null || themeValues === void 0 || (_themeValues$website_6 = themeValues.website_theme) === null || _themeValues$website_6 === void 0 || (_themeValues$website_6 = _themeValues$website_6.components) === null || _themeValues$website_6 === void 0 ? void 0 : _themeValues$website_6.type) === 'single_store' && /*#__PURE__*/_react.default.createElement(_SelectBusiness.SelectBusiness, {
+    defaultValue: themeValues === null || themeValues === void 0 || (_themeValues$website_7 = themeValues.website_theme) === null || _themeValues$website_7 === void 0 || (_themeValues$website_7 = _themeValues$website_7.components) === null || _themeValues$website_7 === void 0 ? void 0 : _themeValues$website_7.business_slug,
     businessesList: businessesList,
     onChange: function onChange(value) {
       return handleChangeValue(value, 'website_theme', 'business_slug');
     }
-  })), (themeValues === null || themeValues === void 0 || (_themeValues$website_10 = themeValues.website_theme) === null || _themeValues$website_10 === void 0 || (_themeValues$website_10 = _themeValues$website_10.components) === null || _themeValues$website_10 === void 0 ? void 0 : _themeValues$website_10.type) && /*#__PURE__*/_react.default.createElement(_styles2.WebsitePriviewImageWrapper, null, /*#__PURE__*/_react.default.createElement("img", {
-    src: previewImages === null || previewImages === void 0 ? void 0 : previewImages[themeValues === null || themeValues === void 0 || (_themeValues$website_11 = themeValues.website_theme) === null || _themeValues$website_11 === void 0 || (_themeValues$website_11 = _themeValues$website_11.components) === null || _themeValues$website_11 === void 0 ? void 0 : _themeValues$website_11.type]
+  })), (themeValues === null || themeValues === void 0 || (_themeValues$website_8 = themeValues.website_theme) === null || _themeValues$website_8 === void 0 || (_themeValues$website_8 = _themeValues$website_8.components) === null || _themeValues$website_8 === void 0 ? void 0 : _themeValues$website_8.type) && /*#__PURE__*/_react.default.createElement(_styles2.WebsitePriviewImageWrapper, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: previewImages === null || previewImages === void 0 ? void 0 : previewImages[themeValues === null || themeValues === void 0 || (_themeValues$website_9 = themeValues.website_theme) === null || _themeValues$website_9 === void 0 || (_themeValues$website_9 = _themeValues$website_9.components) === null || _themeValues$website_9 === void 0 ? void 0 : _themeValues$website_9.type]
   }))))), /*#__PURE__*/_react.default.createElement(_styles2.InputFormWrapper, null, /*#__PURE__*/_react.default.createElement("h4", null, t('IMAGES', 'Images')), /*#__PURE__*/_react.default.createElement(_styles2.InnerBlock, null, orderingTheme !== null && orderingTheme !== void 0 && orderingTheme.loading ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
     height: 100,
     width: 100,
@@ -495,12 +497,17 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     }
   }, themeValues !== null && themeValues !== void 0 && (_themeValues$images11 = themeValues.images) !== null && _themeValues$images11 !== void 0 && (_themeValues$images11 = _themeValues$images11.components) !== null && _themeValues$images11 !== void 0 && _themeValues$images11.homepage_image_fullscreen ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.CheckSquareFill, {
     className: "active"
-  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Square, null), /*#__PURE__*/_react.default.createElement("span", null, t('HOMEPAGE_IMAGE_FULLSCREEN', 'Homepage  image fullscreen'))))), !(orderingTheme !== null && orderingTheme !== void 0 && orderingTheme.loading) && /*#__PURE__*/_react.default.createElement(_styles2.InputFormWrapper, null, /*#__PURE__*/_react.default.createElement("h4", null, t('THEME_SETTINGS', 'Theme Settings')), /*#__PURE__*/_react.default.createElement(_styles2.InnerBlock, null, /*#__PURE__*/_react.default.createElement(_styles2.ColorPickerWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, t('PRIMARY_COLOR_BUTTONS', 'Primary Color for Buttons')), /*#__PURE__*/_react.default.createElement(_Shared.ColorPicker, {
-    defaultColor: themeValues === null || themeValues === void 0 || (_themeValues$theme_se = themeValues.theme_settings) === null || _themeValues$theme_se === void 0 || (_themeValues$theme_se = _themeValues$theme_se.components) === null || _themeValues$theme_se === void 0 || (_themeValues$theme_se = _themeValues$theme_se.style) === null || _themeValues$theme_se === void 0 ? void 0 : _themeValues$theme_se.primary_btn_color,
+  }) : /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Square, null), /*#__PURE__*/_react.default.createElement("span", null, t('HOMEPAGE_IMAGE_FULLSCREEN', 'Homepage  image fullscreen'))))), !(orderingTheme !== null && orderingTheme !== void 0 && orderingTheme.loading) && /*#__PURE__*/_react.default.createElement(_styles2.InputFormWrapper, null, /*#__PURE__*/_react.default.createElement("h4", null, t('THEME_SETTINGS', 'Theme Settings')), /*#__PURE__*/_react.default.createElement(_styles2.InnerBlock, null, /*#__PURE__*/_react.default.createElement(_styles2.ContentWrapper, null, /*#__PURE__*/_react.default.createElement(_styles2.ColorPickerWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, t('BACKGROUND_COLOR', 'Background color')), /*#__PURE__*/_react.default.createElement(_Shared.ColorPicker, {
+    defaultColor: (_themeValues$theme_se = themeValues === null || themeValues === void 0 || (_themeValues$theme_se2 = themeValues.theme_settings) === null || _themeValues$theme_se2 === void 0 || (_themeValues$theme_se2 = _themeValues$theme_se2.components) === null || _themeValues$theme_se2 === void 0 || (_themeValues$theme_se2 = _themeValues$theme_se2.style) === null || _themeValues$theme_se2 === void 0 ? void 0 : _themeValues$theme_se2.background_page) !== null && _themeValues$theme_se !== void 0 ? _themeValues$theme_se : '#FFFFFF',
+    onChangeColor: function onChangeColor(color) {
+      return handleChangeValue(color, 'theme_settings', 'style.background_page');
+    }
+  }))), /*#__PURE__*/_react.default.createElement(_styles2.ColorPickerWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, t('PRIMARY_COLOR_BUTTONS', 'Primary Color for Buttons')), /*#__PURE__*/_react.default.createElement(_Shared.ColorPicker, {
+    defaultColor: themeValues === null || themeValues === void 0 || (_themeValues$theme_se3 = themeValues.theme_settings) === null || _themeValues$theme_se3 === void 0 || (_themeValues$theme_se3 = _themeValues$theme_se3.components) === null || _themeValues$theme_se3 === void 0 || (_themeValues$theme_se3 = _themeValues$theme_se3.style) === null || _themeValues$theme_se3 === void 0 ? void 0 : _themeValues$theme_se3.primary_btn_color,
     onChangeColor: function onChangeColor(color) {
       return handleChangeValue(color, 'theme_settings', 'style.primary_btn_color');
     }
-  }))), /*#__PURE__*/_react.default.createElement(_styles2.ContentWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, t('HOMEPAGE_CONTENT', 'Homepage Content')), /*#__PURE__*/_react.default.createElement(_styles.Button, {
+  })))), /*#__PURE__*/_react.default.createElement(_styles2.ContentWrapper, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, t('HOMEPAGE_CONTENT', 'Homepage Content')), /*#__PURE__*/_react.default.createElement(_styles.Button, {
     color: "primary",
     borderRadius: "8px",
     outline: true,
@@ -583,7 +590,7 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_ContentForm.ContentForm, {
     title: t('HOME_PAGE_CONTENT', 'Home Page Content'),
-    content: themeValues === null || themeValues === void 0 || (_themeValues$theme_se2 = themeValues.theme_settings) === null || _themeValues$theme_se2 === void 0 || (_themeValues$theme_se2 = _themeValues$theme_se2.components) === null || _themeValues$theme_se2 === void 0 || (_themeValues$theme_se2 = _themeValues$theme_se2.values) === null || _themeValues$theme_se2 === void 0 ? void 0 : _themeValues$theme_se2.homepage_content,
+    content: themeValues === null || themeValues === void 0 || (_themeValues$theme_se4 = themeValues.theme_settings) === null || _themeValues$theme_se4 === void 0 || (_themeValues$theme_se4 = _themeValues$theme_se4.components) === null || _themeValues$theme_se4 === void 0 || (_themeValues$theme_se4 = _themeValues$theme_se4.values) === null || _themeValues$theme_se4 === void 0 ? void 0 : _themeValues$theme_se4.homepage_content,
     onClose: function onClose() {
       return setHomePageContent(false);
     },
@@ -597,7 +604,7 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_ContentForm.ContentForm, {
     title: t('FOOTER', 'Footer'),
-    content: themeValues === null || themeValues === void 0 || (_themeValues$theme_se3 = themeValues.theme_settings) === null || _themeValues$theme_se3 === void 0 || (_themeValues$theme_se3 = _themeValues$theme_se3.components) === null || _themeValues$theme_se3 === void 0 || (_themeValues$theme_se3 = _themeValues$theme_se3.values) === null || _themeValues$theme_se3 === void 0 ? void 0 : _themeValues$theme_se3.footer_content,
+    content: themeValues === null || themeValues === void 0 || (_themeValues$theme_se5 = themeValues.theme_settings) === null || _themeValues$theme_se5 === void 0 || (_themeValues$theme_se5 = _themeValues$theme_se5.components) === null || _themeValues$theme_se5 === void 0 || (_themeValues$theme_se5 = _themeValues$theme_se5.values) === null || _themeValues$theme_se5 === void 0 ? void 0 : _themeValues$theme_se5.footer_content,
     onClose: function onClose() {
       return setFooterContent(false);
     },

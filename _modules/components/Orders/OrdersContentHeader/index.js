@@ -19,6 +19,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _useWindowSize2 = require("../../../hooks/useWindowSize");
 var _GoogleMapsApiKeySettingButton = require("../GoogleMapsApiKeySettingButton");
 var _WebsocketStatus = require("../WebsocketStatus");
+var _TiWarningOutline = _interopRequireDefault(require("@meronex/icons/ti/TiWarningOutline"));
 var _styles2 = require("./styles");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -66,13 +67,17 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
   var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
     _useConfig2 = _slicedToArray(_useConfig, 1),
     configState = _useConfig2[0];
+  var handleClearFilters = function handleClearFilters() {
+    if (searchValue) handleChangeSearch('');
+    if (filterApplied) handleChangeFilterValues({});
+  };
   (0, _react.useEffect)(function () {
     var _filterApplied = false;
     if (Object.keys(filterValues).length === 0) {
       _filterApplied = false;
     } else {
       var _filterValues$groupTy, _filterValues$metafie;
-      _filterApplied = (filterValues === null || filterValues === void 0 || (_filterValues$groupTy = filterValues.groupTypes) === null || _filterValues$groupTy === void 0 ? void 0 : _filterValues$groupTy.length) || filterValues.businessIds.length > 0 || filterValues.cityIds.length > 0 || filterValues.deliveryEndDatetime !== null || filterValues.deliveryFromDatetime !== null || filterValues.deliveryTypes.length > 0 || filterValues.driverIds.length > 0 || filterValues.paymethodIds.length > 0 || filterValues.statuses.length > 0 || (filterValues === null || filterValues === void 0 || (_filterValues$metafie = filterValues.metafield) === null || _filterValues$metafie === void 0 ? void 0 : _filterValues$metafie.length) > 0 || (filterValues === null || filterValues === void 0 ? void 0 : filterValues.externalId) || (filterValues === null || filterValues === void 0 ? void 0 : filterValues.logisticStatus) !== null;
+      _filterApplied = (filterValues === null || filterValues === void 0 || (_filterValues$groupTy = filterValues.groupTypes) === null || _filterValues$groupTy === void 0 ? void 0 : _filterValues$groupTy.length) || filterValues.businessIds.length > 0 || filterValues.cityIds.length > 0 || filterValues.deliveryEndDatetime !== null || filterValues.deliveryFromDatetime !== null || filterValues.deliveryTypes.length > 0 || filterValues.driverIds.length > 0 || filterValues.paymethodIds.length > 0 || filterValues.statuses.length > 0 || (filterValues === null || filterValues === void 0 || (_filterValues$metafie = filterValues.metafield) === null || _filterValues$metafie === void 0 ? void 0 : _filterValues$metafie.length) > 0 || (filterValues === null || filterValues === void 0 ? void 0 : filterValues.externalId) || (filterValues === null || filterValues === void 0 ? void 0 : filterValues.logisticStatus) !== null || (filterValues === null || filterValues === void 0 ? void 0 : filterValues.assigned) !== null;
     }
     setFilterApplied(_filterApplied);
   }, [filterValues]);
@@ -112,7 +117,11 @@ var OrdersContentHeader = function OrdersContentHeader(props) {
       return setFilterModalOpen && setFilterModalOpen(true);
     },
     name: "filter-btn"
-  }, filterApplied ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Funnel, null) : /*#__PURE__*/_react.default.createElement(_MdcFilterOff.default, null))))), /*#__PURE__*/_react.default.createElement(_OrdersFilterGroup.OrdersFilterGroup, {
+  }, filterApplied ? /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Funnel, null) : /*#__PURE__*/_react.default.createElement(_MdcFilterOff.default, null)), (filterApplied || !!searchValue) && /*#__PURE__*/_react.default.createElement(_styles2.WarningMessage, null, /*#__PURE__*/_react.default.createElement(_TiWarningOutline.default, null), /*#__PURE__*/_react.default.createElement("span", null, t('WARNING_FILTER_APPLIED', 'Notifications Paused. Filters applied. You may miss new orders.')), /*#__PURE__*/_react.default.createElement(_styles.LinkButton, {
+    onClick: function onClick() {
+      return handleClearFilters();
+    }
+  }, t('CLEAR_FILTERS', 'Clear filters')))))), /*#__PURE__*/_react.default.createElement(_OrdersFilterGroup.OrdersFilterGroup, {
     open: filterModalOpen,
     handleCloseFilterModal: function handleCloseFilterModal() {
       return setFilterModalOpen && setFilterModalOpen(false);
