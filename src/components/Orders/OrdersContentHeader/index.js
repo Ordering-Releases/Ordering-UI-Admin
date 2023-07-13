@@ -6,12 +6,13 @@ import { Funnel, List as MenuIcon, LifePreserver } from 'react-bootstrap-icons'
 import MdcFilterOff from '@meronex/icons/mdc/MdcFilterOff'
 import { OrdersDashboardSLAControls } from '../OrdersDashboardSLAControls'
 import { OrderDashboardSLASetting } from '../OrderDashboardSLASetting'
-import { IconButton } from '../../../styles'
+import { IconButton, LinkButton } from '../../../styles'
 import { useInfoShare } from '../../../contexts/InfoShareContext'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { useWindowSize } from '../../../hooks/useWindowSize'
 import { GoogleMapsApiKeySettingButton } from '../GoogleMapsApiKeySettingButton'
 import { WebsocketStatus } from '../WebsocketStatus'
+import TiWarningOutline from '@meronex/icons/ti/TiWarningOutline'
 
 import {
   OrderContentHeaderContainer,
@@ -19,7 +20,8 @@ import {
   HeaderTitle,
   TopRightSection,
   SLAControlsWrapper,
-  WrapperSearchAndFilter
+  WrapperSearchAndFilter,
+  WarningMessage
 } from './styles'
 
 export const OrdersContentHeader = (props) => {
@@ -52,6 +54,11 @@ export const OrdersContentHeader = (props) => {
   const [filterApplied, setFilterApplied] = useState(false)
   const [configState] = useConfig()
 
+  const handleClearFilters = () => {
+    if (searchValue) handleChangeSearch('')
+    if (filterApplied) handleChangeFilterValues({})
+  }
+
   useEffect(() => {
     let _filterApplied = false
     if (Object.keys(filterValues).length === 0) {
@@ -60,7 +67,7 @@ export const OrdersContentHeader = (props) => {
       _filterApplied = filterValues?.groupTypes?.length || filterValues.businessIds.length > 0 || filterValues.cityIds.length > 0 ||
         filterValues.deliveryEndDatetime !== null || filterValues.deliveryFromDatetime !== null || filterValues.deliveryTypes.length > 0 ||
         filterValues.driverIds.length > 0 || filterValues.paymethodIds.length > 0 || filterValues.statuses.length > 0 || filterValues?.metafield?.length > 0 ||
-        filterValues?.externalId || filterValues?.logisticStatus !== null
+        filterValues?.externalId || filterValues?.logisticStatus !== null || filterValues?.assigned !== null
     }
     setFilterApplied(_filterApplied)
   }, [filterValues])
@@ -136,6 +143,13 @@ export const OrdersContentHeader = (props) => {
             >
               {filterApplied ? <Funnel /> : <MdcFilterOff />}
             </IconButton>
+            {(filterApplied || !!searchValue) && (
+              <WarningMessage>
+                <TiWarningOutline />
+                <span>{t('WARNING_FILTER_APPLIED', 'Notifications Paused. Filters applied. You may miss new orders.')}</span>
+                <LinkButton onClick={() => handleClearFilters()}>{t('CLEAR_FILTERS', 'Clear filters')}</LinkButton>
+              </WarningMessage>
+            )}
           </WrapperSearchAndFilter>
         </TopRightSection>
       </OrderContentHeaderContainer>
