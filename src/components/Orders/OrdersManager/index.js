@@ -179,7 +179,6 @@ const OrdersManagerUI = (props) => {
           citiesList={citiesList}
           paymethodsList={paymethodsList}
           businessesList={businessesList}
-          filterValues={filterValues}
           handleChangeSearch={handleChangeSearch}
           handleChangeFilterValues={handleChangeFilterValues}
           selectedOrderIds={selectedOrderIds}
@@ -214,6 +213,7 @@ const OrdersManagerUI = (props) => {
                 setOrderDetailId(id)
                 setIsOpenOrderDetail(true)
               }}
+              handleOpenOrderDetail={handleOpenOrderDetail}
             />
           )}
         </OrderSubFilterControls>
