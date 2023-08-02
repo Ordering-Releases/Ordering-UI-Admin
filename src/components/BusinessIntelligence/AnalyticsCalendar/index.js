@@ -65,6 +65,10 @@ export const AnalyticsCalendar = (props) => {
     return formattedDate
   }
 
+  const singleDateFormat = (selectedDate) => {
+
+  }
+
   useEffect(() => {
     window.addEventListener('click', handleClickOutside)
     return () => window.removeEventListener('click', handleClickOutside)

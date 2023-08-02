@@ -82,6 +82,7 @@ var AnalyticsCalendar = function AnalyticsCalendar(props) {
     }
     return formattedDate;
   };
+  var singleDateFormat = function singleDateFormat(selectedDate) {};
   (0, _react.useEffect)(function () {
     window.addEventListener('click', handleClickOutside);
     return function () {
