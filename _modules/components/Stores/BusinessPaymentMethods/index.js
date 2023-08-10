@@ -24,6 +24,7 @@ var _PaymentOptionPaypal = require("../PaymentOptionPaypal");
 var _PaymentOptionSquare = require("../PaymentOptionSquare");
 var _PaymentOptionMethods = require("../PaymentOptionMethods");
 var _BusinessWalletsList = require("../BusinessWalletsList");
+var _utils = require("../../../utils");
 var _styles2 = require("./styles");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -72,7 +73,6 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     handleSuccessUpdate = props.handleSuccessUpdate,
     isTutorialMode = props.isTutorialMode,
     handleTutorialContinue = props.handleTutorialContinue;
-  var history = (0, _reactRouterDom.useHistory)();
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -125,6 +125,12 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
   }, {
     value: 5,
     text: t('DRIVER_THRU', 'Driver thru')
+  }, {
+    value: 7,
+    text: t('CATERING_DELIVERY', 'Catering delivery')
+  }, {
+    value: 8,
+    text: t('CATERING_PICKUP', 'Catering pickup')
   }];
   var methodsPay = ['google_pay', 'apple_pay'];
   var closeAlert = function closeAlert() {
@@ -163,9 +169,9 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
       setIsExtendExtraOpen(true);
     }
     if (!isInitialRender) {
-      var businessId = query.get('id');
-      var section = query.get('section');
-      history.replace("".concat(location.pathname, "?id=").concat(businessId, "&section=").concat(section, "&paymethod=").concat(paymethodId));
+      (0, _utils.addQueryToUrl)({
+        paymethod: paymethodId
+      });
     }
   };
   var handleClickCheckBox = function handleClickCheckBox(id) {
@@ -189,9 +195,7 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     setIsEdit(false);
     setSelectedBusinessPaymethod(null);
     setIsSuccessDeleted(false);
-    var businessId = query.get('id');
-    var section = query.get('section');
-    history.replace("".concat(location.pathname, "?id=").concat(businessId, "&section=").concat(section));
+    (0, _utils.removeQueryToUrl)(['paymethod']);
   };
   (0, _react.useEffect)(function () {
     if (!isSuccessDeleted) return;
