@@ -120,7 +120,7 @@ export const BusinessPreorderDetails = (props) => {
           {t('SAVE', 'Save')}
         </Button>
       </PreorderTimeWrapper>
-      {/* <Divider />
+      <Divider />
       <BusinessCateringDelivery
         minutes={minutes}
         type='catering_delivery'
@@ -135,7 +135,7 @@ export const BusinessPreorderDetails = (props) => {
         changePreorderConfigs={changePreorderConfigs}
         disabled={actionStatus?.loading}
       />
-      <Margin /> */}
+      <Margin />
     </BusinessPreorderContainer>
   )
 }
