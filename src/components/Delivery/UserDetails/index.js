@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 import { useTheme } from 'styled-components'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
-import { useLanguage, UserDetails as UserDetailsController } from 'ordering-components-admin-external'
+import { useSession, useConfig, useLanguage, UserDetails as UserDetailsController } from 'ordering-components-admin-external'
 import { OrdersManager } from '../../Orders/OrdersManager'
 import { AddressList } from '../AddressList'
 import { Personalization, Modal, Schedule, PushTokens } from '../../Shared'
@@ -48,10 +48,13 @@ export const UserDetailsUI = (props) => {
   const theme = useTheme()
   const [, t] = useLanguage()
   const { width } = useWindowSize()
+  const [{ user }] = useSession()
   const [currentMenuSelected, setCurrentMenuSelected] = useState('profile')
   const [isCustomField, setIsCustomField] = useState(false)
   const [isPersonalization, setIsPersonalization] = useState(false)
   const [isExpand, setIsExpand] = useState(false)
+  const [{ configs }] = useConfig()
+  const disableSchedule = configs?.allow_driver_manager_update_driver_schedule?.value === '0' && user?.level === 5
 
   const expandSidebar = () => {
     const element = document.getElementById('user_lateral_bar')
@@ -177,19 +180,22 @@ export const UserDetailsUI = (props) => {
                 isShowDate={!!isDriversPage}
                 scheduleList={userState?.user?.schedule}
                 handleChangeScheduleState={handleScheduleState}
+                disableSchedule={disableSchedule}
               />
-              <ActionsForm>
-                <Button
-                  id='form-btn'
-                  color='primary'
-                  borderRadius='5px'
-                  disabled={scheduleState.loading || scheduleState?.change?.length === 0}
-                  style={{ marginTop: 20 }}
-                  onClick={() => handleScheduleUpdateUser()}
-                >
-                  {scheduleState.loading ? t('UPDATING', 'Updating...') : t('UPDATE', 'Update')}
-                </Button>
-              </ActionsForm>
+              {!disableSchedule && (
+                <ActionsForm>
+                  <Button
+                    id='form-btn'
+                    color='primary'
+                    borderRadius='5px'
+                    disabled={scheduleState.loading || scheduleState?.change?.length === 0}
+                    style={{ marginTop: 20 }}
+                    onClick={() => handleScheduleUpdateUser()}
+                  >
+                    {scheduleState.loading ? t('UPDATING', 'Updating...') : t('UPDATE', 'Update')}
+                  </Button>
+                </ActionsForm>
+              )}
             </ScheduleSection>
           )}
           {currentMenuSelected === 'logs' && (
