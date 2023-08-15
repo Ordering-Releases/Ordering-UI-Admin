@@ -41,7 +41,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var UserDetailsUI = function UserDetailsUI(props) {
-  var _userState$user, _userState$user2, _userState$user3, _userState$user5, _userState$user7, _userState$user8, _userState$user9, _userState$user10, _userState$user11, _scheduleState$change, _userState$user12, _userState$user13, _userState$user14, _userState$user15, _userState$user16;
+  var _configs$allow_driver, _userState$user, _userState$user2, _userState$user3, _userState$user5, _userState$user7, _userState$user8, _userState$user9, _userState$user10, _userState$user11, _scheduleState$change, _userState$user12, _userState$user13, _userState$user14, _userState$user15, _userState$user16;
   var isDriversPage = props.isDriversPage,
     isDriversManagersPage = props.isDriversManagersPage,
     userState = props.userState,
@@ -60,6 +60,9 @@ var UserDetailsUI = function UserDetailsUI(props) {
     t = _useLanguage2[1];
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
     width = _useWindowSize.width;
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
+    _useSession2 = _slicedToArray(_useSession, 1),
+    user = _useSession2[0].user;
   var _useState = (0, _react.useState)('profile'),
     _useState2 = _slicedToArray(_useState, 2),
     currentMenuSelected = _useState2[0],
@@ -76,6 +79,10 @@ var UserDetailsUI = function UserDetailsUI(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     isExpand = _useState8[0],
     setIsExpand = _useState8[1];
+  var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
+    _useConfig2 = _slicedToArray(_useConfig, 1),
+    configs = _useConfig2[0].configs;
+  var disableSchedule = (configs === null || configs === void 0 || (_configs$allow_driver = configs.allow_driver_manager_update_driver_schedule) === null || _configs$allow_driver === void 0 ? void 0 : _configs$allow_driver.value) === '0' && (user === null || user === void 0 ? void 0 : user.level) === 5;
   var expandSidebar = function expandSidebar() {
     var element = document.getElementById('user_lateral_bar');
     if (!element) return;
@@ -164,8 +171,9 @@ var UserDetailsUI = function UserDetailsUI(props) {
   }))), currentMenuSelected === 'schedule' && /*#__PURE__*/_react.default.createElement(_styles3.ScheduleSection, null, /*#__PURE__*/_react.default.createElement(_Shared.Schedule, {
     isShowDate: !!isDriversPage,
     scheduleList: userState === null || userState === void 0 || (_userState$user11 = userState.user) === null || _userState$user11 === void 0 ? void 0 : _userState$user11.schedule,
-    handleChangeScheduleState: handleScheduleState
-  }), /*#__PURE__*/_react.default.createElement(_styles2.ActionsForm, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    handleChangeScheduleState: handleScheduleState,
+    disableSchedule: disableSchedule
+  }), !disableSchedule && /*#__PURE__*/_react.default.createElement(_styles2.ActionsForm, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
     id: "form-btn",
     color: "primary",
     borderRadius: "5px",
