@@ -137,6 +137,7 @@ export const Description = styled.div`
   font-size: 14px;
   margin: 10px 0px;
   span {
+    cursor: pointer;
     color: ${props => props.theme.colors.primary};
     cursor: pointer;
     transition: all 0.3s linear;
@@ -147,4 +148,20 @@ export const Description = styled.div`
 `
 export const BottomSpace = styled.div`
   height: 1px;
+`
+
+export const ContactWrapper = styled.div`
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  button {
+    border-radius: 8px;
+    height: 44px;
+  }
 `
