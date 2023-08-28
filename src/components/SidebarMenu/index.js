@@ -82,12 +82,12 @@ const SidebarMenuUI = (props) => {
       pageName: 'drivers',
       url: '/drivers'
     },
-    // {
-    //   id: 4,
-    //   title: t('ALL_IN_ONE', 'All in one'),
-    //   pageName: 'all_in_one',
-    //   url: '/all-in-one'
-    // },
+    {
+      id: 4,
+      title: t('ALL_IN_ONE', 'All in one'),
+      pageName: 'all_in_one',
+      url: '/all-in-one'
+    },
     {
       id: 5,
       title: t('APPOINTMENTS', 'Appointments'),

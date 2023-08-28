@@ -263,7 +263,7 @@ export const SettingsListUI = (props) => {
                           />
                         )
                       }
-                      {/* {config.type === 6 && (
+                      {config.type === 6 && (
                         <>
                           <FormGroupText className='form-group'>
                             <label>{config?.name}</label>
@@ -285,7 +285,7 @@ export const SettingsListUI = (props) => {
                             ))}
                           </FormGroupText>
                         </>
-                        )} */}
+                      )}
                     </div>
                   ))
                 }
