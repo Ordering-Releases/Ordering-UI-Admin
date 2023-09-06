@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useConfig } from 'ordering-components-admin'
+import { useConfig } from 'ordering-components-admin-external'
 import { DeliveriesLocation } from '../DeliveriesLocation'
 import { OrdersDashboardList } from '../OrdersDashboardList'
 import { OrderStatusFilterBar } from '../OrderStatusFilterBar'
