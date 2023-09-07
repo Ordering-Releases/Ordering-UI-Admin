@@ -163,14 +163,14 @@ var OrdersTable = /*#__PURE__*/(0, _react.memo)(function (props) {
   //   return minutes > 0 ? 'in_time' : Math.abs(minutes) <= delayTime ? 'at_risk' : 'delayed'
   // }
 
-  (0, _react.useEffect)(function () {
-    var interval = setInterval(function () {
-      setCurrentTime(Date.now());
-    }, slaSettingTime);
-    return function () {
-      return clearInterval(interval);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentTime(Date.now())
+  //   }, slaSettingTime)
+
+  //   return () => clearInterval(interval)
+  // }, [])
+
   var getLogisticTag = function getLogisticTag(status) {
     switch (parseInt(status)) {
       case 0:
