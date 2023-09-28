@@ -27,7 +27,7 @@ var Photo = function Photo(props) {
   }), props.children);
 };
 exports.Photo = Photo;
-var InfoContent = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  flex: 1;\n  > div {\n    display: flex;\n    align-items: center;\n\n    > p {\n      margin: 0px;\n      font-weight: 600;\n      color: ", ";\n      display: -webkit-box;\n      -webkit-box-orient: vertical;\n      -webkit-line-clamp: 1;\n      overflow: hidden;\n\n      &.name {\n        max-width: 70%;\n      }\n    }\n\n    > button {\n      ", "\n    }\n  }\n\n  > p {\n    color: ", ";\n    font-size: 12px;\n    margin: 0px;\n  }\n\n  ", "\n"])), function (props) {
+var InfoContent = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  flex: 1;\n  > div {\n    display: flex;\n    align-items: center;\n\n    > p {\n      display: flex;\n      margin: 0px;\n      font-weight: 400;\n      color: ", ";\n    }\n\n    > button {\n      ", "\n    }\n  }\n\n  > p {\n    color: ", ";\n    font-size: 12px;\n    margin: 0px;\n  }\n\n  ", "\n"])), function (props) {
   var _props$theme$colors;
   return (_props$theme$colors = props.theme.colors) === null || _props$theme$colors === void 0 ? void 0 : _props$theme$colors.headingColor;
 }, function (props) {
@@ -43,7 +43,7 @@ var InfoContent = _styledComponents.default.div(_templateObject4 || (_templateOb
 exports.InfoContent = InfoContent;
 var CustomerInfo = (0, _styledComponents.default)(BusinessInfo)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""])));
 exports.CustomerInfo = CustomerInfo;
-var ActionIconWrapper = _styledComponents.default.div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  height: 100%;\n  position: absolute;\n  right: 0;\n  top: 0;\n  > .down-arrow {\n    transition: all 0.3s;\n    margin: 0 10px;\n  }\n  .edit-icon {\n    color: ", ";\n    cursor: pointer;\n  }\n"])), function (props) {
+var ActionIconWrapper = _styledComponents.default.div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  height: 100%;\n  right: 0;\n  top: 0;\n  > .down-arrow {\n    transition: all 0.3s;\n    margin: 0 10px;\n  }\n  .edit-icon {\n    color: ", ";\n    cursor: pointer;\n  }\n"])), function (props) {
   return props.theme.colors.secundaryLight;
 });
 exports.ActionIconWrapper = ActionIconWrapper;
