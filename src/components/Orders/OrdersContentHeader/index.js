@@ -105,18 +105,20 @@ export const OrdersContentHeader = memo((props) => {
               />
             </SLAControlsWrapper>
           )}
-          {isShowSearchFilters && (
             <WrapperSearchAndFilter
               fullWidth={isDisableTitle}
-            >
-              <SearchBar
-                isCustomLayout
-                lazyLoad
-                onSearch={handleChangeSearch}
-                search={searchValue}
-                placeholder={t('SEARCH', 'Search')}
-              />
+              >
+              {isShowSearchFilters && (
+                <SearchBar
+                  isCustomLayout
+                  lazyLoad
+                  onSearch={handleChangeSearch}
+                  search={searchValue}
+                  placeholder={t('SEARCH', 'Search')}
+                />
+              )}
               <OrdersFilterGroup
+                isLateralBar={isLateralBar}
                 filterModalOpen={filterModalOpen}
                 setFilterModalOpen={setFilterModalOpen}
                 driverGroupList={driverGroupList}
@@ -129,7 +131,6 @@ export const OrdersContentHeader = memo((props) => {
                 handleChangeSearch={handleChangeSearch}
               />
             </WrapperSearchAndFilter>
-          )}
         </TopRightSection>
       </OrderContentHeaderContainer>
     </>
