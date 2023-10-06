@@ -102,10 +102,9 @@ var UsersExportCSVUI = function UsersExportCSVUI(props) {
     closeOnBackdrop: false
   }));
 };
-var UsersExportCSV = function UsersExportCSV(props) {
+var UsersExportCSV = exports.UsersExportCSV = function UsersExportCSV(props) {
   var ExportCSVControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: UsersExportCSVUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersExportCSV, ExportCSVControlProps);
 };
-exports.UsersExportCSV = UsersExportCSV;

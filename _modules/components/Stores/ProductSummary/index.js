@@ -31,7 +31,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var ProductSummary = function ProductSummary(props) {
+var ProductSummary = exports.ProductSummary = function ProductSummary(props) {
   var _productState$product5, _productState$product6, _productState$product7, _productState$product8, _productState$product9, _productState$product10, _productState$product11, _productState$product12, _productState$product13, _productState$product14, _productState$product15, _productState$product16, _productState$product17, _productState$product18, _productState$product19, _productState$product20, _productState$product21, _productState$product22, _productState$product23, _productState$product24, _productState$product25;
   var actionSidebar = props.actionSidebar,
     showOption = props.showOption,
@@ -248,4 +248,3 @@ var ProductSummary = function ProductSummary(props) {
     showProductOption: showProductOption
   })));
 };
-exports.ProductSummary = ProductSummary;

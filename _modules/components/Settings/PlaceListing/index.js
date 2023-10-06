@@ -448,10 +448,9 @@ var PlaceListingUI = function PlaceListingUI(props) {
     handleAddCity: handleAddCity
   })));
 };
-var PlaceListing = function PlaceListing(props) {
+var PlaceListing = exports.PlaceListing = function PlaceListing(props) {
   var placesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PlaceListingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PlaceList, placesProps);
 };
-exports.PlaceListing = PlaceListing;

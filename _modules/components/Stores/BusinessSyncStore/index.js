@@ -136,7 +136,7 @@ var BusinessSyncStoreUI = function BusinessSyncStoreUI(props) {
     business: selectedBusiness
   }))));
 };
-var BusinessSyncStore = function BusinessSyncStore(props) {
+var BusinessSyncStore = exports.BusinessSyncStore = function BusinessSyncStore(props) {
   var businessBrandBUSIDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessSyncStoreUI,
     asDashboard: true,
@@ -144,4 +144,3 @@ var BusinessSyncStore = function BusinessSyncStore(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardBusinessList, businessBrandBUSIDetailProps);
 };
-exports.BusinessSyncStore = BusinessSyncStore;

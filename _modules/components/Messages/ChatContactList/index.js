@@ -110,7 +110,7 @@ var ChatContactListUI = function ChatContactListUI(props) {
     }
   }));
 };
-var ChatContactList = function ChatContactList(props) {
+var ChatContactList = exports.ChatContactList = function ChatContactList(props) {
   var customersControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ChatContactListUI,
     isSearchByUserEmail: true,
@@ -121,4 +121,3 @@ var ChatContactList = function ChatContactList(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, customersControlProps);
 };
-exports.ChatContactList = ChatContactList;

@@ -101,11 +101,10 @@ var InvoiceDriverManagerUI = function InvoiceDriverManagerUI(props) {
     ref: invoicePdfRef
   }, /*#__PURE__*/_react.default.createElement(_InvoiceDriverPdf.InvoiceDriverPdf, props)), (exportInvoiceList === null || exportInvoiceList === void 0 ? void 0 : exportInvoiceList.loading) && /*#__PURE__*/_react.default.createElement(_styles.LoadingWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.SpinnerLoader, null)));
 };
-var InvoiceDriverManager = function InvoiceDriverManager(props) {
+var InvoiceDriverManager = exports.InvoiceDriverManager = function InvoiceDriverManager(props) {
   var invoiceDriverManagerProps = _objectSpread(_objectSpread({}, props), {}, {
     propsToFetch: ['id', 'name'],
     UIComponent: InvoiceDriverManagerUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.InvoiceDriverManager, invoiceDriverManagerProps);
 };
-exports.InvoiceDriverManager = InvoiceDriverManager;

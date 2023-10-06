@@ -234,11 +234,10 @@ var BusinessWebhooksUI = function BusinessWebhooksUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessWebhooks = function BusinessWebhooks(props) {
+var BusinessWebhooks = exports.BusinessWebhooks = function BusinessWebhooks(props) {
   var businessWebhooksProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: BusinessWebhooksUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessWebhooks, businessWebhooksProps);
 };
-exports.BusinessWebhooks = BusinessWebhooks;

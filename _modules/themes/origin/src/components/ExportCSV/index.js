@@ -76,11 +76,10 @@ var ExportCSVUI = function ExportCSVUI(props) {
     primary: true
   }));
 };
-var ExportCSV = function ExportCSV(props) {
+var ExportCSV = exports.ExportCSV = function ExportCSV(props) {
   var ExportCSVControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ExportCSVUI,
     filterValues: props.filterValues
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ExportCSV, ExportCSVControlProps);
 };
-exports.ExportCSV = ExportCSV;

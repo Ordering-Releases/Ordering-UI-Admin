@@ -248,10 +248,9 @@ var WebhookListUI = function WebhookListUI(props) {
     closeOnBackdrop: false
   }));
 };
-var WebhookList = function WebhookList(props) {
+var WebhookList = exports.WebhookList = function WebhookList(props) {
   var webhookListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: WebhookListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.WebhookList, webhookListProps);
 };
-exports.WebhookList = WebhookList;

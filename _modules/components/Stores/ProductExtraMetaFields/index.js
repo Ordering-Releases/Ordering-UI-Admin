@@ -285,11 +285,10 @@ var ProductExtraMetaFieldsUI = function ProductExtraMetaFieldsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProductExtraMetaFields = function ProductExtraMetaFields(props) {
+var ProductExtraMetaFields = exports.ProductExtraMetaFields = function ProductExtraMetaFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: ProductExtraMetaFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraMetaFields, MetaFieldsProps);
 };
-exports.ProductExtraMetaFields = ProductExtraMetaFields;

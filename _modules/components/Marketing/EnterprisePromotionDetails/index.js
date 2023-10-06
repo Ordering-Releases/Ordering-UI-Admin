@@ -279,10 +279,9 @@ var EnterprisePromotionDetailsUI = function EnterprisePromotionDetailsUI(props) 
     closeOnBackdrop: false
   }));
 };
-var EnterprisePromotionDetails = function EnterprisePromotionDetails(props) {
+var EnterprisePromotionDetails = exports.EnterprisePromotionDetails = function EnterprisePromotionDetails(props) {
   var promotionProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: EnterprisePromotionDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.EnterprisePromotionDetails, promotionProps);
 };
-exports.EnterprisePromotionDetails = EnterprisePromotionDetails;

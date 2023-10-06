@@ -149,10 +149,9 @@ var BusinessDeliveryZoneDetailsUI = function BusinessDeliveryZoneDetailsUI(props
     closeOnBackdrop: false
   }));
 };
-var BusinessDeliveryZoneDetails = function BusinessDeliveryZoneDetails(props) {
+var BusinessDeliveryZoneDetails = exports.BusinessDeliveryZoneDetails = function BusinessDeliveryZoneDetails(props) {
   var businessDeliveryZoneProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessDeliveryZoneDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDeliveryZone, businessDeliveryZoneProps);
 };
-exports.BusinessDeliveryZoneDetails = BusinessDeliveryZoneDetails;

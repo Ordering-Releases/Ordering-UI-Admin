@@ -82,10 +82,9 @@ var OccupationSelectorUI = function OccupationSelectorUI(props) {
     }
   }));
 };
-var OccupationSelector = function OccupationSelector(props) {
+var OccupationSelector = exports.OccupationSelector = function OccupationSelector(props) {
   var occupationSelectorProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OccupationSelectorUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OccupationSelector, occupationSelectorProps);
 };
-exports.OccupationSelector = OccupationSelector;

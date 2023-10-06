@@ -135,11 +135,10 @@ var BusinessVideosUI = function BusinessVideosUI(props) {
     closeOnBackdrop: false
   })));
 };
-var BusinessVideos = function BusinessVideos(props) {
+var BusinessVideos = exports.BusinessVideos = function BusinessVideos(props) {
   var businessGalleryProps = _objectSpread(_objectSpread({}, props), {}, {
     isVideoGallery: true,
     UIComponent: BusinessVideosUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessGallery, businessGalleryProps);
 };
-exports.BusinessVideos = BusinessVideos;

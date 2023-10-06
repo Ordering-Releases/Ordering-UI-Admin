@@ -104,11 +104,10 @@ var InvoiceBusinessManagerUI = function InvoiceBusinessManagerUI(props) {
     ref: invoicePdfRef
   }, /*#__PURE__*/_react.default.createElement(_InvoiceBusinessPdf.InvoiceBusinessPdf, props)), (exportInvoiceList === null || exportInvoiceList === void 0 ? void 0 : exportInvoiceList.loading) && /*#__PURE__*/_react.default.createElement(_styles.LoadingWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.SpinnerLoader, null)));
 };
-var InvoiceBusinessManager = function InvoiceBusinessManager(props) {
+var InvoiceBusinessManager = exports.InvoiceBusinessManager = function InvoiceBusinessManager(props) {
   var invoiceBusinessManagerProps = _objectSpread(_objectSpread({}, props), {}, {
     propsToFetch: ['name'],
     UIComponent: InvoiceBusinessManagerUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.InvoiceBusinessManager, invoiceBusinessManagerProps);
 };
-exports.InvoiceBusinessManager = InvoiceBusinessManager;

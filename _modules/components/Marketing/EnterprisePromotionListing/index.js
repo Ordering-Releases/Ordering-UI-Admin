@@ -196,7 +196,7 @@ var EnterprisePromotionListingUI = function EnterprisePromotionListingUI(props) 
     closeOnBackdrop: false
   }));
 };
-var EnterprisePromotionListing = function EnterprisePromotionListing(props) {
+var EnterprisePromotionListing = exports.EnterprisePromotionListing = function EnterprisePromotionListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultPage = query.get('page') || 1;
   var defaultPageSize = query.get('pageSize') || 10;
@@ -210,4 +210,3 @@ var EnterprisePromotionListing = function EnterprisePromotionListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.EnterprisePromotionList, enterpisePromotionsProps);
 };
-exports.EnterprisePromotionListing = EnterprisePromotionListing;

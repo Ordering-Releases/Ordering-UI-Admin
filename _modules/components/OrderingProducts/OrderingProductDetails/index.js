@@ -143,10 +143,9 @@ var OrderingProductDetailsUI = function OrderingProductDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var OrderingProductDetails = function OrderingProductDetails(props) {
+var OrderingProductDetails = exports.OrderingProductDetails = function OrderingProductDetails(props) {
   var productDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OrderingProductDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SiteDetails, productDetailsProps);
 };
-exports.OrderingProductDetails = OrderingProductDetails;

@@ -134,10 +134,9 @@ var BusinessSharedMenuProductsUI = function BusinessSharedMenuProductsUI(props) 
     handleChangeInput: handleChangeInput
   })));
 };
-var BusinessSharedMenuProducts = function BusinessSharedMenuProducts(props) {
+var BusinessSharedMenuProducts = exports.BusinessSharedMenuProducts = function BusinessSharedMenuProducts(props) {
   var businessSharedMenuProductsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessSharedMenuProductsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessSharedMenuProducts, businessSharedMenuProductsProps);
 };
-exports.BusinessSharedMenuProducts = BusinessSharedMenuProducts;

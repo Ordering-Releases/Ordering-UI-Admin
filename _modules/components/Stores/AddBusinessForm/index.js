@@ -342,10 +342,9 @@ var AddBusinessFormUI = function AddBusinessFormUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var AddBusinessForm = function AddBusinessForm(props) {
+var AddBusinessForm = exports.AddBusinessForm = function AddBusinessForm(props) {
   var businessFormDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: AddBusinessFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessFormDetails, businessFormDetailsProps);
 };
-exports.AddBusinessForm = AddBusinessForm;

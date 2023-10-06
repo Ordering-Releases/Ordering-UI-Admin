@@ -209,10 +209,9 @@ var OrderNotificationUI = function OrderNotificationUI(props) {
     onClick: handleClose
   }, t('ACCEPT', 'Accept')))));
 };
-var OrderNotification = function OrderNotification(props) {
+var OrderNotification = exports.OrderNotification = function OrderNotification(props) {
   var orderNotificationProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OrderNotificationUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrderNotification, orderNotificationProps);
 };
-exports.OrderNotification = OrderNotification;

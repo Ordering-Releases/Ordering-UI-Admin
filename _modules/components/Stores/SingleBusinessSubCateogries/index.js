@@ -127,11 +127,10 @@ var SingleBusinessSubCateogriesUI = function SingleBusinessSubCateogriesUI(props
     }));
   }))));
 };
-var SingleBusinessSubCateogries = function SingleBusinessSubCateogries(props) {
+var SingleBusinessSubCateogries = exports.SingleBusinessSubCateogries = function SingleBusinessSubCateogries(props) {
   var isSkeleton = props.isSkeleton;
   var singleBusinessSubCateogriesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SingleBusinessSubCateogriesUI
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessSubCateogriesUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SingleBusinessCategory, singleBusinessSubCateogriesProps));
 };
-exports.SingleBusinessSubCateogries = SingleBusinessSubCateogries;

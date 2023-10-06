@@ -119,10 +119,9 @@ var OpenCartsFilterGroupUI = function OpenCartsFilterGroupUI(props) {
     ref: contentEndRef
   }));
 };
-var OpenCartsFilterGroup = function OpenCartsFilterGroup(props) {
+var OpenCartsFilterGroup = exports.OpenCartsFilterGroup = function OpenCartsFilterGroup(props) {
   var openCartFilterGroupProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OpenCartsFilterGroupUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OpenCartFilter, openCartFilterGroupProps);
 };
-exports.OpenCartsFilterGroup = OpenCartsFilterGroup;

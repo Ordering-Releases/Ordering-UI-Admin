@@ -191,10 +191,9 @@ var BacCredomaticUI = function BacCredomaticUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BacCredomatic = function BacCredomatic(props) {
+var BacCredomatic = exports.BacCredomatic = function BacCredomatic(props) {
   var bacCredomaticProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BacCredomaticUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ApiKeysList, bacCredomaticProps);
 };
-exports.BacCredomatic = BacCredomatic;

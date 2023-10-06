@@ -209,10 +209,9 @@ var SingleRecoveryNotificationUI = function SingleRecoveryNotificationUI(props) 
     closeOnBackdrop: false
   }));
 };
-var SingleRecoveryNotification = function SingleRecoveryNotification(props) {
+var SingleRecoveryNotification = exports.SingleRecoveryNotification = function SingleRecoveryNotification(props) {
   var singleRecoveryNotificationProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SingleRecoveryNotificationUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SingleRecoveryNotification, singleRecoveryNotificationProps);
 };
-exports.SingleRecoveryNotification = SingleRecoveryNotification;

@@ -92,10 +92,9 @@ var OpenCartDeleteUI = function OpenCartDeleteUI(props) {
     }
   }, t('CONFIRM', 'Confirm')))));
 };
-var OpenCartDelete = function OpenCartDelete(props) {
+var OpenCartDelete = exports.OpenCartDelete = function OpenCartDelete(props) {
   var checkPasswordControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OpenCartDeleteUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckPassword, checkPasswordControlProps);
 };
-exports.OpenCartDelete = OpenCartDelete;

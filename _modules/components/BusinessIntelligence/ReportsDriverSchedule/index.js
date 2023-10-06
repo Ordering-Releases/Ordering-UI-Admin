@@ -269,11 +269,10 @@ var ReportsDriverScheduleUI = function ReportsDriverScheduleUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ReportsDriverSchedule = function ReportsDriverSchedule(props) {
+var ReportsDriverSchedule = exports.ReportsDriverSchedule = function ReportsDriverSchedule(props) {
   var reportsDriverScheduleProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsDriverScheduleUI,
     endpoint: 'drivers_operation_events'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverScheduleProps);
 };
-exports.ReportsDriverSchedule = ReportsDriverSchedule;

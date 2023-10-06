@@ -209,7 +209,7 @@ var OrderingProductsUI = function OrderingProductsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var OrderingProductsListing = function OrderingProductsListing(props) {
+var OrderingProductsListing = exports.OrderingProductsListing = function OrderingProductsListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultPage = query.get('page') || 1;
   var defaultPageSize = query.get('pageSize') || 10;
@@ -223,4 +223,3 @@ var OrderingProductsListing = function OrderingProductsListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SitesList, sitesProps);
 };
-exports.OrderingProductsListing = OrderingProductsListing;

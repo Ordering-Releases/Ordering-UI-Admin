@@ -119,10 +119,9 @@ var DriverGroupSettingUI = function DriverGroupSettingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriverGroupSetting = function DriverGroupSetting(props) {
+var DriverGroupSetting = exports.DriverGroupSetting = function DriverGroupSetting(props) {
   var driversGroupSettingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriverGroupSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriverGroupSetting, driversGroupSettingProps);
 };
-exports.DriverGroupSetting = DriverGroupSetting;

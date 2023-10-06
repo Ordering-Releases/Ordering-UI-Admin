@@ -37,7 +37,7 @@ var Score = function Score(_ref) {
     });
   })));
 };
-var AnalyticsCustomerSatisfaction = function AnalyticsCustomerSatisfaction(props) {
+var AnalyticsCustomerSatisfaction = exports.AnalyticsCustomerSatisfaction = function AnalyticsCustomerSatisfaction(props) {
   var _dataList$data, _dataList$data2, _dataList$data3, _dataList$data4, _dataList$data5, _dataList$data6, _dataList$data7, _dataList$data8, _dataList$data9, _dataList$data10, _dataList$data11, _dataList$data12, _dataList$data13, _dataList$data14, _dataList$data15, _dataList$data16, _dataList$data17, _dataList$data18, _dataList$data19, _dataList$data20;
   var dataList = props.dataList;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
@@ -93,4 +93,3 @@ var AnalyticsCustomerSatisfaction = function AnalyticsCustomerSatisfaction(props
     text: t('PACKAGE', 'Package')
   }))));
 };
-exports.AnalyticsCustomerSatisfaction = AnalyticsCustomerSatisfaction;

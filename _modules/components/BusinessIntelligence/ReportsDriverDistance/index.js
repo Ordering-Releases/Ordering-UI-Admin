@@ -268,11 +268,10 @@ var ReportsDriverDistanceUI = function ReportsDriverDistanceUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ReportsDriverDistance = function ReportsDriverDistance(props) {
+var ReportsDriverDistance = exports.ReportsDriverDistance = function ReportsDriverDistance(props) {
   var reportsDriverDistanceProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsDriverDistanceUI,
     endpoint: 'driver_distances'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverDistanceProps);
 };
-exports.ReportsDriverDistance = ReportsDriverDistance;

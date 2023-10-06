@@ -240,10 +240,9 @@ var ContentFormUI = function ContentFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ContentForm = function ContentForm(props) {
+var ContentForm = exports.ContentForm = function ContentForm(props) {
   var contentFormProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ContentFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ContentForm, contentFormProps);
 };
-exports.ContentForm = ContentForm;

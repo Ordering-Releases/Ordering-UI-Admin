@@ -624,11 +624,10 @@ var OrderingWebsiteUI = function OrderingWebsiteUI(props) {
     setSite: setSite
   })));
 };
-var OrderingWebsite = function OrderingWebsite(props) {
+var OrderingWebsite = exports.OrderingWebsite = function OrderingWebsite(props) {
   var orderingWebsiteProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OrderingWebsiteUI,
     appId: 'website'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrderingWebsite, orderingWebsiteProps);
 };
-exports.OrderingWebsite = OrderingWebsite;

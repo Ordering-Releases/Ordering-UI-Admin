@@ -302,7 +302,7 @@ var ReportsOrderStatusUI = function ReportsOrderStatusUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ReportsOrderStatus = function ReportsOrderStatus(props) {
+var ReportsOrderStatus = exports.ReportsOrderStatus = function ReportsOrderStatus(props) {
   var reportsDriverScheduleProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsOrderStatusUI,
     endpoint: 'business_orders_count_sales',
@@ -310,4 +310,3 @@ var ReportsOrderStatus = function ReportsOrderStatus(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverScheduleProps);
 };
-exports.ReportsOrderStatus = ReportsOrderStatus;

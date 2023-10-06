@@ -285,10 +285,9 @@ var ImporterJobFormUI = function ImporterJobFormUI(props) {
     }
   }))));
 };
-var ImporterJobForm = function ImporterJobForm(props) {
+var ImporterJobForm = exports.ImporterJobForm = function ImporterJobForm(props) {
   var addCsvDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ImporterJobFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ImporterJobForm, addCsvDetailProps);
 };
-exports.ImporterJobForm = ImporterJobForm;

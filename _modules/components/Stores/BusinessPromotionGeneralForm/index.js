@@ -362,10 +362,9 @@ var BusinessPromotionGeneralFormUI = function BusinessPromotionGeneralFormUI(pro
     closeOnBackdrop: false
   }));
 };
-var BusinessPromotionGeneralForm = function BusinessPromotionGeneralForm(props) {
+var BusinessPromotionGeneralForm = exports.BusinessPromotionGeneralForm = function BusinessPromotionGeneralForm(props) {
   var businessPromotionFormProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessPromotionGeneralFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPromotionForm, businessPromotionFormProps);
 };
-exports.BusinessPromotionGeneralForm = BusinessPromotionGeneralForm;

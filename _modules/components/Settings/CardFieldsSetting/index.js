@@ -89,10 +89,9 @@ var CardFieldsSettingUI = function CardFieldsSettingUI(props) {
     })));
   }))));
 };
-var CardFieldsSetting = function CardFieldsSetting(props) {
+var CardFieldsSetting = exports.CardFieldsSetting = function CardFieldsSetting(props) {
   var cardFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CardFieldsSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CardFieldsSetting, cardFieldsProps);
 };
-exports.CardFieldsSetting = CardFieldsSetting;

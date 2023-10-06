@@ -126,10 +126,9 @@ var GuestCheckoutFieldsSettingUI = function GuestCheckoutFieldsSettingUI(props) 
     })));
   }))));
 };
-var GuestCheckoutFieldsSetting = function GuestCheckoutFieldsSetting(props) {
+var GuestCheckoutFieldsSetting = exports.GuestCheckoutFieldsSetting = function GuestCheckoutFieldsSetting(props) {
   var guestCheckoutFieldsSettingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: GuestCheckoutFieldsSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GuestCheckoutFieldsSetting, guestCheckoutFieldsSettingProps);
 };
-exports.GuestCheckoutFieldsSetting = GuestCheckoutFieldsSetting;

@@ -20,7 +20,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SchedulePropsAreEqual(prevProps, nextProps) {
   return JSON.stringify(prevProps.scheduleList) === JSON.stringify(nextProps.scheduleList);
 }
-var Schedule = /*#__PURE__*/(0, _react.memo)(function (props) {
+var Schedule = exports.Schedule = /*#__PURE__*/(0, _react.memo)(function (props) {
   var _handleChangeScheduleState = props.handleChangeScheduleState,
     scheduleList = props.scheduleList;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
@@ -33,4 +33,3 @@ var Schedule = /*#__PURE__*/(0, _react.memo)(function (props) {
     }
   })));
 }, SchedulePropsAreEqual);
-exports.Schedule = Schedule;

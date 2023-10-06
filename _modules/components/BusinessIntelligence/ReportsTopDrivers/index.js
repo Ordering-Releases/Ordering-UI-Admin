@@ -256,11 +256,10 @@ var ReportsTopDriversUI = function ReportsTopDriversUI(props) {
     }
   }))));
 };
-var ReportsTopDrivers = function ReportsTopDrivers(props) {
+var ReportsTopDrivers = exports.ReportsTopDrivers = function ReportsTopDrivers(props) {
   var reportsTopDriversProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsTopDriversUI,
     endpoint: 'drivers_top_orders_v2'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsTopDriversProps);
 };
-exports.ReportsTopDrivers = ReportsTopDrivers;

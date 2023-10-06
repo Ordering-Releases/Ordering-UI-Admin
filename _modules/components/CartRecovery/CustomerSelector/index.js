@@ -77,7 +77,7 @@ var CustomerSelectorUI = function CustomerSelectorUI(props) {
     height: 44
   })));
 };
-var CustomerSelector = function CustomerSelector(props) {
+var CustomerSelector = exports.CustomerSelector = function CustomerSelector(props) {
   var customerSelectorProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CustomerSelectorUI,
     defaultUserTypesSelected: [3],
@@ -85,4 +85,3 @@ var CustomerSelector = function CustomerSelector(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, customerSelectorProps);
 };
-exports.CustomerSelector = CustomerSelector;

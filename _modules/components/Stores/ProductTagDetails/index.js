@@ -255,10 +255,9 @@ var ProductTagDetailsUI = function ProductTagDetailsUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var ProductTagDetails = function ProductTagDetails(props) {
+var ProductTagDetails = exports.ProductTagDetails = function ProductTagDetails(props) {
   var tagDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductTagDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductTagDetails, tagDetailsProps);
 };
-exports.ProductTagDetails = ProductTagDetails;

@@ -225,10 +225,9 @@ var DriversCompaniesListingUI = function DriversCompaniesListingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriversCompaniesListing = function DriversCompaniesListing(props) {
+var DriversCompaniesListing = exports.DriversCompaniesListing = function DriversCompaniesListing(props) {
   var driversCompaniesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversCompaniesListingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversCompaniesList, driversCompaniesProps);
 };
-exports.DriversCompaniesListing = DriversCompaniesListing;

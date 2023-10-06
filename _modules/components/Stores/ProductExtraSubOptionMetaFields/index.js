@@ -287,11 +287,10 @@ var ProductExtraSubOptionMetaFieldsUI = function ProductExtraSubOptionMetaFields
     closeOnBackdrop: false
   }));
 };
-var ProductExtraSubOptionMetaFields = function ProductExtraSubOptionMetaFields(props) {
+var ProductExtraSubOptionMetaFields = exports.ProductExtraSubOptionMetaFields = function ProductExtraSubOptionMetaFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: ProductExtraSubOptionMetaFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraSubOptionMetaFields, MetaFieldsProps);
 };
-exports.ProductExtraSubOptionMetaFields = ProductExtraSubOptionMetaFields;

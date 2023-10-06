@@ -353,10 +353,9 @@ var LoyaltyLevelDetailUI = function LoyaltyLevelDetailUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var LoyaltyLevelDetail = function LoyaltyLevelDetail(props) {
+var LoyaltyLevelDetail = exports.LoyaltyLevelDetail = function LoyaltyLevelDetail(props) {
   var loyaltyLevelDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LoyaltyLevelDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LoyaltyLevelDetail, loyaltyLevelDetailProps);
 };
-exports.LoyaltyLevelDetail = LoyaltyLevelDetail;

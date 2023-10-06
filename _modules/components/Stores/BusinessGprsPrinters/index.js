@@ -95,10 +95,9 @@ var BusinessGprsPrintersUI = function BusinessGprsPrintersUI(props) {
     readOnly: true
   })));
 };
-var BusinessGprsPrinters = function BusinessGprsPrinters(props) {
+var BusinessGprsPrinters = exports.BusinessGprsPrinters = function BusinessGprsPrinters(props) {
   var businessGprsPrintersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessGprsPrintersUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessGprsPrinters, businessGprsPrintersProps);
 };
-exports.BusinessGprsPrinters = BusinessGprsPrinters;

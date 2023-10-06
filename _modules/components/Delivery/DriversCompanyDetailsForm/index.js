@@ -187,10 +187,9 @@ var DriversCompanyDetailsFormUI = function DriversCompanyDetailsFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriversCompanyDetailsForm = function DriversCompanyDetailsForm(props) {
+var DriversCompanyDetailsForm = exports.DriversCompanyDetailsForm = function DriversCompanyDetailsForm(props) {
   var driversCompanyDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversCompanyDetailsFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversCompanyDetails, driversCompanyDetailsProps);
 };
-exports.DriversCompanyDetailsForm = DriversCompanyDetailsForm;

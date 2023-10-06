@@ -359,10 +359,9 @@ var HomeUI = function HomeUI(props) {
     }
   }, t('CLOSE', 'Close'))))));
 };
-var HomePage = function HomePage(props) {
+var HomePage = exports.HomePage = function HomePage(props) {
   var homeProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: HomeUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Home, homeProps);
 };
-exports.HomePage = HomePage;

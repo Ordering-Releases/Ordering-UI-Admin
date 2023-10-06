@@ -159,10 +159,9 @@ var UploadMenuGuideUI = function UploadMenuGuideUI(props) {
     closeOnBackdrop: false
   }));
 };
-var UploadMenuGuide = function UploadMenuGuide(props) {
+var UploadMenuGuide = exports.UploadMenuGuide = function UploadMenuGuide(props) {
   var uploadMenuGuideProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: UploadMenuGuideUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UploadMenu, uploadMenuGuideProps);
 };
-exports.UploadMenuGuide = UploadMenuGuide;

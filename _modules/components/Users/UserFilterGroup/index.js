@@ -298,10 +298,9 @@ var UserFilterGroupUI = function UserFilterGroupUI(props) {
     }
   }, t('CLEAR', 'Clear')))));
 };
-var UserFilterGroup = function UserFilterGroup(props) {
+var UserFilterGroup = exports.UserFilterGroup = function UserFilterGroup(props) {
   var userFilterGroupProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: UserFilterGroupUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersFilter, userFilterGroupProps);
 };
-exports.UserFilterGroup = UserFilterGroup;

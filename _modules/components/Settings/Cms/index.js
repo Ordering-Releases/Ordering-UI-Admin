@@ -208,10 +208,9 @@ var CmsUI = function CmsUI(props) {
     }
   })));
 };
-var Cms = function Cms(props) {
+var Cms = exports.Cms = function Cms(props) {
   var pageListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CmsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PagesList, pageListProps);
 };
-exports.Cms = Cms;

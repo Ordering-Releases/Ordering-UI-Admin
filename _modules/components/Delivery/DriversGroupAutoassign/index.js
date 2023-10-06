@@ -197,10 +197,9 @@ var DriversGroupAutoassignUI = function DriversGroupAutoassignUI(props) {
     }
   }), /*#__PURE__*/_react.default.createElement("span", null, t('DO_NOT_ASSIGN_MORE_THAN_1_ORDER_IF_ORDER_CAN_NOT_GROUPED', 'Do not assign more than 1 order IF the order can’t be grouped'))));
 };
-var DriversGroupAutoassign = function DriversGroupAutoassign(props) {
+var DriversGroupAutoassign = exports.DriversGroupAutoassign = function DriversGroupAutoassign(props) {
   var driversGroupAutoassignProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversGroupAutoassignUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupAutoassign, driversGroupAutoassignProps);
 };
-exports.DriversGroupAutoassign = DriversGroupAutoassign;

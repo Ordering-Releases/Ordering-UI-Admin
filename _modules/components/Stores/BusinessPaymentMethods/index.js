@@ -598,10 +598,9 @@ var BusinessPaymentMethodsUI = function BusinessPaymentMethodsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessPaymentMethods = function BusinessPaymentMethods(props) {
+var BusinessPaymentMethods = exports.BusinessPaymentMethods = function BusinessPaymentMethods(props) {
   var businessPaymethodProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessPaymentMethodsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPaymethods, businessPaymethodProps);
 };
-exports.BusinessPaymentMethods = BusinessPaymentMethods;

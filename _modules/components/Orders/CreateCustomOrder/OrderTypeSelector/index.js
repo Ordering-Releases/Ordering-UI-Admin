@@ -60,7 +60,7 @@ var OrderTypeSelectorUI = function OrderTypeSelectorUI(props) {
     handleChangeSearch: setSearchValue
   }));
 };
-var OrderTypeSelector = function OrderTypeSelector(props) {
+var OrderTypeSelector = exports.OrderTypeSelector = function OrderTypeSelector(props) {
   var _useLanguage3 = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage4 = _slicedToArray(_useLanguage3, 2),
     t = _useLanguage4[1];
@@ -90,4 +90,3 @@ var OrderTypeSelector = function OrderTypeSelector(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrderTypeControl, orderTypeProps);
 };
-exports.OrderTypeSelector = OrderTypeSelector;

@@ -158,7 +158,7 @@ var DriversReviewListUI = function DriversReviewListUI(props) {
     user: curUser
   })));
 };
-var UsersReviewList = function UsersReviewList(props) {
+var UsersReviewList = exports.UsersReviewList = function UsersReviewList(props) {
   var driversReviewListProps = _objectSpread(_objectSpread({}, props), {}, {
     isSearchByUserEmail: true,
     isSearchByUserName: true,
@@ -167,4 +167,3 @@ var UsersReviewList = function UsersReviewList(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, driversReviewListProps);
 };
-exports.UsersReviewList = UsersReviewList;

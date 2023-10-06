@@ -291,10 +291,9 @@ var ProductGalleryUI = function ProductGalleryUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var ProductGallery = function ProductGallery(props) {
+var ProductGallery = exports.ProductGallery = function ProductGallery(props) {
   var productGalleryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductGalleryUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductGallery, productGalleryProps);
 };
-exports.ProductGallery = ProductGallery;

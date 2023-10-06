@@ -287,11 +287,10 @@ var ProductExtraOptionMetaFieldsUI = function ProductExtraOptionMetaFieldsUI(pro
     closeOnBackdrop: false
   }));
 };
-var ProductExtraOptionMetaFields = function ProductExtraOptionMetaFields(props) {
+var ProductExtraOptionMetaFields = exports.ProductExtraOptionMetaFields = function ProductExtraOptionMetaFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: ProductExtraOptionMetaFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraOptionMetaFields, MetaFieldsProps);
 };
-exports.ProductExtraOptionMetaFields = ProductExtraOptionMetaFields;

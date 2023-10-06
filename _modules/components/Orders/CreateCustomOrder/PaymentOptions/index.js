@@ -388,10 +388,9 @@ var PaymentOptionsUI = function PaymentOptionsUI(props) {
     closeOnBackdrop: false
   })));
 };
-var PaymentOptions = function PaymentOptions(props) {
+var PaymentOptions = exports.PaymentOptions = function PaymentOptions(props) {
   var paymentOptions = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PaymentOptionsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PaymentOptions, paymentOptions);
 };
-exports.PaymentOptions = PaymentOptions;

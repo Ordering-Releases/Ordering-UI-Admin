@@ -13,9 +13,8 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-var SelectWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  .header {\n    > div {\n      > div {\n        padding: 0;\n      }\n    }\n  }\n"])));
-exports.SelectWrapper = SelectWrapper;
-var Option = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  color: ", ";\n  padding: ", ";\n  white-space: nowrap;\n  ", "\n  ", "\n\n  img {\n    width: 45px;\n    border-radius: 8px;\n  }\n\n  ", "\n\n  span {\n    font-size: 14px;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    max-width: 350px;\n  }\n\n  @media (max-width: 576px) {\n    padding: ", ";\n    span {\n      max-width: 280px;\n    }\n  }\n"])), function (props) {
+var SelectWrapper = exports.SelectWrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  .header {\n    > div {\n      > div {\n        padding: 0;\n      }\n    }\n  }\n"])));
+var Option = exports.Option = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  color: ", ";\n  padding: ", ";\n  white-space: nowrap;\n  ", "\n  ", "\n\n  img {\n    width: 45px;\n    border-radius: 8px;\n  }\n\n  ", "\n\n  span {\n    font-size: 14px;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    max-width: 350px;\n  }\n\n  @media (max-width: 576px) {\n    padding: ", ";\n    span {\n      max-width: 280px;\n    }\n  }\n"])), function (props) {
   var _props$theme$colors;
   return (_props$theme$colors = props.theme.colors) === null || _props$theme$colors === void 0 ? void 0 : _props$theme$colors.headingColor;
 }, function (_ref) {
@@ -39,37 +38,30 @@ var Option = _styledComponents.default.div(_templateObject2 || (_templateObject2
   var padding = _ref6.padding;
   return padding || '5px 0px';
 });
-exports.Option = Option;
-var OptionInnerContainer = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  ", "\n"])), function (props) {
+var OptionInnerContainer = exports.OptionInnerContainer = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  ", "\n"])), function (props) {
   var _props$theme;
   return (_props$theme = props.theme) !== null && _props$theme !== void 0 && _props$theme.rtl ? (0, _styledComponents.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    padding-right: 20px;\n  "]))) : (0, _styledComponents.css)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    padding-left: 20px;\n  "])));
 });
-exports.OptionInnerContainer = OptionInnerContainer;
-var OptionContent = _styledComponents.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n"])));
-exports.OptionContent = OptionContent;
-var DriverNameContainer = _styledComponents.default.div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  line-height: 1.3;\n  color: #263238;\n"])));
-exports.DriverNameContainer = DriverNameContainer;
-var DriverName = _styledComponents.default.p(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 1.3;\n  color: ", ";\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  max-width: 350px;\n  margin: 0px;\n\n  ", "\n\n  @media (max-width: 576px) {\n    max-width: 150px;\n  }\n"])), function (props) {
+var OptionContent = exports.OptionContent = _styledComponents.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n"])));
+var DriverNameContainer = exports.DriverNameContainer = _styledComponents.default.div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  line-height: 1.3;\n  color: #263238;\n"])));
+var DriverName = exports.DriverName = _styledComponents.default.p(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 1.3;\n  color: ", ";\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  max-width: 350px;\n  margin: 0px;\n\n  ", "\n\n  @media (max-width: 576px) {\n    max-width: 150px;\n  }\n"])), function (props) {
   return props.theme.colors.headingColor;
 }, function (_ref7) {
   var small = _ref7.small;
   return small && (0, _styledComponents.css)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    font-weight: 400;\n  "])));
 });
-exports.DriverName = DriverName;
-var WrapperDriverImage = _styledComponents.default.div(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  width: 45px;\n  height: 45px;\n  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);\n  border-radius: 8px;\n  display: flex;\n\n  svg {\n    width: 100%;\n    height: 100%;\n    padding: 7px;\n    box-sizing: border-box;\n    border-radius: 50%;\n  }\n\n  ", "\n\n  ", "\n"])), function (_ref8) {
+var WrapperDriverImage = exports.WrapperDriverImage = _styledComponents.default.div(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  width: 45px;\n  height: 45px;\n  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);\n  border-radius: 8px;\n  display: flex;\n\n  svg {\n    width: 100%;\n    height: 100%;\n    padding: 7px;\n    box-sizing: border-box;\n    border-radius: 50%;\n  }\n\n  ", "\n\n  ", "\n"])), function (_ref8) {
   var small = _ref8.small;
   return small && (0, _styledComponents.css)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    width: 24px;\n    height: 24px;\n    border-radius: 8px;\n    svg {\n      padding: 3px;\n    }\n  "])));
 }, function (props) {
   var _props$theme2;
   return (_props$theme2 = props.theme) !== null && _props$theme2 !== void 0 && _props$theme2.rtl ? (0, _styledComponents.css)(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n    margin-left: 8px;\n  "]))) : (0, _styledComponents.css)(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n    margin-right: 8px;\n  "])));
 });
-exports.WrapperDriverImage = WrapperDriverImage;
 var DriverImageStyled = _styledComponents.default.div(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n  display: flex;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  position: relative;\n  background-repeat: no-repeat, repeat;\n  background-size: cover;\n  object-fit: cover;\n  background-position: center;\n  border-radius: 8px;\n"])));
-var DriverImage = function DriverImage(props) {
+var DriverImage = exports.DriverImage = function DriverImage(props) {
   return /*#__PURE__*/_react.default.createElement(DriverImageStyled, _extends({}, props, {
     style: {
       backgroundImage: "url(".concat(props.bgimage, ")")
     }
   }), props.children);
 };
-exports.DriverImage = DriverImage;

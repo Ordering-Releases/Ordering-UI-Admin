@@ -357,7 +357,7 @@ var ProfessionalAddFormUI = function ProfessionalAddFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProfessionalAddForm = function ProfessionalAddForm(props) {
+var ProfessionalAddForm = exports.ProfessionalAddForm = function ProfessionalAddForm(props) {
   var UserAddProps = _objectSpread(_objectSpread({}, props), {}, {
     useSessionUser: false,
     useValidationFields: true,
@@ -366,4 +366,3 @@ var ProfessionalAddForm = function ProfessionalAddForm(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserFormDetails, UserAddProps);
 };
-exports.ProfessionalAddForm = ProfessionalAddForm;

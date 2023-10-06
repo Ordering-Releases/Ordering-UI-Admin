@@ -227,10 +227,9 @@ var BusinessDeviceListingUI = function BusinessDeviceListingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessDeviceListing = function BusinessDeviceListing(props) {
+var BusinessDeviceListing = exports.BusinessDeviceListing = function BusinessDeviceListing(props) {
   var businessDeviceListingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessDeviceListingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDeviceListing, businessDeviceListingProps);
 };
-exports.BusinessDeviceListing = BusinessDeviceListing;

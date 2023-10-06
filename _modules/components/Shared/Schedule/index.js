@@ -269,10 +269,9 @@ var ScheduleUI = function ScheduleUI(props) {
     closeOnBackdrop: false
   }));
 };
-var Schedule = function Schedule(props) {
+var Schedule = exports.Schedule = function Schedule(props) {
   var scheduleProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ScheduleUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Schedule, scheduleProps);
 };
-exports.Schedule = Schedule;

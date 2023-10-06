@@ -227,11 +227,10 @@ var LoginFormUI = function LoginFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var LoginForm = function LoginForm(props) {
+var LoginForm = exports.LoginForm = function LoginForm(props) {
   var loginControllerProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LoginFormUI,
     allowedLevels: [0, 2]
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LoginForm, loginControllerProps);
 };
-exports.LoginForm = LoginForm;

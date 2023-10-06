@@ -29,7 +29,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var OrderItemAccordion = function OrderItemAccordion(props) {
+var OrderItemAccordion = exports.OrderItemAccordion = function OrderItemAccordion(props) {
   var _theme$colors, _theme$colors2, _theme$colors3, _order$business, _theme$images, _order$business2, _order$business3, _order$customer, _order$customer2, _order$customer3, _order$customer4, _theme$images2, _theme$images3, _order$summary;
   var order = props.order,
     drivers = props.drivers,
@@ -205,4 +205,3 @@ var OrderItemAccordion = function OrderItemAccordion(props) {
     orderId: order === null || order === void 0 ? void 0 : order.id
   }))));
 };
-exports.OrderItemAccordion = OrderItemAccordion;

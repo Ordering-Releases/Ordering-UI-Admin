@@ -251,10 +251,9 @@ var PointsWalletBusinessDetailUI = function PointsWalletBusinessDetailUI(props) 
     closeOnBackdrop: false
   }));
 };
-var PointsWalletBusinessDetail = function PointsWalletBusinessDetail(props) {
+var PointsWalletBusinessDetail = exports.PointsWalletBusinessDetail = function PointsWalletBusinessDetail(props) {
   var pointsWalletBusinessDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PointsWalletBusinessDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PointsWalletBusinessDetail, pointsWalletBusinessDetailProps);
 };
-exports.PointsWalletBusinessDetail = PointsWalletBusinessDetail;

@@ -278,11 +278,10 @@ var ReportsBusinessDistanceUI = function ReportsBusinessDistanceUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsBusinessDistance = function ReportsBusinessDistance(props) {
+var ReportsBusinessDistance = exports.ReportsBusinessDistance = function ReportsBusinessDistance(props) {
   var reportsBusinessDistanceProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsBusinessDistanceUI,
     endpoint: 'business_distance_average'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsBusinessDistanceProps);
 };
-exports.ReportsBusinessDistance = ReportsBusinessDistance;

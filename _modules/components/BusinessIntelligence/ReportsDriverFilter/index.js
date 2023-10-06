@@ -140,7 +140,7 @@ var ReportsDriverFilterUI = function ReportsDriverFilterUI(props) {
     onClick: handleClickFilterButton
   }, t('FILTER', 'Filter'))));
 };
-var ReportsDriverFilter = function ReportsDriverFilter(props) {
+var ReportsDriverFilter = exports.ReportsDriverFilter = function ReportsDriverFilter(props) {
   var AnalyticsBusinessFilterProps = _objectSpread(_objectSpread({}, props), {}, {
     propsToFetch: ['id', 'name', 'lastname', 'driver_groups.id'],
     isSearchByName: true,
@@ -149,4 +149,3 @@ var ReportsDriverFilter = function ReportsDriverFilter(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ReportsDriverFilter, AnalyticsBusinessFilterProps);
 };
-exports.ReportsDriverFilter = ReportsDriverFilter;

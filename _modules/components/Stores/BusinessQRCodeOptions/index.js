@@ -102,10 +102,9 @@ var BusinessQRCodeOptionsUI = function BusinessQRCodeOptionsUI(props) {
     }
   })));
 };
-var BusinessQRCodeOptions = function BusinessQRCodeOptions(props) {
+var BusinessQRCodeOptions = exports.BusinessQRCodeOptions = function BusinessQRCodeOptions(props) {
   var businessQRcodeOptionsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessQRCodeOptionsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessQRCodeOptions, businessQRcodeOptionsProps);
 };
-exports.BusinessQRCodeOptions = BusinessQRCodeOptions;

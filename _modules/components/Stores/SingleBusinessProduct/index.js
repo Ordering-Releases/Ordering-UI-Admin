@@ -267,11 +267,10 @@ var SingleBusinessProductUI = function SingleBusinessProductUI(props) {
     closeOnBackdrop: false
   }));
 };
-var SingleBusinessProduct = function SingleBusinessProduct(props) {
+var SingleBusinessProduct = exports.SingleBusinessProduct = function SingleBusinessProduct(props) {
   var isSkeleton = props.isSkeleton;
   var singleBusinessProductProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SingleBusinessProductUI
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, isSkeleton ? /*#__PURE__*/_react.default.createElement(SingleBusinessProductUI, props) : /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SingleBusinessProduct, singleBusinessProductProps));
 };
-exports.SingleBusinessProduct = SingleBusinessProduct;

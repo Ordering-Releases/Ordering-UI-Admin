@@ -135,7 +135,7 @@ var OpenCartListingUI = function OpenCartListingUI(props) {
     handleSuccessDeleteCart: handleSuccessDeleteCart
   }), totalSelectedOrder > 0 && /*#__PURE__*/_react.default.createElement(_styles.WrapperIndicator, null, setSelectedCartIds.length, "/", totalSelectedOrder));
 };
-var OpenCartListing = function OpenCartListing(props) {
+var OpenCartListing = exports.OpenCartListing = function OpenCartListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultPage = query.get('page') || 1;
   var defaultPageSize = query.get('pageSize') || 10;
@@ -151,4 +151,3 @@ var OpenCartListing = function OpenCartListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OpenCartListing, openCartsProps);
 };
-exports.OpenCartListing = OpenCartListing;

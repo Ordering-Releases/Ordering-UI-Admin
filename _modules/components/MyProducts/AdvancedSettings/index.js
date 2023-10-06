@@ -23,7 +23,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var AdvancedSettings = function AdvancedSettings(props) {
+var AdvancedSettings = exports.AdvancedSettings = function AdvancedSettings(props) {
   var _themeValuesRef$curre, _themesList$themes3, _themesList$themes4, _themeValuesRef$curre2, _themeValuesRef$curre3, _themesList$themes5, _themeValuesRef$curre4, _themesList$themes6, _themesList$themes7, _themeValuesRef$curre5, _themesList$themes8, _themeValuesRef$curre6, _themesList$themes9, _themesList$themes10, _themesList$themes11, _themesList$themes12, _themesList$themes13, _themesList$themes14, _themesList$themes15, _themesList$themes16, _themesList$themes17, _themesList$themes18, _themesList$themes19, _themesList$themes20, _themesList$themes21, _themesList$themes22, _themesList$themes23, _themeValuesRef$curre7, _themeValuesRef$curre8, _themeValuesRef$curre9, _themeValuesRef$curre10, _themeValuesRef$curre11, _themeValuesRef$curre12, _themesList$themes24, _themesList$themes25;
   var themesList = props.themesList,
     advancedValues = props.advancedValues,
@@ -644,4 +644,3 @@ var AdvancedSettings = function AdvancedSettings(props) {
     closeOnBackdrop: false
   }));
 };
-exports.AdvancedSettings = AdvancedSettings;

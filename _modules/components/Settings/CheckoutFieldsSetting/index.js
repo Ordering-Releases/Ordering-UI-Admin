@@ -90,10 +90,9 @@ var CheckoutFieldsSettingUI = function CheckoutFieldsSettingUI(props) {
     })));
   }))));
 };
-var CheckoutFieldsSetting = function CheckoutFieldsSetting(props) {
+var CheckoutFieldsSetting = exports.CheckoutFieldsSetting = function CheckoutFieldsSetting(props) {
   var checkoutFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CheckoutFieldsSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckoutFieldsSetting, checkoutFieldsProps);
 };
-exports.CheckoutFieldsSetting = CheckoutFieldsSetting;

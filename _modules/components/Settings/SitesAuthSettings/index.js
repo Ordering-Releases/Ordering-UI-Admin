@@ -148,10 +148,9 @@ var SitesAuthSettingsUI = function SitesAuthSettingsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var SitesAuthSettings = function SitesAuthSettings(props) {
+var SitesAuthSettings = exports.SitesAuthSettings = function SitesAuthSettings(props) {
   var sitesAuthSettinsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SitesAuthSettingsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SitesAuthSettings, sitesAuthSettinsProps);
 };
-exports.SitesAuthSettings = SitesAuthSettings;

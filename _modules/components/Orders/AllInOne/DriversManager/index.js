@@ -120,7 +120,7 @@ var DriversManagerUI = function DriversManagerUI(props) {
     }
   })));
 };
-var DriversManager = function DriversManager(props) {
+var DriversManager = exports.DriversManager = function DriversManager(props) {
   var DriversControlProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     propsToFetch: ['id', 'name', 'lastname', 'location', 'enabled', 'available', 'busy', 'driver_groups', 'assigned_orders_count', 'last_order_assigned_at', 'last_location_at', 'cellphone', 'photo', 'qualification'],
@@ -128,4 +128,3 @@ var DriversManager = function DriversManager(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversList, DriversControlProps));
 };
-exports.DriversManager = DriversManager;

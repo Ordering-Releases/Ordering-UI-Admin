@@ -193,10 +193,9 @@ var RecoveryActionDetailUI = function RecoveryActionDetailUI(props) {
     closeOnBackdrop: false
   }));
 };
-var RecoveryActionDetail = function RecoveryActionDetail(props) {
+var RecoveryActionDetail = exports.RecoveryActionDetail = function RecoveryActionDetail(props) {
   var recoveryActionDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: RecoveryActionDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RecoveryActionDetail, recoveryActionDetailProps);
 };
-exports.RecoveryActionDetail = RecoveryActionDetail;

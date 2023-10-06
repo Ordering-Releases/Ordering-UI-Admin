@@ -207,10 +207,9 @@ var LalaMoveConnectUI = function LalaMoveConnectUI(props) {
     closeOnBackdrop: false
   }));
 };
-var LalaMoveConnect = function LalaMoveConnect(props) {
+var LalaMoveConnect = exports.LalaMoveConnect = function LalaMoveConnect(props) {
   var apiKeysProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LalaMoveConnectUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ApiKeysList, apiKeysProps);
 };
-exports.LalaMoveConnect = LalaMoveConnect;

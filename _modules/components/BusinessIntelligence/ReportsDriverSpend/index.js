@@ -222,11 +222,10 @@ var ReportsDriverSpendUI = function ReportsDriverSpendUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsDriverSpend = function ReportsDriverSpend(props) {
+var ReportsDriverSpend = exports.ReportsDriverSpend = function ReportsDriverSpend(props) {
   var reportsBusinessSpendProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsDriverSpendUI,
     endpoint: 'driver_companies_spend_times'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsBusinessSpendProps);
 };
-exports.ReportsDriverSpend = ReportsDriverSpend;

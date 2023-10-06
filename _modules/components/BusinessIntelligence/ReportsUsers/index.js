@@ -210,11 +210,10 @@ var ReportsUsersUI = function ReportsUsersUI(props) {
     }
   }))));
 };
-var ReportsUsers = function ReportsUsers(props) {
+var ReportsUsers = exports.ReportsUsers = function ReportsUsers(props) {
   var reportsUsersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsUsersUI,
     endpoint: 'users_v2'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsUsersProps);
 };
-exports.ReportsUsers = ReportsUsers;

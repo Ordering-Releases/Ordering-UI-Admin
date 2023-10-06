@@ -121,10 +121,9 @@ var ProductStepUI = function ProductStepUI(props) {
     }
   }), step === 3 && option === 4 && /*#__PURE__*/_react.default.createElement(_styles2.ImportMenuContainer, null, /*#__PURE__*/_react.default.createElement("h2", null, t('ORDERING', 'Ordering')), /*#__PURE__*/_react.default.createElement("p", null, t('WE_WILL_CONTACT_YOU_ASAP', 'we will contact you As soon as possible'))));
 };
-var ProductStep = function ProductStep(props) {
+var ProductStep = exports.ProductStep = function ProductStep(props) {
   var productStepProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductStepUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductStep, productStepProps);
 };
-exports.ProductStep = ProductStep;

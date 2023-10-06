@@ -205,11 +205,10 @@ var CustomerPointsWalletUI = function CustomerPointsWalletUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CustomerPointsWallet = function CustomerPointsWallet(props) {
+var CustomerPointsWallet = exports.CustomerPointsWallet = function CustomerPointsWallet(props) {
   var customerPointsWalletProps = _objectSpread(_objectSpread({}, props), {}, {
     walletType: 'credit_point',
     UIComponent: CustomerPointsWalletUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserWallet, customerPointsWalletProps);
 };
-exports.CustomerPointsWallet = CustomerPointsWallet;

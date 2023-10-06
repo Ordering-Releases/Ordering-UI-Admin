@@ -30,7 +30,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; } // import FaRegAddressCard from '@meronex/icons/fa/FaRegAddressCard'
 // import FaRegListAlt from '@meronex/icons/fa/FaRegListAlt'
-var UserPopover = function UserPopover(props) {
+var UserPopover = exports.UserPopover = function UserPopover(props) {
   var _sessionState$user, _sessionState$user2, _sessionState$user3;
   var open = props.open;
   var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
@@ -108,7 +108,6 @@ var UserPopover = function UserPopover(props) {
     style: styles.arrow
   })));
 };
-exports.UserPopover = UserPopover;
 var LogoutActionUI = function LogoutActionUI(props) {
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),

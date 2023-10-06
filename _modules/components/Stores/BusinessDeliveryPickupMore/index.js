@@ -23,7 +23,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var BusinessDeliveryPickupMore = function BusinessDeliveryPickupMore(props) {
+var BusinessDeliveryPickupMore = exports.BusinessDeliveryPickupMore = function BusinessDeliveryPickupMore(props) {
   var setIsExtendExtraOpen = props.setIsExtendExtraOpen;
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
@@ -75,4 +75,3 @@ var BusinessDeliveryPickupMore = function BusinessDeliveryPickupMore(props) {
     }, tab.content);
   }))), selectedTab === 'delivery' && /*#__PURE__*/_react.default.createElement(_BusinessDeliveryDetails.BusinessDeliveryDetails, props), selectedTab === 'pickup' && /*#__PURE__*/_react.default.createElement(_BusinessPickupDetails.BusinessPickupDetails, props), selectedTab === 'driver_delivery_group' && /*#__PURE__*/_react.default.createElement(_BusinessDeliveryGroupsDetails.DriversGroupsListingDetails, props), selectedTab === 'advanced_eta' && /*#__PURE__*/_react.default.createElement(_BusinessEta.BusinessEta, props));
 };
-exports.BusinessDeliveryPickupMore = BusinessDeliveryPickupMore;

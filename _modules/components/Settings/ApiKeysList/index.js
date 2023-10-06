@@ -149,10 +149,9 @@ var ApiKeysListUI = function ApiKeysListUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ApiKeysList = function ApiKeysList(props) {
+var ApiKeysList = exports.ApiKeysList = function ApiKeysList(props) {
   var apiKeysProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ApiKeysListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ApiKeysList, apiKeysProps);
 };
-exports.ApiKeysList = ApiKeysList;

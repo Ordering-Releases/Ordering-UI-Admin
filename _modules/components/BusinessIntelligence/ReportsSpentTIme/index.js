@@ -198,11 +198,10 @@ var ReportsSpentTimeUI = function ReportsSpentTimeUI(props) {
     setAvailableDriverIds: setAvailableDriverIds
   }))));
 };
-var ReportsSpentTime = function ReportsSpentTime(props) {
+var ReportsSpentTime = exports.ReportsSpentTime = function ReportsSpentTime(props) {
   var reportsBusinessSpendProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsSpentTimeUI,
     endpoint: 'drivers_spent_times_v2'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsBusinessSpendProps);
 };
-exports.ReportsSpentTime = ReportsSpentTime;

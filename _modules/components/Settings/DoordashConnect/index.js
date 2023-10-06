@@ -205,10 +205,9 @@ var DoordashConnectUI = function DoordashConnectUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DoordashConnect = function DoordashConnect(props) {
+var DoordashConnect = exports.DoordashConnect = function DoordashConnect(props) {
   var apiKeysProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DoordashConnectUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ApiKeysList, apiKeysProps);
 };
-exports.DoordashConnect = DoordashConnect;

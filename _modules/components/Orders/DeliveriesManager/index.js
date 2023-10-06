@@ -151,7 +151,7 @@ var DeliveriesManagerUI = function DeliveriesManagerUI(props) {
     isOnlyDelivery: true
   }));
 };
-var DeliveriesManager = function DeliveriesManager(props) {
+var DeliveriesManager = exports.DeliveriesManager = function DeliveriesManager(props) {
   var OrdersListControlProps = _objectSpread(_objectSpread({}, props), {}, {
     isOnlyDelivery: true,
     UIComponent: DeliveriesManagerUI,
@@ -159,4 +159,3 @@ var DeliveriesManager = function DeliveriesManager(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrdersManage, OrdersListControlProps);
 };
-exports.DeliveriesManager = DeliveriesManager;

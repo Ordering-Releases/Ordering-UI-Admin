@@ -25,7 +25,7 @@ var ToastContainer = _styledComponents.default.div(_templateObject || (_template
   var _props$theme;
   return (_props$theme = props.theme) !== null && _props$theme !== void 0 && _props$theme.rtl ? (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      left: 30px;\n    "]))) : (0, _styledComponents.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      right: 30px;\n    "])));
 });
-var Toast = function Toast() {
+var Toast = exports.Toast = function Toast() {
   var _useToast = (0, _orderingComponentsAdminExternal.useToast)(),
     _useToast2 = _slicedToArray(_useToast, 2),
     toastConfig = _useToast2[0],
@@ -77,4 +77,3 @@ var Toast = function Toast() {
     id: "toast-container"
   });
 };
-exports.Toast = Toast;

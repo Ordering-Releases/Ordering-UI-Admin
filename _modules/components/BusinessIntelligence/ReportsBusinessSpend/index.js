@@ -222,11 +222,10 @@ var ReportsBusinessSpendUI = function ReportsBusinessSpendUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsBusinessSpend = function ReportsBusinessSpend(props) {
+var ReportsBusinessSpend = exports.ReportsBusinessSpend = function ReportsBusinessSpend(props) {
   var reportsBusinessSpendProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsBusinessSpendUI,
     endpoint: 'business_spend_times'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsBusinessSpendProps);
 };
-exports.ReportsBusinessSpend = ReportsBusinessSpend;

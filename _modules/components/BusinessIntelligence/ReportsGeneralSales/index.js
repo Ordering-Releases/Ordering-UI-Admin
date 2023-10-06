@@ -244,11 +244,10 @@ var ReportsGeneralSalesUI = function ReportsGeneralSalesUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsGeneralSales = function ReportsGeneralSales(props) {
+var ReportsGeneralSales = exports.ReportsGeneralSales = function ReportsGeneralSales(props) {
   var reportsPaymethodSalesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsGeneralSalesUI,
     endpoint: 'franchises_sales_average'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsPaymethodSalesProps);
 };
-exports.ReportsGeneralSales = ReportsGeneralSales;

@@ -228,10 +228,9 @@ var SiteThemeUI = function SiteThemeUI(props) {
     }
   }, actionState.loading ? t('LOADING', 'Loading') : t('SAVE', 'Save')))));
 };
-var SiteTheme = function SiteTheme(props) {
+var SiteTheme = exports.SiteTheme = function SiteTheme(props) {
   var siteThemeProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SiteThemeUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SiteTheme, siteThemeProps);
 };
-exports.SiteTheme = SiteTheme;

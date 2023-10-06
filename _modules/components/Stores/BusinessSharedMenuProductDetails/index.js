@@ -158,10 +158,9 @@ var BusinessSharedMenuProductDetailsUI = function BusinessSharedMenuProductDetai
     }));
   })));
 };
-var BusinessSharedMenuProductDetails = function BusinessSharedMenuProductDetails(props) {
+var BusinessSharedMenuProductDetails = exports.BusinessSharedMenuProductDetails = function BusinessSharedMenuProductDetails(props) {
   var detailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessSharedMenuProductDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessSharedMenuProductDetails, detailsProps);
 };
-exports.BusinessSharedMenuProductDetails = BusinessSharedMenuProductDetails;

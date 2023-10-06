@@ -582,7 +582,7 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     type: "submit"
   }, t('ACCEPT', 'Accept')))));
 };
-var OrderDetails = function OrderDetails(props) {
+var OrderDetails = exports.OrderDetails = function OrderDetails(props) {
   var orderDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     isDisableLoadMessages: true,
@@ -590,4 +590,3 @@ var OrderDetails = function OrderDetails(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrderDetails, orderDetailsProps);
 };
-exports.OrderDetails = OrderDetails;

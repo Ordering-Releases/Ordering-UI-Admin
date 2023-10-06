@@ -267,11 +267,10 @@ var ReportsOrderDistanceUI = function ReportsOrderDistanceUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsOrderDistance = function ReportsOrderDistance(props) {
+var ReportsOrderDistance = exports.ReportsOrderDistance = function ReportsOrderDistance(props) {
   var reportsOrderDistanceProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsOrderDistanceUI,
     endpoint: 'order_distance_ranges'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsOrderDistanceProps);
 };
-exports.ReportsOrderDistance = ReportsOrderDistance;

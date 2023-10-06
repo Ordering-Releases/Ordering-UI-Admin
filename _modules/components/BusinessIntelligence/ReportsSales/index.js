@@ -246,11 +246,10 @@ var ReportsSalesUI = function ReportsSalesUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsSales = function ReportsSales(props) {
+var ReportsSales = exports.ReportsSales = function ReportsSales(props) {
   var reportOrdersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsSalesUI,
     endpoint: 'sales_v2'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportOrdersProps);
 };
-exports.ReportsSales = ReportsSales;

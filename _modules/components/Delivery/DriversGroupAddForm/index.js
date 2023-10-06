@@ -123,10 +123,9 @@ var DriversGroupAddFormUI = function DriversGroupAddFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriversGroupAddForm = function DriversGroupAddForm(props) {
+var DriversGroupAddForm = exports.DriversGroupAddForm = function DriversGroupAddForm(props) {
   var driversGroupAddFormProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversGroupAddFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupDetails, driversGroupAddFormProps);
 };
-exports.DriversGroupAddForm = DriversGroupAddForm;

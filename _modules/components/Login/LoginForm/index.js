@@ -438,7 +438,7 @@ var LoginFormUI = function LoginFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var LoginForm = function LoginForm(props) {
+var LoginForm = exports.LoginForm = function LoginForm(props) {
   var _useContext3 = (0, _react.useContext)(_ConfigFileContext.ConfigFileContext),
     _useContext4 = _slicedToArray(_useContext3, 2),
     configFile = _useContext4[0],
@@ -451,4 +451,3 @@ var LoginForm = function LoginForm(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LoginForm, loginControllerProps);
 };
-exports.LoginForm = LoginForm;

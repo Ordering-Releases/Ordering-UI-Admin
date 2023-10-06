@@ -119,10 +119,9 @@ var WalletUI = function WalletUI(props) {
     isCloseBusinessDetails: selectedOption !== 'business'
   })))));
 };
-var Wallet = function Wallet(props) {
+var Wallet = exports.Wallet = function Wallet(props) {
   var walletProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: WalletUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RewardsPrograms, walletProps);
 };
-exports.Wallet = Wallet;

@@ -276,10 +276,9 @@ var GiftCardDetailUI = function GiftCardDetailUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var GiftCardDetail = function GiftCardDetail(props) {
+var GiftCardDetail = exports.GiftCardDetail = function GiftCardDetail(props) {
   var giftCardDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: GiftCardDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PlatformProductDetail, giftCardDetailProps);
 };
-exports.GiftCardDetail = GiftCardDetail;

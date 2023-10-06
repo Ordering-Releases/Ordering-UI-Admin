@@ -111,10 +111,9 @@ var ProductIngredientDetailsUI = function ProductIngredientDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProductIngredientDetails = function ProductIngredientDetails(props) {
+var ProductIngredientDetails = exports.ProductIngredientDetails = function ProductIngredientDetails(props) {
   var ingredientProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductIngredientDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductIngredient, ingredientProps);
 };
-exports.ProductIngredientDetails = ProductIngredientDetails;

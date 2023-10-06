@@ -69,7 +69,7 @@ var BusinessTypeFilterUI = function BusinessTypeFilterUI(props) {
     }, t("BUSINESS_TYPE_".concat(type.name.replace(/\s/g, '_').toUpperCase()), type.name));
   }))));
 };
-var BusinessTypeFilter = function BusinessTypeFilter(props) {
+var BusinessTypeFilter = exports.BusinessTypeFilter = function BusinessTypeFilter(props) {
   var businessTypeFilterProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessTypeFilterUI,
     defaultBusinessType: props.defaultBusinessType || null,
@@ -77,4 +77,3 @@ var BusinessTypeFilter = function BusinessTypeFilter(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessTypeFilter, businessTypeFilterProps);
 };
-exports.BusinessTypeFilter = BusinessTypeFilter;

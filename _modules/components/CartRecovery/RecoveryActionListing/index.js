@@ -103,7 +103,7 @@ var RecoveryActionListingUI = function RecoveryActionListingUI(props) {
     }
   }))));
 };
-var RecoveryActionListing = function RecoveryActionListing(props) {
+var RecoveryActionListing = exports.RecoveryActionListing = function RecoveryActionListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultPage = query.get('page') || 1;
   var defaultPageSize = query.get('pageSize') || 10;
@@ -119,4 +119,3 @@ var RecoveryActionListing = function RecoveryActionListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RecoveryActionListing, recoveryActionsProps);
 };
-exports.RecoveryActionListing = RecoveryActionListing;

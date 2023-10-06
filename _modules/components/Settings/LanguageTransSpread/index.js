@@ -111,10 +111,9 @@ var LanguageTransSpreadUI = function LanguageTransSpreadUI(props) {
     closeOnBackdrop: false
   }));
 };
-var LanguageTransSpread = function LanguageTransSpread(props) {
+var LanguageTransSpread = exports.LanguageTransSpread = function LanguageTransSpread(props) {
   var languageTransSpreadProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LanguageTransSpreadUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageTransSpread, languageTransSpreadProps);
 };
-exports.LanguageTransSpread = LanguageTransSpread;

@@ -465,10 +465,9 @@ var SelectPosGuideUI = function SelectPosGuideUI(props) {
     closeOnBackdrop: false
   }));
 };
-var SelectPosGuide = function SelectPosGuide(props) {
+var SelectPosGuide = exports.SelectPosGuide = function SelectPosGuide(props) {
   var selectPosGuideProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SelectPosGuideUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SelectPOS, selectPosGuideProps);
 };
-exports.SelectPosGuide = SelectPosGuide;

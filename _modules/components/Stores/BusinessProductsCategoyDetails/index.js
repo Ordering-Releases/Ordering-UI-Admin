@@ -234,10 +234,9 @@ var BusinessProductsCategoyDetailsUI = function BusinessProductsCategoyDetailsUI
     closeOnBackdrop: false
   }));
 };
-var BusinessProductsCategoyDetails = function BusinessProductsCategoyDetails(props) {
+var BusinessProductsCategoyDetails = exports.BusinessProductsCategoyDetails = function BusinessProductsCategoyDetails(props) {
   var businessCategoryEditProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessProductsCategoyDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductsCategoyDetails, businessCategoryEditProps);
 };
-exports.BusinessProductsCategoyDetails = BusinessProductsCategoyDetails;

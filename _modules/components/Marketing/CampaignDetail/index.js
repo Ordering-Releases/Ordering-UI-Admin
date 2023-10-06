@@ -178,10 +178,9 @@ var CampaignDetailUI = function CampaignDetailUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CampaignDetail = function CampaignDetail(props) {
+var CampaignDetail = exports.CampaignDetail = function CampaignDetail(props) {
   var campaignDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CampaignDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignDetail, campaignDetailProps);
 };
-exports.CampaignDetail = CampaignDetail;

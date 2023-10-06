@@ -354,11 +354,10 @@ var MainOrdersManagerUI = function MainOrdersManagerUI(props) {
     type: "audio/mpeg"
   })), totalSelectedOrder > 0 && /*#__PURE__*/_react.default.createElement(_styles.WrapperIndicator, null, selectedOrderIds.length, "/", totalSelectedOrder));
 };
-var MainOrdersManager = function MainOrdersManager(props) {
+var MainOrdersManager = exports.MainOrdersManager = function MainOrdersManager(props) {
   var OrdersListControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: MainOrdersManagerUI,
     driversPropsToFetch: ['id', 'name', 'lastname', 'location', 'enabled', 'available', 'busy', 'driver_groups', 'assigned_orders_count', 'last_order_assigned_at', 'last_location_at', 'cellphone', 'photo', 'qualification']
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrdersManage, OrdersListControlProps);
 };
-exports.MainOrdersManager = MainOrdersManager;

@@ -38,11 +38,10 @@ var QueryLoginUI = function QueryLoginUI(props) {
   }, [project]);
   return /*#__PURE__*/_react.default.createElement(_Shared.SpinnerLoader, null);
 };
-var QueryLogin = function QueryLogin(props) {
+var QueryLogin = exports.QueryLogin = function QueryLogin(props) {
   var queryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: QueryLoginUI,
     allowedLevels: [0, 2, 5]
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.QueryLogin, queryProps);
 };
-exports.QueryLogin = QueryLogin;

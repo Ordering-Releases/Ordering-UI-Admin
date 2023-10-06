@@ -230,7 +230,7 @@ var CustomersListingUI = function CustomersListingUI(props) {
     }
   })));
 };
-var CustomersListing = function CustomersListing(props) {
+var CustomersListing = exports.CustomersListing = function CustomersListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultUserActiveState = query.get('enabled') !== 'inactive';
   var defaultPage = query.get('page') || 1;
@@ -249,4 +249,3 @@ var CustomersListing = function CustomersListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, customersProps);
 };
-exports.CustomersListing = CustomersListing;

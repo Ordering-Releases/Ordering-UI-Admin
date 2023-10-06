@@ -225,10 +225,9 @@ var BusinessPromotion = function BusinessPromotion(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessPromotionList = function BusinessPromotionList(props) {
+var BusinessPromotionList = exports.BusinessPromotionList = function BusinessPromotionList(props) {
   var businessPromotionsController = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessPromotionListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPromotionList, businessPromotionsController);
 };
-exports.BusinessPromotionList = BusinessPromotionList;

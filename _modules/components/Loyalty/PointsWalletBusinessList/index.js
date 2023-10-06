@@ -328,11 +328,10 @@ var PointsWalletBusinessListUI = function PointsWalletBusinessListUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PointsWalletBusinessList = function PointsWalletBusinessList(props) {
+var PointsWalletBusinessList = exports.PointsWalletBusinessList = function PointsWalletBusinessList(props) {
   var pointsWalletBusinessListProps = _objectSpread(_objectSpread({}, props), {}, {
     propsToFetch: ['id', 'name', 'logo'],
     UIComponent: PointsWalletBusinessListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PointsWalletBusinessList, pointsWalletBusinessListProps);
 };
-exports.PointsWalletBusinessList = PointsWalletBusinessList;

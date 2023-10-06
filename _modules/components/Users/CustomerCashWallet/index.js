@@ -62,11 +62,10 @@ var CustomerCashWalletUI = function CustomerCashWalletUI(props) {
     }
   }, t('TRANSACTION_HISTORY', 'Transaction history'))), showOption === 'cash_wallet' && /*#__PURE__*/_react.default.createElement(_CustomerCashWalletDetails.CustomerCashWalletDetails, props), showOption === 'history' && /*#__PURE__*/_react.default.createElement(_CustomerWalletEvents.CustomerWalletEvents, props));
 };
-var CustomerCashWallet = function CustomerCashWallet(props) {
+var CustomerCashWallet = exports.CustomerCashWallet = function CustomerCashWallet(props) {
   var customerWalletProps = _objectSpread(_objectSpread({}, props), {}, {
     walletType: 'cash',
     UIComponent: CustomerCashWalletUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserWallet, customerWalletProps);
 };
-exports.CustomerCashWallet = CustomerCashWallet;

@@ -90,10 +90,9 @@ var ProfessionalScheduleUI = function ProfessionalScheduleUI(props) {
     onClick: onSubmit
   }, t('SAVE', 'Save'))));
 };
-var ProfessionalSchedule = function ProfessionalSchedule(props) {
+var ProfessionalSchedule = exports.ProfessionalSchedule = function ProfessionalSchedule(props) {
   var professionalScheduleProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProfessionalScheduleUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProfessionalSchedule, professionalScheduleProps);
 };
-exports.ProfessionalSchedule = ProfessionalSchedule;

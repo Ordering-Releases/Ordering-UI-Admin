@@ -253,11 +253,10 @@ var ReportsHeatMapUI = function ReportsHeatMapUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ReportsHeatMap = function ReportsHeatMap(props) {
+var ReportsHeatMap = exports.ReportsHeatMap = function ReportsHeatMap(props) {
   var reportsHeatMapProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsHeatMapUI,
     endpoint: 'orders_heat_map'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsHeatMapProps);
 };
-exports.ReportsHeatMap = ReportsHeatMap;

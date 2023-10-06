@@ -143,10 +143,9 @@ var CustomDomainUI = function CustomDomainUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CustomDomain = function CustomDomain(props) {
+var CustomDomain = exports.CustomDomain = function CustomDomain(props) {
   var customDomainProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CustomDomainUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CustomDomain, customDomainProps);
 };
-exports.CustomDomain = CustomDomain;

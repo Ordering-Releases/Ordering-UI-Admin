@@ -195,13 +195,12 @@ var EmailSettingUI = function EmailSettingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var EmailSetting = function EmailSetting(props) {
+var EmailSetting = exports.EmailSetting = function EmailSetting(props) {
   var emailSettingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: EmailSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, emailSettingProps);
 };
-exports.EmailSetting = EmailSetting;
 var ContextAwareToggle = function ContextAwareToggle(_ref) {
   var children = _ref.children,
     eventKey = _ref.eventKey,

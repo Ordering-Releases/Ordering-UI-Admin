@@ -287,11 +287,10 @@ var BusinessPromotionCustomFieldsUI = function BusinessPromotionCustomFieldsUI(p
     closeOnBackdrop: false
   }));
 };
-var BusinessPromotionCustomFields = function BusinessPromotionCustomFields(props) {
+var BusinessPromotionCustomFields = exports.BusinessPromotionCustomFields = function BusinessPromotionCustomFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: BusinessPromotionCustomFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPromotionMetaFields, MetaFieldsProps);
 };
-exports.BusinessPromotionCustomFields = BusinessPromotionCustomFields;

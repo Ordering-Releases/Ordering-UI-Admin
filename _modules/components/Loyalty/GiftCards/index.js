@@ -180,10 +180,9 @@ var GiftCardsUI = function GiftCardsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var GiftCards = function GiftCards(props) {
+var GiftCards = exports.GiftCards = function GiftCards(props) {
   var giftCardsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: GiftCardsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PlatformProductsList, giftCardsProps);
 };
-exports.GiftCards = GiftCards;

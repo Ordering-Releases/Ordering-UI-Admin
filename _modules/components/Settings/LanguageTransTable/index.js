@@ -221,10 +221,9 @@ var LanguageTransTableUI = function LanguageTransTableUI(props) {
     closeOnBackdrop: false
   }));
 };
-var LanguageTransTable = function LanguageTransTable(props) {
+var LanguageTransTable = exports.LanguageTransTable = function LanguageTransTable(props) {
   var languageTransTableProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LanguageTransTableUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageTransTable, languageTransTableProps);
 };
-exports.LanguageTransTable = LanguageTransTable;

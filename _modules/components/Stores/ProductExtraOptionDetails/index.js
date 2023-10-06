@@ -499,10 +499,9 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var ProductExtraOptionDetails = function ProductExtraOptionDetails(props) {
+var ProductExtraOptionDetails = exports.ProductExtraOptionDetails = function ProductExtraOptionDetails(props) {
   var productExtraOptionProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductExtraOptionDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductExtraOptionDetails, productExtraOptionProps);
 };
-exports.ProductExtraOptionDetails = ProductExtraOptionDetails;

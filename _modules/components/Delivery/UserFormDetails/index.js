@@ -29,7 +29,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var UserFormDetailsUI = function UserFormDetailsUI(props) {
+var UserFormDetailsUI = exports.UserFormDetailsUI = function UserFormDetailsUI(props) {
   var _validationFields$fie, _validationFields$fie2, _validationFields$fie5, _ref4, _formState$changes$ex, _formState$changes6, _ref5, _formState$changes$ti, _formState$changes7, _ref6, _formState$changes$dr, _formState$changes8, _ref7, _formState$changes$mo, _formState$changes9;
   var formState = props.formState,
     showField = props.showField,
@@ -386,4 +386,3 @@ var UserFormDetailsUI = function UserFormDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-exports.UserFormDetailsUI = UserFormDetailsUI;

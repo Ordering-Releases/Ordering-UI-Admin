@@ -182,7 +182,7 @@ var UsersListingUI = function UsersListingUI(props) {
     }
   })));
 };
-var UsersListing = function UsersListing(props) {
+var UsersListing = exports.UsersListing = function UsersListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultUserActiveState = query.get('enabled') !== 'inactive';
   var defaultPage = query.get('page') || 1;
@@ -201,4 +201,3 @@ var UsersListing = function UsersListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, usersListingProps);
 };
-exports.UsersListing = UsersListing;

@@ -27,7 +27,7 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // import { AnalyticsCalendar } from '../../BusinessIntelligence/AnalyticsCalendar'
 
-var RecoveryGeneral = function RecoveryGeneral(props) {
+var RecoveryGeneral = exports.RecoveryGeneral = function RecoveryGeneral(props) {
   var _ref, _formState$changes$na, _formState$changes, _recoveryActionState$9, _ref2, _formState$changes$de, _formState$changes2, _recoveryActionState$10;
   var isAddMode = props.isAddMode,
     formState = props.formState,
@@ -216,4 +216,3 @@ var RecoveryGeneral = function RecoveryGeneral(props) {
     disabled: Object.keys(formState.changes).length === 0 || formState.loading
   }, isAddMode ? t('ADD', 'Add') : t('SAVE', 'Save'))));
 };
-exports.RecoveryGeneral = RecoveryGeneral;

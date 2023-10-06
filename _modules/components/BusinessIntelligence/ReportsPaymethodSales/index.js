@@ -207,11 +207,10 @@ var ReportsPaymethodSalesUI = function ReportsPaymethodSalesUI(props) {
     }
   }))));
 };
-var ReportsPaymethodSales = function ReportsPaymethodSales(props) {
+var ReportsPaymethodSales = exports.ReportsPaymethodSales = function ReportsPaymethodSales(props) {
   var reportsPaymethodSalesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsPaymethodSalesUI,
     endpoint: 'paymethods_count_sales'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsPaymethodSalesProps);
 };
-exports.ReportsPaymethodSales = ReportsPaymethodSales;

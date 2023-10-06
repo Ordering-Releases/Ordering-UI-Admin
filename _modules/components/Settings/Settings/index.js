@@ -321,10 +321,9 @@ var SettingsUI = function SettingsUI(props) {
     showExpandIcon: true
   }, isOpenSettingDetails === 'checkout' && /*#__PURE__*/_react.default.createElement(_CheckoutFieldsSetting.CheckoutFieldsSetting, null), isOpenSettingDetails === 'guest_checkout' && /*#__PURE__*/_react.default.createElement(_GuestCheckoutFieldsSetting.GuestCheckoutFieldsSetting, null), isOpenSettingDetails === 'address' && /*#__PURE__*/_react.default.createElement(_AddressFieldsSetting.AddressFieldsSetting, null), isOpenSettingDetails === 'card' && /*#__PURE__*/_react.default.createElement(_CardFieldsSetting.CardFieldsSetting, null), isOpenSettingDetails === 'language' && /*#__PURE__*/_react.default.createElement(_LanguageSetting.LanguageSetting, null)));
 };
-var Settings = function Settings(props) {
+var Settings = exports.Settings = function Settings(props) {
   var settingsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: SettingsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Settings, settingsProps);
 };
-exports.Settings = Settings;

@@ -264,10 +264,9 @@ var BusinessBrandGENDetailUI = function BusinessBrandGENDetailUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var BusinessBrandGENDetail = function BusinessBrandGENDetail(props) {
+var BusinessBrandGENDetail = exports.BusinessBrandGENDetail = function BusinessBrandGENDetail(props) {
   var businessBrandGENDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessBrandGENDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessBrandGENDetail, businessBrandGENDetailProps);
 };
-exports.BusinessBrandGENDetail = BusinessBrandGENDetail;

@@ -543,7 +543,7 @@ var OrderDetailsUI = function OrderDetailsUI(props) {
     orderId: order === null || order === void 0 ? void 0 : order.id
   })));
 };
-var OrderDetails = function OrderDetails(props) {
+var OrderDetails = exports.OrderDetails = function OrderDetails(props) {
   var orderDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     driversList: props.driversList,
@@ -551,4 +551,3 @@ var OrderDetails = function OrderDetails(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrderDetails, orderDetailsProps);
 };
-exports.OrderDetails = OrderDetails;

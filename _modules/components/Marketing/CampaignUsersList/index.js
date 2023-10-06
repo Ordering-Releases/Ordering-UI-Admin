@@ -105,10 +105,9 @@ var CampaignUserListUI = function CampaignUserListUI(props) {
     handleChangePageSize: handleChangePageSize
   })));
 };
-var CampaignUserList = function CampaignUserList(props) {
+var CampaignUserList = exports.CampaignUserList = function CampaignUserList(props) {
   var campaignUserListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CampaignUserListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignUserList, campaignUserListProps);
 };
-exports.CampaignUserList = CampaignUserList;

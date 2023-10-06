@@ -80,7 +80,7 @@ var BusinessOwnerSelectorUI = function BusinessOwnerSelectorUI(props) {
     handleChangeSearch: handleChangeSearch
   }));
 };
-var BusinessOwnerSelector = function BusinessOwnerSelector(props) {
+var BusinessOwnerSelector = exports.BusinessOwnerSelector = function BusinessOwnerSelector(props) {
   var businessOwnersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessOwnerSelectorUI,
     isBusinessOwners: true,
@@ -88,4 +88,3 @@ var BusinessOwnerSelector = function BusinessOwnerSelector(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, businessOwnersProps);
 };
-exports.BusinessOwnerSelector = BusinessOwnerSelector;

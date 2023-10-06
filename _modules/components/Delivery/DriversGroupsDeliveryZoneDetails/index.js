@@ -118,10 +118,9 @@ var DriverGroupDeliveryZoneDetailsUI = function DriverGroupDeliveryZoneDetailsUI
     closeOnBackdrop: false
   }));
 };
-var DriverGroupDeliveryZoneDetails = function DriverGroupDeliveryZoneDetails(props) {
+var DriverGroupDeliveryZoneDetails = exports.DriverGroupDeliveryZoneDetails = function DriverGroupDeliveryZoneDetails(props) {
   var driverGroupDeliveryZoneProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriverGroupDeliveryZoneDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriverGroupDeliveryZone, driverGroupDeliveryZoneProps);
 };
-exports.DriverGroupDeliveryZoneDetails = DriverGroupDeliveryZoneDetails;

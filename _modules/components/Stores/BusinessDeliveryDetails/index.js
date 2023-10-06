@@ -193,10 +193,9 @@ var BusinessDeliveryDetailsUI = function BusinessDeliveryDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessDeliveryDetails = function BusinessDeliveryDetails(props) {
+var BusinessDeliveryDetails = exports.BusinessDeliveryDetails = function BusinessDeliveryDetails(props) {
   var businessDeliveryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessDeliveryDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDeliveryDetails, businessDeliveryProps);
 };
-exports.BusinessDeliveryDetails = BusinessDeliveryDetails;

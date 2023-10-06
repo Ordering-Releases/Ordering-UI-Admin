@@ -210,7 +210,7 @@ var OpenCartsDetailUI = function OpenCartsDetailUI(props) {
     closeOnBackdrop: false
   }));
 };
-var OpenCartsDetail = function OpenCartsDetail(props) {
+var OpenCartsDetail = exports.OpenCartsDetail = function OpenCartsDetail(props) {
   var orderDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     driversList: props.driversList,
@@ -218,4 +218,3 @@ var OpenCartsDetail = function OpenCartsDetail(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OpenCartsDetail, orderDetailsProps);
 };
-exports.OpenCartsDetail = OpenCartsDetail;

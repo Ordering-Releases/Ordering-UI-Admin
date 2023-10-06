@@ -24,7 +24,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var OrderingProductGeneralDetails = function OrderingProductGeneralDetails(props) {
+var OrderingProductGeneralDetails = exports.OrderingProductGeneralDetails = function OrderingProductGeneralDetails(props) {
   var _formState$changes, _siteState$site, _siteState$site2, _formState$changes2, _formState$changes3, _formState$changes4, _siteState$site3, _siteState$site4, _formState$changes5, _formState$changes6, _ref, _formState$changes$na, _formState$changes7, _siteState$site5, _ref2, _formState$changes$co, _formState$changes8, _siteState$site6, _ref3, _formState$changes$ur, _formState$changes9, _siteState$site7, _formState$changes10, _siteState$site8, _siteState$site9, _formState$changes11, _formState$changes12, _ref4, _formState$changes$re, _formState$changes13, _siteState$site10, _ref5, _formState$changes$tr, _formState$changes14, _siteState$site11, _ref6, _formState$changes$de, _formState$changes15, _siteState$site12, _ref7, _formState$changes$ch, _formState$changes16, _siteState$site13, _ref8, _formState$changes$ca, _formState$changes17, _siteState$site14, _ref9, _formState$changes$bu, _formState$changes18, _siteState$site15, _ref10, _formState$changes$ca2, _formState$changes19, _siteState$site16, _ref11, _formState$changes$pr, _formState$changes20, _siteState$site17, _ref12, _formState$changes$pr2, _formState$changes21, _siteState$site18;
   var siteState = props.siteState,
     formState = props.formState,
@@ -436,4 +436,3 @@ var OrderingProductGeneralDetails = function OrderingProductGeneralDetails(props
     closeOnBackdrop: false
   }));
 };
-exports.OrderingProductGeneralDetails = OrderingProductGeneralDetails;

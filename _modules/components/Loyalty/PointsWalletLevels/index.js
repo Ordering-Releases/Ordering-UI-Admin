@@ -178,10 +178,9 @@ var PointsWalletLevelsUI = function PointsWalletLevelsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PointsWalletLevels = function PointsWalletLevels(props) {
+var PointsWalletLevels = exports.PointsWalletLevels = function PointsWalletLevels(props) {
   var pointsWalletLevelsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PointsWalletLevelsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PointsWalletLevels, pointsWalletLevelsProps);
 };
-exports.PointsWalletLevels = PointsWalletLevels;

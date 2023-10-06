@@ -305,10 +305,9 @@ var AddressListUI = function AddressListUI(props) {
     userCustomerSetup: userCustomerSetup
   })));
 };
-var AddressList = function AddressList(props) {
+var AddressList = exports.AddressList = function AddressList(props) {
   var addressListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: AddressListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AddressList, addressListProps);
 };
-exports.AddressList = AddressList;

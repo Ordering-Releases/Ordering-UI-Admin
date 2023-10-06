@@ -224,7 +224,7 @@ var ProfessionalListingUI = function ProfessionalListingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProfessionalListing = function ProfessionalListing(props) {
+var ProfessionalListing = exports.ProfessionalListing = function ProfessionalListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultUserActiveState = query.get('enabled') !== 'inactive';
   var defaultPage = query.get('page') || 1;
@@ -244,4 +244,3 @@ var ProfessionalListing = function ProfessionalListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, usersListingProps);
 };
-exports.ProfessionalListing = ProfessionalListing;

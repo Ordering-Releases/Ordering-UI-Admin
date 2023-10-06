@@ -192,11 +192,10 @@ var UserProfileFormUI = function UserProfileFormUI(props) {
     }, AfterElement);
   }));
 };
-var UserProfileForm = function UserProfileForm(props) {
+var UserProfileForm = exports.UserProfileForm = function UserProfileForm(props) {
   var UserProfileProps = _objectSpread(_objectSpread({}, props), {}, {
     useSessionUser: false,
     UIComponent: UserProfileFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserFormDetails, UserProfileProps);
 };
-exports.UserProfileForm = UserProfileForm;

@@ -151,7 +151,7 @@ var ChatBusinessesListUI = function ChatBusinessesListUI(props) {
     }
   }));
 };
-var ChatBusinessesList = function ChatBusinessesList(props) {
+var ChatBusinessesList = exports.ChatBusinessesList = function ChatBusinessesList(props) {
   var businessListingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ChatBusinessesListUI,
     asDashboard: true,
@@ -163,4 +163,3 @@ var ChatBusinessesList = function ChatBusinessesList(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardBusinessList, businessListingProps);
 };
-exports.ChatBusinessesList = ChatBusinessesList;

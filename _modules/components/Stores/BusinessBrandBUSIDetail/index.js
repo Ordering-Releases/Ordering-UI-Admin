@@ -139,7 +139,7 @@ var BusinessBrandBUSIDetailUI = function BusinessBrandBUSIDetailUI(props) {
     handleChangePageSize: handleChangePageSize
   })) : /*#__PURE__*/_react.default.createElement(_styles2.NoSelectedBrand, null, t('NO_SELECTED_BRAND', 'There is no selected brand')));
 };
-var BusinessBrandBUSIDetail = function BusinessBrandBUSIDetail(props) {
+var BusinessBrandBUSIDetail = exports.BusinessBrandBUSIDetail = function BusinessBrandBUSIDetail(props) {
   var businessBrandBUSIDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessBrandBUSIDetailUI,
     propsToFetch: ['id', 'name', 'logo', 'franchise_id'],
@@ -147,4 +147,3 @@ var BusinessBrandBUSIDetail = function BusinessBrandBUSIDetail(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessBrandBUSIDetail, businessBrandBUSIDetailProps);
 };
-exports.BusinessBrandBUSIDetail = BusinessBrandBUSIDetail;

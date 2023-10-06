@@ -285,11 +285,10 @@ var BusinessCustomFieldsUI = function BusinessCustomFieldsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessCustomFields = function BusinessCustomFields(props) {
+var BusinessCustomFields = exports.BusinessCustomFields = function BusinessCustomFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: BusinessCustomFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessMetaFields, MetaFieldsProps);
 };
-exports.BusinessCustomFields = BusinessCustomFields;

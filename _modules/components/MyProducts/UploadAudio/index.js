@@ -161,10 +161,9 @@ var UploadAudioUI = function UploadAudioUI(props) {
     closeOnBackdrop: false
   }));
 };
-var UploadAudio = function UploadAudio(props) {
+var UploadAudio = exports.UploadAudio = function UploadAudio(props) {
   var uploadAudioProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: UploadAudioUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UploadAudio, uploadAudioProps);
 };
-exports.UploadAudio = UploadAudio;

@@ -287,10 +287,9 @@ var BusinessMenuCustomFieldsUI = function BusinessMenuCustomFieldsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessMenuCustomFields = function BusinessMenuCustomFields(props) {
+var BusinessMenuCustomFields = exports.BusinessMenuCustomFields = function BusinessMenuCustomFields(props) {
   var businessMenuMetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessMenuCustomFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessMenuMetaFields, businessMenuMetaFieldsProps);
 };
-exports.BusinessMenuCustomFields = BusinessMenuCustomFields;

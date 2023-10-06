@@ -156,10 +156,9 @@ var CampaignAmountOptionUI = function CampaignAmountOptionUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CampaignAmountOption = function CampaignAmountOption(props) {
+var CampaignAmountOption = exports.CampaignAmountOption = function CampaignAmountOption(props) {
   var campaignAmountOptionProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CampaignAmountOptionUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignAmountOption, campaignAmountOptionProps);
 };
-exports.CampaignAmountOption = CampaignAmountOption;

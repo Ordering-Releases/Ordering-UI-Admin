@@ -163,11 +163,10 @@ var ReportsSlaOrdersUI = function ReportsSlaOrdersUI(props) {
     }));
   }))) : /*#__PURE__*/_react.default.createElement(_styles.EmptyContent, null, t('NO_DATA', 'No Data')))));
 };
-var ReportsSlaOrders = function ReportsSlaOrders(props) {
+var ReportsSlaOrders = exports.ReportsSlaOrders = function ReportsSlaOrders(props) {
   var reportsSlaOrdersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsSlaOrdersUI,
     endpoint: 'sla_orders'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsSlaOrdersProps);
 };
-exports.ReportsSlaOrders = ReportsSlaOrders;

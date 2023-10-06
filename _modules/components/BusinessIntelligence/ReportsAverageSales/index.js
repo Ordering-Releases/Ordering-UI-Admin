@@ -235,7 +235,7 @@ var ReportsAverageSalesUI = function ReportsAverageSalesUI(props) {
     }
   })))));
 };
-var ReportsAverageSales = function ReportsAverageSales(props) {
+var ReportsAverageSales = exports.ReportsAverageSales = function ReportsAverageSales(props) {
   var reportsAverageSalesProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsAverageSalesUI,
     endpoint: 'sites_sales_average',
@@ -243,4 +243,3 @@ var ReportsAverageSales = function ReportsAverageSales(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsAverageSalesProps);
 };
-exports.ReportsAverageSales = ReportsAverageSales;

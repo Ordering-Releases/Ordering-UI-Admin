@@ -138,11 +138,10 @@ var PaymentGatewayUI = function PaymentGatewayUI(props) {
     }
   }));
 };
-var PaymentGateway = function PaymentGateway(props) {
+var PaymentGateway = exports.PaymentGateway = function PaymentGateway(props) {
   var paymentGatewayProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PaymentGatewayUI,
     settingsType: 'key_basic'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Settings, paymentGatewayProps);
 };
-exports.PaymentGateway = PaymentGateway;

@@ -123,11 +123,10 @@ var AnalyticsUI = function AnalyticsUI(props) {
     onBasicSettingsRedirect: onBasicSettingsRedirect
   })));
 };
-var Analytics = function Analytics(props) {
+var Analytics = exports.Analytics = function Analytics(props) {
   var paymentGatewayProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: AnalyticsUI,
     settingsType: 'key_operation'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.Settings, paymentGatewayProps);
 };
-exports.Analytics = Analytics;

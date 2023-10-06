@@ -249,10 +249,9 @@ var PageFormUI = function PageFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PageForm = function PageForm(props) {
+var PageForm = exports.PageForm = function PageForm(props) {
   var pageFormProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PageFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PageForm, pageFormProps);
 };
-exports.PageForm = PageForm;

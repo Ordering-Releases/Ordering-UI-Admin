@@ -229,11 +229,10 @@ var BusinessDeviceDetailUI = function BusinessDeviceDetailUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessDeviceDetail = function BusinessDeviceDetail(props) {
+var BusinessDeviceDetail = exports.BusinessDeviceDetail = function BusinessDeviceDetail(props) {
   var businessDeviceDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessDeviceDetailUI,
     propsToFetch: ['id', 'name', 'logo', 'owners', 'address']
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessDeviceDetail, businessDeviceDetailProps);
 };
-exports.BusinessDeviceDetail = BusinessDeviceDetail;

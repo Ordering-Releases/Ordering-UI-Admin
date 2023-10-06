@@ -239,7 +239,7 @@ var ProfessionalBusinessServiceUI = function ProfessionalBusinessServiceUI(props
     closeOnBackdrop: false
   }));
 };
-var ProfessionalBusinessService = function ProfessionalBusinessService(props) {
+var ProfessionalBusinessService = exports.ProfessionalBusinessService = function ProfessionalBusinessService(props) {
   var professionalBusinessServiceProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProfessionalBusinessServiceUI,
     propsToFetch: ['id', 'name', 'logo'],
@@ -247,4 +247,3 @@ var ProfessionalBusinessService = function ProfessionalBusinessService(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProfessionalBusinessService, professionalBusinessServiceProps);
 };
-exports.ProfessionalBusinessService = ProfessionalBusinessService;

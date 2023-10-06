@@ -223,11 +223,10 @@ var ReportsDriverOrderTimeUI = function ReportsDriverOrderTimeUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsDriverOrderTime = function ReportsDriverOrderTime(props) {
+var ReportsDriverOrderTime = exports.ReportsDriverOrderTime = function ReportsDriverOrderTime(props) {
   var reportsDriverOrderProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsDriverOrderTimeUI,
     endpoint: 'driver_companies_order_time_ranges'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverOrderProps);
 };
-exports.ReportsDriverOrderTime = ReportsDriverOrderTime;

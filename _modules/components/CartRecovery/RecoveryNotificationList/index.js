@@ -186,10 +186,9 @@ var RecoveryNotificationListUI = function RecoveryNotificationListUI(props) {
     closeOnBackdrop: false
   }));
 };
-var RecoveryNotificationList = function RecoveryNotificationList(props) {
+var RecoveryNotificationList = exports.RecoveryNotificationList = function RecoveryNotificationList(props) {
   var recoveryNotificationsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: RecoveryNotificationListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.RecoveryNotificationList, recoveryNotificationsProps);
 };
-exports.RecoveryNotificationList = RecoveryNotificationList;

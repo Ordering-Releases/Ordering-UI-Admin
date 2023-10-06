@@ -186,11 +186,10 @@ var BusinessImagesUI = function BusinessImagesUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessImages = function BusinessImages(props) {
+var BusinessImages = exports.BusinessImages = function BusinessImages(props) {
   var businessGalleryProps = _objectSpread(_objectSpread({}, props), {}, {
     isImageGallery: true,
     UIComponent: BusinessImagesUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessGallery, businessGalleryProps);
 };
-exports.BusinessImages = BusinessImages;

@@ -202,11 +202,10 @@ var MessagesListingUI = function MessagesListingUI(props) {
     }
   }), /*#__PURE__*/_react.default.createElement(_Orders.OrderNotification, null));
 };
-var MessagesListing = function MessagesListing(props) {
+var MessagesListing = exports.MessagesListing = function MessagesListing(props) {
   var OrdersListControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: MessagesListingUI,
     driversPropsToFetch: ['id', 'name', 'lastname', 'location', 'enabled', 'available', 'busy', 'driver_groups', 'assigned_orders_count', 'last_order_assigned_at', 'last_location_at', 'cellphone', 'photo', 'qualification']
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.OrdersManage, OrdersListControlProps);
 };
-exports.MessagesListing = MessagesListing;

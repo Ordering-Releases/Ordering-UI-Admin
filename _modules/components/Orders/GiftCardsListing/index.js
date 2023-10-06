@@ -163,7 +163,7 @@ var GiftCardsListingUI = function GiftCardsListingUI(props) {
     handleChangePageSize: handleChangePageSize
   })));
 };
-var GiftCardsListing = function GiftCardsListing(props) {
+var GiftCardsListing = exports.GiftCardsListing = function GiftCardsListing(props) {
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var defaultStatus = query.get('status');
   var defaultPage = query.get('page') || 1;
@@ -182,4 +182,3 @@ var GiftCardsListing = function GiftCardsListing(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.GiftCardsList, giftCardsProps);
 };
-exports.GiftCardsListing = GiftCardsListing;

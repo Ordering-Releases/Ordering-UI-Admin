@@ -139,7 +139,7 @@ var CountryFilterUI = function CountryFilterUI(props) {
     onClick: handleClickFilterButton
   }, t('FILTER', 'Filter'))))));
 };
-var CountryFilter = function CountryFilter(props) {
+var CountryFilter = exports.CountryFilter = function CountryFilter(props) {
   var countryFilterProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CountryFilterUI,
     onClose: function onClose() {
@@ -149,4 +149,3 @@ var CountryFilter = function CountryFilter(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CountryList, countryFilterProps);
 };
-exports.CountryFilter = CountryFilter;

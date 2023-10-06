@@ -177,7 +177,7 @@ var BusinessServiceProfessionalsUI = function BusinessServiceProfessionalsUI(pro
     handleDeleteUser: handleDeleteUser
   }))));
 };
-var BusinessServiceProfessionals = function BusinessServiceProfessionals(props) {
+var BusinessServiceProfessionals = exports.BusinessServiceProfessionals = function BusinessServiceProfessionals(props) {
   var businessProfessionalListProps = _objectSpread(_objectSpread({}, props), {}, {
     defaultUserTypesSelected: [8],
     isSearchByUserEmail: true,
@@ -187,4 +187,3 @@ var BusinessServiceProfessionals = function BusinessServiceProfessionals(props) 
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UsersList, businessProfessionalListProps);
 };
-exports.BusinessServiceProfessionals = BusinessServiceProfessionals;

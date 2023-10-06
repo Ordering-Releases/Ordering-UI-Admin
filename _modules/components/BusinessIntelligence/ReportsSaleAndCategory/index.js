@@ -271,7 +271,7 @@ var ReportsSaleAndCategoryUI = function ReportsSaleAndCategoryUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsSaleAndCategory = function ReportsSaleAndCategory(props) {
+var ReportsSaleAndCategory = exports.ReportsSaleAndCategory = function ReportsSaleAndCategory(props) {
   var reportsSaleAndCategoryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsSaleAndCategoryUI,
     endpoint: 'top_selling_v2',
@@ -279,4 +279,3 @@ var ReportsSaleAndCategory = function ReportsSaleAndCategory(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsSaleAndCategoryProps);
 };
-exports.ReportsSaleAndCategory = ReportsSaleAndCategory;

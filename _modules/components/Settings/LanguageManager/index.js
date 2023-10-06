@@ -68,10 +68,9 @@ var LanguageManagerUI = function LanguageManagerUI(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.Table, null)))), viewMode === 'table' && /*#__PURE__*/_react.default.createElement(_LanguageTransTable.LanguageTransTable, props), viewMode === 'spread' && /*#__PURE__*/_react.default.createElement(_LanguageTransSpread.LanguageTransSpread, props)));
 };
-var LanguageManager = function LanguageManager(props) {
+var LanguageManager = exports.LanguageManager = function LanguageManager(props) {
   var languageManagerProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: LanguageManagerUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.LanguageManager, languageManagerProps);
 };
-exports.LanguageManager = LanguageManager;

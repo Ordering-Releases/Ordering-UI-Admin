@@ -203,10 +203,9 @@ var ProductVideosUI = function ProductVideosUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProductVideos = function ProductVideos(props) {
+var ProductVideos = exports.ProductVideos = function ProductVideos(props) {
   var productGalleryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductVideosUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductGallery, productGalleryProps);
 };
-exports.ProductVideos = ProductVideos;

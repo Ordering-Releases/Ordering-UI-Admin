@@ -181,10 +181,9 @@ var BusinessAnalyticsUI = function BusinessAnalyticsUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var BusinessAnalytics = function BusinessAnalytics(props) {
+var BusinessAnalytics = exports.BusinessAnalytics = function BusinessAnalytics(props) {
   var businessAnalyticsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessAnalyticsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessAnalytics, businessAnalyticsProps);
 };
-exports.BusinessAnalytics = BusinessAnalytics;

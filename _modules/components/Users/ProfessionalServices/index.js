@@ -157,11 +157,10 @@ var ProfessionalServicesUI = function ProfessionalServicesUI(props) {
     closeOnBackdrop: false
   }));
 };
-var ProfessionalServices = function ProfessionalServices(props) {
+var ProfessionalServices = exports.ProfessionalServices = function ProfessionalServices(props) {
   var professionalServices = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProfessionalServicesUI,
     propsToFetch: ['id', 'name', 'categories']
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProfessionalServices, professionalServices);
 };
-exports.ProfessionalServices = ProfessionalServices;

@@ -182,7 +182,7 @@ var BusinessReviewsListingUI = function BusinessReviewsListingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessReviewList = function BusinessReviewList(props) {
+var BusinessReviewList = exports.BusinessReviewList = function BusinessReviewList(props) {
   var reviewsProps = _objectSpread(_objectSpread({}, props), {}, {
     noActiveStatusCondition: true,
     asDashboard: true,
@@ -194,4 +194,3 @@ var BusinessReviewList = function BusinessReviewList(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DashboardBusinessList, reviewsProps);
 };
-exports.BusinessReviewList = BusinessReviewList;

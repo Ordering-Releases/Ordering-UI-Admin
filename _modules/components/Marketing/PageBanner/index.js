@@ -224,10 +224,9 @@ var PageBannersUI = function PageBannersUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PageBanners = function PageBanners(props) {
+var PageBanners = exports.PageBanners = function PageBanners(props) {
   var bannersProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PageBannersUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdBannersList, bannersProps);
 };
-exports.PageBanners = PageBanners;

@@ -255,10 +255,9 @@ var BusinessTypeDetailUI = function BusinessTypeDetailUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var BusinessTypeDetail = function BusinessTypeDetail(props) {
+var BusinessTypeDetail = exports.BusinessTypeDetail = function BusinessTypeDetail(props) {
   var businessTypeDetailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessTypeDetailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessTypeDetail, businessTypeDetailProps);
 };
-exports.BusinessTypeDetail = BusinessTypeDetail;

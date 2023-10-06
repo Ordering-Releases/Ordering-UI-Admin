@@ -22,7 +22,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var OpenCartsContactInformation = function OpenCartsContactInformation(props) {
+var OpenCartsContactInformation = exports.OpenCartsContactInformation = function OpenCartsContactInformation(props) {
   var _cart$business, _cart$business2, _cart$business3, _cart$business4, _cart$business5, _cart$business8, _cart$business9, _cart$business10, _cart$business11, _cart$user, _cart$user2, _cart$user3, _cart$user4, _cart$user5, _cart$user6, _cart$user7, _cart$user8, _cart$user11, _cart$user12, _cart$user13, _cart$user14, _cart$user15, _cart$user16, _cart$user17, _cart$user18;
   var cart = props.cart;
   var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
@@ -65,7 +65,6 @@ var OpenCartsContactInformation = function OpenCartsContactInformation(props) {
     eventKey: "1"
   }, /*#__PURE__*/_react.default.createElement(_styles2.CutsomerDetail, null, ((cart === null || cart === void 0 || (_cart$user11 = cart.user) === null || _cart$user11 === void 0 ? void 0 : _cart$user11.cellphone) || (cart === null || cart === void 0 || (_cart$user12 = cart.user) === null || _cart$user12 === void 0 ? void 0 : _cart$user12.phone)) && /*#__PURE__*/_react.default.createElement("p", null, (cart === null || cart === void 0 || (_cart$user13 = cart.user) === null || _cart$user13 === void 0 ? void 0 : _cart$user13.cellphone) || (cart === null || cart === void 0 || (_cart$user14 = cart.user) === null || _cart$user14 === void 0 ? void 0 : _cart$user14.phone)), (cart === null || cart === void 0 || (_cart$user15 = cart.user) === null || _cart$user15 === void 0 ? void 0 : _cart$user15.email) && /*#__PURE__*/_react.default.createElement("p", null, cart === null || cart === void 0 || (_cart$user16 = cart.user) === null || _cart$user16 === void 0 ? void 0 : _cart$user16.email), (cart === null || cart === void 0 || (_cart$user17 = cart.user) === null || _cart$user17 === void 0 ? void 0 : _cart$user17.address) && /*#__PURE__*/_react.default.createElement("p", null, cart === null || cart === void 0 || (_cart$user18 = cart.user) === null || _cart$user18 === void 0 ? void 0 : _cart$user18.address)))));
 };
-exports.OpenCartsContactInformation = OpenCartsContactInformation;
 var ContextAwareToggle = function ContextAwareToggle(_ref) {
   var children = _ref.children,
     eventKey = _ref.eventKey,

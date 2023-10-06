@@ -114,10 +114,9 @@ var MultiCountrySettingsUI = function MultiCountrySettingsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var MultiCountrySettings = function MultiCountrySettings(props) {
+var MultiCountrySettings = exports.MultiCountrySettings = function MultiCountrySettings(props) {
   var sitesAuthSettinsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: MultiCountrySettingsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.MultiCountrySettings, sitesAuthSettinsProps);
 };
-exports.MultiCountrySettings = MultiCountrySettings;

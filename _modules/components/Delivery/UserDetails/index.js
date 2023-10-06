@@ -40,7 +40,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var UserDetailsUI = function UserDetailsUI(props) {
+var UserDetailsUI = exports.UserDetailsUI = function UserDetailsUI(props) {
   var _configs$allow_driver, _userState$user, _userState$user2, _userState$user3, _userState$user5, _userState$user7, _userState$user8, _userState$user9, _userState$user10, _userState$user11, _scheduleState$change, _userState$user12, _userState$user13, _userState$user14, _userState$user15, _userState$user16;
   var isDriversPage = props.isDriversPage,
     isDriversManagersPage = props.isDriversManagersPage,
@@ -216,11 +216,9 @@ var UserDetailsUI = function UserDetailsUI(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_styles3.PersonalizationWrapper, null, /*#__PURE__*/_react.default.createElement(_Shared.Personalization, null))));
 };
-exports.UserDetailsUI = UserDetailsUI;
-var UserDetails = function UserDetails(props) {
+var UserDetails = exports.UserDetails = function UserDetails(props) {
   var userDetailsControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: UserDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserDetails, userDetailsControlProps));
 };
-exports.UserDetails = UserDetails;

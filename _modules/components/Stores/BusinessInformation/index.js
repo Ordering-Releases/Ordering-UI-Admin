@@ -431,14 +431,13 @@ var BusinessInformationUI = function BusinessInformationUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var BusinessInformation = function BusinessInformation(props) {
+var BusinessInformation = exports.BusinessInformation = function BusinessInformation(props) {
   var businessInformationProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessInformationUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessFormDetails, businessInformationProps);
 };
-exports.BusinessInformation = BusinessInformation;
-var ConvertInput = function ConvertInput(props) {
+var ConvertInput = exports.ConvertInput = function ConvertInput(props) {
   var value = props.value,
     handleChangeValue = props.handleChangeValue,
     originalURL = props.originalURL,
@@ -479,4 +478,3 @@ var ConvertInput = function ConvertInput(props) {
     autoComplete: "off"
   });
 };
-exports.ConvertInput = ConvertInput;

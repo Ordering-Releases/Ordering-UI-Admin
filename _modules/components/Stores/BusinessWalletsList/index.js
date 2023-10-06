@@ -141,10 +141,9 @@ var BusinessWalletsListUI = function BusinessWalletsListUI(props) {
     placeholder: t('SELECT_A_OPTION', 'Select a option')
   }))));
 };
-var BusinessWalletsList = function BusinessWalletsList(props) {
+var BusinessWalletsList = exports.BusinessWalletsList = function BusinessWalletsList(props) {
   var businessWalletsListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessWalletsListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessWalletsList, businessWalletsListProps);
 };
-exports.BusinessWalletsList = BusinessWalletsList;

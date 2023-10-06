@@ -162,10 +162,9 @@ var ProductTagsListUI = function ProductTagsListUI(props) {
     onClose: handleCloseDetail
   })));
 };
-var ProductTagsList = function ProductTagsList(props) {
+var ProductTagsList = exports.ProductTagsList = function ProductTagsList(props) {
   var tagsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductTagsListUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductTagsList, tagsProps);
 };
-exports.ProductTagsList = ProductTagsList;

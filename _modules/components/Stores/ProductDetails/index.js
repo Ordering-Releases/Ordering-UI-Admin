@@ -231,10 +231,9 @@ var ProductDetailsUI = function ProductDetailsUI(props) {
     isShowTitle: true
   })));
 };
-var ProductDetails = function ProductDetails(props) {
+var ProductDetails = exports.ProductDetails = function ProductDetails(props) {
   var productDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ProductDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ProductDetatils, productDetailsProps);
 };
-exports.ProductDetails = ProductDetails;

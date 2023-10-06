@@ -27,7 +27,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var SeoOptions = function SeoOptions(props) {
+var SeoOptions = exports.SeoOptions = function SeoOptions(props) {
   var _formState$changes3, _formState$result, _formState$changes4, _formState$changes5, _formState$changes6, _formState$result2, _formState$result3, _ref, _formState$changes$se, _formState$changes7, _formState$result4, _formState$result5, _ref2, _formState$changes$se2, _formState$changes8, _formState$result6, _formState$result7, _ref3, _formState$changes$se3, _formState$changes9, _formState$result8, _formState$result9, _ref4, _formState$changes$sl, _formState$changes10;
   var data = props.data,
     formState = props.formState,
@@ -283,4 +283,3 @@ var SeoOptions = function SeoOptions(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-exports.SeoOptions = SeoOptions;

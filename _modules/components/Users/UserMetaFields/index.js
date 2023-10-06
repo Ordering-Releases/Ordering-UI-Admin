@@ -290,11 +290,10 @@ var UserMetaFieldsUI = function UserMetaFieldsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var UserMetaFields = function UserMetaFields(props) {
+var UserMetaFields = exports.UserMetaFields = function UserMetaFields(props) {
   var MetaFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     asDashboard: true,
     UIComponent: UserMetaFieldsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserMetaFields, MetaFieldsProps);
 };
-exports.UserMetaFields = UserMetaFields;

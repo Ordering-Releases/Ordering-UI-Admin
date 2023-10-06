@@ -89,10 +89,9 @@ var OrderDeleteUI = function OrderDeleteUI(props) {
     }
   }), /*#__PURE__*/_react.default.createElement(_styles.ErrorText, null, checkPasswordStatus.error))));
 };
-var OrderDelete = function OrderDelete(props) {
+var OrderDelete = exports.OrderDelete = function OrderDelete(props) {
   var checkPasswordControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: OrderDeleteUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CheckPassword, checkPasswordControlProps);
 };
-exports.OrderDelete = OrderDelete;

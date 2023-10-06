@@ -224,7 +224,7 @@ var BusinessAddUI = function BusinessAddUI(props) {
     onClick: handleSubmit
   }, t('ACCEPT', 'Accept')))));
 };
-var BusinessAdd = function BusinessAdd(props) {
+var BusinessAdd = exports.BusinessAdd = function BusinessAdd(props) {
   var history = (0, _reactRouterDom.useHistory)();
   var addNewBusinessProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessAddUI,
@@ -234,4 +234,3 @@ var BusinessAdd = function BusinessAdd(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessAdd, addNewBusinessProps);
 };
-exports.BusinessAdd = BusinessAdd;

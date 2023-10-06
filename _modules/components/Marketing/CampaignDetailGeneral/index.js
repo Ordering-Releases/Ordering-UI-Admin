@@ -27,7 +27,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var CampaignDetailGeneral = function CampaignDetailGeneral(props) {
+var CampaignDetailGeneral = exports.CampaignDetailGeneral = function CampaignDetailGeneral(props) {
   var _campaignState$campai5, _formState$changes9, _ref, _formState$changes$na, _formState$changes10, _campaignState$campai6, _contactState$changes, _formState$changes$au, _formState$changes11, _campaignState$campai7, _formState$changes$au2, _formState$changes12, _campaignState$campai8, _ref2, _formState$changes$en, _formState$changes13, _campaignState$campai9, _formState$changes$en2, _formState$changes14, _campaignState$campai10, _formState$changes$au3, _formState$changes15, _campaignState$campai11, _formState$changes$au4, _formState$changes16, _campaignState$campai12, _formState$changes17, _campaignState$campai13, _formState$changes$st, _formState$changes18, _campaignState$campai14, _formState$changes$st2, _formState$changes19, _campaignState$campai15, _formState$changes$sc, _formState$changes20, _campaignState$campai16, _audienceState$pagina;
   var formState = props.formState,
     campaignState = props.campaignState,
@@ -370,4 +370,3 @@ var CampaignDetailGeneral = function CampaignDetailGeneral(props) {
     onClose: handleCloseRuleModal
   }))));
 };
-exports.CampaignDetailGeneral = CampaignDetailGeneral;

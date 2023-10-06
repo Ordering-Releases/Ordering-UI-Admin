@@ -286,10 +286,9 @@ var CampaignEmailUI = function CampaignEmailUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CampaignEmail = function CampaignEmail(props) {
+var CampaignEmail = exports.CampaignEmail = function CampaignEmail(props) {
   var campaignEmailProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CampaignEmailUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignEmail, campaignEmailProps);
 };
-exports.CampaignEmail = CampaignEmail;

@@ -207,10 +207,9 @@ var PickerExpressUI = function PickerExpressUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PickerExpress = function PickerExpress(props) {
+var PickerExpress = exports.PickerExpress = function PickerExpress(props) {
   var apiKeysProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PickerExpressUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.ApiKeysList, apiKeysProps);
 };
-exports.PickerExpress = PickerExpress;

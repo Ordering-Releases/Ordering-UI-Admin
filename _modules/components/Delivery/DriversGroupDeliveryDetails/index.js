@@ -100,10 +100,9 @@ var DriverGroupDeliveryDetailsUI = function DriverGroupDeliveryDetailsUI(props) 
     closeOnBackdrop: false
   }));
 };
-var DriverGroupDeliveryDetails = function DriverGroupDeliveryDetails(props) {
+var DriverGroupDeliveryDetails = exports.DriverGroupDeliveryDetails = function DriverGroupDeliveryDetails(props) {
   var driverGroupDeliveryProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriverGroupDeliveryDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriverGroupDeliveryDetails, driverGroupDeliveryProps);
 };
-exports.DriverGroupDeliveryDetails = DriverGroupDeliveryDetails;

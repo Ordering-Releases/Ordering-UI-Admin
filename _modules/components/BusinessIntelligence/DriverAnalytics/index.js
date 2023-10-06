@@ -226,10 +226,9 @@ var DriverAnalyticsUI = function DriverAnalyticsUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var DriverAnalytics = function DriverAnalytics(props) {
+var DriverAnalytics = exports.DriverAnalytics = function DriverAnalytics(props) {
   var driverAnalyticsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriverAnalyticsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriverAnalytics, driverAnalyticsProps);
 };
-exports.DriverAnalytics = DriverAnalytics;

@@ -307,11 +307,10 @@ var PluginListUI = function PluginListUI(props) {
     closeOnBackdrop: false
   }));
 };
-var PluginList = function PluginList(props) {
+var PluginList = exports.PluginList = function PluginList(props) {
   var pluginListProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: PluginListUI,
     projectCode: window.localStorage.getItem('project')
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.PluginList, pluginListProps);
 };
-exports.PluginList = PluginList;

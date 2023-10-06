@@ -209,10 +209,9 @@ var BannerDetailsUI = function BannerDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BannerDetails = function BannerDetails(props) {
+var BannerDetails = exports.BannerDetails = function BannerDetails(props) {
   var bannerItemsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BannerDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BannerDetails, bannerItemsProps);
 };
-exports.BannerDetails = BannerDetails;

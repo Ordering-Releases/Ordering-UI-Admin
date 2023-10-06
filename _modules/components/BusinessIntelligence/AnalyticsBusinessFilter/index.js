@@ -127,7 +127,7 @@ var AnalyticsBusinessFilterUI = function AnalyticsBusinessFilterUI(props) {
     onClick: handleClickFilterButton
   }, t('FILTER', 'Filter'))));
 };
-var AnalyticsBusinessFilter = function AnalyticsBusinessFilter(props) {
+var AnalyticsBusinessFilter = exports.AnalyticsBusinessFilter = function AnalyticsBusinessFilter(props) {
   var AnalyticsBusinessFilterProps = _objectSpread(_objectSpread({}, props), {}, {
     propsToFetch: ['id', 'name', 'slug', 'franchise_id'],
     isSearchByName: true,
@@ -135,4 +135,3 @@ var AnalyticsBusinessFilter = function AnalyticsBusinessFilter(props) {
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AnalyticsBusinessFilter, AnalyticsBusinessFilterProps);
 };
-exports.AnalyticsBusinessFilter = AnalyticsBusinessFilter;

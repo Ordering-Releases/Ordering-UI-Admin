@@ -199,10 +199,9 @@ var BatchImageFormUI = function BatchImageFormUI(props) {
     closeOnBackdrop: false
   })));
 };
-var BatchImageForm = function BatchImageForm(props) {
+var BatchImageForm = exports.BatchImageForm = function BatchImageForm(props) {
   var batchImageFormProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BatchImageFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BatchImageForm, batchImageFormProps);
 };
-exports.BatchImageForm = BatchImageForm;

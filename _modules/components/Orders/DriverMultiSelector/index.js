@@ -137,11 +137,10 @@ var DriverMultiSelectorUI = function DriverMultiSelectorUI(props) {
     }
   }));
 };
-var DriverMultiSelector = function DriverMultiSelector(props) {
+var DriverMultiSelector = exports.DriverMultiSelector = function DriverMultiSelector(props) {
   var DriversControlProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriverMultiSelectorUI,
     propsToFetch: ['id', 'name', 'lastname', 'cellphone', 'photo']
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversList, DriversControlProps));
 };
-exports.DriverMultiSelector = DriverMultiSelector;

@@ -204,11 +204,10 @@ var ReportsDriverOrderUI = function ReportsDriverOrderUI(props) {
     setOpenCountryFilter: setOpenCountryFilter
   })));
 };
-var ReportsDriverOrder = function ReportsDriverOrder(props) {
+var ReportsDriverOrder = exports.ReportsDriverOrder = function ReportsDriverOrder(props) {
   var reportsDriverOrderProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: ReportsDriverOrderUI,
     endpoint: 'driver_companies_orders'
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AdvancedReports, reportsDriverOrderProps);
 };
-exports.ReportsDriverOrder = ReportsDriverOrder;

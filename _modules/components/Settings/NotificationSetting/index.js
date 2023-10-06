@@ -241,13 +241,12 @@ var NotificationSettingUI = function NotificationSettingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var NotificationSetting = function NotificationSetting(props) {
+var NotificationSetting = exports.NotificationSetting = function NotificationSetting(props) {
   var notificationSettingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: NotificationSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.SettingsList, notificationSettingProps);
 };
-exports.NotificationSetting = NotificationSetting;
 var ContextAwareToggle = function ContextAwareToggle(_ref) {
   var children = _ref.children,
     eventKey = _ref.eventKey,

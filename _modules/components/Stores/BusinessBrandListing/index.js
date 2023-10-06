@@ -293,10 +293,9 @@ var BusinessBrandListingUI = function BusinessBrandListingUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessBrandListing = function BusinessBrandListing(props) {
+var BusinessBrandListing = exports.BusinessBrandListing = function BusinessBrandListing(props) {
   var businessBrandListingProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessBrandListingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessBrandListing, businessBrandListingProps);
 };
-exports.BusinessBrandListing = BusinessBrandListing;

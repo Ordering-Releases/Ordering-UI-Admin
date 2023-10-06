@@ -336,10 +336,9 @@ var BusinessProductAddFormUI = function BusinessProductAddFormUI(props) {
     handleChangePhoto: handleChangePhoto
   })));
 };
-var BusinessProductAddForm = function BusinessProductAddForm(props) {
+var BusinessProductAddForm = exports.BusinessProductAddForm = function BusinessProductAddForm(props) {
   var businessProductAddProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessProductAddFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessProductCreator, businessProductAddProps);
 };
-exports.BusinessProductAddForm = BusinessProductAddForm;

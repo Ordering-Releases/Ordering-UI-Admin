@@ -225,10 +225,9 @@ var CustomerDetailsUI = function CustomerDetailsUI(props) {
     user: userState.user
   })));
 };
-var CustomerDetails = function CustomerDetails(props) {
+var CustomerDetails = exports.CustomerDetails = function CustomerDetails(props) {
   var customerDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CustomerDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.UserDetails, customerDetailsProps));
 };
-exports.CustomerDetails = CustomerDetails;

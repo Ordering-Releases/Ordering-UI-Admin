@@ -277,10 +277,9 @@ var DriversGroupDetailsUI = function DriversGroupDetailsUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriversGroupDetails = function DriversGroupDetails(props) {
+var DriversGroupDetails = exports.DriversGroupDetails = function DriversGroupDetails(props) {
   var driversGroupDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversGroupDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupDetails, driversGroupDetailsProps);
 };
-exports.DriversGroupDetails = DriversGroupDetails;

@@ -90,10 +90,9 @@ var AddressFieldsSettingUI = function AddressFieldsSettingUI(props) {
     })));
   }))));
 };
-var AddressFieldsSetting = function AddressFieldsSetting(props) {
+var AddressFieldsSetting = exports.AddressFieldsSetting = function AddressFieldsSetting(props) {
   var addressFieldsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: AddressFieldsSettingUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.AddressFieldsSetting, addressFieldsProps);
 };
-exports.AddressFieldsSetting = AddressFieldsSetting;

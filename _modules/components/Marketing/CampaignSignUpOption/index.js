@@ -191,10 +191,9 @@ var CampaignSignUpOptionUI = function CampaignSignUpOptionUI(props) {
     closeOnBackdrop: false
   }));
 };
-var CampaignSignUpOption = function CampaignSignUpOption(props) {
+var CampaignSignUpOption = exports.CampaignSignUpOption = function CampaignSignUpOption(props) {
   var campaignSignUpOptionProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: CampaignSignUpOptionUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.CampaignSignUpOption, campaignSignUpOptionProps);
 };
-exports.CampaignSignUpOption = CampaignSignUpOption;

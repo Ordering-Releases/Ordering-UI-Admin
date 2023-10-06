@@ -241,10 +241,9 @@ var BusinessMenuUI = function BusinessMenuUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessMenu = function BusinessMenu(props) {
+var BusinessMenu = exports.BusinessMenu = function BusinessMenu(props) {
   var businessMenuProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessMenuUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessMenu, businessMenuProps);
 };
-exports.BusinessMenu = BusinessMenu;

@@ -133,10 +133,9 @@ var BusinessSpreadSheetUI = function BusinessSpreadSheetUI(props) {
     closeOnBackdrop: false
   }));
 };
-var BusinessSpreadSheet = function BusinessSpreadSheet(props) {
+var BusinessSpreadSheet = exports.BusinessSpreadSheet = function BusinessSpreadSheet(props) {
   var businessSpreadSheetProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessSpreadSheetUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessSpreadSheet, businessSpreadSheetProps);
 };
-exports.BusinessSpreadSheet = BusinessSpreadSheet;

@@ -116,10 +116,9 @@ var BusinessPickupDetailsUI = function BusinessPickupDetailsUI(props) {
     }
   }, t('SAVE', 'Save')));
 };
-var BusinessPickupDetails = function BusinessPickupDetails(props) {
+var BusinessPickupDetails = exports.BusinessPickupDetails = function BusinessPickupDetails(props) {
   var pickupDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: BusinessPickupDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.BusinessPickupDetails, pickupDetailsProps);
 };
-exports.BusinessPickupDetails = BusinessPickupDetails;

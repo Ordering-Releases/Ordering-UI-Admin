@@ -105,10 +105,9 @@ var DriversCompanyAddFormUI = function DriversCompanyAddFormUI(props) {
     closeOnBackdrop: false
   }));
 };
-var DriversCompanyAddForm = function DriversCompanyAddForm(props) {
+var DriversCompanyAddForm = exports.DriversCompanyAddForm = function DriversCompanyAddForm(props) {
   var driversCompanyDetailsProps = _objectSpread(_objectSpread({}, props), {}, {
     UIComponent: DriversCompanyAddFormUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversCompanyDetails, driversCompanyDetailsProps);
 };
-exports.DriversCompanyAddForm = DriversCompanyAddForm;
