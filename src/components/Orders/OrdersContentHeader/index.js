@@ -23,6 +23,7 @@ import {
 
 export const OrdersContentHeader = memo((props) => {
   const {
+    isLateralBar,
     isDisableTitle,
     isSelectedOrders,
     title,
