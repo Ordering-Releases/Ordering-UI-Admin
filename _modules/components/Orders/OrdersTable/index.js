@@ -35,7 +35,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var OrdersTable = exports.OrdersTable = /*#__PURE__*/(0, _react.memo)(function (props) {
-  var _configState$configs, _configState$configs2, _orderList$orders3;
+  var _configState$configs, _configState$configs2, _franchisesList$franc, _orderList$orders3;
   var hidePhoto = props.hidePhoto,
     isSelectedOrders = props.isSelectedOrders,
     orderList = props.orderList,
@@ -56,7 +56,8 @@ var OrdersTable = exports.OrdersTable = /*#__PURE__*/(0, _react.memo)(function (
     setAllowColumns = props.setAllowColumns,
     handleDrop = props.handleDrop,
     saveUserSettings = props.saveUserSettings,
-    isUseQuery = props.isUseQuery;
+    isUseQuery = props.isUseQuery,
+    franchisesList = props.franchisesList;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     dictionary = _useLanguage2[0].dictionary,
@@ -92,6 +93,10 @@ var OrdersTable = exports.OrdersTable = /*#__PURE__*/(0, _react.memo)(function (
     configState = _useConfig2[0];
   var isEnabledRowInColor = (configState === null || configState === void 0 || (_configState$configs = configState.configs) === null || _configState$configs === void 0 || (_configState$configs = _configState$configs.row_in_color_enabled) === null || _configState$configs === void 0 ? void 0 : _configState$configs.value) === '1';
   var showExternalId = (configState === null || configState === void 0 || (_configState$configs2 = configState.configs) === null || _configState$configs2 === void 0 || (_configState$configs2 = _configState$configs2.change_order_id) === null || _configState$configs2 === void 0 ? void 0 : _configState$configs2.value) === '1';
+  var franchiseImages = !(franchisesList !== null && franchisesList !== void 0 && franchisesList.error) && (franchisesList === null || franchisesList === void 0 || (_franchisesList$franc = franchisesList.franchises) === null || _franchisesList$franc === void 0 ? void 0 : _franchisesList$franc.reduce(function (imageKeys, franchise) {
+    imageKeys[franchise.id] = franchise.logo;
+    return imageKeys;
+  }, {}));
   var optionsDefault = [{
     value: 'status',
     content: t('STATUS', 'Status')
@@ -675,19 +680,19 @@ var OrdersTable = exports.OrdersTable = /*#__PURE__*/(0, _react.memo)(function (
         }, t('No', 'No'), ". ", order === null || order === void 0 ? void 0 : order.driver_group_id)));
       }
       if (column === 'business') {
-        var _order$business, _theme$images, _order$business2, _order$business3;
+        var _order$business, _order$business2, _theme$images, _order$business3, _order$business4;
         return /*#__PURE__*/_react.default.createElement("td", {
           className: "businessInfo",
           key: "businessInfo".concat(i, "-").concat(index)
         }, /*#__PURE__*/_react.default.createElement(_styles.BusinessInfo, null, !hidePhoto && /*#__PURE__*/_react.default.createElement(_styles.WrapperImage, null, /*#__PURE__*/_react.default.createElement("img", {
-          src: optimizeImage(((_order$business = order.business) === null || _order$business === void 0 ? void 0 : _order$business.logo) || ((_theme$images = theme.images) === null || _theme$images === void 0 || (_theme$images = _theme$images.dummies) === null || _theme$images === void 0 ? void 0 : _theme$images.businessLogo), 'h_50,c_limit'),
+          src: optimizeImage(franchiseImages[order === null || order === void 0 || (_order$business = order.business) === null || _order$business === void 0 ? void 0 : _order$business.franchise_id] || ((_order$business2 = order.business) === null || _order$business2 === void 0 ? void 0 : _order$business2.logo) || ((_theme$images = theme.images) === null || _theme$images === void 0 || (_theme$images = _theme$images.dummies) === null || _theme$images === void 0 ? void 0 : _theme$images.businessLogo), 'h_50,c_limit'),
           loading: "lazy",
           alt: ""
         })), /*#__PURE__*/_react.default.createElement("div", {
           className: "info"
         }, /*#__PURE__*/_react.default.createElement("p", {
           className: "bold"
-        }, order === null || order === void 0 || (_order$business2 = order.business) === null || _order$business2 === void 0 ? void 0 : _order$business2.name), /*#__PURE__*/_react.default.createElement("p", null, order === null || order === void 0 || (_order$business3 = order.business) === null || _order$business3 === void 0 || (_order$business3 = _order$business3.city) === null || _order$business3 === void 0 ? void 0 : _order$business3.name))));
+        }, order === null || order === void 0 || (_order$business3 = order.business) === null || _order$business3 === void 0 ? void 0 : _order$business3.name), /*#__PURE__*/_react.default.createElement("p", null, order === null || order === void 0 || (_order$business4 = order.business) === null || _order$business4 === void 0 || (_order$business4 = _order$business4.city) === null || _order$business4 === void 0 ? void 0 : _order$business4.name))));
       }
       if (column === 'customer') {
         var _order$customer, _order$customer2, _order$customer3, _order$customer4, _order$customer5, _order$customer6, _order$customer7, _order$customer8, _order$customer9;
