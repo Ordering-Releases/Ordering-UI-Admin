@@ -50,6 +50,7 @@ const OrderDetailsUI = (props) => {
     open,
     handleBackRedirect,
     handleUpdateOrderStatus,
+    addressState,
     setAddressState,
     isTourOpen,
     handleUpdateOrderForUnreadCount,
@@ -409,6 +410,7 @@ const OrderDetailsUI = (props) => {
               handleShowOption={handleShowOption}
               setCommentInfostate={setCommentInfostate}
               commentInfoState={commentInfoState}
+              addressState={addressState}
             />
             <OrderProducts>
               <h2>{t('EXPORT_SUMMARY', 'Summary')}</h2>
