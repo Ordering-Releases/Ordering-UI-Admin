@@ -9,7 +9,16 @@ import {
   WrapperMap
 } from './styles'
 
-export const DriversLocation = (props) => {
+const DriversLocationPropsAreEqual = (prevProps, nextProps) => {
+  return JSON.stringify(prevProps.selectedDriver) === JSON.stringify(nextProps.selectedDriver) &&
+    JSON.stringify(prevProps.assignedOrders) === JSON.stringify(nextProps.assignedOrders) &&
+    prevProps.driversIsOnline === nextProps.driversIsOnline &&
+    prevProps.onlineDrivers?.length === nextProps.onlineDrivers?.length &&
+    prevProps.offlineDrivers?.length === nextProps.offlineDrivers?.length &&
+    JSON.stringify(prevProps.selectedOrder) === JSON.stringify(nextProps.selectedOrder)
+}
+
+export const DriversLocation = React.memo((props) => {
   const {
     driversIsOnline,
     onlineDrivers,
@@ -158,9 +167,8 @@ export const DriversLocation = (props) => {
   }
 
   useEffect(() => {
-    if (!selectedDriver?.id) return
     setMapFitted(false)
-  }, [selectedDriver?.id])
+  }, [selectedOrder])
 
   return (
     <>
@@ -184,27 +192,6 @@ export const DriversLocation = (props) => {
             onChange={(data) => handleMapChange(data)}
             yesIWantToUseGoogleMapApiInternals
           >
-            {!selectedOrder && showDrivers.length !== 0 &&
-              showDrivers.map((driver) => (
-                <DriverMapMarkerAndInfo
-                  key={driver.id}
-                  driver={driver}
-                  lat={
-                    (driver.location !== null && typeof driver.location === 'object' && driver.location?.lat)
-                      ? driver.location.lat
-                      : typeof driver.location === 'string'
-                        ? parseFloat(driver?.location?.split(',')[0].replace(/[^-.0-9]/g, ''))
-                        : defaultCenter.lat
-                  }
-                  lng={
-                    (driver.location !== null && typeof driver.location === 'object' && driver.location?.lng)
-                      ? driver.location.lng
-                      : typeof driver.location === 'string'
-                        ? parseFloat(driver?.location?.split(',')[1].replace(/[^-.0-9]/g, ''))
-                        : defaultCenter.lng
-                  }
-                />
-              ))}
             {selectedOrder && (
               <InterActOrderMarker
                 customer={selectedOrder?.customer}
@@ -267,4 +254,4 @@ export const DriversLocation = (props) => {
       </WrapperMap>
     </>
   )
-}
+}, DriversLocationPropsAreEqual)
