@@ -272,7 +272,7 @@ const OrderDetailsUI = React.memo((props) => {
   }, [isTourFlag])
 
   const onCloseSidebar = (e) => {
-    if (e.code === 'Escape') {
+    if (e.code === 'Escape' && width >= 1000) {
       props.onClose() && props.onClose()
       setIsTourOpen && setIsTourOpen(false)
     }
@@ -433,6 +433,7 @@ const OrderDetailsUI = React.memo((props) => {
                   key={product.id}
                   product={product}
                   currency={getCurrenySymbol(order?.currency)}
+                  toppingsRemoved={order?.toppings_removed?.[product?.code]}
                 />
               ))}
             </OrderProducts>
