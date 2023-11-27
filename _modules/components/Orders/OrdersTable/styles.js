@@ -195,7 +195,7 @@ var DragTh = exports.DragTh = _styledComponents.default.th(_templateObject53 || 
     return props.theme.colors.primary;
   });
 });
-var InfoWrapper = exports.InfoWrapper = _styledComponents.default.div(_templateObject55 || (_templateObject55 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n  .bold {\n    max-width: 150px;\n    font-weight: 600;\n    margin: 0;\n  }\n  &:hover > div {\n    visibility: visible;\n    opacity: 1;\n  }\n"])), function (props) {
+var InfoWrapper = exports.InfoWrapper = _styledComponents.default.div(_templateObject55 || (_templateObject55 = _taggedTemplateLiteral(["\n  position: relative;\n  ", "\n\n  .bold {\n    max-width: 150px;\n    font-weight: 600;\n    margin: 0;\n  }\n\n  &:hover > div {\n    visibility: visible;\n    opacity: 1;\n  }\n"])), function (props) {
   var _props$theme8;
   return (_props$theme8 = props.theme) !== null && _props$theme8 !== void 0 && _props$theme8.rtl ? (0, _styledComponents.css)(_templateObject56 || (_templateObject56 = _taggedTemplateLiteral(["\n    margin-left: 4px;\n  "]))) : (0, _styledComponents.css)(_templateObject57 || (_templateObject57 = _taggedTemplateLiteral(["\n    margin-right: 4px;\n  "])));
 });
