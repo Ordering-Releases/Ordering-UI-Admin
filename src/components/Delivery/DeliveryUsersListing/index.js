@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useLanguage, UsersList as UsersListController } from 'ordering-components-admin-external'
-  import { getStorageItem, removeStorageItem, setStorageItem, addQueryToUrl } from '../../../utils'
+ import { getStorageItem, removeStorageItem, setStorageItem, addQueryToUrl } from '../../../utils'
 
 import { UsersListingHeader } from '../UsersListingHeader'
 import { UserTypeFilter } from '../UserTypeFilter'

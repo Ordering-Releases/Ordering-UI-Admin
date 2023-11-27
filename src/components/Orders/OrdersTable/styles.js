@@ -418,11 +418,13 @@ export const InfoWrapper = styled.div`
   ` : css`
     margin-right: 4px;
   `}
+
   .bold {
     max-width: 150px;
     font-weight: 600;
     margin: 0;
   }
+
   &:hover > div {
     visibility: visible;
     opacity: 1;
