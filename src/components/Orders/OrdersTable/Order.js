@@ -8,12 +8,12 @@ import FaUserAlt from '@meronex/icons/fa/FaUserAlt'
 
 const OrderPropsAreEqual = (prevProps, nextProps) => {
   return JSON.stringify(prevProps.order) === JSON.stringify(nextProps.order) &&
-  JSON.stringify(prevProps.allowColumns) === JSON.stringify(nextProps.allowColumns) &&
-  prevProps.isEnabledRowInColor === nextProps.isEnabledRowInColor &&
-  JSON.stringify(prevProps.selectedOrderIds) === JSON.stringify(nextProps.selectedOrderIds) &&
-  JSON.stringify(prevProps.isSelectedOrders) === JSON.stringify(nextProps.isSelectedOrders) &&
-  prevProps.showExternalId === nextProps.showExternalId &&
-  prevProps.groupStatus === nextProps.groupStatus
+    JSON.stringify(prevProps.allowColumns) === JSON.stringify(nextProps.allowColumns) &&
+    prevProps.isEnabledRowInColor === nextProps.isEnabledRowInColor &&
+    JSON.stringify(prevProps.selectedOrderIds) === JSON.stringify(nextProps.selectedOrderIds) &&
+    JSON.stringify(prevProps.isSelectedOrders) === JSON.stringify(nextProps.isSelectedOrders) &&
+    prevProps.showExternalId === nextProps.showExternalId &&
+    prevProps.groupStatus === nextProps.groupStatus
 }
 
 export const Order = React.memo((props) => {
@@ -264,6 +264,15 @@ export const Order = React.memo((props) => {
                   <p className='bold'>{t('TIMER', 'Timer')}</p>
                   <p className={order?.time_status}>{displayDelayedTime(order)}</p>
                 </Timer>
+              </td>
+            )
+          }
+          if (column === 'channel') {
+            return (
+              <td className='channelInfo' key={`channelInfo${i}-${index}`}>
+                <StatusInfo>
+                  <p className='bold'>{getOrderStatus(order.app_id)}</p>
+                </StatusInfo>
               </td>
             )
           }
