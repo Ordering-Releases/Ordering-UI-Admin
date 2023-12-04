@@ -236,7 +236,7 @@ export const CartBill = (props) => {
               <td>
                 {t(extraValueAdjustment?.key?.toUpperCase(), extraValueAdjustment?.key)}{' '}
               </td>
-              <td>{parseFloat(extraValueAdjustment?.value) > 0 ? parsePrice(parseFloat(extraValueAdjustment?.value)) : `- ${parsePrice(parseFloat(extraValueAdjustment?.value) * -1)}`}</td>
+              <td>{parsePrice(parseFloat(extraValueAdjustment?.value))}</td>
             </tr>
           )}
         </tbody>
