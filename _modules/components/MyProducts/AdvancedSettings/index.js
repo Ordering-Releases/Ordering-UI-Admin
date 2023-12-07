@@ -171,6 +171,14 @@ var AdvancedSettings = exports.AdvancedSettings = function AdvancedSettings(prop
     name: t('BUSINESS_HEADER', 'Business header'),
     type: 'hidden',
     path: 'business_view.components.header.hidden'
+  }, {
+    name: t('BUSINESS_HEADER_REVIEWS', 'Business header reviews'),
+    type: 'hidden',
+    path: 'business_view.components.header.components.business.components.reviews.hidden'
+  }, {
+    name: t('BUSINESS_POPUP_REVIEWS', 'Business popup reviews'),
+    type: 'hidden',
+    path: 'business_view.components.header.components.reviews.hidden'
   }];
   var businessInfoList = [{
     name: t('DESCRIPTION', 'Description'),
