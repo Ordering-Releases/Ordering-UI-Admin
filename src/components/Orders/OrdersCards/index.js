@@ -264,7 +264,7 @@ export const OrdersCards = (props) => {
                         }
                       </p>
                     </div>
-                  )}
+                   )}
                 </CardHeading>
                 {isMessagesView && order?.unread_count > 0 && (
                   <UnreadMessageCounter>
