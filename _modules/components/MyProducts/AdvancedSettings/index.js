@@ -225,6 +225,10 @@ var AdvancedSettings = exports.AdvancedSettings = function AdvancedSettings(prop
     name: t('ADD_TO_CART_BUTTON', 'Add to cart button'),
     type: 'hidden',
     path: 'business_view.components.products.components.add_to_cart_button.hidden'
+  }, {
+    name: t('FAVORITE', 'Favorite'),
+    type: 'hidden',
+    path: 'business_view.components.products.components.product.components.favorite.hidden'
   }];
   var reviewsPopups = [{
     name: t('REVIEW_DATE', 'Review date'),
