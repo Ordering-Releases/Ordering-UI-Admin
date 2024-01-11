@@ -12,6 +12,7 @@ var _DriverMultiSelector = require("../DriverMultiSelector");
 var _styles = require("../../../styles");
 var _styles2 = require("./styles");
 var _FilterValuesContext = require("../../../contexts/FilterValuesContext");
+var _Shared = require("../../Shared");
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -69,12 +70,21 @@ var OrdersHeaderFilterGroupUI = function OrdersHeaderFilterGroupUI(props) {
       handleChangeFilterValues(filterValues);
     }
   }, [filterValues]);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.WrapperRow, null, !loading && configFilter.includes('external_id') && /*#__PURE__*/_react.default.createElement(_styles.Input, {
-    type: "text",
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_styles2.WrapperRow, null, !loading && configFilter.includes('external_id') && /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
     placeholder: (_dictionary$EXTERNAL_ = dictionary === null || dictionary === void 0 ? void 0 : dictionary.EXTERNAL_ID) !== null && _dictionary$EXTERNAL_ !== void 0 ? _dictionary$EXTERNAL_ : 'External Id',
-    autoComplete: "off",
-    value: (filterValues === null || filterValues === void 0 ? void 0 : filterValues.externalId) || '',
-    onChange: handleChangeExternalId
+    onChange: handleChangeExternalId,
+    search: (filterValues === null || filterValues === void 0 ? void 0 : filterValues.externalId) || '',
+    isCustomLayout: true,
+    hideSearchIcon: true,
+    lazyLoad: true,
+    CustomInput: _styles.Input,
+    onSearch: function onSearch(value) {
+      return handleChangeExternalId({
+        target: {
+          value: value
+        }
+      });
+    }
   }), !loading && configFilter.includes('driver') && /*#__PURE__*/_react.default.createElement(_DriverMultiSelector.DriverMultiSelector, {
     drivers: driversList.drivers,
     filterValues: filterValues,
