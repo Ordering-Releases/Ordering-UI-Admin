@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.BusinessMenu = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _reactRouterDom = require("react-router-dom");
+var _reactLoadingSkeleton = _interopRequireDefault(require("react-loading-skeleton"));
 var _orderingComponentsAdminExternal = require("ordering-components-admin-external");
 var _BusinessMenuOptions = require("../BusinessMenuOptions");
 var _Shared = require("../../Shared");
@@ -15,6 +16,7 @@ var _styles = require("../../../styles");
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 var _utils = require("../../../utils");
 var _styles2 = require("./styles");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -171,7 +173,14 @@ var BusinessMenuUI = function BusinessMenuUI(props) {
     onSearch: function onSearch(val) {
       return setSearchValue(val);
     }
-  })), menuList.map(function (menu, index) {
+  })), (businessMenusState === null || businessMenusState === void 0 ? void 0 : businessMenusState.loading) && _toConsumableArray(Array(4).keys()).map(function (i) {
+    return /*#__PURE__*/_react.default.createElement(_styles2.MeunItem, {
+      key: i
+    }, /*#__PURE__*/_react.default.createElement(_reactLoadingSkeleton.default, {
+      width: 120,
+      height: 24
+    }));
+  }), !(businessMenusState !== null && businessMenusState !== void 0 && businessMenusState.loading) && menuList.map(function (menu, index) {
     return /*#__PURE__*/_react.default.createElement(_styles2.MeunItem, {
       key: menu.id,
       isBorderTop: index === 0,
@@ -190,7 +199,8 @@ var BusinessMenuUI = function BusinessMenuUI(props) {
   }), !isSelectedSharedMenus && /*#__PURE__*/_react.default.createElement(_styles2.AddMenuButtonWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.LinkButton, {
     onClick: function onClick() {
       return handleOpenOptions('option', {});
-    }
+    },
+    disabled: businessMenusState === null || businessMenusState === void 0 ? void 0 : businessMenusState.loading
   }, t('ADD_MENU', 'Add menu')))), width >= 1000 ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, showOption === 'option' && /*#__PURE__*/_react.default.createElement(_BusinessMenuOptions.BusinessMenuOptions, {
     open: showOption === 'option',
     business: business,
