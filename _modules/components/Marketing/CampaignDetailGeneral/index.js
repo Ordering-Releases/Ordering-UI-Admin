@@ -99,7 +99,6 @@ var CampaignDetailGeneral = exports.CampaignDetailGeneral = function CampaignDet
   // { value: 'popup', content: <Option>{t('POPUP', 'Popup')}</Option> },
   // { value: 'whatsapp', content: <Option>{t('WHATSAPP', 'Whatsapp')}</Option> }
   ];
-
   (0, _react.useEffect)(function () {
     var options = typeList.filter(function (option) {
       return option === null || option === void 0 ? void 0 : option.value.toLocaleLowerCase().includes(contactTypeSearchVal.toLocaleLowerCase());

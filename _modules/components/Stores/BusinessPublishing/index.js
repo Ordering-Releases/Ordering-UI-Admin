@@ -56,7 +56,6 @@ var BusinessPublishing = exports.BusinessPublishing = function BusinessPublishin
   //   description: t('MESSAGING_APP_DESCRIPTION', 'Lorem ipsum dolor sit amet')
   // },
   ];
-
   var handleAction = function handleAction(value) {
     var item = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     setItemSelected(item);
