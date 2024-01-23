@@ -30,6 +30,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 var DeliveryDashboard = exports.DeliveryDashboard = function DeliveryDashboard(props) {
   var _configs$optimize_ord;
   var driversList = props.driversList,
+    searchValue = props.searchValue,
     ordersStatusGroup = props.ordersStatusGroup,
     selectedSubOrderStatus = props.selectedSubOrderStatus,
     handleOrdersStatusGroupFilter = props.handleOrdersStatusGroupFilter,
@@ -38,7 +39,8 @@ var DeliveryDashboard = exports.DeliveryDashboard = function DeliveryDashboard(p
     setOrdersAmountByStatus = props.setOrdersAmountByStatus,
     isUseQuery = props.isUseQuery,
     driverGroupList = props.driverGroupList,
-    handleChangeFilterValues = props.handleChangeFilterValues;
+    handleChangeFilterValues = props.handleChangeFilterValues,
+    handleChangeSearch = props.handleChangeSearch;
   var ordersDashboardListProps = _objectSpread({}, props);
   var _useConfig = (0, _orderingComponentsAdminExternal.useConfig)(),
     _useConfig2 = _slicedToArray(_useConfig, 1),
@@ -62,8 +64,10 @@ var DeliveryDashboard = exports.DeliveryDashboard = function DeliveryDashboard(p
   };
   return /*#__PURE__*/_react.default.createElement(_styles.DeliveryDashboardContainer, null, /*#__PURE__*/_react.default.createElement(_styles.OrdersContainer, null, /*#__PURE__*/_react.default.createElement(_OrdersHeaderFilterGroup.OrdersHeaderFilterGroup, {
     driverGroupList: driverGroupList,
+    searchValue: searchValue,
     driversList: driversList,
-    handleChangeFilterValues: handleChangeFilterValues
+    handleChangeFilterValues: handleChangeFilterValues,
+    handleChangeSearch: handleChangeSearch
   }), /*#__PURE__*/_react.default.createElement(_styles.FilterContainer, null, /*#__PURE__*/_react.default.createElement(_OrderStatusFilterBar.OrderStatusFilterBar, {
     isUseQuery: isUseQuery,
     selectedOrderStatus: ordersStatusGroup,
