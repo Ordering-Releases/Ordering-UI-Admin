@@ -11,13 +11,13 @@ var _Shared = require("../../Shared");
 var _OrdersFilterGroup = require("../OrdersFilterGroup");
 var _reactBootstrapIcons = require("react-bootstrap-icons");
 var _OrdersDashboardSLAControls = require("../OrdersDashboardSLAControls");
-var _OrderDashboardSLASetting = require("../OrderDashboardSLASetting");
 var _styles = require("../../../styles");
 var _InfoShareContext = require("../../../contexts/InfoShareContext");
 var _reactBootstrap = require("react-bootstrap");
 var _useWindowSize2 = require("../../../hooks/useWindowSize");
 var _GoogleMapsApiKeySettingButton = require("../GoogleMapsApiKeySettingButton");
 var _WebsocketStatus = require("../WebsocketStatus");
+var _OrdersHeaderFilterGroup = require("../OrdersHeaderFilterGroup");
 var _styles2 = require("./styles");
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -27,7 +27,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var OrdersContentHeader = exports.OrdersContentHeader = /*#__PURE__*/(0, _react.memo)(function (props) {
+var OrdersContentHeader = exports.OrdersContentHeader = function OrdersContentHeader(props) {
   var _configState$configs, _configState$configs2, _configState$configs3;
   var isLateralBar = props.isLateralBar,
     isDisableTitle = props.isDisableTitle,
@@ -78,11 +78,18 @@ var OrdersContentHeader = exports.OrdersContentHeader = /*#__PURE__*/(0, _react.
       return handleOpenTour();
     }
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.LifePreserver, null)))), /*#__PURE__*/_react.default.createElement(_styles2.TopRightSection, {
-    isCustomLayout: isSelectedOrders
-  }, /*#__PURE__*/_react.default.createElement(_WebsocketStatus.WebsocketStatus, null), isShowMapsKeySettingButton && /*#__PURE__*/_react.default.createElement(_GoogleMapsApiKeySettingButton.GoogleMapsApiKeySettingButton, null), (configState === null || configState === void 0 || (_configState$configs3 = configState.configs) === null || _configState$configs3 === void 0 || (_configState$configs3 = _configState$configs3.order_deadlines_enabled) === null || _configState$configs3 === void 0 ? void 0 : _configState$configs3.value) === '1' && /*#__PURE__*/_react.default.createElement(_styles2.SLAControlsWrapper, null, /*#__PURE__*/_react.default.createElement(_OrderDashboardSLASetting.OrderDashboardSLASetting, {
+    isCustomLayout: isSelectedOrders,
+    isCollapse: isCollapse
+  }, /*#__PURE__*/_react.default.createElement(_styles2.WrapperHeaderFilterGroup, null, /*#__PURE__*/_react.default.createElement(_OrdersHeaderFilterGroup.OrdersHeaderFilterGroup, {
+    isSelectedOrders: isSelectedOrders,
+    driverGroupList: driverGroupList,
+    driversList: driversList,
+    searchValue: searchValue,
+    handleChangeFilterValues: handleChangeFilterValues,
+    handleChangeSearch: handleChangeSearch
+  })), /*#__PURE__*/_react.default.createElement(_WebsocketStatus.WebsocketStatus, null), isShowMapsKeySettingButton && /*#__PURE__*/_react.default.createElement(_GoogleMapsApiKeySettingButton.GoogleMapsApiKeySettingButton, null), (configState === null || configState === void 0 || (_configState$configs3 = configState.configs) === null || _configState$configs3 === void 0 || (_configState$configs3 = _configState$configs3.order_deadlines_enabled) === null || _configState$configs3 === void 0 ? void 0 : _configState$configs3.value) === '1' && /*#__PURE__*/_react.default.createElement(_styles2.SLAControlsWrapper, null, /*#__PURE__*/_react.default.createElement(_OrdersDashboardSLAControls.OrdersDashboardSLAControls, {
+    setTimeStatus: setTimeStatus,
     setSlaSettingTime: setSlaSettingTime
-  }), /*#__PURE__*/_react.default.createElement(_OrdersDashboardSLAControls.OrdersDashboardSLAControls, {
-    setTimeStatus: setTimeStatus
   })), /*#__PURE__*/_react.default.createElement(_styles2.WrapperSearchAndFilter, {
     fullWidth: isDisableTitle
   }, isShowSearchFilters && /*#__PURE__*/_react.default.createElement(_Shared.SearchBar, {
@@ -104,4 +111,4 @@ var OrdersContentHeader = exports.OrdersContentHeader = /*#__PURE__*/(0, _react.
     searchValue: searchValue,
     handleChangeSearch: handleChangeSearch
   })))));
-});
+};
