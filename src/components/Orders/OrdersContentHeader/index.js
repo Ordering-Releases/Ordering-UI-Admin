@@ -42,7 +42,8 @@ export const OrdersContentHeader = (props) => {
     setFilterModalOpen,
     setTimeStatus,
     setSlaSettingTime,
-    isShowMapsKeySettingButton
+    isShowMapsKeySettingButton,
+    adminsList
   } = props
 
   const { width } = useWindowSize()
@@ -136,6 +137,7 @@ export const OrdersContentHeader = (props) => {
               paymethodsList={paymethodsList}
               businessesList={businessesList}
               citiesList={citiesList}
+              adminsList={adminsList}
               handleChangeFilterValues={handleChangeFilterValues}
               searchValue={searchValue}
               handleChangeSearch={handleChangeSearch}
