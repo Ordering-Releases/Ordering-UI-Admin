@@ -52,6 +52,7 @@ var FilterValuesProvider = exports.FilterValuesProvider = function FilterValuesP
       customerEmail: null,
       customerCellphone: null,
       customerLastname: null,
+      administratorIds: [],
       coupon: null,
       offerId: null
     }),

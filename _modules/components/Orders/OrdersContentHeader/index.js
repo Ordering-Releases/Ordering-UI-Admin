@@ -47,7 +47,8 @@ var OrdersContentHeader = exports.OrdersContentHeader = function OrdersContentHe
     setFilterModalOpen = props.setFilterModalOpen,
     setTimeStatus = props.setTimeStatus,
     setSlaSettingTime = props.setSlaSettingTime,
-    isShowMapsKeySettingButton = props.isShowMapsKeySettingButton;
+    isShowMapsKeySettingButton = props.isShowMapsKeySettingButton,
+    adminsList = props.adminsList;
   var _useWindowSize = (0, _useWindowSize2.useWindowSize)(),
     width = _useWindowSize.width;
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
@@ -107,6 +108,7 @@ var OrdersContentHeader = exports.OrdersContentHeader = function OrdersContentHe
     paymethodsList: paymethodsList,
     businessesList: businessesList,
     citiesList: citiesList,
+    adminsList: adminsList,
     handleChangeFilterValues: handleChangeFilterValues,
     searchValue: searchValue,
     handleChangeSearch: handleChangeSearch
