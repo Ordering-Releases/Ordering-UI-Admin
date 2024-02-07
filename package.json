@@ -1,6 +1,6 @@
 {
   "name": "ordering-ui-admin-external",
-  "version": "1.43.20",
+  "version": "1.43.21",
   "description": "Ordering UI Admin Components",
   "main": "./_modules/index.js",
   "exports": {
@@ -83,7 +83,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "moment-range": "^4.0.2",
-    "ordering-components-admin-external": "1.43.11",
+    "ordering-components-admin-external": "1.43.12",
     "polished": "^3.6.7",
     "prop-types": "^15.7.2",
     "react-big-calendar": "^1.4.2",
@@ -108,6 +108,7 @@
     "react-to-print": "^2.14.6",
     "react-toastify": "^6.1.0",
     "reactour": "^1.18.6",
+    "rrule": "^2.7.2",
     "styled-components": "^5.2.1",
     "swiper": "^6.8.4"
   },
