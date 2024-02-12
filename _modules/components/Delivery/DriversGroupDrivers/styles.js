@@ -4,10 +4,10 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.WrapperImage = exports.SearchBarWrapper = exports.Image = exports.DriverInfoContainer = exports.Container = exports.ButtonGroup = exports.BusinessesContainer = exports.BusinessWrapper = void 0;
+exports.WrapperImage = exports.SearchBarWrapper = exports.Image = exports.DriverTemporaryContainer = exports.DriverInfoContainer = exports.Container = exports.ButtonGroup = exports.BusinessesContainer = exports.BusinessWrapper = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _styledComponents = _interopRequireWildcard(require("styled-components"));
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13;
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38,6 +38,9 @@ var Image = exports.Image = function Image(props) {
     }
   }), props.children);
 };
-var DriverInfoContainer = exports.DriverInfoContainer = _styledComponents.default.div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  p {\n    margin: 0px;\n    &:first-child {\n      font-weight: 500;\n      font-size: 13px;\n    }\n\n    &:last-child {\n      font-size: 12px;\n      color: ", ";\n    }\n  }\n"])), function (props) {
+var DriverInfoContainer = exports.DriverInfoContainer = _styledComponents.default.div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  padding-right: 15px;\n  width: 200px;\n  p {\n    margin: 0px;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    &:first-child {\n      font-weight: 500;\n      font-size: 13px;\n    }\n\n    &:last-child {\n      font-size: 12px;\n      color: ", ";\n    }\n  }\n"])), function (props) {
   return props.theme.colors.lightGray;
+});
+var DriverTemporaryContainer = exports.DriverTemporaryContainer = _styledComponents.default.div(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  padding-left: 5px;\n\n  p {\n    margin: 0px;\n    font-weight: 500;\n    font-size: 13px;\n\n    &:hover {\n      text-decoration: underline;\n      color: ", ";\n      cursor: pointer;\n    }\n  }\n"])), function (props) {
+  return props.theme.colors.primary;
 });
