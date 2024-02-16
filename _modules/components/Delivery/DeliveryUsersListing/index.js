@@ -73,6 +73,9 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
     t = _useLanguage2[1];
+  var _useSession = (0, _orderingComponentsAdminExternal.useSession)(),
+    _useSession2 = _slicedToArray(_useSession, 1),
+    user = _useSession2[0].user;
   var query = new URLSearchParams((0, _reactRouterDom.useLocation)().search);
   var firstRender = (0, _react.useRef)(true);
   var _useState = (0, _react.useState)(null),
@@ -98,6 +101,7 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     _useState10 = _slicedToArray(_useState9, 2),
     alertState = _useState10[0],
     setAlertState = _useState10[1];
+  var readOnlyDeliveryManager = user === null || user === void 0 ? void 0 : user.readOnlyDeliveryManager;
   var _useState11 = (0, _react.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
     isTourOpen = _useState12[0],
@@ -146,11 +150,11 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     if (id === null) {
       !isDriversManagersPage && setIsOpenUserDetails(false);
     } else {
-      var user = usersList.users.find(function (_user) {
+      var _user2 = usersList.users.find(function (_user) {
         return _user.id === parseInt(id);
       });
-      if (user) {
-        setOpenUser(user);
+      if (_user2) {
+        setOpenUser(_user2);
       } else {
         setQueryId(parseInt(id));
       }
@@ -250,7 +254,7 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     handleOpenTour: function handleOpenTour() {
       return _handleOpenTour();
     },
-    actionDisabled: actionDisabled
+    actionDisabled: actionDisabled || readOnlyDeliveryManager
   }), isShowActiveStateFilter && /*#__PURE__*/_react.default.createElement(_UserActiveStateFilter.UserActiveStateFilter, {
     selectedUserActiveState: selectedUserActiveState,
     handleChangeUserActiveState: handleChangeUserActiveState
@@ -272,7 +276,7 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     userDetailsId: (openUser === null || openUser === void 0 ? void 0 : openUser.id) || queryId,
     handleOpenUserDetails: handleOpenUserDetails,
     handleOpenUserAddForm: handleOpenUserAddForm,
-    actionDisabled: actionDisabled,
+    actionDisabled: actionDisabled || readOnlyDeliveryManager,
     setSelectedUsers: setSelectedUsers,
     isUseQuery: isUseQuery,
     handleChangeBusyUser: handleChangeBusyUser
@@ -289,7 +293,7 @@ var DeliveryUsersListingUI = function DeliveryUsersListingUI(props) {
     handleSuccessUpdate: handleSuccessUpdate,
     handleSuccessDeleteUser: handleSuccessDeleteUser,
     handleChangeActiveUser: handleChangeActiveUser,
-    actionDisabled: actionDisabled
+    actionDisabled: actionDisabled || readOnlyDeliveryManager
   }), openUserAddForm && /*#__PURE__*/_react.default.createElement(_Shared.SideBar, {
     open: openUserAddForm,
     noAnimation: isTourOpen,
