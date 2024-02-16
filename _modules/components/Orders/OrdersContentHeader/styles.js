@@ -24,7 +24,7 @@ var HeaderSection = exports.HeaderSection = _styledComponents.default.div(_templ
 var HeaderTitle = exports.HeaderTitle = _styledComponents.default.p(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  color: ", ";\n  font-size: 20px;\n  font-weight: bold;\n  margin: 0px;\n  text-transform: capitalize;\n  white-space: nowrap;\n\n  @media (max-width: 560px) {\n    width: calc(100% - 50px);\n  }\n"])), function (props) {
   return props.theme.colors.headingColor;
 });
-var TopRightSection = exports.TopRightSection = _styledComponents.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  width: 100%;\n  display: flex;\n  flex-direction: column-reverse;\n  flex-wrap: nowrap;\n  margin: 5px 0px 10px 15px;\n  overflow: auto;\n\n  ", "\n\n  ", "\n\n  @media (min-width: 799px) {\n    flex-direction: ", ";\n    align-items: ", ";\n  }\n"])), function (_ref2) {
+var TopRightSection = exports.TopRightSection = _styledComponents.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  width: 100%;\n  display: flex;\n  flex-direction: column-reverse;\n  flex-wrap: nowrap;\n  margin: 5px 0px 10px 15px;\n\n  ", "\n\n  ", "\n\n  @media (min-width: 799px) {\n    flex-direction: ", ";\n    align-items: ", ";\n  }\n"])), function (_ref2) {
   var isCustomLayout = _ref2.isCustomLayout;
   return !isCustomLayout && (0, _styledComponents.css)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    justify-content: flex-end;\n  "])));
 }, function (_ref3) {
