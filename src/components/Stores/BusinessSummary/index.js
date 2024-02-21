@@ -74,7 +74,7 @@ export const BusinessSummary = (props) => {
     window.open(storeUrl, '_blank')
   }
 
-  const itemsExcluded = !!spoonityConfig ? ['publishing', 'personalization'] : ['publishing', 'spoonity_key', 'personalization']
+  const itemsExcluded = spoonityConfig ? ['publishing', 'personalization', 'logs'] : ['publishing', 'spoonity_key', 'personalization', 'logs']
 
   const businessConfigs = [
     {
@@ -141,13 +141,15 @@ export const BusinessSummary = (props) => {
       key: 'webhooks',
       value: t('WEBHOOKS', 'Webhooks')
     },
-    // {
-    //   key: 'places',
-    //   value: t('PLACES', 'Places')
-    // },
     {
+      key: 'places',
+      value: t('PLACES', 'Places')
+    }, {
       key: 'spoonity_key',
       value: t('SPOONITY_KEY', 'Sponity key')
+    }, {
+      key: 'logs',
+      value: t('LOGS', 'Logs')
     }
   ]
 
