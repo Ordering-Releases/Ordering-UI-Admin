@@ -63,7 +63,7 @@ export const DriverGroupSelectorWrapper = styled.div`
   width: fit-content;
   margin: 3px 0;
 
-  > span {
+  span {
     font-size: 14px;
     color: ${props => props.theme.colors.secundaryLight};
     &.calendar {
@@ -942,10 +942,10 @@ export const WarningMessage = styled.div`
   padding: 0px 15px;
   box-sizing: border-box;
   margin: 10px 0px 0px 0px !important;
-
-  right: 0px;
+  max-width: 250px;
+  left: 0px;
   ${props => props.theme?.rtl && css`
-    left: 0px;
+    right: 0px;
     right: initial;
   `}
 
@@ -989,5 +989,23 @@ export const WarningMessage = styled.div`
     span {
       white-space: nowrap;
     }
+  }
+`
+
+export const FiltContainer = styled.div`
+  display: inline-block;
+  position: relative;
+  button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: transparent;
+    width: 20px;
+    height: 20px;
+    transform: translate(140%, -50%);
+    top: 5px;
+    right: 10px;
   }
 `

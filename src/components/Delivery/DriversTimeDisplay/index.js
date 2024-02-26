@@ -26,13 +26,13 @@ import {
   DeleteWrapper,
   OrderStatusTypeSelectWrapper,
   StackedBlock,
-  DriverMultiSelectorContainer,
-  WrapperRow,
-  WarningMessage
+  WarningMessage,
+  FiltContainer
 } from './styles'
 import { Select } from '../../../styles/Select'
 import { DriverMultiSelector } from '../../Orders/DriverMultiSelector'
 import TiWarningOutline from '@meronex/icons/ti/TiWarningOutline'
+import MdClose from '@meronex/icons/md/MdClose'
 
 const DriversTimeDisplayUI = (props) => {
   const {
@@ -78,7 +78,10 @@ const DriversTimeDisplayUI = (props) => {
     handleSetInitialStates,
     filterValues,
     handleChangeDriver,
-    handleClearFilters
+    handleClearFilters,
+    setFiltOption,
+    filtOption,
+    handleClearDriversList
   } = props
 
   const [, t] = useLanguage()
@@ -128,9 +131,22 @@ const DriversTimeDisplayUI = (props) => {
     }
   ]
 
-  const changeDriverGroupState = (_driverGroup) => {
+  const handleCleanFilters = () => {
     setShowSelectHeader(false)
+    handleClearFilters()
+  }
+
+  const changeDriverGroupState = (_driverGroup) => {
+    if (_driverGroup?.id === selectedGroup?.id) return
+    handleCleanFilters()
     setSelectedGroup(_driverGroup)
+  }
+
+  const handleCloseFiltOption = () => {
+    setSelectedGroup(null)
+    setFiltOption(null)
+    handleClearDriversList()
+    handleCleanFilters()
   }
 
   const handleChangeDate = (date1, date2) => {
@@ -269,6 +285,11 @@ const DriversTimeDisplayUI = (props) => {
     setScheduleOptions(_scheduleOptions)
   }
 
+  const handleChangeFiltOption = (option) => {
+    setFiltOption(option)
+    option === 'driver_groups' && setShowSelectHeader(true)
+  }
+
   useEffect(() => {
     const isTodayOrPastDate = moment(selectedDate).format('YYYY-MM-DD') <= moment().format('YYYY-MM-DD')
     const date = moment(selectedDate).format('YYYY-MM-DD')
@@ -388,9 +409,61 @@ const DriversTimeDisplayUI = (props) => {
               <div>
                 <h1>{t('DRIVERS_TIME_DISPLAY', 'Drivers time display')}</h1>
                 <DriverGroupSelectorWrapper>
-                  <DriverGroupName onClick={() => setShowSelectHeader(!showSelectHeader)}>
-                    {t('SELECT_DRIVER_GROUP', 'Select a driver group')}
-                  </DriverGroupName>
+                  <span className='calendar'>{t('CALENDAR', 'Calendar')}</span>
+                  <ChevronRight />
+                  {!filtOption ? (
+                    <>
+                      <DriverGroupName className='calendar' onClick={() => handleChangeFiltOption('driver_groups')}>{t('SELECT_DRIVER_GROUPS', 'Select driver groups')}</DriverGroupName>
+                      <span> {t('OR', 'Or')} </span>
+                      <DriverGroupName className='calendar' onClick={() => handleChangeFiltOption('drivers')}>{t('SELECT_DRIVERS', 'Select drivers')}</DriverGroupName>
+                    </>
+                  ) : (
+                    <FiltContainer>
+                      <DriverGroupName
+                        className='calendar'
+                        onClick={() => filtOption === 'driver_groups' ? setShowSelectHeader(!showSelectHeader) : {}}
+                      >
+                        {filtOption === 'driver_groups' ? t('DRIVER_GROUPS', 'driver groups') : t('DRIVERS', 'drivers')}
+                      </DriverGroupName>
+                      <Button
+                        circle
+                        outline
+                        color='primary'
+                        type='reset'
+                        className='remove_option'
+                        onClick={() => handleCloseFiltOption()}
+                      >
+                        <MdClose />
+                      </Button>
+                    </FiltContainer>
+                  )}
+                  <ChevronRight />
+                  {(selectedGroup || (filtOption === 'drivers')) && (
+                    <>
+                      {selectedGroup && (
+                        <>
+                          <span>{selectedGroup?.name}</span>
+                          <ChevronRight />
+                          <span>{t('DRIVERS', 'DRIVERS')}</span>
+                          <ChevronRight />
+                        </>
+                      )}
+                      <DriverMultiSelector
+                        isSearchByName
+                        useDriversByProps={selectedGroup}
+                        drivers={selectedGroup?.drivers}
+                        disableSocketRoomDriver
+                        useTextStyle
+                        hideChevronIcon
+                        autoOpen={filtOption === 'drivers'}
+                        filterValues={filterValues}
+                        handleChangeDriver={handleChangeDriver}
+                        andText={t('AND', 'And')}
+                        textClassnames='calendar'
+                        optionsPosition='left'
+                      />
+                    </>
+                  )}
                   {showSelectHeader && (
                     <DriverGroupSelectHeader
                       close={() => setShowSelectHeader(false)}
@@ -398,36 +471,17 @@ const DriversTimeDisplayUI = (props) => {
                       changeDriverGroupState={changeDriverGroupState}
                     />
                   )}
-                  <ChevronRight />
-                  <span className='calendar'>{t('CALENDAR', 'Calendar')}</span>
-                  {selectedGroup && (
-                    <>
-                      <ChevronRight />
-                      <span>{selectedGroup?.name}</span>
-                    </>
+                  {(filterValues?.driverIds?.length > 0) && (
+                    <WarningMessage>
+                      <TiWarningOutline />
+                      <span>{t('FILTER_APPLIED', 'Filters applied')}</span>
+                      <LinkButton onClick={() => handleClearFilters()}>{t('CLEAR_FILTERS', 'Clear filters')}</LinkButton>
+                    </WarningMessage>
                   )}
                 </DriverGroupSelectorWrapper>
               </div>
 
-              {(filterValues?.driverIds?.length > 0) && (
-                <WarningMessage>
-                  <TiWarningOutline />
-                  <span>{t('WARNING_FILTER_APPLIED', 'Filters applied. You may miss new orders.')}</span>
-                  <LinkButton onClick={() => handleClearFilters()}>{t('CLEAR_FILTERS', 'Clear filters')}</LinkButton>
-                </WarningMessage>
-              )}
               <DriversGroupCalendarWrapper>
-                {selectedGroup && (
-                  <WrapperRow wrapperWidth={400}>
-                    <DriverMultiSelectorContainer>
-                      <DriverMultiSelector
-                        disableSocketRoomDriver
-                        filterValues={filterValues}
-                        handleChangeDriver={handleChangeDriver}
-                      />
-                    </DriverMultiSelectorContainer>
-                  </WrapperRow>
-                )}
                 <AnalyticsCalendar {...props} handleChangeDate={handleChangeDate} />
               </DriversGroupCalendarWrapper>
             </HeaderWrapper>
@@ -554,7 +608,8 @@ export const DriversTimeDisplay = (props) => {
       initialPage: 1,
       pageSize: 10,
       controlType: 'pages'
-    }
+    },
+    propsToFetch: ['id', 'enabled', 'name', 'email', 'level', 'lastname', 'delivery_blocks', 'photo']
   }
   return (
     <CalendarDriversListController {...driversTimeDisplayProps} />
