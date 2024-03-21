@@ -372,7 +372,7 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
   var handleClickBilling = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       var _billingState$result;
-      var billingState, _billingState$result2;
+      var billingState, _billingState$result2, _billingState$result3, _billingState$result4;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -381,7 +381,7 @@ var SidebarMenuUI = function SidebarMenuUI(props) {
           case 2:
             billingState = _context.sent;
             if (!(billingState !== null && billingState !== void 0 && billingState.error) && billingState !== null && billingState !== void 0 && (_billingState$result = billingState.result) !== null && _billingState$result !== void 0 && _billingState$result.access_token) {
-              window.open("".concat(billingUrl, "?token=").concat(billingState === null || billingState === void 0 || (_billingState$result2 = billingState.result) === null || _billingState$result2 === void 0 ? void 0 : _billingState$result2.access_token), '_blank');
+              window.open("".concat(billingState !== null && billingState !== void 0 && (_billingState$result2 = billingState.result) !== null && _billingState$result2 !== void 0 && _billingState$result2.referer_url ? "https://".concat(billingState === null || billingState === void 0 || (_billingState$result3 = billingState.result) === null || _billingState$result3 === void 0 ? void 0 : _billingState$result3.referer_url) : billingUrl, "?token=").concat(billingState === null || billingState === void 0 || (_billingState$result4 = billingState.result) === null || _billingState$result4 === void 0 ? void 0 : _billingState$result4.access_token), '_blank');
             }
           case 4:
           case "end":
