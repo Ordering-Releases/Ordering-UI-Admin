@@ -36,7 +36,8 @@ var DriversGroupsListingDetailsUI = function DriversGroupsListingDetailsUI(props
     handleSelectGroup = props.handleSelectGroup,
     handleAllSelectGroup = props.handleAllSelectGroup,
     actionState = props.actionState,
-    handleUpdateDriversGroup = props.handleUpdateDriversGroup;
+    handleUpdateDriversGroup = props.handleUpdateDriversGroup,
+    paginationSettings = props.paginationSettings;
   var history = (0, _reactRouterDom.useHistory)();
   var _useLanguage = (0, _orderingComponentsAdminExternal.useLanguage)(),
     _useLanguage2 = _slicedToArray(_useLanguage, 2),
@@ -114,7 +115,8 @@ var DriversGroupsListingDetailsUI = function DriversGroupsListingDetailsUI(props
     handleUpdateDriversGroup: handleUpdateDriversGroup,
     selectedGroupList: selectedGroupList,
     handleSelectGroup: handleSelectGroup,
-    handleAllSelectGroup: handleAllSelectGroup
+    handleAllSelectGroup: handleAllSelectGroup,
+    paginationSettings: paginationSettings
   })), /*#__PURE__*/_react.default.createElement(_Shared.Alert, {
     title: t('WEB_APPNAME', 'Ordering'),
     content: alertState.content,
@@ -159,6 +161,11 @@ var DriversGroupsListingDetailsUI = function DriversGroupsListingDetailsUI(props
 var DriversGroupsListingDetails = exports.DriversGroupsListingDetails = function DriversGroupsListingDetails(props) {
   var driversGroupsListProps = _objectSpread(_objectSpread({}, props), {}, {
     isDriversMangersRequired: true,
+    paginationSettings: {
+      initialPage: 1,
+      pageSize: 10,
+      controlType: 'pages'
+    },
     UIComponent: DriversGroupsListingDetailsUI
   });
   return /*#__PURE__*/_react.default.createElement(_orderingComponentsAdminExternal.DriversGroupsList, driversGroupsListProps);
