@@ -30,7 +30,7 @@ export const AdvancedSettings = (props) => {
   const [themeStructure, setThemeStructure] = useState({})
   const [alertState, setAlertState] = useState({ open: false, content: [] })
   const themeValuesRef = useRef({})
-  
+
   const [isOpenSound, setIsOpenSound] = useState(false)
 
   const headerList = [

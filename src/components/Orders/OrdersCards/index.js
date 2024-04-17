@@ -260,7 +260,7 @@ export const OrdersCards = (props) => {
                     <div style={{ paddingTop: 50 }}>
                       <p>
                         {
-                          `${t('PODS', 'Pod')}: ${order?.codigoPod}` 
+                          `${t('PODS', 'Pod')}: ${order?.codigoPod}`
                         }
                       </p>
                     </div>

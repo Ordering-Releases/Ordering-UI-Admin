@@ -88,7 +88,7 @@ export const TopRightSection = styled.div`
 
 export const WrapperHeaderFilterGroup = styled.div`
   width: 100%;
-  max-width: 850px
+  max-width: 850px;
 `
 export const SLAControlsWrapper = styled.div`
   display: flex;

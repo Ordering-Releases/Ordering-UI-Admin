@@ -6,7 +6,7 @@ import { ResetPassword as ResetPasswordController } from '../../../src/component
 
 export const ResetPassword = (props) => {
   const [events] = useEvent()
-  const {search} = useLocation()
+  const { search } = useLocation()
   let code, random, project
 
   if (search) {

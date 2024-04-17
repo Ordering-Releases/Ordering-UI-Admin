@@ -6,7 +6,7 @@ import { Option } from './styles'
 export const WebhookDelaySelector = (props) => {
   const {
     defaultValue,
-    handleChangeDelay 
+    handleChangeDelay
   } = props
 
   const [, t] = useLanguage()
