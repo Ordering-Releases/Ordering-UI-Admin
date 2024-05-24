@@ -12,6 +12,7 @@ var _styles = require("../../../styles");
 var _DriverTemporalSchedule = require("../DriverTemporalSchedule");
 var _FaUserAlt = _interopRequireDefault(require("@meronex/icons/fa/FaUserAlt"));
 var _styles2 = require("./styles");
+var _moment = _interopRequireDefault(require("moment"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -105,7 +106,7 @@ var DriversGroupDrivers = exports.DriversGroupDrivers = function DriversGroupDri
         return (_driver === null || _driver === void 0 ? void 0 : _driver.id) === driver.id && (_driver === null || _driver === void 0 ? void 0 : _driver.temporarily_activated);
       }),
       onChange: function onChange(e) {
-        return handleSelectDriverTemporary(driver === null || driver === void 0 ? void 0 : driver.id, e.target.checked);
+        return handleSelectDriverTemporary(driver === null || driver === void 0 ? void 0 : driver.id, e.target.checked, (0, _moment.default)().endOf('day').utc().format('YYYY-MM-DD HH:mm:ss'));
       }
     }), /*#__PURE__*/_react.default.createElement(_styles2.DriverTemporaryContainer, null, /*#__PURE__*/_react.default.createElement("p", {
       onClick: function onClick() {
