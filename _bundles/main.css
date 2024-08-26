@@ -1,11 +1,11 @@
 /*!
- * Cropper.js v1.6.1
+ * Cropper.js v1.6.2
  * https://fengyuanchen.github.io/cropperjs
  *
  * Copyright 2015-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2023-09-17T03:44:17.565Z
+ * Date: 2024-04-21T07:43:02.731Z
  */
 
 .cropper-container {
@@ -15,6 +15,7 @@
   position: relative;
   -ms-touch-action: none;
       touch-action: none;
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -17362,9 +17363,11 @@ button.rbc-input::-moz-focus-inner {
 .rbc-row-content-scrollable .rbc-row-content-scroll-container {
   height: 100%;
   overflow-y: scroll;
-  /* Hide scrollbar for Chrome, Safari and Opera */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  /* Hide scrollbar for Chrome, Safari and Opera */
 }
 .rbc-row-content-scrollable .rbc-row-content-scroll-container::-webkit-scrollbar {
   display: none;

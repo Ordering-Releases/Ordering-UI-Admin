@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.SubmitBtnWrapper = exports.SkeletonWrapper = exports.SettingsListContainer = exports.Required = exports.OptionsError = exports.GeneralTitle = exports.GeneralContainer = exports.FormGroupWrapper = exports.FormGroupText = exports.FormGroupCheck = exports.FormContainer = exports.Description = exports.CheckBoxWrapper = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var SettingsListContainer = exports.SettingsListContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
 var GeneralContainer = exports.GeneralContainer = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([""])));
 var GeneralTitle = exports.GeneralTitle = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n\n  p {\n    font-weight: bold;\n    font-size: 20px;\n    color: ", ";\n    margin-bottom: 6px;\n  }\n"])), function (props) {

@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.Icon = exports.Content = exports.Container = exports.ButtonWrap = exports.Banner = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var Container = exports.Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n"])));
 var Banner = exports.Banner = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n  background-color: ", ";\n  padding: 20px;\n  border-radius: 8px;\n\n  @media (max-width: 768px) {\n    flex-direction: column;\n    height: auto;\n  }\n"])), function (props) {
   return props.theme.colors.warning100;

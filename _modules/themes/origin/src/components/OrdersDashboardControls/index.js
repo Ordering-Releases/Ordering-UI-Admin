@@ -9,7 +9,7 @@ var _OrderStatusTypeSelector = require("../OrderStatusTypeSelector");
 var _ExportCSV = require("../ExportCSV");
 var _OrderDelete = require("../OrderDelete");
 var _styles = require("./styles");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // import { useLanguage } from 'ordering-components-admin-external'
 // import { useWindowSize } from '../../hooks/useWindowSize'
 

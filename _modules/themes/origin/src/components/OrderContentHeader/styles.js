@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.WrapperSearchAndFilter = exports.WrapperHeaderRightSection = exports.WrapperDeadlineAndSwitch = exports.TopRightSection = exports.OrderContentHeaderContainer = exports.HeaderTitle = exports.HeaderSection = exports.FilterButton = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var OrderContentHeaderContainer = exports.OrderContentHeaderContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-between;\n\n  @media (max-width: 1200px) {\n    flex-direction: column;\n    row-gap: 10px;\n  }\n"])));
 var HeaderSection = exports.HeaderSection = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n\n  @media (max-width: 560px) {\n    flex-direction: column;\n  }\n"])));
 var WrapperHeaderRightSection = exports.WrapperHeaderRightSection = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: none;\n\n  @media (max-width: 1200px) {\n    display: flex;\n  }\n\n  @media (max-width: 560px) {\n    width: 100%;\n    justify-content: space-between;\n  }\n"])));

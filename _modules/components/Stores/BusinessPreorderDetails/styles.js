@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.TimeBlock = exports.PreorderTimeWrapper = exports.Margin = exports.BusinessPreorderContainer = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var BusinessPreorderContainer = exports.BusinessPreorderContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding: 20px;\n  height: 100%;\n  margin-bottom: 20px;\n  h1 {\n    font-size: 20px;\n    font-weight: 700;\n    margin-top: 5px;\n    margin-bottom: 48px;\n  }\n\n  > button {\n    height: 44px;\n    position: sticky;\n    top: 100%;\n    margin: 20px 0;\n  }\n"])));
 var PreorderTimeWrapper = exports.PreorderTimeWrapper = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  padding: 5px 0;\n\n  p {\n    font-size: 14px;\n    &.name {\n      margin: 0;\n    }\n    &.description {\n      color: ", ";\n      margin: 5px 0 18px;\n    }\n  }\n  button {\n    margin-top: 20px;\n    margin-bottom: 10px;\n  }\n"])), function (props) {
   return props.theme.colors.lightGray;

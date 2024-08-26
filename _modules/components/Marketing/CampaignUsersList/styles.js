@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.Title = exports.TableContainer = exports.Table = exports.THead = exports.TBody = exports.PaginationWrapper = exports.Container = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var Container = exports.Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
 var Title = exports.Title = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  margin-bottom: 30px;\n\n  h1 {\n    font-weight: 700;\n    font-size: 20px;\n    line-height: 30px;\n    margin: 0px;\n    > span {\n      display: inline-flex;\n      font-weight: 500;\n      font-size: 16px;\n      line-height: 24px;\n      margin: 0px 16px;\n    }\n  }\n"])));
 var TableContainer = exports.TableContainer = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral([""])));

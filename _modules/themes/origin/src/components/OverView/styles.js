@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.SkeletonContainer = exports.SkeletonCard = exports.OverViewTitle = exports.OverViewStatusValue = exports.OverViewStatusTitle = exports.OverViewItemContent = exports.OverViewItem = exports.OverViewContainer = void 0;
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.freeze(Object.defineProperties(e, { raw: { value: Object.freeze(t) } })); }
 var OverViewContainer = exports.OverViewContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  position: fixed;\n  width: 140px;\n  right: 0px;\n  top: 68px;\n  min-height: calc(100vh - 68px);\n  background-color: ", ";\n  padding: 0px 15px;\n  box-sizing: border-box;\n  transition: all 0.5s;\n  z-index: 100;\n  \n  @media (max-width: 1400px) {\n    right: -140px;\n    box-shadow: -2px 2px 5px #00000029;\n  }\n"])), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.primary;

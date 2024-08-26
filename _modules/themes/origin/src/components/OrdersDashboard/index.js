@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _OrdersDashboardControls = require("../OrdersDashboardControls");
 var _OrdersDashboardList = require("../OrdersDashboardList");
 var _styles = require("./styles");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var OrdersDashboard = exports.OrdersDashboard = function OrdersDashboard(props) {
   var searchValue = props.searchValue,
     filterValues = props.filterValues,

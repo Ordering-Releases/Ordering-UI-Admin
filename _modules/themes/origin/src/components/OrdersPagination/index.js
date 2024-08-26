@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _MdKeyboardArrowLeft = _interopRequireDefault(require("@meronex/icons/md/MdKeyboardArrowLeft"));
 var _MdKeyboardArrowRight = _interopRequireDefault(require("@meronex/icons/md/MdKeyboardArrowRight"));
 var _styles = require("./styles");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var OrdersPagination = exports.OrdersPagination = function OrdersPagination(_ref) {
   var ordersPerPage = _ref.ordersPerPage,
     totalOrders = _ref.totalOrders,

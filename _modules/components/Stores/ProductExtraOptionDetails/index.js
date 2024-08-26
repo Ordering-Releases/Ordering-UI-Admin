@@ -20,21 +20,22 @@ var _reactHookForm = require("react-hook-form");
 var _ProductExtraSuboption = require("../ProductExtraSuboption");
 var _ProductExtraOptionForm = require("../ProductExtraOptionForm");
 var _ProductOptionExternalId = require("../ProductOptionExternalId");
+var _SnoozeComponent = require("../SnoozeComponent");
 var _styles2 = require("./styles");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
   var _optionState$option2, _settingChangeState$c, _settingChangeState$c2, _optionState$option3, _settingChangeState$c3, _settingChangeState$c4, _optionState$option4, _optionState$option5, _optionState$option7, _changesState$changes3, _optionState$option8, _changesState$changes4, _settingChangeState$c5, _settingChangeState$c6, _optionState$option9, _optionState$option10, _changesState$changes5, _settingChangeState$c7, _settingChangeState$c8, _optionState$option11, _optionState$option12, _changesState$changes6;
   var optionState = props.optionState,
@@ -48,6 +49,7 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
     handleDeteteSubOption = props.handleDeteteSubOption,
     handleOptionSetting = props.handleOptionSetting,
     settingChangeState = props.settingChangeState,
+    handleChangeSettingsChangeState = props.handleChangeSettingsChangeState,
     conditionalOptions = props.conditionalOptions,
     conditionalSubOptions = props.conditionalSubOptions,
     conditionalOptionId = props.conditionalOptionId,
@@ -118,10 +120,10 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
     _useState12 = _slicedToArray(_useState11, 2),
     externalId = _useState12[0],
     setExternalId = _useState12[1];
-  var _useState13 = (0, _react.useState)(null),
+  var _useState13 = (0, _react.useState)(false),
     _useState14 = _slicedToArray(_useState13, 2),
-    timer = _useState14[0],
-    setTimer = _useState14[1];
+    isExtraOptionSnooze = _useState14[0],
+    setIsExtraOptionSnooze = _useState14[1];
   var handleClickSubOptionImage = function handleClickSubOptionImage(id) {
     document.getElementById(id).click();
   };
@@ -206,7 +208,14 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
     var _optionState$option;
     setExternalId(optionState === null || optionState === void 0 || (_optionState$option = optionState.option) === null || _optionState$option === void 0 ? void 0 : _optionState$option.external_id);
   }, [optionState === null || optionState === void 0 || (_optionState$option2 = optionState.option) === null || _optionState$option2 === void 0 ? void 0 : _optionState$option2.external_id]);
-  return /*#__PURE__*/_react.default.createElement(_styles2.MainContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.Header, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PRODUCT_OPTION', 'Product option')), /*#__PURE__*/_react.default.createElement(_styles2.ActionSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.DropdownButton, {
+  return /*#__PURE__*/_react.default.createElement(_styles2.MainContainer, null, /*#__PURE__*/_react.default.createElement(_styles2.Header, null, /*#__PURE__*/_react.default.createElement("h1", null, t('PRODUCT_OPTION', 'Product option')), /*#__PURE__*/_react.default.createElement(_styles2.ActionSelectorWrapper, null, /*#__PURE__*/_react.default.createElement(_styles.Button, {
+    className: "snooze",
+    color: "lightGreen",
+    borderRadius: "8px",
+    onClick: function onClick() {
+      return setIsExtraOptionSnooze(true);
+    }
+  }, t('SNOOZE', 'Snooze')), /*#__PURE__*/_react.default.createElement(_reactBootstrap.DropdownButton, {
     className: "product_actions",
     menuAlign: theme !== null && theme !== void 0 && theme.rtl ? 'left' : 'right',
     title: /*#__PURE__*/_react.default.createElement(_reactBootstrapIcons.ThreeDots, null),
@@ -497,6 +506,23 @@ var ProductExtraOptionDetailsUI = function ProductExtraOptionDetailsUI(props) {
   }, /*#__PURE__*/_react.default.createElement(_Shared.ImageCrop, {
     photo: cropState === null || cropState === void 0 ? void 0 : cropState.data,
     handleChangePhoto: handleChangePhoto
+  })), /*#__PURE__*/_react.default.createElement(_Shared.Modal, {
+    width: "85%",
+    maxWidth: "1000px",
+    open: isExtraOptionSnooze,
+    onClose: function onClose() {
+      return setIsExtraOptionSnooze(false);
+    },
+    closeOnBackdrop: false
+  }, /*#__PURE__*/_react.default.createElement(_SnoozeComponent.SnoozeComponent, {
+    isAutomaticUpdate: true,
+    dataState: optionState === null || optionState === void 0 ? void 0 : optionState.option,
+    handleUpdate: handleUpdateOption,
+    handleChangeFormState: handleChangeSettingsChangeState,
+    formState: settingChangeState,
+    onClose: function onClose() {
+      return setIsExtraOptionSnooze(false);
+    }
   })));
 };
 var ProductExtraOptionDetails = exports.ProductExtraOptionDetails = function ProductExtraOptionDetails(props) {
