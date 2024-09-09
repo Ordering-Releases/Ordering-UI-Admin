@@ -8283,10 +8283,10 @@ optionator@^0.8.3:
   dependencies:
     "@babel/runtime" "^7.10.4"
 
-ordering-components-admin-external@1.43.50:
-  version "1.43.50"
-  resolved "https://registry.yarnpkg.com/ordering-components-admin-external/-/ordering-components-admin-external-1.43.50.tgz#b734f327662b14fe043eaf498a4e5c1a3c35a6c8"
-  integrity sha512-+xUdEsEqR1BNzYrtA9DbYi8EIP5Xe1hOomRXJEh6YXVA6Ue46eaSWp234JuEtGRmnso2bFmoo1r3PxSRGrg55g==
+ordering-components-admin-external@1.43.51:
+  version "1.43.51"
+  resolved "https://registry.yarnpkg.com/ordering-components-admin-external/-/ordering-components-admin-external-1.43.51.tgz#f2f5bc43f7b392e72582fe027fbb157dc8d348d1"
+  integrity sha512-xEgrrdf+T7Q4FD+iwlFU0seBYMWa2RFnvLVNz1ZzbnZLvewrgw9K6NTIVLXvAEkcDKg1u8yBlYnEG5JoDe0Bcw==
   dependencies:
     "@babel/runtime" "^7.10.4"
     "@react-native-async-storage/async-storage" "^1.13.1"
